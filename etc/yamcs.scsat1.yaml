@@ -1,0 +1,97 @@
+services:
+    - class: org.yamcs.archive.XtceTmRecorder
+    - class: org.yamcs.archive.ParameterRecorder
+    - class: org.yamcs.archive.AlarmRecorder
+    - class: org.yamcs.archive.EventRecorder
+    - class: org.yamcs.archive.ReplayServer
+      args:
+          streams:
+              - tm_realtime
+              - tm_dump
+    - class: org.yamcs.parameter.SystemParametersService
+      args:
+          provideJvmVariables: true
+          provideFsVariables: true
+    - class: org.yamcs.ProcessorCreatorService
+      args: 
+          name: "realtime"
+          type: "realtime" 
+    - class: org.yamcs.archive.CommandHistoryRecorder
+    - class: org.yamcs.parameterarchive.ParameterArchive
+      args:
+        realtimeFiller: 
+          enabled: false
+        backFiller:
+          enabled: true
+          warmupTime: 60
+
+dataLinks:
+    - name: tm_realtime
+      class: org.yamcs.tctm.UdpTmDataLink
+      packetPreprocessorClassName: org.yamcs.tctm.GenericPacketPreprocessor
+      packetPreprocessorArgs:
+        errorDetection: none
+        useLocalGenerationTime: true
+        seqCountOffset: -1
+        timestampOffset: -1
+      stream: tm_realtime
+      port: 52004
+      # Give the embedded simulator some time to boot up
+      #initialDelay: 2000      
+    - name: tm_dump
+      class: org.yamcs.tctm.TcpTmDataLink
+      stream: tm_dump
+      host: localhost
+      port: 10115
+      # Give the embedded simulator some time to boot up
+      initialDelay: 2000
+    - name: tc_sim
+      class: org.yamcs.tctm.TcpTcDataLink
+      stream: tc_realtime
+      host: localhost
+      port: 10025
+      # Give the embedded simulator smoe time to boot up
+      initialDelay: 2000
+      commandPostprocessorClassName: org.yamcs.tctm.IssCommandPostprocessor
+      commandPostprocessorArgs:
+          errorDetection:
+              type: 16-SUM
+          enforceEvenNumberOfBytes: true
+
+mdb:
+    # Configuration of the active loaders
+    # Valid loaders are: sheet, xtce or fully qualified name of the class
+    #- type: "xtce"
+    #  spec: "mdb/ref-xtce.xml"
+    - type: "sheet"
+      spec: "mdb/scsat1-header.xls"
+      subLoaders:
+          - type: "sheet"
+            spec: "mdb/main-obc.xls"
+          - type: "sheet"
+            spec: "mdb/adcs-obc.xls"
+          - type: "sheet"
+            spec: "mdb/srs3.xls"
+          - type: "sheet"
+            spec: "mdb/eps.xls"
+    #Loads the performance testing mission database
+    #- type: "org.yamcs.simulator.PerfMdbLoader"
+    #  args:
+    #     numPackets: 100
+    #     packetSize: 1476
+
+#Configuration for streams created at server startup
+streamConfig:
+    tm:
+        - name: "tm_realtime"
+          processor: "realtime"
+        - name: "tm_dump"
+    invalidTm: "invalid_tm_stream"
+    cmdHist: ["cmdhist_realtime", "cmdhist_dump"]
+    event: ["events_realtime", "events_dump"]
+    param: ["pp_realtime", "pp_tse", "sys_param", "proc_param"]
+    parameterAlarm: ["alarms_realtime"]
+    eventAlarm: ["event_alarms_realtime"]
+    tc:
+        - name: "tc_realtime"
+          processor: "realtime"
