@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="basetype"
+	xmlns="http://www.omg.org/spec/XTCE/20180204"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	shortDescription="Base types for SC-Sat1">
+	<TelemetryMetaData>
+		<ParameterTypeSet>
+			<IntegerParameterType signed="false" name="uint1">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="1" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="false" name="uint2">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="2" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="false" name="uint4">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="4" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="false" name="uint5">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="5" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="false" name="uint6">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="5" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="false" name="uint8">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="8" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="true" name="int8">
+				<IntegerDataEncoding encoding="twosComplement" sizeInBits="8" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="false" name="uint16_le">
+				<IntegerDataEncoding encoding="unsigned" byteOrder="leastSignificantByteFirst" sizeInBits="16" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="false" name="uint16_be">
+				<IntegerDataEncoding encoding="unsigned" byteOrder="mostSignificantByteFirst" sizeInBits="16" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="true" name="int16_le">
+				<IntegerDataEncoding encoding="twosComplement" byteOrder="leastSignificantByteFirst" sizeInBits="16" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="true" name="int16_be">
+				<IntegerDataEncoding encoding="twosComplement" byteOrder="mostSignificantByteFirst" sizeInBits="16" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="false" name="uint32_le">
+				<IntegerDataEncoding encoding="unsigned" byteOrder="leastSignificantByteFirst" sizeInBits="32" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="false" name="uint32_be">
+				<IntegerDataEncoding encoding="unsigned" byteOrder="mostSignificantByteFirst" sizeInBits="32" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="true" name="int32_le">
+				<IntegerDataEncoding encoding="twosComplement" byteOrder="leastSignificantByteFirst" sizeInBits="32" />
+			</IntegerParameterType>
+			<IntegerParameterType signed="true" name="int32_be">
+				<IntegerDataEncoding encoding="twosComplement" byteOrder="mostSignificantByteFirst" sizeInBits="32" />
+			</IntegerParameterType>
+			<FloatParameterType sizeInBits="32" name="float32_le">
+				<FloatDataEncoding encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst" sizeInBits="32" />
+			</FloatParameterType>
+			<FloatParameterType sizeInBits="32" name="float32_be">
+				<FloatDataEncoding encoding="IEEE754_1985" byteOrder="mostSignificantByteFirst" sizeInBits="32" />
+			</FloatParameterType>
+		</ParameterTypeSet>
+	</TelemetryMetaData>
+	<CommandMetaData>
+		<ArgumentTypeSet>
+			<IntegerArgumentType signed="false" name="uint1">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="1" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="false" name="uint2">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="2" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="false" name="uint4">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="4" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="false" name="uint5">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="5" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="false" name="uint6">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="5" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="false" name="uint8">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="8" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="true" name="int8">
+				<IntegerDataEncoding encoding="twosComplement" sizeInBits="8" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="false" name="uint16_le">
+				<IntegerDataEncoding encoding="unsigned" byteOrder="leastSignificantByteFirst" sizeInBits="16" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="false" name="uint16_be">
+				<IntegerDataEncoding encoding="unsigned" byteOrder="mostSignificantByteFirst" sizeInBits="16" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="true" name="int16_le">
+				<IntegerDataEncoding encoding="twosComplement" byteOrder="leastSignificantByteFirst" sizeInBits="16" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="true" name="int16_be">
+				<IntegerDataEncoding encoding="twosComplement" byteOrder="mostSignificantByteFirst" sizeInBits="16" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="false" name="uint32_le">
+				<IntegerDataEncoding encoding="unsigned" byteOrder="leastSignificantByteFirst" sizeInBits="32" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="false" name="uint32_be">
+				<IntegerDataEncoding encoding="unsigned" byteOrder="mostSignificantByteFirst" sizeInBits="32" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="true" name="int32_le">
+				<IntegerDataEncoding encoding="twosComplement" byteOrder="leastSignificantByteFirst" sizeInBits="32" />
+			</IntegerArgumentType>
+			<IntegerArgumentType signed="true" name="int32_be">
+				<IntegerDataEncoding encoding="twosComplement" byteOrder="mostSignificantByteFirst" sizeInBits="32" />
+			</IntegerArgumentType>
+			<FloatArgumentType sizeInBits="32" name="float32_le">
+				<FloatDataEncoding encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst" sizeInBits="32" />
+			</FloatArgumentType>
+			<FloatArgumentType sizeInBits="32" name="float32_be">
+				<FloatDataEncoding encoding="IEEE754_1985" byteOrder="mostSignificantByteFirst" sizeInBits="32" />
+			</FloatArgumentType>
+		</ArgumentTypeSet>
+	</CommandMetaData>
+</SpaceSystem>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="main"
+	xmlns="http://www.omg.org/spec/XTCE/20180204"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	shortDescription="MAIN board definitions for SC-Sat1">
+	<TelemetryMetaData>
+		<ParameterSet>
+			<Parameter parameterTypeRef="/basetype/uint32_le" name="temp_sequence_counter" />
+		</ParameterSet>
+		<ContainerSet>
+			<SequenceContainer name="../header">
+				<EntryList>
+					<ParameterRefEntry parameterRef="temp_sequence_counter">
+						<LocationInContainerInBits referenceLocation="containerStart">
+							<FixedValue>40</FixedValue>
+						</LocationInContainerInBits>
+					</ParameterRefEntry>
+				</EntryList>
+			</SequenceContainer>
+		</ContainerSet>
+	</TelemetryMetaData>
+</SpaceSystem>

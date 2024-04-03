@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="scsat1"
+	xmlns="http://www.omg.org/spec/XTCE/20180204"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	shortDescription="Header definitions for SC-Sat1">
+	<TelemetryMetaData>
+		<ParameterSet>
+			<Parameter parameterTypeRef="/basetype/uint2" name="csp_priority" />
+			<Parameter parameterTypeRef="/basetype/uint5" name="csp_source_id" />
+			<Parameter parameterTypeRef="/basetype/uint5" name="csp_dst_id" />
+			<Parameter parameterTypeRef="/basetype/uint6" name="csp_dst_port" />
+			<Parameter parameterTypeRef="/basetype/uint6" name="csp_source_port" />
+			<Parameter parameterTypeRef="/basetype/uint4" name="csp_reserved" />
+			<Parameter parameterTypeRef="/basetype/uint1" name="csp_hmac" />
+			<Parameter parameterTypeRef="/basetype/uint1" name="csp_xtea" />
+			<Parameter parameterTypeRef="/basetype/uint1" name="csp_rdp" />
+			<Parameter parameterTypeRef="/basetype/uint1" name="csp_crc" />
+			<Parameter parameterTypeRef="/basetype/uint8" name="scsat1_telemetry_id" />
+			<Parameter parameterTypeRef="/basetype/uint16_be" name="srs3_reserved" />
+			<Parameter parameterTypeRef="/basetype/uint16_be" name="srs3_id" />
+		</ParameterSet>
+		<ContainerSet>
+			<SequenceContainer name="header">
+				<AncillaryDataSet>
+					<AncillaryData name="Yamcs" mimeType="text/plain">UseAsArchivingPartition</AncillaryData>
+				</AncillaryDataSet>
+				<EntryList>
+					<ParameterRefEntry parameterRef="csp_priority" />
+					<ParameterRefEntry parameterRef="csp_source_id" />
+					<ParameterRefEntry parameterRef="csp_dst_id" />
+					<ParameterRefEntry parameterRef="csp_dst_port" />
+					<ParameterRefEntry parameterRef="csp_source_port" />
+					<ParameterRefEntry parameterRef="csp_reserved" />
+					<ParameterRefEntry parameterRef="csp_hmac" />
+					<ParameterRefEntry parameterRef="csp_xtea" />
+					<ParameterRefEntry parameterRef="csp_rdp" />
+					<ParameterRefEntry parameterRef="csp_crc" />
+					<ParameterRefEntry parameterRef="scsat1_telemetry_id" />
+					<ParameterRefEntry parameterRef="srs3_reserved" />
+					<ParameterRefEntry parameterRef="srs3_id" />
+				</EntryList>
+			</SequenceContainer>
+		</ContainerSet>
+	</TelemetryMetaData>
+</SpaceSystem>
