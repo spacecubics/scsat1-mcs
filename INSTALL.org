@@ -1,0 +1,72 @@
+#+title: How to Install
+
+This document will explain assuming the installation of Yamcs 5.9.3.
+If you are installing a different version, please adjust the version
+number accordingly.
+
+Furthermore, this explanation assumes the installation of Yamcs on a
+Debian Linux-based distribution.
+
+* Install Yamcs
+
+  * Download Yamcs rpm package from [[https://github.com/yamcs/yamcs/releases][yamcs github]]
+    #+begin_example
+    wget https://github.com/yamcs/yamcs/releases/download/yamcs-5.9.3/yamcs-5.9.3-1.x86_64.rpm
+    #+end_example
+
+  * Install alien for convert rpm to deb (Only the first time)
+
+    Note: Some warnings will appear, but please ignore them.
+    #+begin_example
+    sudo apt-get install alien
+    #+end_example
+
+  * Convert rpm to deb
+    #+begin_example
+    sudo alien --script -d -k yamcs-5.9.3-1.x86_64.rpm
+    #+end_example
+
+  * Install deb
+    #+begin_example
+    sudo dpkg -i yamcs_5.9.3-1_amd64.deb
+    #+end_example
+
+* Install Java runtime
+
+  * Install java runtime package
+
+    Note: You need to install JDK 11 or higher.
+    #+begin_example
+    sudo apt install openjdk-11-jdk
+    #+end_example
+
+* Preparing for configuration and mdb files
+
+  * Create working directory
+    #+begin_example
+    mkdir ~/yamcs_work
+    #+end_example
+
+  * Clone repository
+    #+begin_example
+    cd ~/yamcs_work
+    git clone https://github.com/spacecubics/scsat1-mcs.git
+    #+end_example
+
+  * Install configuration files and mission data bases using script
+    #+begin_example
+    ./scripts/inst_cfg_mdb.sh
+    #+end_example
+
+  * Allow permision of log and cache directory
+    #+begin_example
+    sudo chmod a+rw /opt/yamcs/cache/
+    sudo chmod a+rw /opt/yamcs/log/
+    #+end_example
+
+* Run Yamcs
+
+  * Run
+    #+begin_example
+    /opt/yamcs/bin/yamcsd --etc-dir ~/yamcs_work/etc/
+    #+end_example
