@@ -46,17 +46,12 @@ dataLinks:
       # Give the embedded simulator some time to boot up
       initialDelay: 2000
     - name: tc_sim
-      class: org.yamcs.tctm.TcpTcDataLink
+      class: org.yamcs.tctm.UdpTcDataLink
       stream: tc_realtime
       host: localhost
-      port: 10025
+      port: 52002
       # Give the embedded simulator smoe time to boot up
       initialDelay: 2000
-      commandPostprocessorClassName: org.yamcs.tctm.IssCommandPostprocessor
-      commandPostprocessorArgs:
-          errorDetection:
-              type: 16-SUM
-          enforceEvenNumberOfBytes: true
 
 mdb:
     # Configuration of the active loaders
