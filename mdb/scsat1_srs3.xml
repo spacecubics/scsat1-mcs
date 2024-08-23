@@ -1,0 +1,1453 @@
+<?xml version="1.0" ?>
+<!--
+This file was automatically generated with Yamcs PyMDB.
+See https://github.com/yamcs/pymdb
+-->
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd" name="SRS3">
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <IntegerParameterType name="Sysup_time" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="amount_free_memory" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="amount_memory" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="boot_count" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <BooleanParameterType name="csp_crc" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="csp_dport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerParameterType>
+      <EnumeratedParameterType name="csp_dst">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_hmac" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <EnumeratedParameterType name="csp_pri">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="0" label="CRITICAL"/>
+          <Enumeration value="1" label="HIGH"/>
+          <Enumeration value="2" label="NORMAL"/>
+          <Enumeration value="3" label="LOW"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_rdp" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="csp_sport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerParameterType>
+      <EnumeratedParameterType name="csp_src">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_xtea" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="curr_3v3" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="curr_vin" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="curr_vreg" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="gwdt_counter" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ping_value" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="power_3v3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="power_vin" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="power_vreg" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_bw" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_cc" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_crc" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_crypto_auth" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_crypto_decrypt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_crypto_key" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="34" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_detected" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_frames" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_freq" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <FloatParameterType name="rx_freqerr" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="mostSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="rx_id" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_local_drop" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_pll_nolock" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_rand" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_rate" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="rx_rs" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <FloatParameterType name="rx_rssi" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="mostSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="rx_size" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="srs3_id" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="srs3_reserved" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="telemetry_id" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temp_lna" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temp_mcu" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temp_pa" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temp_power" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_alc_gain" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <FloatParameterType name="tx_alc_kp" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="mostSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="tx_alc_limit" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_alc_mode" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_allow_always" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_allow_time" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_bt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_cc" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_crc" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_crypto_auth" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_crypto_encrypt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_crypto_key" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="34" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_frames" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_freq" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_gain" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_id" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_idle_frames" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_midamble" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_over_power" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_pll_nolock" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_postamble" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <FloatParameterType name="tx_pout" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="mostSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="tx_power_forward" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="mostSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="tx_power_reflection" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="mostSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="tx_preamble" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_rand" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_rate" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_rs" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_size" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="tx_train_type" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="volt_3v3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="volt_vin" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="volt_vreg" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="Sysup_time" parameterTypeRef="Sysup_time">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="amount_free_memory" parameterTypeRef="amount_free_memory">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="amount_memory" parameterTypeRef="amount_memory">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="boot_count" parameterTypeRef="boot_count">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_crc" parameterTypeRef="csp_crc" shortDescription="Use CRC32 checksum">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_dport" parameterTypeRef="csp_dport" shortDescription="Destination port">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_dst" parameterTypeRef="csp_dst" shortDescription="Destination">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_hmac" parameterTypeRef="csp_hmac" shortDescription="Use HMAC verification">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_pri" parameterTypeRef="csp_pri" shortDescription="Message priority">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_rdp" parameterTypeRef="csp_rdp" shortDescription="Use RDP protocol">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_sport" parameterTypeRef="csp_sport" shortDescription="Source port">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_src" parameterTypeRef="csp_src" shortDescription="Source">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_xtea" parameterTypeRef="csp_xtea" shortDescription="Use XTEA encryption">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="curr_3v3" parameterTypeRef="curr_3v3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="curr_vin" parameterTypeRef="curr_vin">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="curr_vreg" parameterTypeRef="curr_vreg">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="gwdt_counter" parameterTypeRef="gwdt_counter">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ping_value" parameterTypeRef="ping_value">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="power_3v3" parameterTypeRef="power_3v3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="power_vin" parameterTypeRef="power_vin">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="power_vreg" parameterTypeRef="power_vreg">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_bw" parameterTypeRef="rx_bw">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_cc" parameterTypeRef="rx_cc">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_crc" parameterTypeRef="rx_crc">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_crypto_auth" parameterTypeRef="rx_crypto_auth">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_crypto_decrypt" parameterTypeRef="rx_crypto_decrypt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_crypto_key" parameterTypeRef="rx_crypto_key">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_detected" parameterTypeRef="rx_detected">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_frames" parameterTypeRef="rx_frames">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_freq" parameterTypeRef="rx_freq">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_freqerr" parameterTypeRef="rx_freqerr">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_id" parameterTypeRef="rx_id">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_local_drop" parameterTypeRef="rx_local_drop">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_pll_nolock" parameterTypeRef="rx_pll_nolock">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_rand" parameterTypeRef="rx_rand">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_rate" parameterTypeRef="rx_rate">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_rs" parameterTypeRef="rx_rs">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_rssi" parameterTypeRef="rx_rssi">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="rx_size" parameterTypeRef="rx_size">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="srs3_id" parameterTypeRef="srs3_id">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="srs3_reserved" parameterTypeRef="srs3_reserved">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="telemetry_id" parameterTypeRef="telemetry_id">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temp_lna" parameterTypeRef="temp_lna">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temp_mcu" parameterTypeRef="temp_mcu">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temp_pa" parameterTypeRef="temp_pa">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temp_power" parameterTypeRef="temp_power">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_alc_gain" parameterTypeRef="tx_alc_gain">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_alc_kp" parameterTypeRef="tx_alc_kp">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_alc_limit" parameterTypeRef="tx_alc_limit">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_alc_mode" parameterTypeRef="tx_alc_mode">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_allow_always" parameterTypeRef="tx_allow_always">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_allow_time" parameterTypeRef="tx_allow_time">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_bt" parameterTypeRef="tx_bt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_cc" parameterTypeRef="tx_cc">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_crc" parameterTypeRef="tx_crc">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_crypto_auth" parameterTypeRef="tx_crypto_auth">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_crypto_encrypt" parameterTypeRef="tx_crypto_encrypt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_crypto_key" parameterTypeRef="tx_crypto_key">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_frames" parameterTypeRef="tx_frames">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_freq" parameterTypeRef="tx_freq">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_gain" parameterTypeRef="tx_gain">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_id" parameterTypeRef="tx_id">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_idle_frames" parameterTypeRef="tx_idle_frames">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_midamble" parameterTypeRef="tx_midamble">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_over_power" parameterTypeRef="tx_over_power">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_pll_nolock" parameterTypeRef="tx_pll_nolock">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_postamble" parameterTypeRef="tx_postamble">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_pout" parameterTypeRef="tx_pout">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_power_forward" parameterTypeRef="tx_power_forward">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_power_reflection" parameterTypeRef="tx_power_reflection">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_preamble" parameterTypeRef="tx_preamble">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_rand" parameterTypeRef="tx_rand">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_rate" parameterTypeRef="tx_rate">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_rs" parameterTypeRef="tx_rs">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_size" parameterTypeRef="tx_size">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="tx_train_type" parameterTypeRef="tx_train_type">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="volt_3v3" parameterTypeRef="volt_3v3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="volt_vin" parameterTypeRef="volt_vin">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="volt_vreg" parameterTypeRef="volt_vreg">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="Get_amount" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="amount_memory">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>5</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="Get_amount_free" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="amount_free_memory">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>3</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="RX" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="rx_freq">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_rate">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_bw">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_rs">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_cc">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_rand">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_crc">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_size">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_id">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_crypto_key">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_crypto_decrypt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_crypto_auth">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_local_drop">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_frames">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_detected">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_rssi">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_freqerr">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="rx_pll_nolock">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="srs3_header">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="SRS3/srs3_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>16899</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="SYS_BOOT_COUNT" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="boot_count">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="srs3_header">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="SRS3/srs3_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>17036</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="SYS_GWDT_COUNTER" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="gwdt_counter">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="srs3_header">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="SRS3/srs3_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>17040</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="Sysup_time" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="Sysup_time">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>6</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="TM" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="temp_mcu">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temp_power">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temp_lna">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temp_pa">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="volt_vin">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="volt_vreg">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="volt_3v3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="curr_vin">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="curr_vreg">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="curr_3v3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="power_vin">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="power_vreg">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="power_3v3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="srs3_header">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="SRS3/srs3_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>29845</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="TX" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="tx_allow_always">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_allow_time">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_freq">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_rate">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_bt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_pout">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_gain">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_alc_mode">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_alc_kp">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_alc_limit">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_alc_gain">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_rs">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_cc">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_rand">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_crc">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_idle_frames">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_train_type">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_preamble">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_postamble">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_midamble">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_size">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_id">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_crypto_key">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_crypto_encrypt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_crypto_auth">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_frames">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_power_forward">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_power_reflection">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_over_power">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="tx_pll_nolock">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="srs3_header">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="SRS3/srs3_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>4580</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="common_container" abstract="true">
+        <EntryList/>
+        <BaseContainer containerRef="../csp_message">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_src" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>SRS3</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="csp_message" abstract="true" shortDescription="CubeSat Space Protocol (CSP) header 1.x">
+        <LongDescription>
+CSP Header 1.x
+
+The port range is divided into three adjustable segments.
+Ports 0 to 7 are used for general services such as ping and
+buffer status, and are implemented by the CSP service handler.
+The ports from 8 to 47 are used for subsystem specific services.
+All remaining ports, from 48 to 63, are ephemeral ports used for
+outgoing connections. The bits from 28 to 31 are used for marking
+packets with HMAC, XTEA encryption, RDP header and CRC32 checksum.
+</LongDescription>
+        <BinaryEncoding>
+          <SizeInBits>
+            <FixedValue>32</FixedValue>
+          </SizeInBits>
+        </BinaryEncoding>
+        <EntryList>
+          <ParameterRefEntry parameterRef="csp_pri">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_src">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_dst">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_dport">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_sport">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_hmac">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>4</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_xtea">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_rdp">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_crc">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+      </SequenceContainer>
+      <SequenceContainer name="ping" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="ping_value">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>1</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="srs3_header" abstract="true">
+        <EntryList>
+          <ParameterRefEntry parameterRef="telemetry_id">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="srs3_reserved">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="srs3_id">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>19</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <IntegerArgumentType name="Ping__ping_value" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerArgumentType>
+      <BinaryArgumentType name="SRS-3 RX group data__command_id" initialValue="0101C8000200">
+        <BinaryDataEncoding>
+          <SizeInBits>
+            <FixedValue>48</FixedValue>
+          </SizeInBits>
+        </BinaryDataEncoding>
+      </BinaryArgumentType>
+      <BinaryArgumentType name="SRS-3 TX group data__command_id" initialValue="0101C8000180">
+        <BinaryDataEncoding>
+          <SizeInBits>
+            <FixedValue>48</FixedValue>
+          </SizeInBits>
+        </BinaryDataEncoding>
+      </BinaryArgumentType>
+      <BinaryArgumentType name="SRS-3 WDT count__command_id" initialValue="0101C8004290">
+        <BinaryDataEncoding>
+          <SizeInBits>
+            <FixedValue>48</FixedValue>
+          </SizeInBits>
+        </BinaryDataEncoding>
+      </BinaryArgumentType>
+      <BinaryArgumentType name="SRS-3 boot count__command_id" initialValue="0101C800428C">
+        <BinaryDataEncoding>
+          <SizeInBits>
+            <FixedValue>48</FixedValue>
+          </SizeInBits>
+        </BinaryDataEncoding>
+      </BinaryArgumentType>
+      <BinaryArgumentType name="SRS-3 telemetry data__command_id" initialValue="0101C8000480">
+        <BinaryDataEncoding>
+          <SizeInBits>
+            <FixedValue>48</FixedValue>
+          </SizeInBits>
+        </BinaryDataEncoding>
+      </BinaryArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_pri" initialValue="NORMAL">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="0" label="CRITICAL"/>
+          <Enumeration value="1" label="HIGH"/>
+          <Enumeration value="2" label="NORMAL"/>
+          <Enumeration value="3" label="LOW"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_src">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_dst">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <IntegerArgumentType name="csp_message__csp_dport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerArgumentType>
+      <BooleanArgumentType name="csp_message__csp_hmac" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_xtea" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_rdp" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_crc" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="CMP" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="0"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="CMP">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Get_amount" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="5"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="Get_amount">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Get_amount_free" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="3"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="Get_amount_free">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="MyGeneralCommand" abstract="true">
+        <BaseMetaCommand metaCommandRef="csp_message">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dst" argumentValue="SRS3"/>
+            <ArgumentAssignment argumentName="csp_src" argumentValue="YAMCS"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="MyGeneralCommand">
+          <EntryList/>
+          <BaseContainer containerRef="csp_message"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Ping" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="1"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="ping_value" argumentTypeRef="Ping__ping_value"/>
+        </ArgumentList>
+        <CommandContainer name="Ping">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="ping_value">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="SRS-3 RX group data" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="19"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="command_id" argumentTypeRef="SRS-3 RX group data__command_id"/>
+        </ArgumentList>
+        <CommandContainer name="SRS-3 RX group data">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="command_id">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="SRS-3 TX group data" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="19"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="command_id" argumentTypeRef="SRS-3 TX group data__command_id"/>
+        </ArgumentList>
+        <CommandContainer name="SRS-3 TX group data">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="command_id">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="SRS-3 WDT count" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="19"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="command_id" argumentTypeRef="SRS-3 WDT count__command_id"/>
+        </ArgumentList>
+        <CommandContainer name="SRS-3 WDT count">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="command_id">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="SRS-3 boot count" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="19"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="command_id" argumentTypeRef="SRS-3 boot count__command_id"/>
+        </ArgumentList>
+        <CommandContainer name="SRS-3 boot count">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="command_id">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="SRS-3 telemetry data" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="19"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="command_id" argumentTypeRef="SRS-3 telemetry data__command_id"/>
+        </ArgumentList>
+        <CommandContainer name="SRS-3 telemetry data">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="command_id">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Sysup_time" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="6"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="Sysup_time">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="csp_message" abstract="true" shortDescription="CubeSat Space Protocol (CSP) header 1.x">
+        <LongDescription>
+CSP Header 1.x
+
+The port range is divided into three adjustable segments.
+Ports 0 to 7 are used for general services such as ping and
+buffer status, and are implemented by the CSP service handler.
+The ports from 8 to 47 are used for subsystem specific services.
+All remaining ports, from 48 to 63, are ephemeral ports used for
+outgoing connections. The bits from 28 to 31 are used for marking
+packets with HMAC, XTEA encryption, RDP header and CRC32 checksum.
+</LongDescription>
+        <ArgumentList>
+          <Argument name="csp_pri" argumentTypeRef="csp_message__csp_pri" shortDescription="Message priority"/>
+          <Argument name="csp_src" argumentTypeRef="csp_message__csp_src" shortDescription="Source"/>
+          <Argument name="csp_dst" argumentTypeRef="csp_message__csp_dst" shortDescription="Destination"/>
+          <Argument name="csp_dport" argumentTypeRef="csp_message__csp_dport" shortDescription="Destination port"/>
+          <Argument name="csp_hmac" argumentTypeRef="csp_message__csp_hmac" shortDescription="Use HMAC verification"/>
+          <Argument name="csp_xtea" argumentTypeRef="csp_message__csp_xtea" shortDescription="Use XTEA encryption"/>
+          <Argument name="csp_rdp" argumentTypeRef="csp_message__csp_rdp" shortDescription="Use RDP protocol"/>
+          <Argument name="csp_crc" argumentTypeRef="csp_message__csp_crc" shortDescription="Use CRC32 checksum"/>
+        </ArgumentList>
+        <CommandContainer name="csp_message">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="csp_pri">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_src">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_dst">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_dport">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <FixedValueEntry binaryValue="20" sizeInBits="6" name="csp_sport" shortDescription="Ephemeral port for outgoing connection">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </FixedValueEntry>
+            <FixedValueEntry binaryValue="00" sizeInBits="4" name="csp_reserved">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </FixedValueEntry>
+            <ArgumentRefEntry argumentRef="csp_hmac">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_xtea">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_rdp">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_crc">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>

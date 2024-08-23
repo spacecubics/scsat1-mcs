@@ -1,0 +1,283 @@
+<?xml version="1.0" ?>
+<!--
+This file was automatically generated with Yamcs PyMDB.
+See https://github.com/yamcs/pymdb
+-->
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd" name="SCSAT1">
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <BooleanParameterType name="csp_crc" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="csp_dport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerParameterType>
+      <EnumeratedParameterType name="csp_dst">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_hmac" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <EnumeratedParameterType name="csp_pri">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="0" label="CRITICAL"/>
+          <Enumeration value="1" label="HIGH"/>
+          <Enumeration value="2" label="NORMAL"/>
+          <Enumeration value="3" label="LOW"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_rdp" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="csp_sport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerParameterType>
+      <EnumeratedParameterType name="csp_src">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_xtea" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="csp_crc" parameterTypeRef="csp_crc" shortDescription="Use CRC32 checksum">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_dport" parameterTypeRef="csp_dport" shortDescription="Destination port">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_dst" parameterTypeRef="csp_dst" shortDescription="Destination">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_hmac" parameterTypeRef="csp_hmac" shortDescription="Use HMAC verification">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_pri" parameterTypeRef="csp_pri" shortDescription="Message priority">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_rdp" parameterTypeRef="csp_rdp" shortDescription="Use RDP protocol">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_sport" parameterTypeRef="csp_sport" shortDescription="Source port">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_src" parameterTypeRef="csp_src" shortDescription="Source">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_xtea" parameterTypeRef="csp_xtea" shortDescription="Use XTEA encryption">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="csp_message" abstract="true" shortDescription="CubeSat Space Protocol (CSP) header 1.x">
+        <LongDescription>
+CSP Header 1.x
+
+The port range is divided into three adjustable segments.
+Ports 0 to 7 are used for general services such as ping and
+buffer status, and are implemented by the CSP service handler.
+The ports from 8 to 47 are used for subsystem specific services.
+All remaining ports, from 48 to 63, are ephemeral ports used for
+outgoing connections. The bits from 28 to 31 are used for marking
+packets with HMAC, XTEA encryption, RDP header and CRC32 checksum.
+</LongDescription>
+        <BinaryEncoding>
+          <SizeInBits>
+            <FixedValue>32</FixedValue>
+          </SizeInBits>
+        </BinaryEncoding>
+        <EntryList>
+          <ParameterRefEntry parameterRef="csp_pri">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_src">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_dst">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_dport">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_sport">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_hmac">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>4</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_xtea">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_rdp">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_crc">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <EnumeratedArgumentType name="csp_message__csp_pri" initialValue="NORMAL">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="0" label="CRITICAL"/>
+          <Enumeration value="1" label="HIGH"/>
+          <Enumeration value="2" label="NORMAL"/>
+          <Enumeration value="3" label="LOW"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_src">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_dst">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <IntegerArgumentType name="csp_message__csp_dport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerArgumentType>
+      <BooleanArgumentType name="csp_message__csp_hmac" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_xtea" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_rdp" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_crc" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="csp_message" abstract="true" shortDescription="CubeSat Space Protocol (CSP) header 1.x">
+        <LongDescription>
+CSP Header 1.x
+
+The port range is divided into three adjustable segments.
+Ports 0 to 7 are used for general services such as ping and
+buffer status, and are implemented by the CSP service handler.
+The ports from 8 to 47 are used for subsystem specific services.
+All remaining ports, from 48 to 63, are ephemeral ports used for
+outgoing connections. The bits from 28 to 31 are used for marking
+packets with HMAC, XTEA encryption, RDP header and CRC32 checksum.
+</LongDescription>
+        <ArgumentList>
+          <Argument name="csp_pri" argumentTypeRef="csp_message__csp_pri" shortDescription="Message priority"/>
+          <Argument name="csp_src" argumentTypeRef="csp_message__csp_src" shortDescription="Source"/>
+          <Argument name="csp_dst" argumentTypeRef="csp_message__csp_dst" shortDescription="Destination"/>
+          <Argument name="csp_dport" argumentTypeRef="csp_message__csp_dport" shortDescription="Destination port"/>
+          <Argument name="csp_hmac" argumentTypeRef="csp_message__csp_hmac" shortDescription="Use HMAC verification"/>
+          <Argument name="csp_xtea" argumentTypeRef="csp_message__csp_xtea" shortDescription="Use XTEA encryption"/>
+          <Argument name="csp_rdp" argumentTypeRef="csp_message__csp_rdp" shortDescription="Use RDP protocol"/>
+          <Argument name="csp_crc" argumentTypeRef="csp_message__csp_crc" shortDescription="Use CRC32 checksum"/>
+        </ArgumentList>
+        <CommandContainer name="csp_message">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="csp_pri">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_src">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_dst">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_dport">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <FixedValueEntry binaryValue="20" sizeInBits="6" name="csp_sport" shortDescription="Ephemeral port for outgoing connection">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </FixedValueEntry>
+            <FixedValueEntry binaryValue="00" sizeInBits="4" name="csp_reserved">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </FixedValueEntry>
+            <ArgumentRefEntry argumentRef="csp_hmac">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_xtea">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_rdp">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_crc">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>

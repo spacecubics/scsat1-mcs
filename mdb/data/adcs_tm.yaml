@@ -1,0 +1,551 @@
+headers:
+  - name: "common_container"
+    base: "../csp_message"
+    conditions:
+      - name: "../csp_src"
+        num: ADCS
+  - name: "adcs_container"
+    base: "common_container"
+    parameters:
+      - name: "telemetry_id"
+        bit: 1
+
+containers:
+# csp 共通 reply
+  - name: ping
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        num: 1
+    parameters:
+      - name: "ping_value"
+  - name: Get_amount_free
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        num: 3
+    parameters:
+      - name: "amount_free_memory"
+        bit: 32
+  - name: Get_amount
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        num: 5
+    parameters:
+      - name: "amount_memory"
+        bit: 32
+  - name: Sysup_time
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        num: 6
+    parameters:
+      - name: "Sysup_time"
+        bit: 32
+
+# Command reply
+  - name: TEMP
+    endian: true
+    conditions:
+      - name: "ADCS/telemetry_id"
+        num: 9
+    parameters:
+      - name: "TEMP_SEQCOUNT"
+        type: int
+        bit: 32
+      - name: "OBC_1_TEMP_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_1_TEMP"
+        type: float
+        bit: 32
+      - name: "OBC_2_TEMP_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_2_TEMP"
+        type: float
+        bit: 32
+      - name: "OBC_3_TEMP_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_3_TEMP"
+        type: float
+        bit: 32
+      - name: "OBC_XADC_TEMP_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_TEMP"
+        type: float
+        bit: 32
+      - name: "ADCS_1_TEMP_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_1_TEMP"
+        type: float
+        bit: 32
+      - name: "ADCS_2_TEMP_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_2_TEMP"
+        type: float
+        bit: 32
+      - name: "RW_TEMP_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "RW_TEMP"
+        type: float
+        bit: 32
+
+  - name: CURRENT_VOLTAGE
+    endian: true
+    conditions:
+      - name: "ADCS/telemetry_id"
+        num: 10
+    parameters:
+      - name: "CV_SEQCOUNT"
+        type: int
+        bit: 32
+      - name: "OBC_1V0_Shunt_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_1V0_Shunt"
+        type: int
+        bit: 32
+      - name: "OBC_1V0_Bus_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_1V0_Bus"
+        type: int
+        bit: 32
+      - name: "OBC_1V8_Shunt_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_1V8_Shunt"
+        type: int
+        bit: 32
+      - name: "OBC_1V8_Bus_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_1V8_Bus"
+        type: int
+        bit: 32
+      - name: "OBC_3V3_Shunt_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_Shunt"
+        type: int
+        bit: 32
+      - name: "OBC_3V3_Bus_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_Bus"
+        type: int
+        bit: 32
+      - name: "OBC_3V3_SYSA_Shunt_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSA_Shunt"
+        type: int
+        bit: 32
+      - name: "OBC_3V3_SYSA_Bus_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSA_Bus"
+        type: int
+        bit: 32
+      - name: "OBC_3V3_SYSB_Shunt_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSB_Shunt"
+        type: int
+        bit: 32
+      - name: "OBC_3V3_SYSB_Bus_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSB_Bus"
+        type: int
+        bit: 32
+      - name: "OBC_3V3_IO_Shunt_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_IO_Shunt"
+        type: int
+        bit: 32
+      - name: "OBC_3V3_IO_Bus_Status"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_IO_Bus"
+        type: int
+        bit: 32
+      - name: "OBC_XADC_VCCINT_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_VCCINT"
+        type: float
+        bit: 32
+      - name: "OBC_XADC_VCCAUX_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_VCCAUX"
+        type: float
+        bit: 32
+      - name: "OBC_XADC_VCCBRAM_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_VCCBRAM"
+        type: float
+        bit: 32
+      - name: "ADCS_VDD_3V3_IMU_Shunt_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_3V3_IMU_Shunt"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_3V3_IMU_Bus_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_3V3_IMU_Bus"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_3V3_GPS_Shunt_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_3V3_GPS_Shunt"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_3V3_GPS_Bus_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_3V3_GPS_Bus"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_3V3_DRV_Shunt_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_3V3_DRV_Shunt"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_3V3_DRV_Bus_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_3V3_DRV_Bus"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_12V_DRVX_Shunt_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_12V_DRVX_Shunt"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_12V_DRVX_Bus_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_12V_DRVX_Bus"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_12V_DRVY_Shunt_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_12V_DRVY_Shunt"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_12V_DRVY_Bus_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_12V_DRVY_Bus"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_12V_DRVZ_Shunt_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_12V_DRVZ_Shunt"
+        type: int
+        bit: 32
+      - name: "ADCS_VDD_12V_DRVZ_Bus_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "ADCS_VDD_12V_DRVZ_Bus"
+        type: int
+        bit: 32
+
+
+  - name: IMU
+    endian: true
+    conditions:
+      - name: "ADCS/telemetry_id"
+        num: 11
+    parameters:
+      - name: "IMU_SEQCOUNT"
+        type: int
+        bit: 32
+      - name: "IMU_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "IMU_ID"
+        type: int
+        bit: 8
+      - name: "IMU_TIMESTAMP"
+        type: int
+        bit: 32
+      - name: "IMU_TEMP"
+        type: int
+        bit: 32
+      - name: "IMU_GYRO_X"
+        type: int
+        bit: 32
+      - name: "IMU_GYRO_Y"
+        type: int
+        bit: 32
+      - name: "IMU_GYRO_Z"
+        type: int
+        bit: 32
+      - name: "IMU_ACC_X"
+        type: int
+        bit: 32
+      - name: "IMU_ACC_Y"
+        type: int
+        bit: 32
+      - name: "IMU_ACC_Z"
+        type: int
+        bit: 32
+
+
+  - name: GNSS_HWMON
+    endian: true
+    conditions:
+      - name: "ADCS/telemetry_id"
+        num: 12
+    parameters:
+      - name: "HWMON_SEQCOUNT"
+        type: int
+        bit: 32
+      - name: "HWMON_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "HWMON_SEQUENCE"
+        type: int
+        bit: 32
+        signed: true
+      - name: "HWMON_IDLE_TIME"
+        type: float
+        bit: 32
+      - name: "HWMON_TIMESTATUS"
+        type: binary
+        bit: 80
+      - name: "HWMON_WEEK"
+        type: int
+        bit: 32
+      - name: "HWMON_SECONDS"
+        type: float
+        bit: 32
+      - name: "HWMON_RECEIVER_STATUS"
+        type: int
+        bit: 32
+      - name: "HWMON_RESERVED"
+        type: int
+        bit: 32
+      - name: "HWMON_RECEIVER_VERSION"
+        type: int
+        bit: 32
+      - name: "HWMON_TEMP"
+        type: float
+        bit: 32
+      - name: "HWMON_3V3_VOLTAGE"
+        type: float
+        bit: 32
+      - name: "HWMON_ANTENNA_VOLTAGE"
+        type: float
+        bit: 32
+      - name: "HWMON_1V2_CORE_VOLTAGE"
+        type: float
+        bit: 32
+      - name: "HWMON_SUPPLY_VOLTAGE"
+        type: float
+        bit: 32
+      - name: "HWMON_1V8_VOLTAGE"
+        type: float
+        bit: 32
+
+
+  - name: GNSS_BESTPOS
+    endian: true
+    conditions:
+      - name: "ADCS/telemetry_id"
+        num: 13
+    parameters:
+      - name: "BESTPOS_SEQCOUNT"
+        type: int
+        bit: 32
+      - name: "BESTPOS_STATUS"
+        type: int
+        bit: 8
+        signed: true
+      - name: "BESTPOS_SEQUENCE"
+        type: int
+        bit: 32
+        signed: true
+      - name: "BESTPOS_IDLE_TIME"
+        type: float
+        bit: 32
+      - name: "BESTPOS_TIMESTATUS"
+        type: binary
+        bit: 80
+      - name: "BESTPOS_WEEK"
+        type: int
+        bit: 32
+      - name: "BESTPOS_SECONDS"
+        type: float
+        bit: 32
+      - name: "BESTPOS_RECEIVER_STATUS"
+        type: int
+        bit: 32
+      - name: "BESTPOS_RESERVED"
+        type: int
+        bit: 32
+      - name: "BESTPOS_RECEIVER_VERSION"
+        type: int
+        bit: 32
+      - name: "BESTPOS_SOL_STAT"
+        type: string
+        bit: 24
+      - name: "BESTPOS_POS_TYPE"
+        type: string
+        bit: 24
+      - name: "BESTPOS_LAT_DEG"
+        type: float
+        bit: 32
+      - name: "BESTPOS_LON_DEG"
+        type: float
+        bit: 32
+      - name: "BESTPOS_HGT_DEG"
+        type: float
+        bit: 32
+      - name: "BESTPOS_UNDULATION"
+        type: float
+        bit: 32
+      - name: "BESTPOS_DATUM_ID"
+        type: string
+        bit: 16
+      - name: "BESTPOS_LAT_M"
+        type: float
+        bit: 32
+      - name: "BESTPOS_LON_M"
+        type: float
+        bit: 32
+      - name: "BESTPOS_HGT_M"
+        type: float
+        bit: 32
+      - name: "BESTPOS_STN_ID"
+        type: string
+        bit: 12
+      - name: "BESTPOS_DIFF_AGE"
+        type: float
+        bit: 32
+      - name: "BESTPOS_SOL_AGE"
+        type: float
+        bit: 32
+      - name: "BESTPOS_SVS"
+        type: int
+        bit: 8
+      - name: "BESTPOS_SOLN_SVS"
+        type: int
+        bit: 8
+      - name: "BESTPOS_SOLN1_SVS"
+        type: int
+        bit: 8
+      - name: "BESTPOS_SOLNMULTI_SVS"
+        type: int
+        bit: 8
+      - name: "BESTPOS_POS_RESERVED"
+        type: int
+        bit: 8
+      - name: "BESTPOS_EXT_SOL_STAT"
+        type: int
+        bit: 8
+      - name: "BESTPOS_GALILEO_MASK"
+        type: int
+        bit: 8
+      - name: "BESTPOS_GPS_MASK"
+        type: int
+        bit: 8
+
+  - name: RW
+    endian: true
+    conditions:
+      - name: "ADCS/telemetry_id"
+        num: 14
+    parameters:
+      - name: "RW_SEQCOUNT"
+        type: int
+        bit: 32
+      - name: "RW_X_COUNT"
+        type: int
+        bit: 32
+        signed: true
+      - name: "RW_Y_COUNT"
+        type: int
+        bit: 32
+        signed: true
+      - name: "RW_Z_COUNT"
+        type: int
+        bit: 32
+        signed: true
+
+  - name: HWTEST_RESULT
+    endian: true
+    conditions:
+      - name: "ADCS/telemetry_id"
+        num: 15
+    parameters:
+      - name: "HWTEST_RESULT_SEQCOUNT"
+        type: int
+        bit: 32
+      - name: "HWTEST_LOOP_COUNT"
+        type: int
+        bit: 32
+      - name: "HWTEST_ERR_COUNT"
+        type: int
+        bit: 32
+      - name: "HWTEST_VERSION"
+        type: string
+        bit: 32
+      - name: "HWTEST_LAST_CMD"
+        type: string
+        bit: 32

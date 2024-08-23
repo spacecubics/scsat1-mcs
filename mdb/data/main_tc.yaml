@@ -1,0 +1,24 @@
+csp_commands:
+  - name: csp_command
+    commands:
+      - name: "CMP"
+        port: 0
+      - name: "Ping"
+        port: 1
+        arguments:
+          - name: "ping_value"
+      - name: "Get_amount_free"
+        port: 3
+      - name: "Get_amount"
+        port: 5
+      - name: "Sysup_time"
+        port: 6
+
+default_commands:
+  - name: main_command
+    commands:
+      - name: "SHELL_CMD"
+        port: 16
+        arguments:
+          - name: shell_cmd_str
+            type: string

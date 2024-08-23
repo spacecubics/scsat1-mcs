@@ -1,0 +1,484 @@
+headers:
+  - name: "common_container"
+    base: "../csp_message"
+    conditions:
+      - name: "../csp_src"
+        num: MAIN
+  - name: "main_container"
+    base: "common_container"
+    parameters:
+      - name: "telemetry-id"
+        bit: 8
+        
+containers:
+# csp 共通 reply
+  - name: ping
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        num: 1
+    parameters:
+      - name: "ping_value"
+  - name: Get_amount_free
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        num: 3
+    parameters:
+      - name: "amount_free_memory"
+        bit: 32
+  - name: Get_amount
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        num: 5
+    parameters:
+      - name: "amount_memory"
+        bit: 32
+  - name: Sysup_time
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        num: 6
+    parameters:
+      - name: "Sysup_time"
+        bit: 32
+
+# MAIN
+  - name: TEMP
+    endian: true
+    conditions:
+      - name: "MAIN/telemetry-id"
+        num: 1    
+    parameters:
+      - name: "TEMP_SEQCOUNT"
+        bit: 32
+      - name: "OBC_1_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1_TEMP"
+        type: float
+        bit: 32
+      - name: "OBC_2_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_2_TEMP"
+        type: float
+        bit: 32
+      - name: "OBC_3_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3_TEMP"
+        type: float
+        bit: 32
+      - name: "OBC_XADC_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_TEMP"
+        type: float
+        bit: 32
+      - name: "IOBOARD_1_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "IOBOARD_1_TEMP"
+        type: float
+        bit: 32
+      - name: "IOBOARD_2_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "IOBOARD_2_TEMP"
+        type: float
+        bit: 32
+      - name: "X_PLUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "X_PLUS_TEMP"
+        type: float
+        bit: 32
+      - name: "X_MINUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "X_MINUS_TEMP"
+        type: float
+        bit: 32
+      - name: "Y_PLUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "Y_PLUS_TEMP"
+        type: float
+        bit: 32
+      - name: "Y_MINUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "Y_MINUS_TEMP"
+        type: float
+        bit: 32
+
+
+  - name: CURRENT_VOLTAGE
+    endian: true
+    conditions:
+      - name: "MAIN/telemetry-id"
+        num: 2
+    parameters:
+      - name: "CV_SEQCOUNT"
+        bit: 32
+      - name: "OBC_1V0_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1V0_Shunt"
+        bit: 32
+      - name: "OBC_1V0_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1V0_Bus"
+        bit: 32
+      - name: "OBC_1V8_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1V8_Shunt"
+        bit: 32
+      - name: "OBC_1V8_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1V8_Bus"
+        bit: 32
+      - name: "OBC_3V3_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_Shunt"
+        bit: 32
+      - name: "OBC_3V3_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_Bus"
+        bit: 32
+      - name: "OBC_3V3_SYSA_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSA_Shunt"
+        bit: 32
+      - name: "OBC_3V3_SYSA_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSA_Bus"
+        bit: 32
+      - name: "OBC_3V3_SYSB_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSB_Shunt"
+        bit: 32
+      - name: "OBC_3V3_SYSB_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSB_Bus"
+        bit: 32
+      - name: "OBC_3V3_IO_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_IO_Shunt"
+        bit: 32
+      - name: "OBC_3V3_IO_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_IO_Bus"
+        bit: 32
+      - name: "OBC_XADC_VCCINT_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_VCCINT"
+        type: float
+        bit: 32
+      - name: "OBC_XADC_VCCAUX_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_VCCAUX"
+        type: float
+        bit: 32
+      - name: "OBC_XADC_VCCBRAM_STATIS"
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_VCCBRAM"
+        type: float
+        bit: 32
+      - name: "IO_PDU_04_3V3_Shunt_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_PDU_04_3V3_Shunt"
+        bit: 32
+      - name: "IO_PDU_04_3V3_Bus_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_PDU_04_3V3_Bus"
+        bit: 32
+      - name: "IO_VDD_3V3_SYS_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "IO_VDD_3V3_SYS_Shunt"
+        bit: 32
+      - name: "IO_VDD_3V3_SYS_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "IO_VDD_3V3_SYS_Bus"
+        bit: 32
+      - name: "IO_VDD_3V3_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "IO_VDD_3V3_Shunt"
+        bit: 32
+      - name: "IO_VDD_3V3_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "IO_VDD_3V3_Bus"
+        bit: 32   
+
+
+
+  - name: CSP
+    endian: true 
+    conditions:
+      - name: "MAIN/telemetry-id"
+        num: 3
+    parameters:
+      - name: "CSP_SEQCOUNT"
+        bit: 32
+      - name: "EPS_PING_Status"
+        bit: 8
+        signed: true
+      - name: "EPS_PING"
+        bit: 32
+        signed: true
+      - name: "SRS3_PING_Status"
+        bit: 8
+        signed: true
+      - name: "SRS3_PING"
+        bit: 32
+        signed: true
+      - name: "ADCS_PING_Status"
+        bit: 8
+        signed: true
+      - name: "ADCS_PING"
+        bit: 32
+        signed: true
+      - name: "ZERO_PING_Status"
+        bit: 8
+        signed: true
+      - name: "ZERO_PING"
+        bit: 32
+        signed: true
+      - name: "PICO_PING_Status"
+        bit: 8
+        signed: true
+      - name: "PICO_PING"
+        bit: 32
+        signed: true
+      - name: "EPS_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "EPS_UPTIME"
+        bit: 32
+      - name: "SRS3_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "SRS3_UPTIME"
+        bit: 32
+      - name: "ADCS_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "ADCS_UPTIME"
+        bit: 32
+      - name: "ZERO_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "ZERO_UPTIME"
+        bit: 32
+      - name: "PICO_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "PICO_UPTIME"
+        bit: 32
+      - name: "ZERO_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "ZERO_TEMP"
+        type: float
+        bit: 32
+      - name: "ZERO_FRAME_COUNT_Status"
+        bit: 8
+        signed: true
+      - name: "ZERO_FRAME_COUNT"
+        bit: 16
+
+
+  - name: SUNSENSOR
+    endian: true
+    conditions:
+      - name: "MAIN/telemetry-id"
+        num: 4
+    parameters:
+      - name: "SUNSENS_SEQCOUNT"
+        bit: 32
+      - name: "SUNSENS_Y_PLUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_TEMP"
+        type: float
+        bit: 32
+      - name: "SUNSENS_Y_MINUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_TEMP"
+        type: float
+        bit: 32
+      - name: "SUNSENS_Y_PLUS_DATA_A_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_DATA_A"
+        bit: 16
+      - name: "SUNSENS_Y_PLUS_DATA_B_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_DATA_B"
+        bit: 16
+      - name: "SUNSENS_Y_PLUS_DATA_C_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_DATA_C"
+        bit: 16
+      - name: "SUNSENS_Y_PLUS_DATA_D_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_DATA_D"
+        bit: 16
+      - name: "SUNSENS_Y_MINUS_DATA_A_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_DATA_A"
+        bit: 16
+      - name: "SUNSENS_Y_MINUS_DATA_B_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_DATA_B"
+        bit: 16
+      - name: "SUNSENS_Y_MINUS_DATA_C_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_DATA_C"
+        bit: 16
+      - name: "SUNSENS_Y_MINUS_DATA_D_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_DATA_D"
+        bit: 16
+
+
+  - name: MAGNET_METER
+    endian: true
+    conditions:
+      - name: "MAIN/telemetry-id"
+        num: 5
+    parameters:
+      - name: "MGNM_SEQCOUNT"
+        bit: 32
+      - name: "MGNM_X_PLUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_PLUS_TEMP"
+        type: float
+        bit: 32
+      - name: "MGNM_X_MINUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_MINUS_TEMP"
+        type: float
+        bit: 32
+      - name: "MGNM_X_PLUS_X_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_PLUS_X_OUT"
+        bit: 32
+      - name: "MGNM_X_PLUS_Y_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_PLUS_Y_OUT"
+        bit: 32
+      - name: "MGNM_X_PLUS_Z_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_PLUS_Z_OUT"
+        bit: 32
+      - name: "MGNM_X_MINUS_X_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_MINUS_X_OUT"
+        bit: 32
+      - name: "MGNM_X_MINUS_Y_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_MINUS_Y_OUT"
+        bit: 32
+      - name: "MGNM_X_MINUS_Z_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_MINUS_Z_OUT"
+        bit: 32
+
+
+  - name: DSTRX3
+    endian: true 
+    conditions:
+      - name: "MAIN/telemetry-id"
+        num: 6
+    parameters:
+      - name: "DSTRX3_SEQCOUNT"
+        bit: 32
+      - name: "DSTRX3_HK_Status"
+        bit: 8
+        signed: true
+      - name: "DSTRX3_HK_FREE_COUNT"
+        bit: 8
+      - name: "DSTRX3_HK_WDT_COUNT"
+        bit: 8
+      - name: "DSTRX3_HK_RSSI"
+        bit: 8
+      - name: "DSTRX3_RECV_FREQ"
+        bit: 16
+      - name: "DSTRX3_HK_TEMP"
+        bit: 8
+        signed: true
+      - name: "DSTRX3_HK_VOLTAGE"
+        bit: 8
+      - name: "DSTRX3_HK_TX_POWER"
+        bit: 8
+      - name: "DSTRX3_HK_CARRIER_LOCK"
+        bit: 1
+      - name: "DSTRX3_HK_SUB_CARRIER_LOCK"
+        bit: 1
+      - name: "DSTRX3_HK_TX_POWER_SET"
+        bit: 4
+      - name: "DSTRX3_HK_BIT_RATE_SET"
+        bit: 2
+      - name: "DSTRX3_HK_PROGRAM_NO"
+        bit: 8
+      - name: "DSTRX3_HK_CHECK_SUM"
+        bit: 8
+
+
+  - name: HWTEST_RESULT
+    endian: true
+    conditions:
+      - name: "MAIN/telemetry-id"
+        num: 7
+    parameters:
+      - name: "HWTEST_RESULT_SEQCOUNT"
+        bit: 32
+      - name: "HWTEST_LOOP_COUNT"
+        bit: 32
+      - name: "HWTEST_ERR_COUNT"
+        bit: 32
+      - name: "HWTEST_VERSION"
+        type: string
+        bit: 32
+      - name: "HWTEST_LAST_CMD"
+        type: string
+        bit: 32

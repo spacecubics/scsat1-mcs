@@ -1,0 +1,2471 @@
+<?xml version="1.0" ?>
+<!--
+This file was automatically generated with Yamcs PyMDB.
+See https://github.com/yamcs/pymdb
+-->
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd" name="EPS">
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <IntegerParameterType name="GWDT_error_code" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="HW_status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="Sysup_time" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="amount_free_memory" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="amount_memory" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ao_current_output1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ao_current_output2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="battery_heater_mode" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="battery_heater_status" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="battery_status" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="battery_voltage" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="bootcount" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="command_id" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="converter_state" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="converter_vol1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="converter_vol2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="converter_vol3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="converter_vol4" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="converter_vol5" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="converter_vol6" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="converter_vol7" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="converter_vol8" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <BooleanParameterType name="csp_crc" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="csp_dport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerParameterType>
+      <EnumeratedParameterType name="csp_dst">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_hmac" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <EnumeratedParameterType name="csp_pri">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="0" label="CRITICAL"/>
+          <Enumeration value="1" label="HIGH"/>
+          <Enumeration value="2" label="NORMAL"/>
+          <Enumeration value="3" label="LOW"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_rdp" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="csp_sport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerParameterType>
+      <EnumeratedParameterType name="csp_src">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_xtea" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="current_batt_in" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_batt_out" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output10" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output11" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output12" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output13" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output14" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output15" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output16" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output17" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output18" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output4" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output5" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output6" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output7" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output8" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_output9" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_solar" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_solar_panel1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_solar_panel2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_solar_panel3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_solar_panel4" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_solar_panel5" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_solar_panel6" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_solar_panel7" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="current_solar_panel8" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="mppt_mode" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="mppt_vol1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="mppt_vol2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="mppt_vol3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="mppt_vol4" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count10" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count11" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count12" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count13" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count14" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count15" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count16" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count17" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count18" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count4" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count5" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count6" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count7" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count8" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_count9" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status10" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status11" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status12" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status13" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status14" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status15" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status16" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status17" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status18" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status4" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status5" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status6" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status7" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status8" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_fault_status9" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta10" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta11" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta12" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta13" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta14" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta15" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta16" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta17" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta18" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta4" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta5" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta6" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta7" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta8" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_off_delta9" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta10" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta11" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta12" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta13" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta14" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta15" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta16" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta17" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta18" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta4" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta5" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta6" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta7" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta8" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_on_delta9" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status1" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status10" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status11" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status12" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status13" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status14" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status15" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status16" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status17" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status18" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status2" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status3" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status4" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status5" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status6" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status7" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status8" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="output_status9" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ping_value" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ping_wdt_toggles" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ping_wdt_turn_offs" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="protected_access_count" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature1" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature10" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature11" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature12" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature13" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature14" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature2" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature3" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature4" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature5" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature6" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature7" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature8" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="temperature9" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="timestamp" sizeInBits="64">
+        <FloatDataEncoding sizeInBits="64" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="uptime" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="wdt_count" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="wdt_left" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="GWDT_error_code" parameterTypeRef="GWDT_error_code">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HW_status" parameterTypeRef="HW_status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="Sysup_time" parameterTypeRef="Sysup_time">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="amount_free_memory" parameterTypeRef="amount_free_memory">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="amount_memory" parameterTypeRef="amount_memory">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ao_current_output1" parameterTypeRef="ao_current_output1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ao_current_output2" parameterTypeRef="ao_current_output2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="battery_heater_mode" parameterTypeRef="battery_heater_mode">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="battery_heater_status" parameterTypeRef="battery_heater_status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="battery_status" parameterTypeRef="battery_status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="battery_voltage" parameterTypeRef="battery_voltage">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="bootcount" parameterTypeRef="bootcount">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="command_id" parameterTypeRef="command_id">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="converter_state" parameterTypeRef="converter_state">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="converter_vol1" parameterTypeRef="converter_vol1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="converter_vol2" parameterTypeRef="converter_vol2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="converter_vol3" parameterTypeRef="converter_vol3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="converter_vol4" parameterTypeRef="converter_vol4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="converter_vol5" parameterTypeRef="converter_vol5">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="converter_vol6" parameterTypeRef="converter_vol6">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="converter_vol7" parameterTypeRef="converter_vol7">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="converter_vol8" parameterTypeRef="converter_vol8">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_crc" parameterTypeRef="csp_crc" shortDescription="Use CRC32 checksum">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_dport" parameterTypeRef="csp_dport" shortDescription="Destination port">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_dst" parameterTypeRef="csp_dst" shortDescription="Destination">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_hmac" parameterTypeRef="csp_hmac" shortDescription="Use HMAC verification">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_pri" parameterTypeRef="csp_pri" shortDescription="Message priority">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_rdp" parameterTypeRef="csp_rdp" shortDescription="Use RDP protocol">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_sport" parameterTypeRef="csp_sport" shortDescription="Source port">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_src" parameterTypeRef="csp_src" shortDescription="Source">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_xtea" parameterTypeRef="csp_xtea" shortDescription="Use XTEA encryption">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_batt_in" parameterTypeRef="current_batt_in">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_batt_out" parameterTypeRef="current_batt_out">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output1" parameterTypeRef="current_output1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output10" parameterTypeRef="current_output10">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output11" parameterTypeRef="current_output11">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output12" parameterTypeRef="current_output12">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output13" parameterTypeRef="current_output13">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output14" parameterTypeRef="current_output14">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output15" parameterTypeRef="current_output15">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output16" parameterTypeRef="current_output16">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output17" parameterTypeRef="current_output17">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output18" parameterTypeRef="current_output18">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output2" parameterTypeRef="current_output2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output3" parameterTypeRef="current_output3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output4" parameterTypeRef="current_output4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output5" parameterTypeRef="current_output5">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output6" parameterTypeRef="current_output6">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output7" parameterTypeRef="current_output7">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output8" parameterTypeRef="current_output8">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_output9" parameterTypeRef="current_output9">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_solar" parameterTypeRef="current_solar">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_solar_panel1" parameterTypeRef="current_solar_panel1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_solar_panel2" parameterTypeRef="current_solar_panel2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_solar_panel3" parameterTypeRef="current_solar_panel3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_solar_panel4" parameterTypeRef="current_solar_panel4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_solar_panel5" parameterTypeRef="current_solar_panel5">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_solar_panel6" parameterTypeRef="current_solar_panel6">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_solar_panel7" parameterTypeRef="current_solar_panel7">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="current_solar_panel8" parameterTypeRef="current_solar_panel8">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="mppt_mode" parameterTypeRef="mppt_mode">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="mppt_vol1" parameterTypeRef="mppt_vol1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="mppt_vol2" parameterTypeRef="mppt_vol2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="mppt_vol3" parameterTypeRef="mppt_vol3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="mppt_vol4" parameterTypeRef="mppt_vol4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count1" parameterTypeRef="output_fault_count1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count10" parameterTypeRef="output_fault_count10">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count11" parameterTypeRef="output_fault_count11">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count12" parameterTypeRef="output_fault_count12">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count13" parameterTypeRef="output_fault_count13">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count14" parameterTypeRef="output_fault_count14">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count15" parameterTypeRef="output_fault_count15">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count16" parameterTypeRef="output_fault_count16">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count17" parameterTypeRef="output_fault_count17">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count18" parameterTypeRef="output_fault_count18">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count2" parameterTypeRef="output_fault_count2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count3" parameterTypeRef="output_fault_count3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count4" parameterTypeRef="output_fault_count4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count5" parameterTypeRef="output_fault_count5">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count6" parameterTypeRef="output_fault_count6">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count7" parameterTypeRef="output_fault_count7">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count8" parameterTypeRef="output_fault_count8">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_count9" parameterTypeRef="output_fault_count9">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status1" parameterTypeRef="output_fault_status1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status10" parameterTypeRef="output_fault_status10">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status11" parameterTypeRef="output_fault_status11">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status12" parameterTypeRef="output_fault_status12">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status13" parameterTypeRef="output_fault_status13">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status14" parameterTypeRef="output_fault_status14">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status15" parameterTypeRef="output_fault_status15">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status16" parameterTypeRef="output_fault_status16">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status17" parameterTypeRef="output_fault_status17">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status18" parameterTypeRef="output_fault_status18">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status2" parameterTypeRef="output_fault_status2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status3" parameterTypeRef="output_fault_status3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status4" parameterTypeRef="output_fault_status4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status5" parameterTypeRef="output_fault_status5">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status6" parameterTypeRef="output_fault_status6">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status7" parameterTypeRef="output_fault_status7">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status8" parameterTypeRef="output_fault_status8">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_fault_status9" parameterTypeRef="output_fault_status9">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta1" parameterTypeRef="output_off_delta1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta10" parameterTypeRef="output_off_delta10">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta11" parameterTypeRef="output_off_delta11">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta12" parameterTypeRef="output_off_delta12">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta13" parameterTypeRef="output_off_delta13">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta14" parameterTypeRef="output_off_delta14">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta15" parameterTypeRef="output_off_delta15">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta16" parameterTypeRef="output_off_delta16">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta17" parameterTypeRef="output_off_delta17">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta18" parameterTypeRef="output_off_delta18">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta2" parameterTypeRef="output_off_delta2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta3" parameterTypeRef="output_off_delta3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta4" parameterTypeRef="output_off_delta4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta5" parameterTypeRef="output_off_delta5">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta6" parameterTypeRef="output_off_delta6">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta7" parameterTypeRef="output_off_delta7">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta8" parameterTypeRef="output_off_delta8">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_off_delta9" parameterTypeRef="output_off_delta9">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta1" parameterTypeRef="output_on_delta1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta10" parameterTypeRef="output_on_delta10">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta11" parameterTypeRef="output_on_delta11">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta12" parameterTypeRef="output_on_delta12">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta13" parameterTypeRef="output_on_delta13">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta14" parameterTypeRef="output_on_delta14">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta15" parameterTypeRef="output_on_delta15">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta16" parameterTypeRef="output_on_delta16">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta17" parameterTypeRef="output_on_delta17">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta18" parameterTypeRef="output_on_delta18">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta2" parameterTypeRef="output_on_delta2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta3" parameterTypeRef="output_on_delta3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta4" parameterTypeRef="output_on_delta4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta5" parameterTypeRef="output_on_delta5">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta6" parameterTypeRef="output_on_delta6">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta7" parameterTypeRef="output_on_delta7">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta8" parameterTypeRef="output_on_delta8">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_on_delta9" parameterTypeRef="output_on_delta9">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status1" parameterTypeRef="output_status1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status10" parameterTypeRef="output_status10">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status11" parameterTypeRef="output_status11">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status12" parameterTypeRef="output_status12">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status13" parameterTypeRef="output_status13">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status14" parameterTypeRef="output_status14">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status15" parameterTypeRef="output_status15">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status16" parameterTypeRef="output_status16">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status17" parameterTypeRef="output_status17">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status18" parameterTypeRef="output_status18">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status2" parameterTypeRef="output_status2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status3" parameterTypeRef="output_status3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status4" parameterTypeRef="output_status4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status5" parameterTypeRef="output_status5">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status6" parameterTypeRef="output_status6">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status7" parameterTypeRef="output_status7">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status8" parameterTypeRef="output_status8">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="output_status9" parameterTypeRef="output_status9">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ping_value" parameterTypeRef="ping_value">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ping_wdt_toggles" parameterTypeRef="ping_wdt_toggles">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ping_wdt_turn_offs" parameterTypeRef="ping_wdt_turn_offs">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="protected_access_count" parameterTypeRef="protected_access_count">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="status" parameterTypeRef="status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature1" parameterTypeRef="temperature1">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature10" parameterTypeRef="temperature10">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature11" parameterTypeRef="temperature11">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature12" parameterTypeRef="temperature12">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature13" parameterTypeRef="temperature13">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature14" parameterTypeRef="temperature14">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature2" parameterTypeRef="temperature2">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature3" parameterTypeRef="temperature3">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature4" parameterTypeRef="temperature4">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature5" parameterTypeRef="temperature5">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature6" parameterTypeRef="temperature6">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature7" parameterTypeRef="temperature7">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature8" parameterTypeRef="temperature8">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="temperature9" parameterTypeRef="temperature9">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="timestamp" parameterTypeRef="timestamp">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="uptime" parameterTypeRef="uptime">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="wdt_count" parameterTypeRef="wdt_count">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="wdt_left" parameterTypeRef="wdt_left">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="GENENAL_HK_TLM" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="timestamp">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="uptime">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="bootcount">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="wdt_left">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="wdt_count">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="mppt_vol1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="mppt_vol2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="mppt_vol3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="mppt_vol4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_solar_panel1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_solar_panel2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_solar_panel3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_solar_panel4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_solar_panel5">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_solar_panel6">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_solar_panel7">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_solar_panel8">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="battery_voltage">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_solar">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_batt_in">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_batt_out">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output5">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output6">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output7">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output8">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output9">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output10">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output11">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output12">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output13">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output14">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output15">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output16">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output17">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="current_output18">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ao_current_output1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ao_current_output2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="converter_vol1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="converter_vol2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="converter_vol3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="converter_vol4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="converter_vol5">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="converter_vol6">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="converter_vol7">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="converter_vol8">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="converter_state">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status5">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status6">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status7">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status8">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status9">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status10">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status11">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status12">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status13">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status14">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status15">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status16">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status17">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_status18">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status5">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status6">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status7">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status8">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status9">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status10">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status11">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status12">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status13">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status14">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status15">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status16">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status17">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_status18">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="protected_access_count">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta5">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta6">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta7">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta8">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta9">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta10">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta11">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta12">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta13">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta14">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta15">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta16">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta17">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_on_delta18">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta5">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta6">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta7">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta8">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta9">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta10">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta11">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta12">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta13">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta14">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta15">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta16">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta17">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_off_delta18">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count5">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count6">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count7">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count8">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count9">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count10">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count11">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count12">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count13">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count14">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count15">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count16">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count17">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="output_fault_count18">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature1">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature2">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature3">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature4">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature5">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature6">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature7">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature8">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature9">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature10">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature11">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature12">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature13">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="temperature14">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="battery_status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="mppt_mode">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="battery_heater_mode">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="battery_heater_status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ping_wdt_toggles">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ping_wdt_turn_offs">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="esp_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <ANDedConditions>
+                <Condition>
+                  <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                  <ComparisonOperator>==</ComparisonOperator>
+                  <Value>7</Value>
+                </Condition>
+                <Condition>
+                  <ParameterInstanceRef parameterRef="EPS/command_id" useCalibratedValue="true"/>
+                  <ComparisonOperator>==</ComparisonOperator>
+                  <Value>0</Value>
+                </Condition>
+              </ANDedConditions>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="GWDT_RESET" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="GWDT_error_code">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="esp_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <ANDedConditions>
+                <Condition>
+                  <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                  <ComparisonOperator>==</ComparisonOperator>
+                  <Value>16</Value>
+                </Condition>
+                <Condition>
+                  <ParameterInstanceRef parameterRef="EPS/command_id" useCalibratedValue="true"/>
+                  <ComparisonOperator>==</ComparisonOperator>
+                  <Value>0</Value>
+                </Condition>
+              </ANDedConditions>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="Get_amount" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="amount_memory">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>5</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="Get_amount_free" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="amount_free_memory">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>3</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="HW_RESET" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="HW_status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="esp_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <ANDedConditions>
+                <Condition>
+                  <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                  <ComparisonOperator>==</ComparisonOperator>
+                  <Value>15</Value>
+                </Condition>
+                <Condition>
+                  <ParameterInstanceRef parameterRef="EPS/command_id" useCalibratedValue="true"/>
+                  <ComparisonOperator>==</ComparisonOperator>
+                  <Value>1</Value>
+                </Condition>
+              </ANDedConditions>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="Sysup_time" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="Sysup_time">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>6</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="common_container" abstract="true">
+        <EntryList/>
+        <BaseContainer containerRef="../csp_message">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_src" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>EPS</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="csp_message" abstract="true" shortDescription="CubeSat Space Protocol (CSP) header 1.x">
+        <LongDescription>
+CSP Header 1.x
+
+The port range is divided into three adjustable segments.
+Ports 0 to 7 are used for general services such as ping and
+buffer status, and are implemented by the CSP service handler.
+The ports from 8 to 47 are used for subsystem specific services.
+All remaining ports, from 48 to 63, are ephemeral ports used for
+outgoing connections. The bits from 28 to 31 are used for marking
+packets with HMAC, XTEA encryption, RDP header and CRC32 checksum.
+</LongDescription>
+        <BinaryEncoding>
+          <SizeInBits>
+            <FixedValue>32</FixedValue>
+          </SizeInBits>
+        </BinaryEncoding>
+        <EntryList>
+          <ParameterRefEntry parameterRef="csp_pri">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_src">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_dst">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_dport">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_sport">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_hmac">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>4</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_xtea">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_rdp">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_crc">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+      </SequenceContainer>
+      <SequenceContainer name="esp_container" abstract="true">
+        <EntryList>
+          <ParameterRefEntry parameterRef="command_id">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container"/>
+      </SequenceContainer>
+      <SequenceContainer name="ping" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="ping_value">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>1</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <IntegerArgumentType name="GET_TM__command_id" signed="true" sizeInBits="32" initialValue="0">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerArgumentType>
+      <IntegerArgumentType name="GWDT_RESET__command_id" signed="true" sizeInBits="32" initialValue="0">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerArgumentType>
+      <IntegerArgumentType name="GWDT_RESET__magic_num" signed="true" sizeInBits="32" initialValue="30868">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerArgumentType>
+      <IntegerArgumentType name="HW_RESET__command_id" signed="true" sizeInBits="32" initialValue="1">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerArgumentType>
+      <IntegerArgumentType name="HW_RESET__magic_num" signed="true" sizeInBits="32" initialValue="17767">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerArgumentType>
+      <IntegerArgumentType name="Ping__ping_value" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_pri" initialValue="NORMAL">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="0" label="CRITICAL"/>
+          <Enumeration value="1" label="HIGH"/>
+          <Enumeration value="2" label="NORMAL"/>
+          <Enumeration value="3" label="LOW"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_src">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_dst">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <IntegerArgumentType name="csp_message__csp_dport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerArgumentType>
+      <BooleanArgumentType name="csp_message__csp_hmac" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_xtea" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_rdp" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_crc" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="CMP" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="0"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="CMP">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="GET_TM" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="7"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="command_id" argumentTypeRef="GET_TM__command_id"/>
+        </ArgumentList>
+        <CommandContainer name="GET_TM">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="command_id">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="GWDT_RESET" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="16"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="command_id" argumentTypeRef="GWDT_RESET__command_id"/>
+          <Argument name="magic_num" argumentTypeRef="GWDT_RESET__magic_num"/>
+        </ArgumentList>
+        <CommandContainer name="GWDT_RESET">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="command_id">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="magic_num">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Get_amount" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="5"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="Get_amount">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Get_amount_free" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="3"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="Get_amount_free">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="HW_RESET" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="15"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="command_id" argumentTypeRef="HW_RESET__command_id"/>
+          <Argument name="magic_num" argumentTypeRef="HW_RESET__magic_num"/>
+        </ArgumentList>
+        <CommandContainer name="HW_RESET">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="command_id">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="magic_num">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="MyGeneralCommand" abstract="true">
+        <BaseMetaCommand metaCommandRef="csp_message">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dst" argumentValue="EPS"/>
+            <ArgumentAssignment argumentName="csp_src" argumentValue="YAMCS"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="MyGeneralCommand">
+          <EntryList/>
+          <BaseContainer containerRef="csp_message"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Ping" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="1"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="ping_value" argumentTypeRef="Ping__ping_value"/>
+        </ArgumentList>
+        <CommandContainer name="Ping">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="ping_value">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Sysup_time" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="6"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="Sysup_time">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="csp_message" abstract="true" shortDescription="CubeSat Space Protocol (CSP) header 1.x">
+        <LongDescription>
+CSP Header 1.x
+
+The port range is divided into three adjustable segments.
+Ports 0 to 7 are used for general services such as ping and
+buffer status, and are implemented by the CSP service handler.
+The ports from 8 to 47 are used for subsystem specific services.
+All remaining ports, from 48 to 63, are ephemeral ports used for
+outgoing connections. The bits from 28 to 31 are used for marking
+packets with HMAC, XTEA encryption, RDP header and CRC32 checksum.
+</LongDescription>
+        <ArgumentList>
+          <Argument name="csp_pri" argumentTypeRef="csp_message__csp_pri" shortDescription="Message priority"/>
+          <Argument name="csp_src" argumentTypeRef="csp_message__csp_src" shortDescription="Source"/>
+          <Argument name="csp_dst" argumentTypeRef="csp_message__csp_dst" shortDescription="Destination"/>
+          <Argument name="csp_dport" argumentTypeRef="csp_message__csp_dport" shortDescription="Destination port"/>
+          <Argument name="csp_hmac" argumentTypeRef="csp_message__csp_hmac" shortDescription="Use HMAC verification"/>
+          <Argument name="csp_xtea" argumentTypeRef="csp_message__csp_xtea" shortDescription="Use XTEA encryption"/>
+          <Argument name="csp_rdp" argumentTypeRef="csp_message__csp_rdp" shortDescription="Use RDP protocol"/>
+          <Argument name="csp_crc" argumentTypeRef="csp_message__csp_crc" shortDescription="Use CRC32 checksum"/>
+        </ArgumentList>
+        <CommandContainer name="csp_message">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="csp_pri">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_src">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_dst">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_dport">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <FixedValueEntry binaryValue="20" sizeInBits="6" name="csp_sport" shortDescription="Ephemeral port for outgoing connection">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </FixedValueEntry>
+            <FixedValueEntry binaryValue="00" sizeInBits="4" name="csp_reserved">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </FixedValueEntry>
+            <ArgumentRefEntry argumentRef="csp_hmac">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_xtea">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_rdp">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_crc">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>

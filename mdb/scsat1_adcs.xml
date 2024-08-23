@@ -1,0 +1,2170 @@
+<?xml version="1.0" ?>
+<!--
+This file was automatically generated with Yamcs PyMDB.
+See https://github.com/yamcs/pymdb
+-->
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd" name="ADCS">
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <FloatParameterType name="ADCS_1_TEMP" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="ADCS_1_TEMP_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="ADCS_2_TEMP" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="ADCS_2_TEMP_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVX_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVX_Bus_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVX_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVX_Shunt_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVY_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVY_Bus_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVY_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVY_Shunt_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVZ_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVZ_Bus_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVZ_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_12V_DRVZ_Shunt_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_DRV_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_DRV_Bus_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_DRV_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_DRV_Shunt_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_GPS_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_GPS_Bus_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_GPS_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_GPS_Shunt_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_IMU_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_IMU_Bus_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_IMU_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="ADCS_VDD_3V3_IMU_Shunt_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <StringParameterType name="BESTPOS_DATUM_ID">
+        <StringDataEncoding encoding="US-ASCII">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>128</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <FloatParameterType name="BESTPOS_DIFF_AGE" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="BESTPOS_EXT_SOL_STAT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="BESTPOS_GALILEO_MASK" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="BESTPOS_GPS_MASK" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <FloatParameterType name="BESTPOS_HGT_DEG" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="BESTPOS_HGT_M" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="BESTPOS_IDLE_TIME" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="BESTPOS_LAT_DEG" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="BESTPOS_LAT_M" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="BESTPOS_LON_DEG" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="BESTPOS_LON_M" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="BESTPOS_POS_RESERVED" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <StringParameterType name="BESTPOS_POS_TYPE">
+        <StringDataEncoding encoding="US-ASCII">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>192</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <IntegerParameterType name="BESTPOS_RECEIVER_STATUS" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="BESTPOS_RECEIVER_VERSION" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="BESTPOS_RESERVED" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <FloatParameterType name="BESTPOS_SECONDS" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="BESTPOS_SEQCOUNT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="BESTPOS_SEQUENCE" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="twosComplement" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="BESTPOS_SOLN1_SVS" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="BESTPOS_SOLNMULTI_SVS" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="BESTPOS_SOLN_SVS" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <FloatParameterType name="BESTPOS_SOL_AGE" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <StringParameterType name="BESTPOS_SOL_STAT">
+        <StringDataEncoding encoding="US-ASCII">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>192</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <IntegerParameterType name="BESTPOS_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <StringParameterType name="BESTPOS_STN_ID">
+        <StringDataEncoding encoding="US-ASCII">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>96</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <IntegerParameterType name="BESTPOS_SVS" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <BinaryParameterType name="BESTPOS_TIMESTATUS">
+        <BinaryDataEncoding>
+          <SizeInBits>
+            <FixedValue>80</FixedValue>
+          </SizeInBits>
+        </BinaryDataEncoding>
+      </BinaryParameterType>
+      <FloatParameterType name="BESTPOS_UNDULATION" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="BESTPOS_WEEK" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="CV_SEQCOUNT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <FloatParameterType name="HWMON_1V2_CORE_VOLTAGE" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="HWMON_1V8_VOLTAGE" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="HWMON_3V3_VOLTAGE" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="HWMON_ANTENNA_VOLTAGE" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="HWMON_IDLE_TIME" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="HWMON_RECEIVER_STATUS" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="HWMON_RECEIVER_VERSION" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="HWMON_RESERVED" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <FloatParameterType name="HWMON_SECONDS" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="HWMON_SEQCOUNT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="HWMON_SEQUENCE" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="twosComplement" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="HWMON_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="HWMON_SUPPLY_VOLTAGE" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <FloatParameterType name="HWMON_TEMP" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <BinaryParameterType name="HWMON_TIMESTATUS">
+        <BinaryDataEncoding>
+          <SizeInBits>
+            <FixedValue>80</FixedValue>
+          </SizeInBits>
+        </BinaryDataEncoding>
+      </BinaryParameterType>
+      <IntegerParameterType name="HWMON_WEEK" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="HWTEST_ERR_COUNT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <StringParameterType name="HWTEST_LAST_CMD">
+        <StringDataEncoding encoding="US-ASCII">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>256</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <IntegerParameterType name="HWTEST_LOOP_COUNT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="HWTEST_RESULT_SEQCOUNT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <StringParameterType name="HWTEST_VERSION">
+        <StringDataEncoding encoding="US-ASCII">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>256</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <IntegerParameterType name="IMU_ACC_X" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_ACC_Y" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_ACC_Z" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_GYRO_X" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_GYRO_Y" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_GYRO_Z" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_ID" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_SEQCOUNT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_TEMP" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="IMU_TIMESTAMP" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_1V0_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_1V0_Bus_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_1V0_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_1V0_Shunt_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_1V8_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_1V8_Bus_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_1V8_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_1V8_Shunt_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="OBC_1_TEMP" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="OBC_1_TEMP_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="OBC_2_TEMP" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="OBC_2_TEMP_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_Bus_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_IO_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_IO_Bus_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_IO_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_IO_Shunt_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_SYSA_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_SYSA_Bus_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_SYSA_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_SYSA_Shunt_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_SYSB_Bus" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_SYSB_Bus_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_SYSB_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_SYSB_Shunt_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_Shunt" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="OBC_3V3_Shunt_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="OBC_3_TEMP" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="OBC_3_TEMP_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="OBC_XADC_TEMP" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="OBC_XADC_TEMP_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="OBC_XADC_VCCAUX" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="OBC_XADC_VCCAUX_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="OBC_XADC_VCCBRAM" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="OBC_XADC_VCCBRAM_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <FloatParameterType name="OBC_XADC_VCCINT" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="OBC_XADC_VCCINT_STATUS" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="RW_SEQCOUNT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <FloatParameterType name="RW_TEMP" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" encoding="IEEE754_1985" byteOrder="leastSignificantByteFirst"/>
+      </FloatParameterType>
+      <IntegerParameterType name="RW_TEMP_Status" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="8" encoding="twosComplement"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="RW_X_COUNT" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="twosComplement" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="RW_Y_COUNT" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="twosComplement" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="RW_Z_COUNT" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="twosComplement" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="Sysup_time" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="TEMP_SEQCOUNT" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="amount_free_memory" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="amount_memory" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <BooleanParameterType name="csp_crc" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="csp_dport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerParameterType>
+      <EnumeratedParameterType name="csp_dst">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_hmac" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <EnumeratedParameterType name="csp_pri">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="0" label="CRITICAL"/>
+          <Enumeration value="1" label="HIGH"/>
+          <Enumeration value="2" label="NORMAL"/>
+          <Enumeration value="3" label="LOW"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_rdp" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="csp_sport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerParameterType>
+      <EnumeratedParameterType name="csp_src">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedParameterType>
+      <BooleanParameterType name="csp_xtea" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanParameterType>
+      <IntegerParameterType name="ping_value" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerParameterType>
+      <IntegerParameterType name="telemetry_id" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </IntegerParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="ADCS_1_TEMP" parameterTypeRef="ADCS_1_TEMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_1_TEMP_Status" parameterTypeRef="ADCS_1_TEMP_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_2_TEMP" parameterTypeRef="ADCS_2_TEMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_2_TEMP_Status" parameterTypeRef="ADCS_2_TEMP_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVX_Bus" parameterTypeRef="ADCS_VDD_12V_DRVX_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVX_Bus_STATUS" parameterTypeRef="ADCS_VDD_12V_DRVX_Bus_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVX_Shunt" parameterTypeRef="ADCS_VDD_12V_DRVX_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVX_Shunt_STATUS" parameterTypeRef="ADCS_VDD_12V_DRVX_Shunt_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVY_Bus" parameterTypeRef="ADCS_VDD_12V_DRVY_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVY_Bus_STATUS" parameterTypeRef="ADCS_VDD_12V_DRVY_Bus_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVY_Shunt" parameterTypeRef="ADCS_VDD_12V_DRVY_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVY_Shunt_STATUS" parameterTypeRef="ADCS_VDD_12V_DRVY_Shunt_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVZ_Bus" parameterTypeRef="ADCS_VDD_12V_DRVZ_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVZ_Bus_STATUS" parameterTypeRef="ADCS_VDD_12V_DRVZ_Bus_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVZ_Shunt" parameterTypeRef="ADCS_VDD_12V_DRVZ_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_12V_DRVZ_Shunt_STATUS" parameterTypeRef="ADCS_VDD_12V_DRVZ_Shunt_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_DRV_Bus" parameterTypeRef="ADCS_VDD_3V3_DRV_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_DRV_Bus_STATUS" parameterTypeRef="ADCS_VDD_3V3_DRV_Bus_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_DRV_Shunt" parameterTypeRef="ADCS_VDD_3V3_DRV_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_DRV_Shunt_STATUS" parameterTypeRef="ADCS_VDD_3V3_DRV_Shunt_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_GPS_Bus" parameterTypeRef="ADCS_VDD_3V3_GPS_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_GPS_Bus_STATUS" parameterTypeRef="ADCS_VDD_3V3_GPS_Bus_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_GPS_Shunt" parameterTypeRef="ADCS_VDD_3V3_GPS_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_GPS_Shunt_STATUS" parameterTypeRef="ADCS_VDD_3V3_GPS_Shunt_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_IMU_Bus" parameterTypeRef="ADCS_VDD_3V3_IMU_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_IMU_Bus_STATUS" parameterTypeRef="ADCS_VDD_3V3_IMU_Bus_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_IMU_Shunt" parameterTypeRef="ADCS_VDD_3V3_IMU_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ADCS_VDD_3V3_IMU_Shunt_STATUS" parameterTypeRef="ADCS_VDD_3V3_IMU_Shunt_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_DATUM_ID" parameterTypeRef="BESTPOS_DATUM_ID">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_DIFF_AGE" parameterTypeRef="BESTPOS_DIFF_AGE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_EXT_SOL_STAT" parameterTypeRef="BESTPOS_EXT_SOL_STAT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_GALILEO_MASK" parameterTypeRef="BESTPOS_GALILEO_MASK">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_GPS_MASK" parameterTypeRef="BESTPOS_GPS_MASK">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_HGT_DEG" parameterTypeRef="BESTPOS_HGT_DEG">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_HGT_M" parameterTypeRef="BESTPOS_HGT_M">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_IDLE_TIME" parameterTypeRef="BESTPOS_IDLE_TIME">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_LAT_DEG" parameterTypeRef="BESTPOS_LAT_DEG">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_LAT_M" parameterTypeRef="BESTPOS_LAT_M">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_LON_DEG" parameterTypeRef="BESTPOS_LON_DEG">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_LON_M" parameterTypeRef="BESTPOS_LON_M">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_POS_RESERVED" parameterTypeRef="BESTPOS_POS_RESERVED">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_POS_TYPE" parameterTypeRef="BESTPOS_POS_TYPE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_RECEIVER_STATUS" parameterTypeRef="BESTPOS_RECEIVER_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_RECEIVER_VERSION" parameterTypeRef="BESTPOS_RECEIVER_VERSION">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_RESERVED" parameterTypeRef="BESTPOS_RESERVED">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_SECONDS" parameterTypeRef="BESTPOS_SECONDS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_SEQCOUNT" parameterTypeRef="BESTPOS_SEQCOUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_SEQUENCE" parameterTypeRef="BESTPOS_SEQUENCE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_SOLN1_SVS" parameterTypeRef="BESTPOS_SOLN1_SVS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_SOLNMULTI_SVS" parameterTypeRef="BESTPOS_SOLNMULTI_SVS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_SOLN_SVS" parameterTypeRef="BESTPOS_SOLN_SVS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_SOL_AGE" parameterTypeRef="BESTPOS_SOL_AGE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_SOL_STAT" parameterTypeRef="BESTPOS_SOL_STAT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_STATUS" parameterTypeRef="BESTPOS_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_STN_ID" parameterTypeRef="BESTPOS_STN_ID">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_SVS" parameterTypeRef="BESTPOS_SVS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_TIMESTATUS" parameterTypeRef="BESTPOS_TIMESTATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_UNDULATION" parameterTypeRef="BESTPOS_UNDULATION">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="BESTPOS_WEEK" parameterTypeRef="BESTPOS_WEEK">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="CV_SEQCOUNT" parameterTypeRef="CV_SEQCOUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_1V2_CORE_VOLTAGE" parameterTypeRef="HWMON_1V2_CORE_VOLTAGE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_1V8_VOLTAGE" parameterTypeRef="HWMON_1V8_VOLTAGE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_3V3_VOLTAGE" parameterTypeRef="HWMON_3V3_VOLTAGE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_ANTENNA_VOLTAGE" parameterTypeRef="HWMON_ANTENNA_VOLTAGE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_IDLE_TIME" parameterTypeRef="HWMON_IDLE_TIME">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_RECEIVER_STATUS" parameterTypeRef="HWMON_RECEIVER_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_RECEIVER_VERSION" parameterTypeRef="HWMON_RECEIVER_VERSION">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_RESERVED" parameterTypeRef="HWMON_RESERVED">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_SECONDS" parameterTypeRef="HWMON_SECONDS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_SEQCOUNT" parameterTypeRef="HWMON_SEQCOUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_SEQUENCE" parameterTypeRef="HWMON_SEQUENCE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_STATUS" parameterTypeRef="HWMON_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_SUPPLY_VOLTAGE" parameterTypeRef="HWMON_SUPPLY_VOLTAGE">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_TEMP" parameterTypeRef="HWMON_TEMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_TIMESTATUS" parameterTypeRef="HWMON_TIMESTATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWMON_WEEK" parameterTypeRef="HWMON_WEEK">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWTEST_ERR_COUNT" parameterTypeRef="HWTEST_ERR_COUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWTEST_LAST_CMD" parameterTypeRef="HWTEST_LAST_CMD">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWTEST_LOOP_COUNT" parameterTypeRef="HWTEST_LOOP_COUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWTEST_RESULT_SEQCOUNT" parameterTypeRef="HWTEST_RESULT_SEQCOUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="HWTEST_VERSION" parameterTypeRef="HWTEST_VERSION">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_ACC_X" parameterTypeRef="IMU_ACC_X">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_ACC_Y" parameterTypeRef="IMU_ACC_Y">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_ACC_Z" parameterTypeRef="IMU_ACC_Z">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_GYRO_X" parameterTypeRef="IMU_GYRO_X">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_GYRO_Y" parameterTypeRef="IMU_GYRO_Y">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_GYRO_Z" parameterTypeRef="IMU_GYRO_Z">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_ID" parameterTypeRef="IMU_ID">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_SEQCOUNT" parameterTypeRef="IMU_SEQCOUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_STATUS" parameterTypeRef="IMU_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_TEMP" parameterTypeRef="IMU_TEMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="IMU_TIMESTAMP" parameterTypeRef="IMU_TIMESTAMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1V0_Bus" parameterTypeRef="OBC_1V0_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1V0_Bus_Status" parameterTypeRef="OBC_1V0_Bus_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1V0_Shunt" parameterTypeRef="OBC_1V0_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1V0_Shunt_Status" parameterTypeRef="OBC_1V0_Shunt_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1V8_Bus" parameterTypeRef="OBC_1V8_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1V8_Bus_Status" parameterTypeRef="OBC_1V8_Bus_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1V8_Shunt" parameterTypeRef="OBC_1V8_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1V8_Shunt_Status" parameterTypeRef="OBC_1V8_Shunt_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1_TEMP" parameterTypeRef="OBC_1_TEMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_1_TEMP_Status" parameterTypeRef="OBC_1_TEMP_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_2_TEMP" parameterTypeRef="OBC_2_TEMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_2_TEMP_Status" parameterTypeRef="OBC_2_TEMP_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_Bus" parameterTypeRef="OBC_3V3_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_Bus_Status" parameterTypeRef="OBC_3V3_Bus_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_IO_Bus" parameterTypeRef="OBC_3V3_IO_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_IO_Bus_Status" parameterTypeRef="OBC_3V3_IO_Bus_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_IO_Shunt" parameterTypeRef="OBC_3V3_IO_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_IO_Shunt_Status" parameterTypeRef="OBC_3V3_IO_Shunt_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_SYSA_Bus" parameterTypeRef="OBC_3V3_SYSA_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_SYSA_Bus_Status" parameterTypeRef="OBC_3V3_SYSA_Bus_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_SYSA_Shunt" parameterTypeRef="OBC_3V3_SYSA_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_SYSA_Shunt_Status" parameterTypeRef="OBC_3V3_SYSA_Shunt_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_SYSB_Bus" parameterTypeRef="OBC_3V3_SYSB_Bus">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_SYSB_Bus_Status" parameterTypeRef="OBC_3V3_SYSB_Bus_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_SYSB_Shunt" parameterTypeRef="OBC_3V3_SYSB_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_SYSB_Shunt_Status" parameterTypeRef="OBC_3V3_SYSB_Shunt_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_Shunt" parameterTypeRef="OBC_3V3_Shunt">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3V3_Shunt_Status" parameterTypeRef="OBC_3V3_Shunt_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3_TEMP" parameterTypeRef="OBC_3_TEMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_3_TEMP_Status" parameterTypeRef="OBC_3_TEMP_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_XADC_TEMP" parameterTypeRef="OBC_XADC_TEMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_XADC_TEMP_Status" parameterTypeRef="OBC_XADC_TEMP_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_XADC_VCCAUX" parameterTypeRef="OBC_XADC_VCCAUX">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_XADC_VCCAUX_STATUS" parameterTypeRef="OBC_XADC_VCCAUX_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_XADC_VCCBRAM" parameterTypeRef="OBC_XADC_VCCBRAM">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_XADC_VCCBRAM_STATUS" parameterTypeRef="OBC_XADC_VCCBRAM_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_XADC_VCCINT" parameterTypeRef="OBC_XADC_VCCINT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="OBC_XADC_VCCINT_STATUS" parameterTypeRef="OBC_XADC_VCCINT_STATUS">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="RW_SEQCOUNT" parameterTypeRef="RW_SEQCOUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="RW_TEMP" parameterTypeRef="RW_TEMP">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="RW_TEMP_Status" parameterTypeRef="RW_TEMP_Status">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="RW_X_COUNT" parameterTypeRef="RW_X_COUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="RW_Y_COUNT" parameterTypeRef="RW_Y_COUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="RW_Z_COUNT" parameterTypeRef="RW_Z_COUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="Sysup_time" parameterTypeRef="Sysup_time">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="TEMP_SEQCOUNT" parameterTypeRef="TEMP_SEQCOUNT">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="amount_free_memory" parameterTypeRef="amount_free_memory">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="amount_memory" parameterTypeRef="amount_memory">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_crc" parameterTypeRef="csp_crc" shortDescription="Use CRC32 checksum">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_dport" parameterTypeRef="csp_dport" shortDescription="Destination port">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_dst" parameterTypeRef="csp_dst" shortDescription="Destination">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_hmac" parameterTypeRef="csp_hmac" shortDescription="Use HMAC verification">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_pri" parameterTypeRef="csp_pri" shortDescription="Message priority">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_rdp" parameterTypeRef="csp_rdp" shortDescription="Use RDP protocol">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_sport" parameterTypeRef="csp_sport" shortDescription="Source port">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_src" parameterTypeRef="csp_src" shortDescription="Source">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="csp_xtea" parameterTypeRef="csp_xtea" shortDescription="Use XTEA encryption">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="ping_value" parameterTypeRef="ping_value">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+      <Parameter name="telemetry_id" parameterTypeRef="telemetry_id">
+        <ParameterProperties dataSource="telemetered" persistence="true"/>
+      </Parameter>
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="CURRENT_VOLTAGE" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CV_SEQCOUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1V0_Shunt_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1V0_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1V0_Bus_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1V0_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1V8_Shunt_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1V8_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1V8_Bus_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1V8_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_Shunt_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_Bus_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_SYSA_Shunt_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_SYSA_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_SYSA_Bus_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_SYSA_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_SYSB_Shunt_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_SYSB_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_SYSB_Bus_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_SYSB_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_IO_Shunt_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_IO_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_IO_Bus_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3V3_IO_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_XADC_VCCINT_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_XADC_VCCINT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_XADC_VCCAUX_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_XADC_VCCAUX">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_XADC_VCCBRAM_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_XADC_VCCBRAM">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_IMU_Shunt_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_IMU_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_IMU_Bus_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_IMU_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_GPS_Shunt_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_GPS_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_GPS_Bus_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_GPS_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_DRV_Shunt_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_DRV_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_DRV_Bus_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_3V3_DRV_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVX_Shunt_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVX_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVX_Bus_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVX_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVY_Shunt_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVY_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVY_Bus_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVY_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVZ_Shunt_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVZ_Shunt">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVZ_Bus_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_VDD_12V_DRVZ_Bus">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="adcs_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="ADCS/telemetry_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>10</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="GNSS_BESTPOS" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="BESTPOS_SEQCOUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_SEQUENCE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_IDLE_TIME">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_TIMESTATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_WEEK">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_SECONDS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_RECEIVER_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_RESERVED">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_RECEIVER_VERSION">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_SOL_STAT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_POS_TYPE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_LAT_DEG">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_LON_DEG">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_HGT_DEG">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_UNDULATION">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_DATUM_ID">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_LAT_M">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_LON_M">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_HGT_M">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_STN_ID">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_DIFF_AGE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_SOL_AGE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_SVS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_SOLN_SVS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_SOLN1_SVS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_SOLNMULTI_SVS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_POS_RESERVED">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_EXT_SOL_STAT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_GALILEO_MASK">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="BESTPOS_GPS_MASK">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="adcs_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="ADCS/telemetry_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>13</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="GNSS_HWMON" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="HWMON_SEQCOUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_SEQUENCE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_IDLE_TIME">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_TIMESTATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_WEEK">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_SECONDS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_RECEIVER_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_RESERVED">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_RECEIVER_VERSION">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_TEMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_3V3_VOLTAGE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_ANTENNA_VOLTAGE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_1V2_CORE_VOLTAGE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_SUPPLY_VOLTAGE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWMON_1V8_VOLTAGE">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="adcs_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="ADCS/telemetry_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>12</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="Get_amount" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="amount_memory">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>5</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="Get_amount_free" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="amount_free_memory">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>3</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="HWTEST_RESULT" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="HWTEST_RESULT_SEQCOUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWTEST_LOOP_COUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWTEST_ERR_COUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWTEST_VERSION">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="HWTEST_LAST_CMD">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="adcs_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="ADCS/telemetry_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>15</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="IMU" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="IMU_SEQCOUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_STATUS">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_ID">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_TIMESTAMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_TEMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_GYRO_X">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_GYRO_Y">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_GYRO_Z">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_ACC_X">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_ACC_Y">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="IMU_ACC_Z">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="adcs_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="ADCS/telemetry_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>11</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="RW" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="RW_SEQCOUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="RW_X_COUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="RW_Y_COUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="RW_Z_COUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="adcs_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="ADCS/telemetry_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>14</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="Sysup_time" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="Sysup_time">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>6</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="TEMP" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="TEMP_SEQCOUNT">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1_TEMP_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_1_TEMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_2_TEMP_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_2_TEMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3_TEMP_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_3_TEMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_XADC_TEMP_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="OBC_XADC_TEMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_1_TEMP_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_1_TEMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_2_TEMP_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="ADCS_2_TEMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="RW_TEMP_Status">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="RW_TEMP">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="adcs_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="ADCS/telemetry_id" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>9</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="adcs_container" abstract="true">
+        <EntryList>
+          <ParameterRefEntry parameterRef="telemetry_id">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container"/>
+      </SequenceContainer>
+      <SequenceContainer name="common_container" abstract="true">
+        <EntryList/>
+        <BaseContainer containerRef="../csp_message">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_src" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>ADCS</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="csp_message" abstract="true" shortDescription="CubeSat Space Protocol (CSP) header 1.x">
+        <LongDescription>
+CSP Header 1.x
+
+The port range is divided into three adjustable segments.
+Ports 0 to 7 are used for general services such as ping and
+buffer status, and are implemented by the CSP service handler.
+The ports from 8 to 47 are used for subsystem specific services.
+All remaining ports, from 48 to 63, are ephemeral ports used for
+outgoing connections. The bits from 28 to 31 are used for marking
+packets with HMAC, XTEA encryption, RDP header and CRC32 checksum.
+</LongDescription>
+        <BinaryEncoding>
+          <SizeInBits>
+            <FixedValue>32</FixedValue>
+          </SizeInBits>
+        </BinaryEncoding>
+        <EntryList>
+          <ParameterRefEntry parameterRef="csp_pri">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_src">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_dst">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_dport">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_sport">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_hmac">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>4</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_xtea">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_rdp">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="csp_crc">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+      </SequenceContainer>
+      <SequenceContainer name="ping" abstract="false">
+        <EntryList>
+          <ParameterRefEntry parameterRef="ping_value">
+            <LocationInContainerInBits referenceLocation="previousEntry">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="common_container">
+          <RestrictionCriteria>
+            <BooleanExpression>
+              <Condition>
+                <ParameterInstanceRef parameterRef="../csp_sport" useCalibratedValue="true"/>
+                <ComparisonOperator>==</ComparisonOperator>
+                <Value>1</Value>
+              </Condition>
+            </BooleanExpression>
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <IntegerArgumentType name="Ping__ping_value" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst"/>
+      </IntegerArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_pri" initialValue="NORMAL">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="0" label="CRITICAL"/>
+          <Enumeration value="1" label="HIGH"/>
+          <Enumeration value="2" label="NORMAL"/>
+          <Enumeration value="3" label="LOW"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_src">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <EnumeratedArgumentType name="csp_message__csp_dst">
+        <IntegerDataEncoding sizeInBits="5" encoding="unsigned"/>
+        <EnumerationList>
+          <Enumeration value="4" label="EPS"/>
+          <Enumeration value="1" label="MAIN"/>
+          <Enumeration value="2" label="ADCS"/>
+          <Enumeration value="22" label="YAMCS"/>
+          <Enumeration value="21" label="SRS3"/>
+        </EnumerationList>
+      </EnumeratedArgumentType>
+      <IntegerArgumentType name="csp_message__csp_dport" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="6" encoding="unsigned"/>
+      </IntegerArgumentType>
+      <BooleanArgumentType name="csp_message__csp_hmac" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_xtea" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_rdp" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+      <BooleanArgumentType name="csp_message__csp_crc" initialValue="False" zeroStringValue="False" oneStringValue="True">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned"/>
+      </BooleanArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="CMP" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="0"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="CMP">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Get_amount" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="5"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="Get_amount">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Get_amount_free" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="3"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="Get_amount_free">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="MyGeneralCommand" abstract="true">
+        <BaseMetaCommand metaCommandRef="csp_message">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dst" argumentValue="ADCS"/>
+            <ArgumentAssignment argumentName="csp_src" argumentValue="YAMCS"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="MyGeneralCommand">
+          <EntryList/>
+          <BaseContainer containerRef="csp_message"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Ping" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="1"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <ArgumentList>
+          <Argument name="ping_value" argumentTypeRef="Ping__ping_value"/>
+        </ArgumentList>
+        <CommandContainer name="Ping">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="ping_value">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="Sysup_time" abstract="false">
+        <BaseMetaCommand metaCommandRef="MyGeneralCommand">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="csp_dport" argumentValue="6"/>
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
+        <CommandContainer name="Sysup_time">
+          <EntryList/>
+          <BaseContainer containerRef="MyGeneralCommand"/>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+      <MetaCommand name="csp_message" abstract="true" shortDescription="CubeSat Space Protocol (CSP) header 1.x">
+        <LongDescription>
+CSP Header 1.x
+
+The port range is divided into three adjustable segments.
+Ports 0 to 7 are used for general services such as ping and
+buffer status, and are implemented by the CSP service handler.
+The ports from 8 to 47 are used for subsystem specific services.
+All remaining ports, from 48 to 63, are ephemeral ports used for
+outgoing connections. The bits from 28 to 31 are used for marking
+packets with HMAC, XTEA encryption, RDP header and CRC32 checksum.
+</LongDescription>
+        <ArgumentList>
+          <Argument name="csp_pri" argumentTypeRef="csp_message__csp_pri" shortDescription="Message priority"/>
+          <Argument name="csp_src" argumentTypeRef="csp_message__csp_src" shortDescription="Source"/>
+          <Argument name="csp_dst" argumentTypeRef="csp_message__csp_dst" shortDescription="Destination"/>
+          <Argument name="csp_dport" argumentTypeRef="csp_message__csp_dport" shortDescription="Destination port"/>
+          <Argument name="csp_hmac" argumentTypeRef="csp_message__csp_hmac" shortDescription="Use HMAC verification"/>
+          <Argument name="csp_xtea" argumentTypeRef="csp_message__csp_xtea" shortDescription="Use XTEA encryption"/>
+          <Argument name="csp_rdp" argumentTypeRef="csp_message__csp_rdp" shortDescription="Use RDP protocol"/>
+          <Argument name="csp_crc" argumentTypeRef="csp_message__csp_crc" shortDescription="Use CRC32 checksum"/>
+        </ArgumentList>
+        <CommandContainer name="csp_message">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="csp_pri">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_src">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_dst">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_dport">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <FixedValueEntry binaryValue="20" sizeInBits="6" name="csp_sport" shortDescription="Ephemeral port for outgoing connection">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </FixedValueEntry>
+            <FixedValueEntry binaryValue="00" sizeInBits="4" name="csp_reserved">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </FixedValueEntry>
+            <ArgumentRefEntry argumentRef="csp_hmac">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_xtea">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_rdp">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="csp_crc">
+              <LocationInContainerInBits referenceLocation="previousEntry">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+        <DefaultSignificance consequenceLevel="normal"/>
+        <VerifierSet/>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>
