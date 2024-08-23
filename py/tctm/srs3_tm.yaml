@@ -1,0 +1,233 @@
+headers:
+  - name: "common_container"
+    base: "../csp_message"
+    conditions:
+      - name: "../csp_src"
+        val: SRS3
+  - name: "srs3_header"
+    base: "common_container"
+    parameters:
+      - name: "telemetry_id"
+        bit: 8
+      - name: "srs3_reserved"
+        bit: 16
+      - name: "srs3_id"
+        bit: 16 
+    conditions:
+      - name: "../csp_sport"
+        val: 19
+
+# default設定
+# endian: false
+# type: int
+# signed: false
+# bit: 16
+
+containers:
+# csp 共通 reply
+  - name: ping
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 1
+    parameters:
+      - name: "ping_value"
+  - name: Get_amount_free
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 3
+    parameters:
+      - name: "amount_free_memory"
+        bit: 32
+  - name: Get_amount
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 5
+    parameters:
+      - name: "amount_memory"
+        bit: 32
+  - name: Sysup_time
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 6
+    parameters:
+      - name: "Sysup_time"
+        bit: 32
+
+# Command reply
+  - name: TM
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x7495
+    parameters:
+      - name: "temp_mcu"
+        bit: 16
+        signed: true
+      - name: "temp_power"
+        bit: 16
+        signed: true
+      - name: "temp_lna"
+        bit: 16
+        signed: true
+      - name: "temp_pa"
+        bit: 16
+        signed: true
+      - name: "volt_vin"
+        bit: 16
+      - name: "volt_vreg"
+        bit: 16
+      - name: "volt_3v3"
+        bit: 16
+      - name: "curr_vin"
+        bit: 16
+        signed: true
+      - name: "curr_vreg"
+        bit: 16
+        signed: true
+      - name: "curr_3v3"
+        bit: 16
+        signed: true
+      - name: "power_vin"
+        bit: 16
+      - name: "power_vreg"
+        bit: 16
+      - name: "power_3v3"
+        bit: 16
+
+  - name: SYS_BOOT_COUNT
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x428c
+    parameters:
+      - name: "boot_count"
+        bit: 32
+
+  - name: SYS_GWDT_COUNTER
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x4290
+    parameters:
+      - name: "gwdt_counter"
+        bit: 32
+
+  - name: TX
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x11e4
+    parameters:
+      - name: "tx_allow_always"
+        bit: 8
+        signed: true
+      - name: "tx_allow_time"
+        bit: 16
+      - name: "tx_freq"
+        bit: 32
+      - name: "tx_rate"
+        bit: 32
+      - name: "tx_bt"
+        bit: 8
+      - name: "tx_pout"
+        type: float
+        bit: 32
+      - name: "tx_gain"
+        bit: 16
+      - name: "tx_alc_mode"
+        bit: 8
+      - name: "tx_alc_kp"
+        type: float
+        bit: 32
+      - name: "tx_alc_limit"
+        bit: 16
+      - name: "tx_alc_gain"
+        bit: 16
+      - name: "tx_rs"
+        bit: 8
+        signed: true
+      - name: "tx_cc"
+        bit: 8
+        signed: true
+      - name: "tx_rand"
+        bit: 8
+        signed: true
+      - name: "tx_crc"
+        bit: 8
+        signed: true
+      - name: "tx_idle_frames"
+        bit: 16
+      - name: "tx_train_type"
+        bit: 8
+      - name: "tx_preamble"
+        bit: 16
+      - name: "tx_postamble"
+        bit: 16
+      - name: "tx_midamble"
+        bit: 16
+      - name: "tx_size"
+        bit: 16
+      - name: "tx_id"
+        bit: 16
+      - name: "tx_crypto_key"
+        bit: 34 
+      - name: "tx_crypto_encrypt"
+        bit: 8
+      - name: "tx_crypto_auth"
+        bit: 8
+      - name: "tx_frames"
+        bit: 32
+      - name: "tx_power_forward"
+        type: float
+        bit: 32
+      - name: "tx_power_reflection"
+        type: float
+        bit: 32
+      - name: "tx_over_power"
+        bit: 16
+      - name: "tx_pll_nolock"
+        bit: 16
+
+  - name: RX
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x4203
+    parameters:
+      - name: "rx_freq"
+        bit: 32
+      - name: "rx_rate"
+        bit: 32
+      - name: "rx_bw"
+        bit: 8
+      - name: "rx_rs"
+        bit: 8
+      - name: "rx_cc"
+        bit: 8
+      - name: "rx_rand"
+        bit: 8
+      - name: "rx_crc"
+        bit: 8
+      - name: "rx_size"
+        bit: 16
+      - name: "rx_id"
+        bit: 16
+      - name: "rx_crypto_key"
+        bit: 34 
+      - name: "rx_crypto_decrypt"
+        bit: 8
+      - name: "rx_crypto_auth"
+        bit: 8
+      - name: "rx_local_drop"
+        bit: 8
+      - name: "rx_frames"
+        bit: 32
+      - name: "rx_detected"
+        bit: 32
+      - name: "rx_rssi"
+        type: float
+        bit: 32
+      - name: "rx_freqerr"
+        type: float
+        bit: 32
+      - name: "rx_pll_nolock"
+        bit: 16
