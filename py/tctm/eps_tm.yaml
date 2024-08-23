@@ -1,0 +1,340 @@
+headers:
+  - name: "common_container"
+    base: "../csp_message"
+    conditions:
+      - name: "../csp_src"
+        val: EPS
+  - name: "esp_container"
+    base: "common_container"
+    parameters:
+      - name: "command_id"
+        bit: 8
+
+# default 設定
+# endian: false
+# type: int
+# signed: false
+# bit: 16
+
+containers:
+# csp 共通 reply
+  - name: ping
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 1
+    parameters:
+      - name: "ping_value"
+  - name: Get_amount_free
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 3
+    parameters:
+      - name: "amount_free_memory"
+        bit: 32
+  - name: Get_amount
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 5
+    parameters:
+      - name: "amount_memory"
+        bit: 32
+  - name: Sysup_time
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 6
+    parameters:
+      - name: "Sysup_time"
+        bit: 32
+# Command reply
+  - name: GWDT_RESET
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "EPS/command_id"
+        val: 0
+    parameters:
+      - name: "GWDT_error_code"
+        bit: 8
+        signed: true
+  - name: HW_RESET
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 15      
+      - name: "EPS/command_id"
+        val: 1
+    parameters:
+      - name: "HW_status"
+        bit: 8
+        signed: true
+# esp original
+  - name: GENENAL_HK_TLM
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 7
+      - name: "EPS/command_id"
+        val: 0
+    parameters:
+      - name: "status"
+        bit: 8
+        signed: true
+      - name: "timestamp"
+        type: "double"
+      - name: "uptime"
+        bit: 32
+      - name: "bootcount"
+        bit: 32
+      - name: "wdt_left"
+        bit: 32
+      - name: "wdt_count"
+        bit: 32
+      - name: "mppt_vol1"
+      - name: "mppt_vol2"
+      - name: "mppt_vol3"
+      - name: "mppt_vol4"
+      - name: "current_solar_panel1"
+      - name: "current_solar_panel2"
+      - name: "current_solar_panel3"
+      - name: "current_solar_panel4"
+      - name: "current_solar_panel5"
+      - name: "current_solar_panel6"
+      - name: "current_solar_panel7"
+      - name: "current_solar_panel8"
+      - name: "battery_voltage"
+      - name: "current_solar"
+      - name: "current_batt_in"
+      - name: "current_batt_out"
+      - name: "current_output1"
+      - name: "current_output2"
+      - name: "current_output3"
+      - name: "current_output4"
+      - name: "current_output5"
+      - name: "current_output6"
+      - name: "current_output7"
+      - name: "current_output8"
+      - name: "current_output9"
+      - name: "current_output10"
+      - name: "current_output11"
+      - name: "current_output12"
+      - name: "current_output13"
+      - name: "current_output14"
+      - name: "current_output15"
+      - name: "current_output16"
+      - name: "current_output17"
+      - name: "current_output18"
+      - name: "ao_current_output1"
+      - name: "ao_current_output2"
+      - name: "converter_vol1"
+      - name: "converter_vol2"
+      - name: "converter_vol3"
+      - name: "converter_vol4"
+      - name: "converter_vol5"
+      - name: "converter_vol6"
+      - name: "converter_vol7"
+      - name: "converter_vol8"
+      - name: "converter_state"
+        bit: 8
+      - name: "output_status1"
+        bit: 1
+      - name: "output_status2"
+        bit: 1
+      - name: "output_status3"
+        bit: 1
+      - name: "output_status4"
+        bit: 1
+      - name: "output_status5"
+        bit: 1
+      - name: "output_status6"
+        bit: 1
+      - name: "output_status7"
+        bit: 1
+      - name: "output_status8"
+        bit: 1
+      - name: "output_status9"
+        bit: 1
+      - name: "output_status10"
+        bit: 1
+      - name: "output_status11"
+        bit: 1
+      - name: "output_status12"
+        bit: 1
+      - name: "output_status13"
+        bit: 1
+      - name: "output_status14"
+        bit: 1
+      - name: "output_status15"
+        bit: 1
+      - name: "output_status16"
+        bit: 1
+      - name: "output_status17"
+        bit: 1
+      - name: "output_status18"
+        bit: 1
+      - name: "output_fault_status1"
+        bit: 1
+      - name: "output_fault_status2"
+        bit: 1
+      - name: "output_fault_status3"
+        bit: 1
+      - name: "output_fault_status4"
+        bit: 1
+      - name: "output_fault_status5"
+        bit: 1
+      - name: "output_fault_status6"
+        bit: 1
+      - name: "output_fault_status7"
+        bit: 1
+      - name: "output_fault_status8"
+        bit: 1
+      - name: "output_fault_status9"
+        bit: 1
+      - name: "output_fault_status10"
+        bit: 1
+      - name: "output_fault_status11"
+        bit: 1
+      - name: "output_fault_status12"
+        bit: 1
+      - name: "output_fault_status13"
+        bit: 1
+      - name: "output_fault_status14"
+        bit: 1
+      - name: "output_fault_status15"
+        bit: 1
+      - name: "output_fault_status16"
+        bit: 1
+      - name: "output_fault_status17"
+        bit: 1
+      - name: "output_fault_status18"
+        bit: 1
+      - name: "protected_access_count"
+      - name: "output_on_delta1"
+      - name: "output_on_delta2"
+      - name: "output_on_delta3"
+      - name: "output_on_delta4"
+      - name: "output_on_delta5"
+      - name: "output_on_delta6"
+      - name: "output_on_delta7"
+      - name: "output_on_delta8"
+      - name: "output_on_delta9"
+      - name: "output_on_delta10"
+      - name: "output_on_delta11"
+      - name: "output_on_delta12"
+      - name: "output_on_delta13"
+      - name: "output_on_delta14"
+      - name: "output_on_delta15"
+      - name: "output_on_delta16"
+      - name: "output_on_delta17"
+      - name: "output_on_delta18"
+      - name: "output_off_delta1"
+      - name: "output_off_delta2"
+      - name: "output_off_delta3"
+      - name: "output_off_delta4"
+      - name: "output_off_delta5"
+      - name: "output_off_delta6"
+      - name: "output_off_delta7"
+      - name: "output_off_delta8"
+      - name: "output_off_delta9"
+      - name: "output_off_delta10"
+      - name: "output_off_delta11"
+      - name: "output_off_delta12"
+      - name: "output_off_delta13"
+      - name: "output_off_delta14"
+      - name: "output_off_delta15"
+      - name: "output_off_delta16"
+      - name: "output_off_delta17"
+      - name: "output_off_delta18"
+      - name: "output_fault_count1"
+        bit: 8
+      - name: "output_fault_count2"
+        bit: 8
+      - name: "output_fault_count3"
+        bit: 8
+      - name: "output_fault_count4"
+        bit: 8
+      - name: "output_fault_count5"
+        bit: 8
+      - name: "output_fault_count6"
+        bit: 8
+      - name: "output_fault_count7"
+        bit: 8
+      - name: "output_fault_count8"
+        bit: 8
+      - name: "output_fault_count9"
+        bit: 8
+      - name: "output_fault_count10"
+        bit: 8
+      - name: "output_fault_count11"
+        bit: 8
+      - name: "output_fault_count12"
+        bit: 8
+      - name: "output_fault_count13"
+        bit: 8
+      - name: "output_fault_count14"
+        bit: 8
+      - name: "output_fault_count15"
+        bit: 8
+      - name: "output_fault_count16"
+        bit: 8
+      - name: "output_fault_count17"
+        bit: 8
+      - name: "output_fault_count18"
+        bit: 8
+      - name: "temperature1"
+        bit: 8
+        signed: true
+      - name: "temperature2"
+        bit: 8
+        signed: true
+      - name: "temperature3"
+        bit: 8
+        signed: true
+      - name: "temperature4"
+        bit: 8
+        signed: true
+      - name: "temperature5"
+        bit: 8
+        signed: true
+      - name: "temperature6"
+        bit: 8
+        signed: true
+      - name: "temperature7"
+        bit: 8
+        signed: true
+      - name: "temperature8"
+        bit: 8
+        signed: true
+      - name: "temperature9"
+        bit: 8
+        signed: true
+      - name: "temperature10"
+        bit: 8
+        signed: true
+      - name: "temperature11"
+        bit: 8
+        signed: true
+      - name: "temperature12"
+        bit: 8
+        signed: true
+      - name: "temperature13"
+        bit: 8
+        signed: true
+      - name: "temperature14"
+        bit: 8
+        signed: true
+      - name: "battery_status"
+        bit: 8
+      - name: "mppt_mode"
+        bit: 8
+      - name: "battery_heater_mode"
+        bit: 8
+      - name: "battery_heater_status"
+        bit: 8
+      - name: "ping_wdt_toggles"
+      - name: "ping_wdt_turn_offs"
+        bit: 8

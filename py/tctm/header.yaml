@@ -1,0 +1,23 @@
+containers:
+  - name: csp-header
+    parameters:
+      - name: "csp-priority"
+        bit: 2
+      - name: "csp-source-id"
+        bit: 5
+      - name: "csp-dst-id"
+        bit: 5
+      - name: "csp-dst-port"
+        bit: 6
+      - name: "csp-source-port"
+        bit: 6
+      - name: "csp-reserved"
+        bit: 4
+      - name: "csp-hmac"
+        bit: 1
+      - name: "csp-xtea"
+        bit: 1
+      - name: "csp-rdp"
+        bit: 1
+      - name: "csp-crc"
+        bit: 1
