@@ -1,0 +1,22 @@
+prefix: /SCSAT1/SRS3/
+alarms:
+  - name: ping_value
+    critical:
+      high: 40
+      low: 10
+  - name: temp_mcu
+    critical:
+      high: 8500
+      low: -4000
+  - name: temp_power
+    critical:
+      high: 7000
+      low: -4000
+  - name: temp_lna
+    critical:
+      high: 8500
+      low: -4000
+  - name: temp_pa
+    critical:
+      high: 7000
+      low: -4000

@@ -1,0 +1,146 @@
+prefix: /SCSAT1/ADCS/
+alarms:
+  - name: OBC_1_TEMP
+    critical:
+      high: 80
+      low: -40
+  - name: OBC_2_TEMP
+    critical:
+      high: 80
+      low: -40
+  - name: OBC_3_TEMP
+    critical:
+      high: 80
+      low: -40
+  - name: OBC_XADC_TEMP
+    critical:
+      high: 125
+      low: -40
+  - name: ADCS_1_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: ADCS_2_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: RW_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: OBC_1V0_Shunt
+    critical:
+      high: 500
+      low: 0
+  - name: OBC_1V8_Shunt
+    critical:
+      high: 250
+      low: 0
+  - name: OBC_3V3_Shunt
+    critical:
+      high: 200
+      low: 40
+  - name: OBC_3V3_SYSA_Shunt
+    critical:
+      high: 300
+      low: 0
+  - name: OBC_3V3_SYSB_Shunt
+    critical:
+      high: 300
+      low: 0
+  - name: OBC_3V3_IO_Shunt
+    critical:
+      high: 100
+      low: 0
+  - name: ADCS_VDD_3V3_IMU_Shunt
+    critical:
+      high: 200
+      low: 0
+  - name: ADCS_VDD_3V3_GPS_Shunt
+    critical:
+      high: 600
+      low: 0
+  - name: ADCS_VDD_12V_DRVX_Shunt
+    critical:
+      high: 700
+      low: 0
+  - name: ADCS_VDD_12V_DRVY_Shunt
+    critical:
+      high: 700
+      low: 0
+  - name: ADCS_VDD_12V_DRVZ_Shunt
+    critical:
+      high: 700
+      low: 0
+  - name: OBC_1V0_Bus
+    critical:
+      high: 1.05
+      low: 0.95
+  - name: OBC_1V8_Bus
+    critical:
+      high: 2
+      low: 1.6
+  - name: OBC_3V3_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: OBC_3V3_SYSA_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: OBC_3V3_SYSB_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: OBC_3V3_IO_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: ADCS_VDD_3V3_IMU_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: ADCS_VDD_3V3_GPS_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: ADCS_VDD_3V3_DRV_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: ADCS_VDD_12V_DRVX_Bus
+    critical:
+      high: 12.5
+      low: 11.5
+  - name: ADCS_VDD_12V_DRVY_Bus
+    critical:
+      high: 12.5
+      low: 11.5
+  - name: ADCS_VDD_12V_DRVZ_Bus
+    critical:
+      high: 12.5
+      low: 11.5
+  - name: OBC_XADC_VCCINT
+    critical:
+      high: 1.1
+      low: 0.9
+  - name: OBC_XADC_VCCAUX
+    critical:
+      high: 2
+      low: 1.6
+  - name: OBC_XADC_VCCBRAM
+    critical:
+      high: 1.1
+      low: 0.9
+  - name: RW_X_COUNT
+    critical:
+      high: 0
+      low: -10000
+  - name: RW_Y_COUNT
+    critical:
+      high: 0
+      low: -10000
+  - name: RW_Z_COUNT
+    critical:
+      high: 10000
+      low: 0
