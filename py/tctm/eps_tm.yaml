@@ -140,77 +140,69 @@ containers:
       - name: "converter_vol8"
       - name: "converter_state"
         bit: 8
-      - name: "output_status1"
-        bit: 1
-      - name: "output_status2"
-        bit: 1
-      - name: "output_status3"
-        bit: 1
-      - name: "output_status4"
-        bit: 1
-      - name: "output_status5"
-        bit: 1
-      - name: "output_status6"
+      - name: "output_status8"
         bit: 1
       - name: "output_status7"
         bit: 1
-      - name: "output_status8"
+      - name: "output_status6"
         bit: 1
-      - name: "output_status9"
+      - name: "output_status5"
         bit: 1
-      - name: "output_status10"
+      - name: "output_status4"
         bit: 1
-      - name: "output_status11"
+      - name: "output_status3"
         bit: 1
-      - name: "output_status12"
+      - name: "output_status2"
         bit: 1
-      - name: "output_status13"
-        bit: 1
-      - name: "output_status14"
-        bit: 1
-      - name: "output_status15"
+      - name: "output_status1"
         bit: 1
       - name: "output_status16"
         bit: 1
-      - name: "output_status17"
+      - name: "output_status15"
         bit: 1
-      - name: "output_status18"
+      - name: "output_status14"
         bit: 1
-      - name: "output_fault_status1"
+      - name: "output_status13"
         bit: 1
-      - name: "output_fault_status2"
+      - name: "output_status12"
         bit: 1
-      - name: "output_fault_status3"
+      - name: "output_status11"
         bit: 1
-      - name: "output_fault_status4"
+      - name: "output_status10"
         bit: 1
-      - name: "output_fault_status5"
-        bit: 1
-      - name: "output_fault_status6"
-        bit: 1
-      - name: "output_fault_status7"
+      - name: "output_status9"
         bit: 1
       - name: "output_fault_status8"
         bit: 1
-      - name: "output_fault_status9"
+      - name: "output_fault_status7"
         bit: 1
-      - name: "output_fault_status10"
+      - name: "output_fault_status6"
         bit: 1
-      - name: "output_fault_status11"
+      - name: "output_fault_status5"
         bit: 1
-      - name: "output_fault_status12"
+      - name: "output_fault_status4"
         bit: 1
-      - name: "output_fault_status13"
+      - name: "output_fault_status3"
         bit: 1
-      - name: "output_fault_status14"
+      - name: "output_fault_status2"
         bit: 1
-      - name: "output_fault_status15"
+      - name: "output_fault_status1"
         bit: 1
       - name: "output_fault_status16"
         bit: 1
-      - name: "output_fault_status17"
+      - name: "output_fault_status15"
         bit: 1
-      - name: "output_fault_status18"
+      - name: "output_fault_status14"
+        bit: 1
+      - name: "output_fault_status13"
+        bit: 1
+      - name: "output_fault_status12"
+        bit: 1
+      - name: "output_fault_status11"
+        bit: 1
+      - name: "output_fault_status10"
+        bit: 1
+      - name: "output_fault_status9"
         bit: 1
       - name: "protected_access_count"
       - name: "output_on_delta1"
