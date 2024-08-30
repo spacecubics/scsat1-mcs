@@ -7,6 +7,12 @@
         exit 1
     fi
 
+    echo "Create MDB files..."
+    python $(dirname $0)/../py/create_xtce.py --data main
+    python $(dirname $0)/../py/create_xtce.py --data adcs
+    python $(dirname $0)/../py/create_xtce.py --data eps
+    python $(dirname $0)/../py/create_xtce.py --data srs3
+
     echo "Installing configuration and MDB files..."
     cp -a $(dirname $0)/../etc ${work_dir}/
     cp -a $(dirname $0)/../mdb ${work_dir}/
