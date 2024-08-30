@@ -58,17 +58,17 @@ mdb:
     # Valid loaders are: sheet, xtce or fully qualified name of the class
     #- type: "xtce"
     #  spec: "mdb/ref-xtce.xml"
-    - type: "sheet"
-      spec: "mdb/scsat1-header.xls"
+    - type: "xtce"
+      spec: "mdb/scsat1_header.xml"
       subLoaders:
-          - type: "sheet"
-            spec: "mdb/main-obc.xls"
-          - type: "sheet"
-            spec: "mdb/adcs-obc.xls"
-          - type: "sheet"
-            spec: "mdb/srs3.xls"
-          - type: "sheet"
-            spec: "mdb/eps.xls"
+          - type: "xtce"
+            spec: "mdb/scsat1_main.xml"
+          - type: "xtce"
+            spec: "mdb/scsat1_adcs.xml"
+          - type: "xtce"
+            spec: "mdb/scsat1_srs3.xml"
+          - type: "xtce"
+            spec: "mdb/scsat1_eps.xml"
     #Loads the performance testing mission database
     #- type: "org.yamcs.simulator.PerfMdbLoader"
     #  args:
