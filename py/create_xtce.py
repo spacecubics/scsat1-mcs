@@ -249,7 +249,9 @@ def create_tc(system, yaml, sys_name):
 
 def main():
     # option
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description='Generate Yamcs mdb definition file from YAML via Yamcs PyMDB'
+    )
     parser.add_argument("--name", choices=["srs3", "eps", "main", "adcs"], required=True)
     args = parser.parse_args()
     sys_name = args.name
