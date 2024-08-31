@@ -1,10 +1,12 @@
 #/bin/sh -e
 
-read -r -p "Please input the working directory name: " work_dir
-if [ ! -d ${work_dir} ]; then
-    echo "${work_dir} does not exist or is not a directory."
-    exit 1
+if [ -z "$1" ]; then
+  echo "Usage: $0 <directory-name>"
+  exit 1
 fi
+
+work_dir=$1
+mkdir -p "${work_dir}"
 
 echo "Create MDB files..."
 python $(dirname $0)/../py/create_xtce.py --data main
