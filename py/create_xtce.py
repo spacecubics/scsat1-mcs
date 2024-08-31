@@ -37,8 +37,6 @@ from yamcs.pymdb.expressions import (
 
 
 HEADER_OUT = 'mdb/scsat1_header.xml'
-DIR_PATH = Path(__file__).resolve().parent
-OUT_DIR_PATH = Path(DIR_PATH.parent, "mdb")
 
 
 class Subsystem(Enum):
@@ -279,9 +277,12 @@ def main():
     system = System(sys_name.upper())
     create_tm(system, yaml, args.tm)
     create_tc(system, yaml, args.tc, sys_name)
-    logging.info(f'Generating scsat1_{sys_name}.xml')
-    with open(Path(OUT_DIR_PATH, f"scsat1_{sys_name}.xml"), "wt") as f:
-        system.dump(f)
+    if args.outfile:
+        logging.info(f'Generating {args.outfile.name}')
+        with args.outfile as out:
+            system.dump(out)
+    else:
+        system.dump(sys.stdout)
 
 
 if __name__ == '__main__':
