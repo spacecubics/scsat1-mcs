@@ -35,6 +35,7 @@ from yamcs.pymdb.expressions import (
 )
 
 
+HEADER_OUT = 'mdb/scsat1_header.xml'
 DIR_PATH = Path(__file__).resolve().parent
 OUT_DIR_PATH = Path(DIR_PATH.parent, "mdb")
 
@@ -94,11 +95,8 @@ def set_conditions(cont):
         return None
 
 
-def create_header(yaml):
-    system = System("SCSAT1")
+def create_header(system):
     csp.add_csp_header(system, ids=Subsystem)
-    with open(Path(OUT_DIR_PATH, "scsat1_header.xml"), "wt") as f:
-        system.dump(f)
 
 
 # subsystem header
@@ -252,6 +250,8 @@ def main():
     parser.add_argument("--name", choices=["srs3", "eps", "main", "adcs"], required=True)
     parser.add_argument('--tm', '--telemetry', type=argparse.FileType('r'), help='Path to a Telemetry YAML')
     parser.add_argument('--tc', '--telecommand', type=argparse.FileType('r'), help='Path to a Telecommand YAML')
+    parser.add_argument('--header', nargs='?', type=argparse.FileType('w'), const=HEADER_OUT, default=HEADER_OUT,
+                        help=f'Generate a header file (default {HEADER_OUT})')
     args = parser.parse_args()
     if not args.tm and not args.tc:
         parser.error('At least one of --tm or --tc must be provided.')
@@ -261,8 +261,14 @@ def main():
 
     # create xml
     yaml = YAML()
+
+    if args.header:
+        system = System("SCSAT1")
+        create_header(system)
+        with args.header as f:
+            system.dump(f)
+
     system = System(sys_name.upper())
-    create_header(yaml)
     create_tm(system, yaml, args.tm)
     create_tc(system, yaml, args.tc, sys_name)
     with open(Path(OUT_DIR_PATH, f"scsat1_{sys_name}.xml"), "wt") as f:
