@@ -258,10 +258,6 @@ def main():
     if args.verbose:
         logging.basicConfig(stream=sys.stderr, level=logging.DEBUG, format='%(message)s')
 
-    if not args.tm and not args.tc:
-        parser.error('At least one of --tm or --tc must be provided.')
-        sys.exit(1)
-
     sys_name = args.name
 
     # create xml
@@ -274,15 +270,20 @@ def main():
         with args.header as f:
             system.dump(f)
 
-    system = System(sys_name.upper())
-    create_tm(system, yaml, args.tm)
-    create_tc(system, yaml, args.tc, sys_name)
-    if args.outfile:
-        logging.info(f'Generating {args.outfile.name}')
-        with args.outfile as out:
-            system.dump(out)
-    else:
-        system.dump(sys.stdout)
+    if args.tm or args.tc:
+        system = System(sys_name.upper())
+        if args.tm:
+            with args.tm as tm:
+                create_tm(system, yaml, args.tm)
+        if args.tc:
+            with args.tc as tc:
+                create_tc(system, yaml, args.tc, sys_name)
+        if args.outfile:
+            logging.info(f'Generating {args.outfile.name}')
+            with args.outfile as out:
+                system.dump(out)
+        else:
+            system.dump(sys.stdout)
 
 
 if __name__ == '__main__':
