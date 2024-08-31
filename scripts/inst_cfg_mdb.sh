@@ -16,10 +16,10 @@ work_dir=$1
 mkdir -p "${work_dir}"
 
 echo "Create MDB files..."
-python $(dirname $0)/../py/create_xtce.py --data main || die "main failed"
-python $(dirname $0)/../py/create_xtce.py --data adcs || die "adcs failed"
-python $(dirname $0)/../py/create_xtce.py --data eps  || die "eps failed"
-python $(dirname $0)/../py/create_xtce.py --data srs3 || die "srs3 failed"
+python $(dirname $0)/../py/create_xtce.py --name main || die "main failed"
+python $(dirname $0)/../py/create_xtce.py --name adcs || die "adcs failed"
+python $(dirname $0)/../py/create_xtce.py --name eps  || die "eps failed"
+python $(dirname $0)/../py/create_xtce.py --name srs3 || die "srs3 failed"
 
 echo "Installing configuration and MDB files..."
 cp -a $(dirname $0)/../etc "${work_dir}"/  || die "copy etc failed"
