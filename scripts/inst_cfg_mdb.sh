@@ -18,10 +18,10 @@ mkdir -p "${work_dir}"
 echo "Create MDB files..."
 data=$(readlink -f $(dirname $0)/../py/tctm)
 create_xtce=$(readlink -f $(dirname $0)/../py/create_xtce.py)
-$create_xtce --verbose --name main --tm $data/main_tm.yaml --tc $data/main_tc.yaml || die "main failed"
-$create_xtce --verbose --name adcs --tm $data/adcs_tm.yaml --tc $data/adcs_tc.yaml || die "adcs failed"
-$create_xtce --verbose --name eps  --tm $data/eps_tm.yaml  --tc $data/eps_tc.yaml  || die "eps failed"
-$create_xtce --verbose --name srs3 --tm $data/srs3_tm.yaml --tc $data/srs3_tc.yaml || die "srs3 failed"
+$create_xtce --verbose --header --name main --tm $data/main_tm.yaml --tc $data/main_tc.yaml || die "main failed"
+$create_xtce --verbose --header --name adcs --tm $data/adcs_tm.yaml --tc $data/adcs_tc.yaml || die "adcs failed"
+$create_xtce --verbose --header --name eps  --tm $data/eps_tm.yaml  --tc $data/eps_tc.yaml  || die "eps failed"
+$create_xtce --verbose --header --name srs3 --tm $data/srs3_tm.yaml --tc $data/srs3_tc.yaml || die "srs3 failed"
 
 echo "Installing configuration and MDB files..."
 cp -a $(dirname $0)/../etc "${work_dir}"/  || die "copy etc failed"
