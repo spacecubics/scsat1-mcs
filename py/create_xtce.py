@@ -36,7 +36,6 @@ from yamcs.pymdb.expressions import (
 
 
 DIR_PATH = Path(__file__).resolve().parent
-DATA_DIR_PATH = Path(DIR_PATH, "tctm")
 OUT_DIR_PATH = Path(DIR_PATH.parent, "mdb")
 
 
@@ -169,10 +168,9 @@ def set_telemetry(system, data, base, abstract=False):
     return container
 
 
-def create_tm(system, yaml, sys_name):
-    yaml_file = Path(DATA_DIR_PATH, f"{sys_name}_tm.yaml")
+def create_tm(system, yaml, yaml_file):
     try:
-        with open(yaml_file, 'r') as file:
+        with yaml_file as file:
             data = yaml.load(file)
         header_container = create_header_sub(system, data["headers"])
         set_telemetry(system, data["containers"], header_container)
@@ -225,10 +223,9 @@ def set_command(system, csp_header, base, tc_data):
                 )
 
 
-def create_tc(system, yaml, sys_name):
-    yaml_file = Path(DATA_DIR_PATH, f"{sys_name}_tc.yaml")
+def create_tc(system, yaml, yaml_file, sys_name):
     try:
-        with open(yaml_file, 'r') as file:
+        with yaml_file as file:
             tc_data = yaml.load(file)
         csp_header = csp.add_csp_header(system, ids=Subsystem)
         general_command = Command(
@@ -253,14 +250,21 @@ def main():
         description='Generate Yamcs mdb definition file from YAML via Yamcs PyMDB'
     )
     parser.add_argument("--name", choices=["srs3", "eps", "main", "adcs"], required=True)
+    parser.add_argument('--tm', type=argparse.FileType('r'), help='Path to a Telemetry YAML')
+    parser.add_argument('--tc', type=argparse.FileType('r'), help='Path to a Telecommand YAML')
     args = parser.parse_args()
+    if not args.tm and not args.tc:
+        parser.error('At least one of --tm or --tc must be provided.')
+        sys.exit(1)
+
     sys_name = args.name
+
     # create xml
     yaml = YAML()
     system = System(sys_name.upper())
     create_header(yaml)
-    create_tm(system, yaml, sys_name)
-    create_tc(system, yaml, sys_name)
+    create_tm(system, yaml, args.tm)
+    create_tc(system, yaml, args.tc, sys_name)
     with open(Path(OUT_DIR_PATH, f"scsat1_{sys_name}.xml"), "wt") as f:
         system.dump(f)
 
