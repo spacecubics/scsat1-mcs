@@ -250,9 +250,9 @@ def create_tc(system, yaml, sys_name):
 def main():
     # option
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data", choices=["srs3", "eps", "main", "adcs"], required=True)
+    parser.add_argument("--name", choices=["srs3", "eps", "main", "adcs"], required=True)
     args = parser.parse_args()
-    sys_name = args.data
+    sys_name = args.name
     # create xml
     yaml = YAML()
     system = System(sys_name.upper())
