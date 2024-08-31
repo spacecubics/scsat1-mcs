@@ -17,31 +17,31 @@ csp_commands:
 default_commands:
   - name: srs3_command
     commands:
-      - name: "SRS-3 telemetry data"
+      - name: "srs3_telemetry_data"
         port: 19
         arguments:
           - name: command_id
             type: binary
             val: 0101C8000480
-      - name: "SRS-3 TX group data"
+      - name: "srs3_tx_group_data"
         port: 19
         arguments:
           - name: command_id
             type: binary
             val: 0101C8000180
-      - name: "SRS-3 RX group data"
-        port: 19 
+      - name: "srs3_rx_group_data"
+        port: 19
         arguments:
           - name: command_id
             type: binary
             val: 0101C8000200
-      - name: "SRS-3 boot count"
+      - name: "srs3_boot_count"
         port: 19
         arguments:
           - name: command_id
             type: binary
             val: 0101C800428C
-      - name: "SRS-3 WDT count"
+      - name: "srs3_wdt_count"
         port: 19
         arguments:
           - name: command_id
