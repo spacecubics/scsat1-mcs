@@ -2,6 +2,7 @@
 
 import sys
 import argparse
+import logging
 from enum import Enum
 from pathlib import Path
 from ruamel.yaml import YAML
@@ -252,7 +253,12 @@ def main():
     parser.add_argument('--tc', '--telecommand', type=argparse.FileType('r'), help='Path to a Telecommand YAML')
     parser.add_argument('--header', nargs='?', type=argparse.FileType('w'), const=HEADER_OUT, default=HEADER_OUT,
                         help=f'Generate a header file (default {HEADER_OUT})')
+    parser.add_argument('--verbose', action='store_true', help='Enable verbose output')
     args = parser.parse_args()
+
+    if args.verbose:
+        logging.basicConfig(stream=sys.stderr, level=logging.DEBUG, format='%(message)s')
+
     if not args.tm and not args.tc:
         parser.error('At least one of --tm or --tc must be provided.')
         sys.exit(1)
@@ -265,12 +271,14 @@ def main():
     if args.header:
         system = System("SCSAT1")
         create_header(system)
+        logging.info(f'Generating {args.header.name}')
         with args.header as f:
             system.dump(f)
 
     system = System(sys_name.upper())
     create_tm(system, yaml, args.tm)
     create_tc(system, yaml, args.tc, sys_name)
+    logging.info(f'Generating scsat1_{sys_name}.xml')
     with open(Path(OUT_DIR_PATH, f"scsat1_{sys_name}.xml"), "wt") as f:
         system.dump(f)
 
