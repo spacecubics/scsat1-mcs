@@ -13,3 +13,12 @@ csp_commands:
         port: 5
       - name: "Sysup_time"
         port: 6
+
+default_commands:
+  - name: adcs_command
+    commands:
+      - name: "SHELL_CMD"
+        port: 11
+        arguments:
+          - name: shell_cmd_str
+            type: string
