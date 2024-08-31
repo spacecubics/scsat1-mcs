@@ -251,7 +251,7 @@ def main():
     parser.add_argument("--name", choices=["srs3", "eps", "main", "adcs"], required=True)
     parser.add_argument('--tm', '--telemetry', type=argparse.FileType('r'), help='Path to a Telemetry YAML')
     parser.add_argument('--tc', '--telecommand', type=argparse.FileType('r'), help='Path to a Telecommand YAML')
-    parser.add_argument('--header', nargs='?', type=argparse.FileType('w'), const=HEADER_OUT, default=HEADER_OUT,
+    parser.add_argument('--header', nargs='?', type=argparse.FileType('w'), const=HEADER_OUT,
                         help=f'Generate a header file (default {HEADER_OUT})')
     parser.add_argument('--verbose', action='store_true', help='Enable verbose output')
     args = parser.parse_args()
