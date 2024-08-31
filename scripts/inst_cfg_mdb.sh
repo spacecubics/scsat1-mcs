@@ -27,6 +27,7 @@ $create_xtce --verbose --name srs3 --tm $data/srs3_tm.yaml --tc $data/srs3_tc.ya
 echo "Installing configuration files from etc to ${work_dir}..."
 cp -a $(dirname $0)/../etc "${work_dir}"/  || die "copy etc failed"
 
+echo "Fixing up configuration files in ${work_dir}/etc..."
 sed -i "s|mdb\/|${work_dir}\/mdb\/|g" "${work_dir}"/etc/yamcs.*.yaml
 sed -i "s|\/storage\/|${work_dir}\/storage\/|g" "${work_dir}"/etc/yamcs.yaml
 
