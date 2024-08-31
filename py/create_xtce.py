@@ -260,9 +260,6 @@ def main():
 
     sys_name = args.name
 
-    # create xml
-    yaml = YAML()
-
     if args.header:
         system = System("SCSAT1")
         create_header(system)
@@ -271,6 +268,7 @@ def main():
             system.dump(f)
 
     if args.tm or args.tc:
+        yaml = YAML()
         system = System(sys_name.upper())
         if args.tm:
             with args.tm as tm:
