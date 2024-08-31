@@ -250,8 +250,8 @@ def main():
         description='Generate Yamcs mdb definition file from YAML via Yamcs PyMDB'
     )
     parser.add_argument("--name", choices=["srs3", "eps", "main", "adcs"], required=True)
-    parser.add_argument('--tm', type=argparse.FileType('r'), help='Path to a Telemetry YAML')
-    parser.add_argument('--tc', type=argparse.FileType('r'), help='Path to a Telecommand YAML')
+    parser.add_argument('--tm', '--telemetry', type=argparse.FileType('r'), help='Path to a Telemetry YAML')
+    parser.add_argument('--tc', '--telecommand', type=argparse.FileType('r'), help='Path to a Telecommand YAML')
     args = parser.parse_args()
     if not args.tm and not args.tc:
         parser.error('At least one of --tm or --tc must be provided.')
