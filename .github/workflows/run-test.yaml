@@ -46,3 +46,15 @@ jobs:
         with:
           name: artifacts-${{ matrix.python-version }}
           path: builddir
+
+      - name: Install xmllint
+        run: |
+          sudo apt-get install libxml2-utils
+
+      - name: Validate against XSD
+        run: |
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_header.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_main.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_adcs.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_eps.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_srs3.xml
