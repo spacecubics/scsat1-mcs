@@ -13,7 +13,8 @@ from yamcs.pymdb.commands import (
     Command,
     IntegerArgument,
     BinaryArgument,
-    StringArgument
+    StringArgument,
+    EnumeratedArgument,
 )
 from yamcs.pymdb.containers import Container, ParameterEntry
 from yamcs.pymdb.parameters import (
@@ -72,6 +73,16 @@ def set_encoding(param, endian):
     elif param_type == "binary":
         enc = BinaryEncoding(
             bits=param.get("bit", 48),
+        )
+    elif param_type == "enum":
+        if param.get("signed", False) is False:
+            scheme = IntegerEncodingScheme.UNSIGNED
+        else:
+            scheme = IntegerEncodingScheme.TWOS_COMPLEMENT
+        enc = IntegerEncoding(
+            bits=param.get("bit", 8),
+            little_endian=endian,
+            scheme=scheme,
         )
     else:
         print(f"encoding error: {param_type} is not defined.")
@@ -203,6 +214,13 @@ def set_command(system, csp_header, base, tc_data):
                                 name=arguments["name"],
                                 encoding=set_encoding(arguments, tc.get("endian", False)),
                                 default=arguments.get("val", None),
+                            )
+                        elif arguments.get("type", "int") == "enum":
+                            argument = EnumeratedArgument(
+                                name=arguments["name"],
+                                encoding=set_encoding(arguments, tc.get("endian", False)),
+                                default=arguments.get("default", None),
+                                choices=[tuple(item) for item in arguments['choices']],
                             )
                         else:
                             print("Not defined argument type")
