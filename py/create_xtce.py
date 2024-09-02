@@ -4,7 +4,6 @@ import sys
 import argparse
 import logging
 from enum import Enum
-from pathlib import Path
 from ruamel.yaml import YAML
 from yamcs.pymdb import csp
 from yamcs.pymdb.systems import System
@@ -291,10 +290,10 @@ def main():
         system = System(sys_name.upper())
         if args.tm:
             with args.tm as tm:
-                create_tm(system, yaml, args.tm)
+                create_tm(system, yaml, tm)
         if args.tc:
             with args.tc as tc:
-                create_tc(system, yaml, args.tc, sys_name)
+                create_tc(system, yaml, tc, sys_name)
         if args.outfile:
             logging.info(f'Generating {args.outfile.name}')
             with args.outfile as out:
