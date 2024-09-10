@@ -83,3 +83,19 @@ default_commands:
               - [2, "Manufacture"]
           - name: password
             bit: 32
+      - name: "SET_BUZZER_CHANNELS"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 4
+          - name: id
+            bit: 16
+            val: 113
+          - name: type_id
+            bit: 8
+            val: 4
+          - name: output_channels
+            type: "binary"
+            bit: 32
