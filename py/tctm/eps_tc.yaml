@@ -68,3 +68,18 @@ default_commands:
           - name: output_state
             type: "binary"
             bit: 32
+      - name: "ELEVATE_ACCESS_ROLE"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 12
+          - name: role
+            type: enum
+            choices:
+              - [0, "User"]
+              - [1, "SuperUser"]
+              - [2, "Manufacture"]
+          - name: password
+            bit: 32
