@@ -42,3 +42,29 @@ default_commands:
           - name: command_id
             bit: 8
             val: 0
+      - name: "SINGLE_OUTPUT_CONTROL"
+        port: 14
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 0
+          - name: output_nr
+            bit: 8
+          - name: state
+            type: enum
+            choices:
+              - [0, "Off"]
+              - [1, "On"]
+          - name: delay_s
+            bit: 16
+      - name: "ALL_OUTPUT_CONTROL"
+        port: 14
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+          - name: output_state
+            type: "binary"
+            bit: 32
