@@ -188,6 +188,7 @@ def set_command(system, csp_header, base, tc_data):
                         if arguments.get("type", "int") == "int":
                             argument = IntegerArgument(
                                 name=arguments["name"],
+                                signed=arguments.get("signed", False),
                                 encoding=set_encoding(arguments, tc.get("endian", False)),
                                 default=arguments.get("val", None),
                             )
