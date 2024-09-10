@@ -99,3 +99,31 @@ default_commands:
           - name: output_channels
             type: "binary"
             bit: 32
+      - name: "UNLOCK_CONFIG"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 8
+      - name: "LOCK_CONFIG"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 9
+      - name: "SAVE_CONFIG_TO_MAIN"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 10
+      - name: "SAVE_CONFIG_TO_FALLBACK"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 11
