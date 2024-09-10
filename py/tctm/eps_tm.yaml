@@ -330,3 +330,83 @@ containers:
       - name: "ping_wdt_toggles"
       - name: "ping_wdt_turn_offs"
         bit: 8
+  - name: SINGLE_OUTPUT_CONTROL_CMD_RES
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "EPS/command_id"
+        val: 0
+    parameters:
+      - name: "SINGLE_OUTPUT_CONTROL_CMD_error_code"
+        bit: 8
+  - name: ALL_OUTPUT_CONTROL_CMD_RES
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "EPS/command_id"
+        val: 1
+    parameters:
+      - name: "ALL_OUTPUT_CONTROL_CMD_error_code"
+        bit: 8
+  - name: ELEVATE_ACCESS_ROLE_CMD_RES
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 9
+      - name: "EPS/command_id"
+        val: 12
+    parameters:
+      - name: "ELEVATE_ACCESS_ROLE_CMD_error_code"
+        bit: 8
+  - name: SET_BUZZER_CHANNELS_CMD_RES
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 9
+      - name: "EPS/command_id"
+        val: 4
+    parameters:
+      - name: "SET_BUZZER_CHANNELS_CMD_error_code"
+        bit: 8
+  - name: UNLOCK_CONFIG_CMD_RES
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 9
+      - name: "EPS/command_id"
+        val: 8
+    parameters:
+      - name: "UNLOCK_CONFIG_CMD_error_code"
+        bit: 8
+  - name: LOCK_CONFIG_CMD_RES
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 9
+      - name: "EPS/command_id"
+        val: 9
+    parameters:
+      - name: "LOCK_CONFIG_CMD_error_code"
+        bit: 8
+  - name: SAVE_CONFIG_TO_MAIN_CMD_RES
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 9
+      - name: "EPS/command_id"
+        val: 10
+    parameters:
+      - name: "SAVE_CONFIG_TO_MAIN_CMD_error_code"
+        bit: 8
+  - name: SAVE_CONFIG_TO_FALLBACK_CMD_RES
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 9
+      - name: "EPS/command_id"
+        val: 11
+    parameters:
+      - name: "SAVE_CONFIG_TO_FALLBACK_CMD_error_code"
+        bit: 8
