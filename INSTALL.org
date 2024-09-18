@@ -42,7 +42,7 @@ Debian Linux-based distribution.
 
 * Preparing for configuration and mdb files
 
-  * Create working directory
+  * Create working directory (Any name is OK)
     #+begin_example
     mkdir ~/yamcs_work
     #+end_example
@@ -55,7 +55,7 @@ Debian Linux-based distribution.
 
   * Install configuration files and mission data bases using script
     #+begin_example
-    ./scripts/inst_cfg_mdb.sh
+    ./scripts/inst_cfg_mdb.sh ~/yamcs_work
     #+end_example
 
   * Allow permision of log and cache directory
