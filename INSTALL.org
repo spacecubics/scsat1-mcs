@@ -53,6 +53,19 @@ Debian Linux-based distribution.
     git clone https://github.com/spacecubics/scsat1-mcs.git
     #+end_example
 
+  * Make python virtual environment
+    #+begin_example
+    sudo apt install python-is-python3 python3-pip python3-venv
+    python3 -m venv .venv
+    source .venv/bin/activate
+    #+end_example
+
+  * Install required PIP packages
+    #+begin_example
+    cd scsat1-mcs
+    pip install -r requirements.txt
+    #+end_example
+
   * Install configuration files and mission data bases using script
     #+begin_example
     ./scripts/inst_cfg_mdb.sh ~/yamcs_work
