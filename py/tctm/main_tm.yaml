@@ -48,6 +48,8 @@ containers:
   - name: TEMP
     endian: true
     conditions:
+      - name: "../csp_dport"
+        val: 10
       - name: "MAIN/telemetry-id"
         val: 1    
     parameters:
@@ -118,6 +120,8 @@ containers:
   - name: CURRENT_VOLTAGE
     endian: true
     conditions:
+      - name: "../csp_dport"
+        val: 10
       - name: "MAIN/telemetry-id"
         val: 2
     parameters:
@@ -237,6 +241,8 @@ containers:
   - name: CSP
     endian: true 
     conditions:
+      - name: "../csp_dport"
+        val: 10
       - name: "MAIN/telemetry-id"
         val: 3
     parameters:
@@ -313,6 +319,8 @@ containers:
   - name: SUNSENSOR
     endian: true
     conditions:
+      - name: "../csp_dport"
+        val: 10
       - name: "MAIN/telemetry-id"
         val: 4
     parameters:
@@ -375,6 +383,8 @@ containers:
   - name: MAGNET_METER
     endian: true
     conditions:
+      - name: "../csp_dport"
+        val: 10
       - name: "MAIN/telemetry-id"
         val: 5
     parameters:
@@ -427,6 +437,8 @@ containers:
   - name: DSTRX3
     endian: true 
     conditions:
+      - name: "../csp_dport"
+        val: 10
       - name: "MAIN/telemetry-id"
         val: 6
     parameters:
@@ -467,6 +479,8 @@ containers:
   - name: HWTEST_RESULT
     endian: true
     conditions:
+      - name: "../csp_dport"
+        val: 10
       - name: "MAIN/telemetry-id"
         val: 7
     parameters:
