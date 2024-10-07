@@ -9,7 +9,7 @@ headers:
     parameters:
       - name: "telemetry-id"
         bit: 8
-        
+
 containers:
 # csp 共通 reply
   - name: ping
@@ -51,7 +51,7 @@ containers:
       - name: "../csp_dport"
         val: 10
       - name: "MAIN/telemetry-id"
-        val: 1    
+        val: 1
     parameters:
       - name: "TEMP_SEQCOUNT"
         bit: 32
@@ -234,12 +234,12 @@ containers:
         bit: 8
         signed: true
       - name: "IO_VDD_3V3_Bus"
-        bit: 32   
+        bit: 32
 
 
 
   - name: CSP
-    endian: true 
+    endian: true
     conditions:
       - name: "../csp_dport"
         val: 10
@@ -435,7 +435,7 @@ containers:
 
 
   - name: DSTRX3
-    endian: true 
+    endian: true
     conditions:
       - name: "../csp_dport"
         val: 10

@@ -1,6 +1,6 @@
 prefix: /SCSAT1/MAIN/
 alarms:
-  - name: OBC_1_TEMP 
+  - name: OBC_1_TEMP
     critical:
       high: 80
       low: -40
@@ -24,11 +24,11 @@ alarms:
     critical:
       high: 85
       low: -40
-  - name: X_PLUS_TEMP 
+  - name: X_PLUS_TEMP
     critical:
       high: 85
       low: -40
-  - name: X_MINUS_TEMP 
+  - name: X_MINUS_TEMP
     critical:
       high: 85
       low: -40
@@ -40,15 +40,15 @@ alarms:
     critical:
       high: 85
       low: -40
-  - name: SUNSENS_Y_PLUS_TEMP 
+  - name: SUNSENS_Y_PLUS_TEMP
     critical:
       high: 100
       low: -40
-  - name: SUNSENS_Y_MINUS_TEMP 
+  - name: SUNSENS_Y_MINUS_TEMP
     critical:
       high: 100
       low: -40
-  - name: MGNM_X_PLUS_TEMP 
+  - name: MGNM_X_PLUS_TEMP
     critical:
       high: 85
       low: -40
@@ -56,7 +56,7 @@ alarms:
     critical:
       high: 85
       low: -40
-  - name: ZERO_TEMP 
+  - name: ZERO_TEMP
     critical:
       high: 70
       low: -20

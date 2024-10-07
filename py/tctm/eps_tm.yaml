@@ -65,7 +65,7 @@ containers:
     base: "esp_container"
     conditions:
       - name: "../csp_sport"
-        val: 15      
+        val: 15
       - name: "EPS/command_id"
         val: 1
     parameters:
