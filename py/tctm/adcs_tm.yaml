@@ -11,7 +11,7 @@ headers:
         bit: 8
 
 containers:
-# csp 共通 reply
+# csp common reply
   - name: ping
     base: "common_container"
     conditions:

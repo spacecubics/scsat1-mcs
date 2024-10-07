@@ -10,14 +10,14 @@ headers:
       - name: "command_id"
         bit: 8
 
-# default 設定
+# default settings
 # endian: false
 # type: int
 # signed: false
 # bit: 16
 
 containers:
-# csp 共通 reply
+# csp common reply
   - name: ping
     base: "common_container"
     conditions:
