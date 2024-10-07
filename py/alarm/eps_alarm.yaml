@@ -1,6 +1,6 @@
 prefix: /SCSAT1/EPS/
 alarms:
-  - name: temperature1 
+  - name: temperature1
     critical:
       high: 80
       low: -40

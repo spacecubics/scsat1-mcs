@@ -12,7 +12,7 @@ headers:
       - name: "srs3_reserved"
         bit: 16
       - name: "srs3_id"
-        bit: 16 
+        bit: 16
     conditions:
       - name: "../csp_sport"
         val: 19
@@ -170,7 +170,7 @@ containers:
       - name: "tx_id"
         bit: 16
       - name: "tx_crypto_key"
-        bit: 34 
+        bit: 34
       - name: "tx_crypto_encrypt"
         bit: 8
       - name: "tx_crypto_auth"
@@ -212,7 +212,7 @@ containers:
       - name: "rx_id"
         bit: 16
       - name: "rx_crypto_key"
-        bit: 34 
+        bit: 34
       - name: "rx_crypto_decrypt"
         bit: 8
       - name: "rx_crypto_auth"
