@@ -17,14 +17,14 @@ headers:
       - name: "../csp_sport"
         val: 19
 
-# default設定
+# default settings
 # endian: false
 # type: int
 # signed: false
 # bit: 16
 
 containers:
-# csp 共通 reply
+# csp common reply
   - name: ping
     base: "common_container"
     conditions:
