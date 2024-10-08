@@ -48,8 +48,6 @@ containers:
   - name: TEMP
     endian: true
     conditions:
-      - name: "../csp_sport"
-        val: 10
       - name: "ADCS/telemetry_id"
         val: 9
     parameters:
@@ -109,8 +107,6 @@ containers:
   - name: CURRENT_VOLTAGE
     endian: true
     conditions:
-      - name: "../csp_sport"
-        val: 10
       - name: "ADCS/telemetry_id"
         val: 10
     parameters:
@@ -311,8 +307,6 @@ containers:
   - name: IMU
     endian: true
     conditions:
-      - name: "../csp_sport"
-        val: 10
       - name: "ADCS/telemetry_id"
         val: 11
     parameters:
@@ -355,8 +349,6 @@ containers:
   - name: GNSS_HWMON
     endian: true
     conditions:
-      - name: "../csp_sport"
-        val: 10
       - name: "ADCS/telemetry_id"
         val: 12
     parameters:
@@ -415,8 +407,6 @@ containers:
   - name: GNSS_BESTPOS
     endian: true
     conditions:
-      - name: "../csp_sport"
-        val: 10
       - name: "ADCS/telemetry_id"
         val: 13
     parameters:
@@ -519,8 +509,6 @@ containers:
   - name: RW
     endian: true
     conditions:
-      - name: "../csp_sport"
-        val: 10
       - name: "ADCS/telemetry_id"
         val: 14
     parameters:
@@ -543,8 +531,6 @@ containers:
   - name: HWTEST_RESULT
     endian: true
     conditions:
-      - name: "../csp_sport"
-        val: 10
       - name: "ADCS/telemetry_id"
         val: 15
     parameters:
