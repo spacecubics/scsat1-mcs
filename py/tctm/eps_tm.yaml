@@ -172,6 +172,14 @@ containers:
         bit: 1
       - name: "output_status9"
         bit: 1
+      - name: "output_status_reserved1"
+        bit: 6
+      - name: "output_status18"
+        bit: 1
+      - name: "output_status17"
+        bit: 1
+      - name: "output_status_reserved2"
+        bit: 8
       - name: "output_fault_status8"
         bit: 1
       - name: "output_fault_status7"
@@ -204,6 +212,14 @@ containers:
         bit: 1
       - name: "output_fault_status9"
         bit: 1
+      - name: "output_fault_status_reserved1"
+        bit: 6
+      - name: "output_fault_status18"
+        bit: 1
+      - name: "output_fault_status17"
+        bit: 1
+      - name: "output_fault_status_reserved2"
+        bit: 8
       - name: "protected_access_count"
       - name: "output_on_delta1"
       - name: "output_on_delta2"
@@ -330,6 +346,24 @@ containers:
       - name: "ping_wdt_toggles"
       - name: "ping_wdt_turn_offs"
         bit: 8
+      - name: "thermal_prot_temperature1"
+        bit: 8
+      - name: "thermal_prot_temperature2"
+        bit: 8
+      - name: "thermal_prot_temperature3"
+        bit: 8
+      - name: "thermal_prot_temperature4"
+        bit: 8
+      - name: "thermal_prot_temperature5"
+        bit: 8
+      - name: "thermal_prot_temperature6"
+        bit: 8
+      - name: "thermal_prot_temperature7"
+        bit: 8
+      - name: "thermal_prot_temperature8"
+        bit: 8
+      - name: "invalid_battery_volt_measure_count"
+        bit: 16
   - name: SINGLE_OUTPUT_CONTROL_CMD_RES
     base: "esp_container"
     conditions:
