@@ -40,11 +40,11 @@ HEADER_OUT = 'mdb/scsat1_header.xml'
 
 
 class Subsystem(Enum):
-    EPS = 4
     MAIN = 1
     ADCS = 2
-    YAMCS = 22
-    SRS3 = 21
+    EPS = 4
+    SRS3 = 5
+    YAMCS = 10
 
 
 def set_encoding(param, endian):
