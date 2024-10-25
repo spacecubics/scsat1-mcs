@@ -22,3 +22,23 @@ default_commands:
         arguments:
           - name: shell_cmd_str
             type: string
+      - name: "POWER_CONTROL_CMD"
+        port: 12
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+          - name: "target"
+            type: enum
+            choices:
+              - [1, "PDU 01 (ADCS Board)"]
+              - [2, "PDU 02 (Payload Board)"]
+              - [4, "PDU O3"]
+              - [8, "DSTRX-3 IO"]
+              - [16, "DRV 01"]
+              - [32, "DRV 02"]
+          - name: "onoff"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]

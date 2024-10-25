@@ -22,3 +22,20 @@ default_commands:
         arguments:
           - name: shell_cmd_str
             type: string
+      - name: "POWER_CONTROL_CMD"
+        port: 12
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+          - name: "target"
+            type: enum
+            choices:
+              - [1, "IMU"]
+              - [2, "GNSS"]
+              - [4, "DRV"]
+          - name: "onoff"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]
