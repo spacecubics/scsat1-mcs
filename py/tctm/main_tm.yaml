@@ -506,6 +506,6 @@ containers:
       - name: "MAIN/telemetry_id"
         val: 0
     parameters:
-      - name: "ERROR_CODE"
+      - name: "ERROR_CODE_OF_POWER_CONTROL"
         signed: true
         bit: 32
