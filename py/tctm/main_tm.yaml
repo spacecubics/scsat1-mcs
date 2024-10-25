@@ -492,10 +492,10 @@ containers:
         bit: 32
       - name: "HWTEST_VERSION"
         type: string
-        bit: 32
+        bit: 256
       - name: "HWTEST_LAST_CMD"
         type: string
-        bit: 32
+        bit: 256
 
 # Command Reply Telemetry
   - name: POWER_CONTROL_CMD_REPLY
