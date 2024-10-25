@@ -7,7 +7,7 @@ headers:
   - name: "main_container"
     base: "common_container"
     parameters:
-      - name: "telemetry-id"
+      - name: "telemetry_id"
         bit: 8
 
 containers:
@@ -50,7 +50,7 @@ containers:
     conditions:
       - name: "../csp_dport"
         val: 10
-      - name: "MAIN/telemetry-id"
+      - name: "MAIN/telemetry_id"
         val: 1
     parameters:
       - name: "TEMP_SEQCOUNT"
@@ -122,7 +122,7 @@ containers:
     conditions:
       - name: "../csp_dport"
         val: 10
-      - name: "MAIN/telemetry-id"
+      - name: "MAIN/telemetry_id"
         val: 2
     parameters:
       - name: "CV_SEQCOUNT"
@@ -243,7 +243,7 @@ containers:
     conditions:
       - name: "../csp_dport"
         val: 10
-      - name: "MAIN/telemetry-id"
+      - name: "MAIN/telemetry_id"
         val: 3
     parameters:
       - name: "CSP_SEQCOUNT"
@@ -321,7 +321,7 @@ containers:
     conditions:
       - name: "../csp_dport"
         val: 10
-      - name: "MAIN/telemetry-id"
+      - name: "MAIN/telemetry_id"
         val: 4
     parameters:
       - name: "SUNSENS_SEQCOUNT"
@@ -385,7 +385,7 @@ containers:
     conditions:
       - name: "../csp_dport"
         val: 10
-      - name: "MAIN/telemetry-id"
+      - name: "MAIN/telemetry_id"
         val: 5
     parameters:
       - name: "MGNM_SEQCOUNT"
@@ -439,7 +439,7 @@ containers:
     conditions:
       - name: "../csp_dport"
         val: 10
-      - name: "MAIN/telemetry-id"
+      - name: "MAIN/telemetry_id"
         val: 6
     parameters:
       - name: "DSTRX3_SEQCOUNT"
@@ -481,7 +481,7 @@ containers:
     conditions:
       - name: "../csp_dport"
         val: 10
-      - name: "MAIN/telemetry-id"
+      - name: "MAIN/telemetry_id"
         val: 7
     parameters:
       - name: "HWTEST_RESULT_SEQCOUNT"
@@ -503,7 +503,7 @@ containers:
     conditions:
       - name: "../csp_sport"
         val: 12
-      - name: "MAIN/telemetry-id"
+      - name: "MAIN/telemetry_id"
         val: 0
     parameters:
       - name: "ERROR_CODE"
