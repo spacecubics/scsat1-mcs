@@ -454,10 +454,10 @@ containers:
         bit: 32
       - name: "BESTPOS_SOL_STAT"
         type: string
-        bit: 24
+        bit: 192
       - name: "BESTPOS_POS_TYPE"
         type: string
-        bit: 24
+        bit: 192
       - name: "BESTPOS_LAT_DEG"
         type: float
         bit: 32
@@ -472,7 +472,7 @@ containers:
         bit: 32
       - name: "BESTPOS_DATUM_ID"
         type: string
-        bit: 16
+        bit: 128
       - name: "BESTPOS_LAT_M"
         type: float
         bit: 32
@@ -484,7 +484,7 @@ containers:
         bit: 32
       - name: "BESTPOS_STN_ID"
         type: string
-        bit: 12
+        bit: 96
       - name: "BESTPOS_DIFF_AGE"
         type: float
         bit: 32
@@ -559,10 +559,10 @@ containers:
         bit: 32
       - name: "HWTEST_VERSION"
         type: string
-        bit: 32
+        bit: 256
       - name: "HWTEST_LAST_CMD"
         type: string
-        bit: 32
+        bit: 256
 
 # Command Reply Telemetry
   - name: POWER_CONTROL_CMD_REPLY

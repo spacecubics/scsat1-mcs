@@ -67,7 +67,7 @@ def set_encoding(param, endian):
         )
     elif param_type == "string":
         enc = StringEncoding(
-            bits=param.get("bit", 32)*8,
+            bits=param.get("bit", 256),
         )
     elif param_type == "binary":
         enc = BinaryEncoding(
