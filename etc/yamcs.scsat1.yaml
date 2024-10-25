@@ -69,6 +69,8 @@ mdb:
             spec: "mdb/scsat1_srs3.xml"
           - type: "xtce"
             spec: "mdb/scsat1_eps.xml"
+          - type: "xtce"
+            spec: "mdb/scsat1_pico.xml"
     #Loads the performance testing mission database
     #- type: "org.yamcs.simulator.PerfMdbLoader"
     #  args:
