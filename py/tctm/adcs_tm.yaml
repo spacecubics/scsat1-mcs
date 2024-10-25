@@ -563,3 +563,16 @@ containers:
       - name: "HWTEST_LAST_CMD"
         type: string
         bit: 32
+
+# Command Reply Telemetry
+  - name: POWER_CONTROL_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 12
+      - name: "ADCS/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE"
+        signed: true
+        bit: 32
