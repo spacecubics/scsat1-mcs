@@ -42,3 +42,12 @@ default_commands:
             choices:
               - [0, "OFF"]
               - [1, "ON"]
+      - name: "GET_FILE_INFO_CMD"
+        port: 13
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+          - name: "target"
+            type: string
+            bit: 512

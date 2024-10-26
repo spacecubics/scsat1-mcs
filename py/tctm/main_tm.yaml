@@ -509,3 +509,21 @@ containers:
       - name: "ERROR_CODE_OF_POWER_CONTROL"
         signed: true
         bit: 32
+  - name: FILE_INFO_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "MAIN/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_FILE_INFO"
+        signed: true
+        bit: 32
+      - name: "ENTRY_TYPE"
+        bit: 8
+      - name: "FILE_SIZE"
+        bit: 32
+      - name: "FILE_NAME"
+        type: string
+        bit: 512
