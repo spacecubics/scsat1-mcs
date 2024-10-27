@@ -599,7 +599,7 @@ containers:
     conditions:
       - name: "../csp_sport"
         val: 13
-      - name: "MAIN/telemetry_id"
+      - name: "ADCS/telemetry_id"
         val: 1
     parameters:
       - name: "ERROR_CODE_OF_REMOVE_FILE"
