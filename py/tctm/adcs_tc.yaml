@@ -57,3 +57,27 @@ default_commands:
           - name: "target"
             type: string
             bit: 512
+      - name: "ERASE_CFG_FLASH_CMD"
+        port: 14
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+          - name: "cfg_bank"
+            type: enum
+            choices:
+              - [0, "CFG_MEM_0"]
+              - [1, "CFG_MEM_1"]
+          - name: "partition_id"
+            type: enum
+            choices:
+              - [0, "GOLDEN_BIT"]
+              - [1, "GOLDEN_FSW"]
+              - [2, "UPDATE_BIT"]
+              - [3, "UPDATE_FSW"]
+          - name: "offset"
+            bit: 32
+            val: 0
+          - name: "size"
+            bit: 32
+            val: 0
