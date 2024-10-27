@@ -594,3 +594,14 @@ containers:
       - name: "FILE_NAME"
         type: string
         bit: 512
+  - name: REMOVE_FILE_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "MAIN/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_REMOVE_FILE"
+        signed: true
+        bit: 32

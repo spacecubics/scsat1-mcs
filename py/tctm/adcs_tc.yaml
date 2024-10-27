@@ -48,3 +48,12 @@ default_commands:
           - name: "target"
             type: string
             bit: 512
+      - name: "REMOVE_FILE_CMD"
+        port: 13
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 1
+          - name: "target"
+            type: string
+            bit: 512
