@@ -605,3 +605,25 @@ containers:
       - name: "ERROR_CODE_OF_REMOVE_FILE"
         signed: true
         bit: 32
+  - name: FLASH_CMD_UNKOWN_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "ADCS/telemetry_id"
+        val: 255
+    parameters:
+      - name: "ERROR_CODE_OF_UNKNOWN"
+        signed: true
+        bit: 32
+  - name: ERASE_CFG_FLASH_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "ADCS/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_ERASE_CFG_FLASH"
+        signed: true
+        bit: 32
