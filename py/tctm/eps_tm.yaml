@@ -364,6 +364,68 @@ containers:
         bit: 8
       - name: "invalid_battery_volt_measure_count"
         bit: 16
+  - name: STARTUP_HK_TLM
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 7
+      - name: "EPS/command_id"
+        val: 1
+    parameters:
+      - name: "status_stt"
+        bit: 8
+        signed: true
+      - name: "timestamp_stt"
+        type: "double"
+      - name: "last_reset_reason_7to0"
+        bit: 8
+        type: binary
+      - name: "last_reset_reason_15to8"
+        bit: 8
+        type: binary
+      - name: "last_reset_reason_23to16"
+        bit: 8
+        type: binary
+      - name: "last_reset_reason_31to24"
+        bit: 8
+        type: binary
+      - name: "bootcount_stt"
+        bit: 32
+      - name: "fallback_used"
+        bit: 8
+      - name: "rtc_init"
+        bit: 8
+      - name: "rtc_clock_source"
+        bit: 8
+      - name: "flash_app_init"
+        bit: 8
+      - name: "fram_4k_part_init"
+        bit: 8
+        signed: true
+      - name: "fram_520k_part_init"
+        bit: 8
+        signed: true
+      - name: "int_flash_part_init"
+        bit: 8
+        signed: true
+      - name: "fw_upd_init"
+        bit: 8
+      - name: "file_system_init"
+        bit: 8
+        signed: true
+      - name: "file_transfer_init"
+        bit: 8
+        signed: true
+      - name: "task_supervisor_init"
+        bit: 8
+        signed: true
+      - name: "uart1_app_init"
+        bit: 8
+      - name: "uart2_app_init"
+        bit: 8
+      - name: "tmp107_init"
+        bit: 8
+        signed: true
   - name: SINGLE_OUTPUT_CONTROL_CMD_RES
     base: "esp_container"
     conditions:
