@@ -42,6 +42,13 @@ default_commands:
           - name: command_id
             bit: 8
             val: 0
+      - name: "GET_STARTUP_TM"
+        port: 7
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
       - name: "SINGLE_OUTPUT_CONTROL"
         port: 14
         endian: true
