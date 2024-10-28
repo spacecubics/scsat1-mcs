@@ -39,6 +39,12 @@ default_commands:
             choices:
               - [0, "OFF"]
               - [1, "ON"]
+      - name: "POWER_CYCLE_CMD"
+        port: 12
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 1
       - name: "GET_FILE_INFO_CMD"
         port: 13
         arguments:
