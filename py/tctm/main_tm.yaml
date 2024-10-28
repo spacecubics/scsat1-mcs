@@ -509,6 +509,28 @@ containers:
       - name: "ERROR_CODE_OF_POWER_CONTROL"
         signed: true
         bit: 32
+  - name: POWER_CYCLE_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 12
+      - name: "MAIN/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_POWER_CYCLE"
+        signed: true
+        bit: 32
+  - name: PWRCTR_CMD_UNKOWN_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 12
+      - name: "MAIN/telemetry_id"
+        val: 255
+    parameters:
+      - name: "ERROR_CODE_OF_UNKNOWN_PWRCTRL"
+        signed: true
+        bit: 32
   - name: FILE_INFO_CMD_REPLY
     endian: true
     conditions:
