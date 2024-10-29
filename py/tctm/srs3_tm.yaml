@@ -66,34 +66,46 @@ containers:
       - name: "temp_mcu"
         bit: 16
         signed: true
+      - name: "tm_srs3_id2"
       - name: "temp_power"
         bit: 16
         signed: true
+      - name: "tm_srs3_id3"
       - name: "temp_lna"
         bit: 16
         signed: true
+      - name: "tm_srs3_id4"
       - name: "temp_pa"
         bit: 16
         signed: true
+      - name: "tm_srs3_id5"
       - name: "volt_vin"
         bit: 16
+      - name: "tm_srs3_id6"
       - name: "volt_vreg"
         bit: 16
+      - name: "tm_srs3_id7"
       - name: "volt_3v3"
         bit: 16
+      - name: "tm_srs3_id8"
       - name: "curr_vin"
         bit: 16
         signed: true
+      - name: "tm_srs3_id9"
       - name: "curr_vreg"
         bit: 16
         signed: true
+      - name: "tm_srs3_id10"
       - name: "curr_3v3"
         bit: 16
         signed: true
+      - name: "tm_srs3_id11"
       - name: "power_vin"
         bit: 16
+      - name: "tm_srs3_id12"
       - name: "power_vreg"
         bit: 16
+      - name: "tm_srs3_id13"
       - name: "power_3v3"
         bit: 16
 
@@ -121,70 +133,101 @@ containers:
       - name: "tx_allow_always"
         bit: 8
         signed: true
+      - name: "tx_srs3_id2"
       - name: "tx_allow_time"
         bit: 16
+      - name: "tx_srs3_id3"
       - name: "tx_freq"
         bit: 32
+      - name: "tx_srs3_id4"
       - name: "tx_rate"
         bit: 32
+      - name: "tx_srs3_id5"
       - name: "tx_bt"
         bit: 8
+      - name: "tx_srs3_id6"
       - name: "tx_pout"
         type: float
         bit: 32
+      - name: "tx_srs3_id7"
       - name: "tx_gain"
         bit: 16
+      - name: "tx_srs3_id8"
       - name: "tx_alc_mode"
         bit: 8
+      - name: "tx_srs3_id9"
       - name: "tx_alc_kp"
         type: float
         bit: 32
+      - name: "tx_srs3_id10"
       - name: "tx_alc_limit"
         bit: 16
+      - name: "tx_srs3_id11"
       - name: "tx_alc_gain"
         bit: 16
+      - name: "tx_srs3_id12"
       - name: "tx_rs"
         bit: 8
         signed: true
+      - name: "tx_srs3_id13"
       - name: "tx_cc"
         bit: 8
         signed: true
+      - name: "tx_srs3_id14"
       - name: "tx_rand"
         bit: 8
         signed: true
+      - name: "tx_srs3_id15"
       - name: "tx_crc"
         bit: 8
         signed: true
+      - name: "tx_srs3_id16"
       - name: "tx_idle_frames"
         bit: 16
+      - name: "tx_srs3_id17"
       - name: "tx_train_type"
         bit: 8
+      - name: "tx_srs3_id18"
       - name: "tx_preamble"
         bit: 16
+      - name: "tx_srs3_id19"
       - name: "tx_postamble"
         bit: 16
+      - name: "tx_srs3_id20"
       - name: "tx_midamble"
         bit: 16
+      - name: "tx_srs3_id21"
       - name: "tx_size"
         bit: 16
+      - name: "tx_srs3_id22"
       - name: "tx_id"
         bit: 16
+      - name: "tx_srs3_id23"
+      - name: "tx_crypto_key_len"
       - name: "tx_crypto_key"
-        bit: 34
+        type: "binary"
+        bit: 256
+      - name: "tx_srs3_id24"
       - name: "tx_crypto_encrypt"
         bit: 8
+      - name: "tx_srs3_id25"
       - name: "tx_crypto_auth"
         bit: 8
+      - name: "tx_srs3_id26"
       - name: "tx_frames"
         bit: 32
+      - name: "tx_srs3_id27"
       - name: "tx_power_forward"
         type: float
         bit: 32
+      - name: "tx_srs3_id28"
       - name: "tx_power_reflection"
         type: float
         bit: 32
+      - name: "tx_srs3_id29"
       - name: "tx_over_power"
         bit: 16
+      - name: "tx_srs3_id30"
       - name: "tx_pll_nolock"
         bit: 16
 
@@ -195,39 +238,58 @@ containers:
     parameters:
       - name: "rx_freq"
         bit: 32
+      - name: "rx_srs3_id2"
       - name: "rx_rate"
         bit: 32
+      - name: "rx_srs3_id3"
       - name: "rx_bw"
         bit: 8
+      - name: "rx_srs3_id4"
       - name: "rx_rs"
         bit: 8
+      - name: "rx_srs3_id5"
       - name: "rx_cc"
         bit: 8
+      - name: "rx_srs3_id6"
       - name: "rx_rand"
         bit: 8
+      - name: "rx_srs3_id7"
       - name: "rx_crc"
         bit: 8
+      - name: "rx_srs3_id8"
       - name: "rx_size"
         bit: 16
+      - name: "rx_srs3_id9"
       - name: "rx_id"
         bit: 16
+      - name: "rx_srs3_id10"
+      - name: "rx_crypto_key_len"
       - name: "rx_crypto_key"
-        bit: 34
+        type: "binary"
+        bit: 256
+      - name: "rx_srs3_id11"
       - name: "rx_crypto_decrypt"
         bit: 8
+      - name: "rx_srs3_id12"
       - name: "rx_crypto_auth"
         bit: 8
+      - name: "rx_srs3_id13"
       - name: "rx_local_drop"
         bit: 8
+      - name: "rx_srs3_id14"
       - name: "rx_frames"
         bit: 32
+      - name: "rx_srs3_id15"
       - name: "rx_detected"
         bit: 32
+      - name: "rx_srs3_id16"
       - name: "rx_rssi"
         type: float
         bit: 32
+      - name: "rx_srs3_id17"
       - name: "rx_freqerr"
         type: float
         bit: 32
+      - name: "rx_srs3_id18"
       - name: "rx_pll_nolock"
         bit: 16
