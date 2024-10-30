@@ -25,372 +25,372 @@ headers:
 
 containers:
 # csp common reply
-  - name: ping
+  - name: REPLY_PING
     base: "common_container"
     conditions:
       - name: "../csp_sport"
         val: 1
     parameters:
-      - name: "ping_value"
-  - name: Get_amount_free
+      - name: "PING_VALUE"
+  - name: REPLY_GET_AMOUNT_FREE
     base: "common_container"
     conditions:
       - name: "../csp_sport"
         val: 3
     parameters:
-      - name: "amount_free_memory"
+      - name: "AMOUNT_FREE_MEMORY"
         bit: 32
-  - name: Get_amount
+  - name: REPLY_GET_AMOUNT
     base: "common_container"
     conditions:
       - name: "../csp_sport"
         val: 5
     parameters:
-      - name: "amount_memory"
+      - name: "AMOUNT_CSP_BUFFERS"
         bit: 32
-  - name: Sysup_time
+  - name: REPLY_SYSUP_TIME
     base: "common_container"
     conditions:
       - name: "../csp_sport"
         val: 6
     parameters:
-      - name: "Sysup_time"
+      - name: "SYSUP_TIME"
         bit: 32
 
 # Command reply
-  - name: TM
+  - name: REPLY_PROP_LIST_TM_GRP
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x7495
     parameters:
-      - name: "temp_mcu"
+      - name: "TEMP_MCU"
         bit: 16
         signed: true
-      - name: "tm_srs3_id2"
-      - name: "temp_power"
+      - name: "TM_SRS3_ID2"
+      - name: "TEMP_POWER"
         bit: 16
         signed: true
-      - name: "tm_srs3_id3"
-      - name: "temp_lna"
+      - name: "TM_SRS3_ID3"
+      - name: "TEMP_LNA"
         bit: 16
         signed: true
-      - name: "tm_srs3_id4"
-      - name: "temp_pa"
+      - name: "TM_SRS3_ID4"
+      - name: "TEMP_PA"
         bit: 16
         signed: true
-      - name: "tm_srs3_id5"
-      - name: "volt_vin"
+      - name: "TM_SRS3_ID5"
+      - name: "VOLT_VIN"
         bit: 16
-      - name: "tm_srs3_id6"
-      - name: "volt_vreg"
+      - name: "TM_SRS3_ID6"
+      - name: "VOLT_VREG"
         bit: 16
-      - name: "tm_srs3_id7"
-      - name: "volt_3v3"
+      - name: "TM_SRS3_ID7"
+      - name: "VOLT_3V3"
         bit: 16
-      - name: "tm_srs3_id8"
-      - name: "curr_vin"
-        bit: 16
-        signed: true
-      - name: "tm_srs3_id9"
-      - name: "curr_vreg"
+      - name: "TM_SRS3_ID8"
+      - name: "CURR_VIN"
         bit: 16
         signed: true
-      - name: "tm_srs3_id10"
-      - name: "curr_3v3"
+      - name: "TM_SRS3_ID9"
+      - name: "CURR_VREG"
         bit: 16
         signed: true
-      - name: "tm_srs3_id11"
-      - name: "power_vin"
+      - name: "TM_SRS3_ID10"
+      - name: "CURR_3V3"
         bit: 16
-      - name: "tm_srs3_id12"
-      - name: "power_vreg"
+        signed: true
+      - name: "TM_SRS3_ID11"
+      - name: "POWER_VIN"
         bit: 16
-      - name: "tm_srs3_id13"
-      - name: "power_3v3"
+      - name: "TM_SRS3_ID12"
+      - name: "POWER_VREG"
+        bit: 16
+      - name: "TM_SRS3_ID13"
+      - name: "POWER_3V3"
         bit: 16
 
-  - name: SYS_BOOT_COUNT
+  - name: REPLY_PROP_SYS_BOOTCOUNT
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x428c
     parameters:
-      - name: "boot_count"
+      - name: "BOOTCOUNT"
         bit: 32
 
-  - name: SYS_GWDT_COUNTER
+  - name: REPLY_PROP_SYS_GWDT_COUNTER
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x4290
     parameters:
-      - name: "gwdt_counter"
+      - name: "GWDT_COUNTER"
         bit: 32
 
-  - name: TX
+  - name: REPLY_PROP_LIST_TX_GRP
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x11e4
     parameters:
-      - name: "tx_allow_always"
+      - name: "ALLOW_ALWAYS"
         bit: 8
         signed: true
-      - name: "tx_srs3_id2"
-      - name: "tx_allow_time"
+      - name: "TX_SRS3_ID2"
+      - name: "ALLOW_TIME"
         bit: 16
-      - name: "tx_srs3_id3"
-      - name: "tx_freq"
+      - name: "TX_SRS3_ID3"
+      - name: "FREQUENCY_TX"
         bit: 32
-      - name: "tx_srs3_id4"
-      - name: "tx_rate"
+      - name: "TX_SRS3_ID4"
+      - name: "BIT_RATE_TX"
         bit: 32
-      - name: "tx_srs3_id5"
-      - name: "tx_bt"
+      - name: "TX_SRS3_ID5"
+      - name: "BT_PRODUCT"
         bit: 8
-      - name: "tx_srs3_id6"
-      - name: "tx_pout"
+      - name: "TX_SRS3_ID6"
+      - name: "POWER_OUT"
         type: float
         bit: 32
-      - name: "tx_srs3_id7"
-      - name: "tx_gain"
+      - name: "TX_SRS3_ID7"
+      - name: "POWER_GAIN"
         bit: 16
-      - name: "tx_srs3_id8"
-      - name: "tx_alc_mode"
+      - name: "TX_SRS3_ID8"
+      - name: "ALC_MODE"
         bit: 8
-      - name: "tx_srs3_id9"
-      - name: "tx_alc_kp"
+      - name: "TX_SRS3_ID9"
+      - name: "ALC_KP"
         type: float
         bit: 32
-      - name: "tx_srs3_id10"
-      - name: "tx_alc_limit"
+      - name: "TX_SRS3_ID10"
+      - name: "ALC_LIMIT"
         bit: 16
-      - name: "tx_srs3_id11"
-      - name: "tx_alc_gain"
+      - name: "TX_SRS3_ID11"
+      - name: "ALC_GAIN"
         bit: 16
-      - name: "tx_srs3_id12"
-      - name: "tx_rs"
+      - name: "TX_SRS3_ID12"
+      - name: "REED_SOLOMON_TX"
         bit: 8
         signed: true
-      - name: "tx_srs3_id13"
-      - name: "tx_cc"
+      - name: "TX_SRS3_ID13"
+      - name: "CONVOLUTION_CODING_TX"
         bit: 8
         signed: true
-      - name: "tx_srs3_id14"
-      - name: "tx_rand"
+      - name: "TX_SRS3_ID14"
+      - name: "RANDOMIZE_TX"
         bit: 8
         signed: true
-      - name: "tx_srs3_id15"
-      - name: "tx_crc"
+      - name: "TX_SRS3_ID15"
+      - name: "CRC_TX"
         bit: 8
         signed: true
-      - name: "tx_srs3_id16"
-      - name: "tx_idle_frames"
+      - name: "TX_SRS3_ID16"
+      - name: "IDLE_FRAMES"
         bit: 16
-      - name: "tx_srs3_id17"
-      - name: "tx_train_type"
+      - name: "TX_SRS3_ID17"
+      - name: "TRAIN_TYPE"
         bit: 8
-      - name: "tx_srs3_id18"
-      - name: "tx_preamble"
+      - name: "TX_SRS3_ID18"
+      - name: "PREAMBLE_SIZE"
         bit: 16
-      - name: "tx_srs3_id19"
-      - name: "tx_postamble"
+      - name: "TX_SRS3_ID19"
+      - name: "POSTAMBLE_SIZE"
         bit: 16
-      - name: "tx_srs3_id20"
-      - name: "tx_midamble"
+      - name: "TX_SRS3_ID20"
+      - name: "MIDAMBLE_SIZE"
         bit: 16
-      - name: "tx_srs3_id21"
-      - name: "tx_size"
+      - name: "TX_SRS3_ID21"
+      - name: "PACKET_SIZE_TX"
         bit: 16
-      - name: "tx_srs3_id22"
-      - name: "tx_id"
+      - name: "TX_SRS3_ID22"
+      - name: "ID_TX"
         bit: 16
-      - name: "tx_srs3_id23"
-      - name: "tx_crypto_key_len"
-      - name: "tx_crypto_key"
+      - name: "TX_SRS3_ID23"
+      - name: "CRYPTO_KEY_LEN_TX"
+      - name: "CRYPTO_KEY_TX"
         type: "binary"
         bit: 256
-      - name: "tx_srs3_id24"
-      - name: "tx_crypto_encrypt"
+      - name: "TX_SRS3_ID24"
+      - name: "CRYPTO_ENCRYPT"
         bit: 8
-      - name: "tx_srs3_id25"
-      - name: "tx_crypto_auth"
+      - name: "TX_SRS3_ID25"
+      - name: "CRYPTO_AUTH_TX"
         bit: 8
-      - name: "tx_srs3_id26"
-      - name: "tx_frames"
+      - name: "TX_SRS3_ID26"
+      - name: "SEND_FRAMES"
         bit: 32
-      - name: "tx_srs3_id27"
-      - name: "tx_power_forward"
+      - name: "TX_SRS3_ID27"
+      - name: "POWER_FORWARD"
         type: float
         bit: 32
-      - name: "tx_srs3_id28"
-      - name: "tx_power_reflection"
+      - name: "TX_SRS3_ID28"
+      - name: "POWER_REFLECT"
         type: float
         bit: 32
-      - name: "tx_srs3_id29"
-      - name: "tx_over_power"
+      - name: "TX_SRS3_ID29"
+      - name: "OVER_POWER_COUNT"
         bit: 16
-      - name: "tx_srs3_id30"
-      - name: "tx_pll_nolock"
+      - name: "TX_SRS3_ID30"
+      - name: "PLL_NO_LOCK_COUNT_TX"
         bit: 16
 
-  - name: RX
+  - name: REPLY_PROP_LIST_RX_GRP
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x4203
     parameters:
-      - name: "rx_freq"
+      - name: "FREQUENCY_RX"
         bit: 32
-      - name: "rx_srs3_id2"
-      - name: "rx_rate"
+      - name: "RX_SRS3_ID2"
+      - name: "BIT_RATE_RX"
         bit: 32
-      - name: "rx_srs3_id3"
-      - name: "rx_bw"
+      - name: "RX_SRS3_ID3"
+      - name: "BAND_WIDTH"
         bit: 8
-      - name: "rx_srs3_id4"
-      - name: "rx_rs"
+      - name: "RX_SRS3_ID4"
+      - name: "REED_SOLOMON_RX"
         bit: 8
-      - name: "rx_srs3_id5"
-      - name: "rx_cc"
+      - name: "RX_SRS3_ID5"
+      - name: "CONVOLUTION_CODING_RX"
         bit: 8
-      - name: "rx_srs3_id6"
-      - name: "rx_rand"
+      - name: "RX_SRS3_ID6"
+      - name: "RANDOMIZE_RX"
         bit: 8
-      - name: "rx_srs3_id7"
-      - name: "rx_crc"
+      - name: "RX_SRS3_ID7"
+      - name: "CRC_RX"
         bit: 8
-      - name: "rx_srs3_id8"
-      - name: "rx_size"
+      - name: "RX_SRS3_ID8"
+      - name: "PACKET_SIZE_RX"
         bit: 16
-      - name: "rx_srs3_id9"
-      - name: "rx_id"
+      - name: "RX_SRS3_ID9"
+      - name: "ID_RX"
         bit: 16
-      - name: "rx_srs3_id10"
-      - name: "rx_crypto_key_len"
-      - name: "rx_crypto_key"
+      - name: "RX_SRS3_ID10"
+      - name: "CRYPTO_KEY_LEN_RX"
+      - name: "CRYPTO_KEY_RX"
         type: "binary"
         bit: 256
-      - name: "rx_srs3_id11"
-      - name: "rx_crypto_decrypt"
+      - name: "RX_SRS3_ID11"
+      - name: "CRYPTO_DECRYPT"
         bit: 8
-      - name: "rx_srs3_id12"
-      - name: "rx_crypto_auth"
+      - name: "RX_SRS3_ID12"
+      - name: "CRYPTO_AUTH"
         bit: 8
-      - name: "rx_srs3_id13"
-      - name: "rx_local_drop"
+      - name: "RX_SRS3_ID13"
+      - name: "LOCAL_DROP"
         bit: 8
-      - name: "rx_srs3_id14"
-      - name: "rx_frames"
+      - name: "RX_SRS3_ID14"
+      - name: "RECV_FRAMES"
         bit: 32
-      - name: "rx_srs3_id15"
-      - name: "rx_detected"
+      - name: "RX_SRS3_ID15"
+      - name: "DETECTED"
         bit: 32
-      - name: "rx_srs3_id16"
-      - name: "rx_rssi"
+      - name: "RX_SRS3_ID16"
+      - name: "RSSI"
         type: float
         bit: 32
-      - name: "rx_srs3_id17"
-      - name: "rx_freqerr"
+      - name: "RX_SRS3_ID17"
+      - name: "FREQUENCY_ERR"
         type: float
         bit: 32
-      - name: "rx_srs3_id18"
-      - name: "rx_pll_nolock"
+      - name: "RX_SRS3_ID18"
+      - name: "PLL_NO_LOCK_COUNT_RX"
         bit: 16
 
-  - name: SYS_1
+  - name: REPLY_PROP_LIST_SYS_GRP_1
     conditions:
       - name: "SRS3/srs3_reserved"
         val: 0x1
       - name: "SRS3/srs3_id"
         val: 0xC285
     parameters:
-      - name: "sys_name_len"
+      - name: "NAME_LEN"
         bit: 16
-      - name: "sys_name"
+      - name: "NAME"
         type: string
         bit: 20
-      - name: "sys_srs3_id2"
-      - name: "sys_serial"
+      - name: "SYS_SRS3_ID2"
+      - name: "SERIAL"
         type: "binary"
         bit: 32
-      - name: "sys_srs3_id3"
-      - name: "sys_sw_ver"
+      - name: "SYS_SRS3_ID3"
+      - name: "SW_VERSION"
         type: "binary"
         bit: 32
-      - name: "sys_srs3_id4"
-      - name: "sys_bootcount"
+      - name: "SYS_SRS3_ID4"
+      - name: "BOOTCOUNT_SYS"
         bit: 32
-      - name: "sys_srs3_id5"
-      - name: "sys_gwdt_init"
+      - name: "SYS_SRS3_ID5"
+      - name: "GWDT_INIT"
         bit: 32
-      - name: "sys_srs3_id6"
-      - name: "sys_gwdt_count"
+      - name: "SYS_SRS3_ID6"
+      - name: "GWDT_COUNTER_SYS"
         bit: 32
-      - name: "sys_srs3_id7"
-      - name: "sys_gwdt_reset"
+      - name: "SYS_SRS3_ID7"
+      - name: "GWDT_RESET"
         type: "binary"
         bit: 32
-      - name: "sys_srs3_id8"
-      - name: "sys_csp_address"
+      - name: "SYS_SRS3_ID8"
+      - name: "CSP_ADDRESS"
         bit: 8
-      - name: "sys_srs3_id9"
-      - name: "sys_csp_route_len"
+      - name: "SYS_SRS3_ID9"
+      - name: "CSP_ROUTES_LEN"
         bit: 16
-      - name: "sys_csp_route"
+      - name: "CSP_ROUTES"
         type: string
         bit: 100
-      - name: "sys_srs3_id10"
-      - name: "sys_csp_mtu"
+      - name: "SYS_SRS3_ID10"
+      - name: "CSP_MTU"
         bit: 16
-      - name: "sys_srs3_id11"
-      - name: "sys_can_rate"
+      - name: "SYS_SRS3_ID11"
+      - name: "CAN_RATE"
         bit: 32
-      - name: "sys_srs3_id12"
-      - name: "sys_can_promisc"
+      - name: "SYS_SRS3_ID12"
+      - name: "CAN_PROMISC"
         bit: 8
         signed: true
-      - name: "sys_srs3_id13"
-      - name: "sys_uart_rate"
+      - name: "SYS_SRS3_ID13"
+      - name: "UART_RATE"
         bit: 32
-      - name: "sys_srs3_id14"
-      - name: "sys_uart_multidrop"
+      - name: "SYS_SRS3_ID14"
+      - name: "UART_MULTIDROP"
         bit: 8
         signed: true
-      - name: "sys_srs3_id15"
-      - name: "sys_net_enable"
+      - name: "SYS_SRS3_ID15"
+      - name: "NET_ENABLE"
         bit: 8
         signed: true
-      - name: "sys_srs3_id16"
-      - name: "sys_net_en_ip_len"
+      - name: "SYS_SRS3_ID16"
+      - name: "NET_EN_IP_LEN"
         bit: 16
-      - name: "sys_net_en_ip"
+      - name: "NET_EN_IP"
         type: string
         bit: 50
 
-  - name: SYS_2
+  - name: REPLY_PROP_LIST_SYS_GRP_2
     conditions:
       - name: "SRS3/srs3_reserved"
         val: 0x0
       - name: "SRS3/srs3_id"
         val: 0x22B4
     parameters:
-      - name: "sys_net_en_prefix"
+      - name: "NET_EN_PREFIX"
         bit: 8
-      - name: "sys_srs3_id18"
-      - name: "sys_net_en_gw_len"
+      - name: "SYS_SRS3_ID18"
+      - name: "NET_EN_GW_LEN"
         bit: 16
-      - name: "sys_net_en_gw"
+      - name: "NET_EN_GW"
         type: string
         bit: 50
-      - name: "sys_srs3_id19"
-      - name: "sys_net_rf_ip_len"
+      - name: "SYS_SRS3_ID19"
+      - name: "NET_RF_IP_LEN"
         bit: 16
-      - name: "sys_net_rf_ip"
+      - name: "NET_RF_IP"
         type: string
         bit: 50
-      - name: "sys_srs3_id20"
-      - name: "sys_net_rf_prefix"
+      - name: "SYS_SRS3_ID20"
+      - name: "NET_RF_PREFIX"
         bit: 8
-      - name: "sys_srs3_id21"
-      - name: "sys_net_rf_gw_len"
+      - name: "SYS_SRS3_ID21"
+      - name: "NET_RF_GW_LEN"
         bit: 16
-      - name: "sys_net_rf_gw"
+      - name: "NET_RF_GW"
         type: string
         bit: 50
