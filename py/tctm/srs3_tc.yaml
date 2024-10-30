@@ -1,53 +1,53 @@
 csp_commands:
   - name: csp_command
     commands:
-      - name: "CMP"
+      - name: "REQ_CMP"
         port: 0
-      - name: "Ping"
+      - name: "REQ_PING"
         port: 1
         arguments:
           - name: "ping_value"
-      - name: "Get_amount_free"
+      - name: "REQ_GET_AMOUNT_FREE"
         port: 3
-      - name: "Get_amount"
+      - name: "REQ_GET_AMOUNT"
         port: 5
-      - name: "Sysup_time"
+      - name: "REQ_SYSUP_TIME"
         port: 6
 
 default_commands:
   - name: srs3_command
     commands:
-      - name: "srs3_telemetry_data"
+      - name: "REQ_PROP_LIST_TM_GRP"
         port: 19
         arguments:
           - name: command_id
             type: binary
             val: 0101C8000480
-      - name: "srs3_tx_group_data"
+      - name: "REQ_PROP_LIST_TX_GRP"
         port: 19
         arguments:
           - name: command_id
             type: binary
             val: 0101C8000180
-      - name: "srs3_rx_group_data"
+      - name: "REQ_PROP_LIST_RX_GRP"
         port: 19
         arguments:
           - name: command_id
             type: binary
             val: 0101C8000200
-      - name: "srs3_sys_group_data"
+      - name: "REQ_PROP_LIST_SYS_GRP"
         port: 19
         arguments:
           - name: command_id
             type: binary
             val: 0101F6000280
-      - name: "srs3_boot_count"
+      - name: "REQ_PROP_SYS_BOOTCOUNT"
         port: 19
         arguments:
           - name: command_id
             type: binary
             val: 0101C800428C
-      - name: "srs3_wdt_count"
+      - name: "REQ_PROP_SYS_GWDT_COUNTER"
         port: 19
         arguments:
           - name: command_id
