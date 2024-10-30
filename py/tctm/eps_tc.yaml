@@ -1,23 +1,23 @@
 csp_commands:
   - name: csp_command
     commands:
-      - name: "CMP"
+      - name: "REQ_CMP"
         port: 0
-      - name: "Ping"
+      - name: "REQ_PING"
         port: 1
         arguments:
           - name: "ping_value"
-      - name: "Get_amount_free"
+      - name: "REQ_GET_AMOUNT_FREE"
         port: 3
-      - name: "Get_amount"
+      - name: "REQ_GET_AMOUNT"
         port: 5
-      - name: "Sysup_time"
+      - name: "REQ_SYSUP_TIME"
         port: 6
 
 default_commands:
   - name: eps_command
     commands:
-      - name: "GWDT_RESET"
+      - name: "REQ_RESET_GWDT"
         port: 16
         endian: true
         arguments:
@@ -26,7 +26,7 @@ default_commands:
             val: 0
           - name: magic_num
             val: 30868
-      - name: "HW_RESET"
+      - name: "REQ_EPS_HARD_RESET"
         port: 15
         endian: true
         arguments:
@@ -35,21 +35,21 @@ default_commands:
             val: 1
           - name: magic_num
             val: 17767
-      - name: "GET_TM"
+      - name: "REQ_GENERAL_TELEMETRY"
         port: 7
         endian: true
         arguments:
           - name: command_id
             bit: 8
             val: 0
-      - name: "GET_STARTUP_TM"
+      - name: "REQ_STARTUP_TELEMETRY"
         port: 7
         endian: true
         arguments:
           - name: command_id
             bit: 8
             val: 1
-      - name: "SINGLE_OUTPUT_CONTROL"
+      - name: "REQ_SINGLE_OUTPUT_CONTROL"
         port: 14
         endian: true
         arguments:
@@ -65,7 +65,7 @@ default_commands:
               - [1, "On"]
           - name: delay_s
             bit: 16
-      - name: "ALL_OUTPUT_CONTROL"
+      - name: "REQ_ALL_OUTPUT_CONTROL"
         port: 14
         endian: true
         arguments:
@@ -75,7 +75,7 @@ default_commands:
           - name: output_state
             type: "binary"
             bit: 32
-      - name: "ELEVATE_ACCESS_ROLE"
+      - name: "REQ_ELEVATE_ACCESS_ROLE"
         port: 9
         endian: true
         arguments:
@@ -90,7 +90,7 @@ default_commands:
               - [2, "Manufacture"]
           - name: password
             bit: 32
-      - name: "SET_BUZZER_CHANNELS"
+      - name: "REQ_CFG_SET_BUZZER_CHANNELS"
         port: 9
         endian: true
         arguments:
@@ -106,28 +106,28 @@ default_commands:
           - name: output_channels
             type: "binary"
             bit: 32
-      - name: "UNLOCK_CONFIG"
+      - name: "REQ_CFG_UNLOCK"
         port: 9
         endian: true
         arguments:
           - name: command_id
             bit: 8
             val: 8
-      - name: "LOCK_CONFIG"
+      - name: "REQ_CFG_LOCK"
         port: 9
         endian: true
         arguments:
           - name: command_id
             bit: 8
             val: 9
-      - name: "SAVE_CONFIG_TO_MAIN"
+      - name: "REQ_CFG_SAVE_TO_MAIN"
         port: 9
         endian: true
         arguments:
           - name: command_id
             bit: 8
             val: 10
-      - name: "SAVE_CONFIG_TO_FALLBACK"
+      - name: "REQ_CFG_SAVE_TO_FALLBACK"
         port: 9
         endian: true
         arguments:
