@@ -35,6 +35,12 @@ default_commands:
           - name: command_id
             type: binary
             val: 0101C8000200
+      - name: "srs3_sys_group_data"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            val: 0101F6000280
       - name: "srs3_boot_count"
         port: 19
         arguments:
