@@ -293,3 +293,104 @@ containers:
       - name: "rx_srs3_id18"
       - name: "rx_pll_nolock"
         bit: 16
+
+  - name: SYS_1
+    conditions:
+      - name: "SRS3/srs3_reserved"
+        val: 0x1
+      - name: "SRS3/srs3_id"
+        val: 0xC285
+    parameters:
+      - name: "sys_name_len"
+        bit: 16
+      - name: "sys_name"
+        type: string
+        bit: 20
+      - name: "sys_srs3_id2"
+      - name: "sys_serial"
+        type: "binary"
+        bit: 32
+      - name: "sys_srs3_id3"
+      - name: "sys_sw_ver"
+        type: "binary"
+        bit: 32
+      - name: "sys_srs3_id4"
+      - name: "sys_bootcount"
+        bit: 32
+      - name: "sys_srs3_id5"
+      - name: "sys_gwdt_init"
+        bit: 32
+      - name: "sys_srs3_id6"
+      - name: "sys_gwdt_count"
+        bit: 32
+      - name: "sys_srs3_id7"
+      - name: "sys_gwdt_reset"
+        type: "binary"
+        bit: 32
+      - name: "sys_srs3_id8"
+      - name: "sys_csp_address"
+        bit: 8
+      - name: "sys_srs3_id9"
+      - name: "sys_csp_route_len"
+        bit: 16
+      - name: "sys_csp_route"
+        type: string
+        bit: 100
+      - name: "sys_srs3_id10"
+      - name: "sys_csp_mtu"
+        bit: 16
+      - name: "sys_srs3_id11"
+      - name: "sys_can_rate"
+        bit: 32
+      - name: "sys_srs3_id12"
+      - name: "sys_can_promisc"
+        bit: 8
+        signed: true
+      - name: "sys_srs3_id13"
+      - name: "sys_uart_rate"
+        bit: 32
+      - name: "sys_srs3_id14"
+      - name: "sys_uart_multidrop"
+        bit: 8
+        signed: true
+      - name: "sys_srs3_id15"
+      - name: "sys_net_enable"
+        bit: 8
+        signed: true
+      - name: "sys_srs3_id16"
+      - name: "sys_net_en_ip_len"
+        bit: 16
+      - name: "sys_net_en_ip"
+        type: string
+        bit: 50
+
+  - name: SYS_2
+    conditions:
+      - name: "SRS3/srs3_reserved"
+        val: 0x0
+      - name: "SRS3/srs3_id"
+        val: 0x22B4
+    parameters:
+      - name: "sys_net_en_prefix"
+        bit: 8
+      - name: "sys_srs3_id18"
+      - name: "sys_net_en_gw_len"
+        bit: 16
+      - name: "sys_net_en_gw"
+        type: string
+        bit: 50
+      - name: "sys_srs3_id19"
+      - name: "sys_net_rf_ip_len"
+        bit: 16
+      - name: "sys_net_rf_ip"
+        type: string
+        bit: 50
+      - name: "sys_srs3_id20"
+      - name: "sys_net_rf_prefix"
+        bit: 8
+      - name: "sys_srs3_id21"
+      - name: "sys_net_rf_gw_len"
+        bit: 16
+      - name: "sys_net_rf_gw"
+        type: string
+        bit: 50
