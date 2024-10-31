@@ -134,3 +134,10 @@ default_commands:
           - name: command_id
             bit: 8
             val: 11
+      - name: "REQ_GET_STATUS"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 13
