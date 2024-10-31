@@ -520,3 +520,49 @@ containers:
     parameters:
       - name: "CFG_SAVE_TO_FALLBACK_ERROR_CODE"
         bit: 8
+  - name: REPLY_GET_STATUS
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 9
+      - name: "EPS/command_id"
+        val: 13
+    parameters:
+      - name: "GET_STATUS_ERROR_CODE"
+        bit: 8
+      - name: "IS_INITIALIZED"
+        bit: 8
+      - name: "IS_LOCKED"
+        bit: 8
+      - name: "IS_FALLBACK_CONFIGURATION_LOADED"
+        bit: 8
+      - name: "IS_MAIN_CONFIGURATION_LOADED"
+        bit: 8
+      - name: "WAS_FALLBACK_REQUESTED"
+        bit: 8
+      - name: "INIT_SOURCE"
+        bit: 8
+      - name: "CURR_ACCESS_ROLE"
+        bit: 8
+      - name: "TOTAL_NUM_OF_ERRORS"
+        bit: 8
+      - name: "NUM_OF_PARAMETER_DOES_NOT_EXIST_ERRORS"
+        bit: 8
+      - name: "NUM_OF_INVALID_PARAMETER_TYPE_ERRORS"
+        bit: 8
+      - name: "NUM_OF_VALIDATION_FAIL_ERRORS"
+        bit: 8
+      - name: "NUM_OF_STORAGE_FAIL_ERRORS"
+        bit: 8
+      - name: "NUM_OF_NOT_INITIALIZED_ERRORS"
+        bit: 8
+      - name: "NUM_OF_NOT_LOADED_ON_INIT_ERRORS"
+        bit: 8
+      - name: "NUM_OF_LOCKED_ERRORS"
+        bit: 8
+      - name: "NUM_OF_ACCESS_DENIED_ERRORS"
+        bit: 8
+      - name: "NUM_OF_WRONG_PASSWORD_ERRORS"
+        bit: 8
+      - name: "NUM_OF_UNKNOWN_ERRORS"
+        bit: 8
