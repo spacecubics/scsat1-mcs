@@ -44,6 +44,256 @@ containers:
       - name: "Sysup_time"
         bit: 32
 
+# ADCS Telemetry
+  - name: SYSTEM_HK
+    endian: true
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+      - name: "ADCS/telemetry_id"
+        val: 0
+    parameters:
+      - name: "SYSTEM_HK_SEQ_NO"
+        bit: 32
+      - name: "WALL_CLOCK"
+        bit: 32
+      - name: "SYSTEM_UP_TIME"
+        bit: 32
+      - name: "SW_VERSION"
+        bit: 32
+      - name: "CM3_BOOT_COUNT"
+        bit: 8
+      - name: "RESERVED"
+        bit: 5
+      - name: "DRV_POWER_STATUS"
+        bit: 1
+      - name: "GPS_POWER_STATUS"
+        bit: 1
+      - name: "IMU_POWER_STATUS"
+        bit: 1
+      - name: "FPGA_VERSION"
+        bit: 32
+      - name: "FPGA_CONFIG_BANK"
+        bit: 8
+      - name: "FPGA_FALLBACK_STATE"
+        bit: 32
+      - name: "RECEIVED_COMMAND_COUNT"
+        bit: 16
+      - name: "LAST_CSP_PORT"
+        bit: 8
+      - name: "LAST_COMMAND_ID"
+        bit: 8
+      - name: "SRAM_ECC_ERROR_COUNT_BY_MEMORY_SCRUB"
+        bit: 16
+      - name: "SRAM_ECC_ERROR_COUNT_BY_BUS_READ"
+        bit: 16
+      - name: "SEM_ERROR_COUNT"
+        bit: 16
+      - name: "OBC_MODULE_TEMP_1_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_TEMP_1"
+        type: float
+        bit: 32
+      - name: "OBC_MODULE_TEMP_2_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_TEMP_2"
+        type: float
+        bit: 32
+      - name: "OBC_MODULE_TEMP_3_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_TEMP_3"
+        type: float
+        bit: 32
+      - name: "FPGA_TEMP_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "FPGA_TEMP"
+        type: float
+        bit: 32
+      - name: "ADCS_BOARD_TEMP_1_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_TEMP_1"
+        type: float
+        bit: 32
+      - name: "ADCS_BOARD_TEMP_2_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_TEMP_2"
+        type: float
+        bit: 32
+      - name: "RW_BOARD_TEMP_2_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "RW_BOARD_TEMP_2"
+        type: float
+        bit: 32
+      - name: "OBC_MODULE_1V0_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_1V0_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_1V0_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_1V0_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_1V8_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_1V8_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_1V8_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_1V8_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_SYS_A_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_SYS_A_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_SYS_A_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_SYS_A_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_SYS_B_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_SYS_B_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_SYS_B_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_SYS_B_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_IO_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_IO_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_IO_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_IO_VOLT"
+        endian: true
+        bit: 32
+      - name: "FPGA_VCCINT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "FPGA_VCCINT"
+        type: float
+        bit: 32
+      - name: "FPGA_VCCAUX_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "FPGA_VCCAUX"
+        type: float
+        bit: 32
+      - name: "FPGA_VCCBRAM_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "FPGA_VCCBRAM"
+        type: float
+        bit: 32
+      - name: "ADCS_BOARD_3V3_IMU_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_3V3_IMU_CURR"
+        endian: true
+        bit: 32
+      - name: "ADCS_BOARD_3V3_IMU_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_3V3_IMU_VOLT"
+        endian: true
+        bit: 32
+      - name: "ADCS_BOARD_3V3_GPS_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_3V3_GPS_CURR"
+        endian: true
+        bit: 32
+      - name: "ADCS_BOARD_3V3_GPS_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_3V3_GPS_VOLT"
+        endian: true
+        bit: 32
+      - name: "ADCS_BOARD_3V3_DRV_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_3V3_DRV_CURR"
+        endian: true
+        bit: 32
+      - name: "ADCS_BOARD_3V3_DRV_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_3V3_DRV_VOLT"
+        endian: true
+        bit: 32
+      - name: "ADCS_BOARD_VDD_12V_DRVX_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_VDD_12V_DRVX_CURR"
+        type: float
+        bit: 32
+      - name: "ADCS_BOARD_VDD_12V_DRVX_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_VDD_12V_DRVX_VOLT"
+        type: float
+        bit: 32
+      - name: "ADCS_BOARD_VDD_12V_DRVY_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_VDD_12V_DRVY_CURR"
+        type: float
+        bit: 32
+      - name: "ADCS_BOARD_VDD_12V_DRVY_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_VDD_12V_DRVY_VOLT"
+        type: float
+        bit: 32
+      - name: "ADCS_BOARD_VDD_12V_DRVZ_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_VDD_12V_DRVZ_CURR"
+        type: float
+        bit: 32
+      - name: "ADCS_BOARD_VDD_12V_DRVZ_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "ADCS_BOARD_VDD_12V_DRVZ_VOLT"
+        type: float
+        bit: 32
+
 # Command reply
   - name: TEMP
     endian: true
