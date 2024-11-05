@@ -141,6 +141,43 @@ default_commands:
           - name: command_id
             bit: 8
             val: 13
+      - name: "REQ_FILE_INFO"
+        port: 10
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 0
+          - name: file_id
+            bit: 8
+      - name: "REQ_FILE_DOWNLOAD"
+        port: 10
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+          - name: file_id
+            bit: 8
+          - name: status
+            bit: 8
+            val: 0
+          - name: start
+            bit: 32
+          - name: end
+            bit: 32
+          - name: first_offset
+            bit: 16
+            val: 0
+          - name: period_ms
+            bit: 16
+            val: 100
+          - name: duration_s
+            bit: 16
+            val: 30
+          - name: pkt_size
+            bit: 16
+            val: 125
       - name: "REQ_GWDT_REINIT"
         port: 16
         endian: true
