@@ -90,3 +90,9 @@ default_commands:
           - name: "size"
             bit: 32
             val: 0
+      - name: "GET_SYSTEM_HK"
+        port: 15
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
