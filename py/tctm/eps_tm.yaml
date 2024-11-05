@@ -440,6 +440,28 @@ containers:
       - name: "TEMP_SENSOR_INIT"
         bit: 8
         signed: true
+  - name: REPLY_GET_TIME
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 8
+      - name: "EPS/command_id"
+        val: 0
+    parameters:
+      - name: "GET_TIME_ERROR_CODE"
+        bit: 8
+      - name: "TIMESTAMP_GT"
+        bit: 32
+  - name: REPLY_SET_TIME
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 8
+      - name: "EPS/command_id"
+        val: 1
+    parameters:
+      - name: "SET_TIME_ERROR_CODE"
+        bit: 8
   - name: REPLY_SINGLE_OUTPUT_CONTROL
     base: "esp_container"
     conditions:
