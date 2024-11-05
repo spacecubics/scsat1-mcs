@@ -305,7 +305,7 @@ containers:
         bit: 16
       - name: "NAME"
         type: string
-        bit: 20
+        bit: 160
       - name: "SYS_SRS3_ID2"
       - name: "SERIAL"
         type: "binary"
@@ -335,7 +335,7 @@ containers:
         bit: 16
       - name: "CSP_ROUTES"
         type: string
-        bit: 100
+        bit: 800
       - name: "SYS_SRS3_ID10"
       - name: "CSP_MTU"
         bit: 16
@@ -362,7 +362,7 @@ containers:
         bit: 16
       - name: "NET_EN_IP"
         type: string
-        bit: 50
+        bit: 400
 
   - name: REPLY_PROP_LIST_SYS_GRP_2
     conditions:
@@ -378,13 +378,13 @@ containers:
         bit: 16
       - name: "NET_EN_GW"
         type: string
-        bit: 50
+        bit: 400
       - name: "SYS_SRS3_ID19"
       - name: "NET_RF_IP_LEN"
         bit: 16
       - name: "NET_RF_IP"
         type: string
-        bit: 50
+        bit: 400
       - name: "SYS_SRS3_ID20"
       - name: "NET_RF_PREFIX"
         bit: 8
@@ -393,4 +393,4 @@ containers:
         bit: 16
       - name: "NET_RF_GW"
         type: string
-        bit: 50
+        bit: 400
