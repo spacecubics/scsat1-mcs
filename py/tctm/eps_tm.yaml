@@ -566,3 +566,13 @@ containers:
         bit: 8
       - name: "NUM_OF_UNKNOWN_ERRORS"
         bit: 8
+  - name: REPLY_GWDT_REINIT
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "EPS/command_id"
+        val: 4
+    parameters:
+      - name: "GWDT_REINIT_ERROR_CODE"
+        bit: 8
