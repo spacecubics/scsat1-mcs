@@ -566,6 +566,76 @@ containers:
         bit: 8
       - name: "NUM_OF_UNKNOWN_ERRORS"
         bit: 8
+  - name: REPLY_FILE_INFO
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 10
+      - name: "EPS/command_id"
+        val: 0
+    parameters:
+      - name: "FILE_ID_FI"
+        bit: 8
+      - name: "STATUS_FI"
+        bit: 8
+        signed: true
+      - name: "FILE_STATUS"
+        bit: 8
+        signed: true
+      - name: "LAST_ENTRY_ID"
+        bit: 32
+      - name: "TOTAL_ENTRIES"
+        bit: 32
+      - name: "CELL_SIZE"
+        bit: 32
+      - name: "USED_CELLS"
+        bit: 32
+      - name: "MAX_CELLS"
+        bit: 32
+      - name: "SECTOR_QTY"
+        bit: 32
+      - name: "SECTOR_SZ"
+        bit: 32
+      - name: "FILE_TYPE"
+        type: binary
+        bit: 8
+      - name: "FILE_NAME"
+        type: string
+        bit: 96
+      - name: "FILE_SIGNATURE"
+        bit: 32
+  - name: REPLY_FILE_DOWNLOAD
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 10
+      - name: "EPS/command_id"
+        val: 1
+    parameters:
+      - name: "FILE_ID_FD"
+        bit: 8
+      - name: "STATUS_FD"
+        bit: 8
+        signed: true
+  - name: DATA_PACKET_STREAM
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 10
+      - name: "EPS/command_id"
+        val: 2
+    parameters:
+      - name: "FILE_ID_DPS"
+        bit: 8
+      - name: "FIRST_ENTRY_ID"
+        bit: 32
+      - name: "OFFSET"
+        bit: 16
+      - name: "ENTRY_DATA_LEN"
+        bit: 8
+      - name: "ENTRY_DATA"
+        type: binary
+        bit: 992
   - name: REPLY_GWDT_REINIT
     endian: true
     conditions:
