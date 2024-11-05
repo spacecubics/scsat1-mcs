@@ -125,10 +125,10 @@ containers:
       - name: "ADCS_BOARD_TEMP_2"
         type: float
         bit: 32
-      - name: "RW_BOARD_TEMP_2_SENSOR_STATUS"
+      - name: "RW_BOARD_TEMP_SENSOR_STATUS"
         bit: 8
         signed: true
-      - name: "RW_BOARD_TEMP_2"
+      - name: "RW_BOARD_TEMP"
         type: float
         bit: 32
       - name: "OBC_MODULE_1V0_CURR_SENSOR_STATUS"
