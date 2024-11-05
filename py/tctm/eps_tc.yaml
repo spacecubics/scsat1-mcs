@@ -49,6 +49,22 @@ default_commands:
           - name: command_id
             bit: 8
             val: 1
+      - name: "REQ_GET_TIME"
+        port: 8
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 0
+      - name: "REQ_SET_TIME"
+        port: 8
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+          - name: timestamp
+            bit: 32
       - name: "REQ_SINGLE_OUTPUT_CONTROL"
         port: 14
         endian: true
