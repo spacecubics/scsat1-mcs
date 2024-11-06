@@ -49,6 +49,15 @@ containers:
     parameters:
       - name: "SYSUP_TIME"
         bit: 32
+  - name: DEPLOY_MSG
+    base: "common_container"
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+    parameters:
+      - name: "MESSAGE"
+        type: string
+        bit: 128
 # Command reply
   - name: REPLY_RESET_GWDT
     base: "esp_container"
