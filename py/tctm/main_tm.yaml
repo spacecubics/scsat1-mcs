@@ -883,3 +883,25 @@ containers:
       - name: "ERROR_CODE_OF_ERASE_CFG_FLASH"
         signed: true
         bit: 32
+  - name: CLEAR_BOOT_COUNT_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "MAIN/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_CLEAR_BOOT_COUNT"
+        signed: true
+        bit: 32
+  - name: CLEAR_BOOT_COUNT_CMD_UNKNOWN_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "MAIN/telemetry_id"
+        val: 255
+    parameters:
+      - name: "ERROR_CODE_OF_UNKNOWN_CLEAR_BOOT_COUNT"
+        signed: true
+        bit: 32
