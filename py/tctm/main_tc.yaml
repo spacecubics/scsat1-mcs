@@ -96,3 +96,9 @@ default_commands:
           - name: "command_id"
             bit: 8
             val: 0
+      - name: "CLEAR_BOOT_COUNT"
+        port: 16
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
