@@ -26,6 +26,15 @@ default_commands:
             val: 0
           - name: magic_num
             val: 30868
+      - name: "REQ_CLEARMARK_GWDT"
+        port: 16
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 2
+          - name: magic_num
+            val: 30868
       - name: "REQ_EPS_HARD_RESET"
         port: 15
         endian: true

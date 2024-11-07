@@ -70,6 +70,17 @@ containers:
       - name: "RESET_GWDT_ERROR_CODE"
         bit: 8
         signed: true
+  - name: REPLY_CLEARMARK_GWDT
+    base: "esp_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "EPS/command_id"
+        val: 2
+    parameters:
+      - name: "CLEARMARK_GWDT_ERROR_CODE"
+        bit: 8
+        signed: true
   - name: REPLY_EPS_HARD_RESET
     base: "esp_container"
     conditions:
