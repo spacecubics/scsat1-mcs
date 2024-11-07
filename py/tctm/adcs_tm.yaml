@@ -257,42 +257,6 @@ containers:
       - name: "ADCS_BOARD_3V3_DRV_VOLT"
         endian: true
         bit: 32
-      - name: "ADCS_BOARD_VDD_12V_DRVX_CURR_SENSOR_STATUS"
-        bit: 8
-        signed: true
-      - name: "ADCS_BOARD_VDD_12V_DRVX_CURR"
-        type: float
-        bit: 32
-      - name: "ADCS_BOARD_VDD_12V_DRVX_VOLT_SENSOR_STATUS"
-        bit: 8
-        signed: true
-      - name: "ADCS_BOARD_VDD_12V_DRVX_VOLT"
-        type: float
-        bit: 32
-      - name: "ADCS_BOARD_VDD_12V_DRVY_CURR_SENSOR_STATUS"
-        bit: 8
-        signed: true
-      - name: "ADCS_BOARD_VDD_12V_DRVY_CURR"
-        type: float
-        bit: 32
-      - name: "ADCS_BOARD_VDD_12V_DRVY_VOLT_SENSOR_STATUS"
-        bit: 8
-        signed: true
-      - name: "ADCS_BOARD_VDD_12V_DRVY_VOLT"
-        type: float
-        bit: 32
-      - name: "ADCS_BOARD_VDD_12V_DRVZ_CURR_SENSOR_STATUS"
-        bit: 8
-        signed: true
-      - name: "ADCS_BOARD_VDD_12V_DRVZ_CURR"
-        type: float
-        bit: 32
-      - name: "ADCS_BOARD_VDD_12V_DRVZ_VOLT_SENSOR_STATUS"
-        bit: 8
-        signed: true
-      - name: "ADCS_BOARD_VDD_12V_DRVZ_VOLT"
-        type: float
-        bit: 32
 
 # Command reply
   - name: TEMP
