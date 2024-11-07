@@ -147,21 +147,21 @@ containers:
       - name: "OUTPUT_CONV_VOLT_6"
       - name: "OUTPUT_CONV_VOLT_7"
       - name: "OUTPUT_CONV_VOLT_8"
-      - name: "OUTPUT_CONV_STATUS_3V3"
-        bit: 1
-      - name: "OUTPUT_CONV_STATUS_5V_A"
-        bit: 1
-      - name: "OUTPUT_CONV_STATUS_5V_B"
-        bit: 1
-      - name: "OUTPUT_CONV_STATUS_12V"
-        bit: 1
-      - name: "OUTPUT_CONV_STATUS_5"
-        bit: 1
-      - name: "OUTPUT_CONV_STATUS_6"
+      - name: "OUTPUT_CONV_STATUS_8"
         bit: 1
       - name: "OUTPUT_CONV_STATUS_7"
         bit: 1
-      - name: "OUTPUT_CONV_STATUS_8"
+      - name: "OUTPUT_CONV_STATUS_6"
+        bit: 1
+      - name: "OUTPUT_CONV_STATUS_5"
+        bit: 1
+      - name: "OUTPUT_CONV_STATUS_12V"
+        bit: 1
+      - name: "OUTPUT_CONV_STATUS_5V_B"
+        bit: 1
+      - name: "OUTPUT_CONV_STATUS_5V_A"
+        bit: 1
+      - name: "OUTPUT_CONV_STATUS_3V3"
         bit: 1
       - name: "OUTPUT_STATUS_RW"
         bit: 1
