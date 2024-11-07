@@ -158,7 +158,7 @@ def set_entries_list(system, cont):
                 )
             else:
                 print("set parameter error: "+param["name"]+"\n")
-            entries_list.append(ParameterEntry(tm))
+            entries_list.append(ParameterEntry(tm, offset=param.get("offset", 0)))
         return entries_list
     except KeyError:
         return None
