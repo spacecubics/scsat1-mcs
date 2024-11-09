@@ -51,6 +51,11 @@ default_commands:
           - name: "command_id"
             bit: 8
             val: 0
+          - name: "crc32_calc"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]
           - name: "target"
             type: string
             bit: 512
