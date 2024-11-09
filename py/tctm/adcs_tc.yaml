@@ -86,6 +86,16 @@ default_commands:
               - [1, "GOLDEN_FSW"]
               - [2, "UPDATE_BIT"]
               - [3, "UPDATE_FSW"]
+      - name: "ERASE_DATA_FLASH_CMD"
+        port: 14
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 1
+          - name: "partition_id"
+            type: enum
+            choices:
+              - [4, "STORAGE"]
           - name: "offset"
             bit: 32
             val: 0
