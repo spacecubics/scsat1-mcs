@@ -53,3 +53,10 @@ default_commands:
           - name: command_id
             type: binary
             val: 0101C8004290
+      - name: "REQ_RESET_GWDT"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            bit: 72
+            val: 0B01004291BB5990C1
