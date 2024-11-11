@@ -114,18 +114,18 @@ containers:
         bit: 32
       - name: "COUNTER_WDT"
         bit: 32
-      - name: "MPPT_CONV_VOLT_X+"
-      - name: "MPPT_CONV_VOLT_Y+"
-      - name: "MPPT_CONV_VOLT_X-"
-      - name: "MPPT_CONV_VOLT_Y-"
+      - name: "MPPT_CONV_VOLT_X_P"
+      - name: "MPPT_CONV_VOLT_Y_P"
+      - name: "MPPT_CONV_VOLT_X_M"
+      - name: "MPPT_CONV_VOLT_Y_M"
       - name: "CURR_SOLAR_PANELS_1"
-      - name: "CURR_SOLAR_PANELS_X+"
+      - name: "CURR_SOLAR_PANELS_X_P"
       - name: "CURR_SOLAR_PANELS_3"
-      - name: "CURR_SOLAR_PANELS_Y+"
+      - name: "CURR_SOLAR_PANELS_Y_P"
       - name: "CURR_SOLAR_PANELS_5"
-      - name: "CURR_SOLAR_PANELS_X-"
+      - name: "CURR_SOLAR_PANELS_X_M"
       - name: "CURR_SOLAR_PANELS_7"
-      - name: "CURR_SOLAR_PANELS_Y-"
+      - name: "CURR_SOLAR_PANELS_Y_M"
       - name: "BATT_VOLT"
       - name: "CURR_SOLAR"
       - name: "CURR_BATT_IN"
@@ -327,16 +327,16 @@ containers:
         bit: 8
       - name: "OUTPUT_FAULT_COUNT_18"
         bit: 8
-      - name: "TEMP_MPPT_X+"
+      - name: "TEMP_MPPT_X_P"
         bit: 8
         signed: true
-      - name: "TEMP_MPPT_Y+"
+      - name: "TEMP_MPPT_Y_P"
         bit: 8
         signed: true
-      - name: "TEMP_MPPT_X-"
+      - name: "TEMP_MPPT_X_M"
         bit: 8
         signed: true
-      - name: "TEMP_MPPT_Y-"
+      - name: "TEMP_MPPT_Y_M"
         bit: 8
         signed: true
       - name: "TEMP_CONV_3V3"
