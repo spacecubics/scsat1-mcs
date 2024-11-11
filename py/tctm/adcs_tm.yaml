@@ -1102,6 +1102,23 @@ containers:
       - name: "ERROR_CODE_OF_ERASE_DATA_FLASH"
         signed: true
         bit: 32
+  - name: CALC_CRC_CFG_FLASH_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "MAIN/telemetry_id"
+        val: 2
+    parameters:
+      - name: "ERROR_CODE_OF_CALC_CRC_CFG_FLASH"
+        signed: true
+        bit: 32
+      - name: "BANK_OF_CFG_FLASH"
+        bit: 8
+      - name: "PARTITION_ID_OF_CFG_FLASH"
+        bit: 8
+      - name: "CRC32_OF_CFG_FLASH"
+        bit: 32
   - name: CLEAR_BOOT_COUNT_CMD_REPLY
     endian: true
     conditions:
