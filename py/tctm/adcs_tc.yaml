@@ -105,6 +105,36 @@ default_commands:
             val: 4
           - name: "session_id"
             bit: 16
+      - name: "COPY_FILE_TO_CFG_FLASH_CMD"
+        port: 13
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 5
+          - name: "src_file_name"
+            type: string
+            bit: 512
+          - name: "src_offset"
+            bit: 32
+            val: 0
+          - name: "copy_size"
+            bit: 32
+            val: 0
+          - name: "target_cfg_bank"
+            type: enum
+            choices:
+              - [0, "CFG_MEM_0"]
+              - [1, "CFG_MEM_1"]
+          - name: "target_partition_id"
+            type: enum
+            choices:
+              - [0, "GOLDEN_BIT"]
+              - [1, "GOLDEN_FSW"]
+              - [2, "UPDATE_BIT"]
+              - [3, "UPDATE_FSW"]
+          - name: "target_offset"
+            bit: 32
       - name: "ERASE_CFG_FLASH_CMD"
         port: 14
         arguments:

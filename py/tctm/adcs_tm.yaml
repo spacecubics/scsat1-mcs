@@ -1058,6 +1058,17 @@ containers:
         bit: 32
       - name: "SESSION_ID_OF_UPLOAD_CLOSE"
         bit: 16
+  - name: COPY_FILE_TO_CFG_FLASH_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "ADCS/telemetry_id"
+        val: 5
+    parameters:
+      - name: "ERROR_CODE_OF_COPY_FILE_TO_CFG_FLASH"
+        signed: true
+        bit: 32
   - name: FLASH_CMD_UNKOWN_REPLY
     endian: true
     conditions:
