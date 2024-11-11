@@ -847,6 +847,8 @@ containers:
         bit: 8
       - name: "FILE_SIZE"
         bit: 32
+      - name: "CRC32"
+        bit: 32
       - name: "FILE_NAME"
         type: string
         bit: 512
@@ -881,6 +883,17 @@ containers:
         val: 0
     parameters:
       - name: "ERROR_CODE_OF_ERASE_CFG_FLASH"
+        signed: true
+        bit: 32
+  - name: ERASE_DATA_FLASH_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "MAIN/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_ERASE_DATA_FLASH"
         signed: true
         bit: 32
   - name: CLEAR_BOOT_COUNT_CMD_REPLY
