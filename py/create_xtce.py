@@ -47,6 +47,7 @@ class Subsystem(Enum):
     ADCS = 16
     ZERO = 24
     PICO = 26
+    HISTORY = 31
 
 
 def set_encoding(param, endian):
@@ -266,7 +267,7 @@ def main():
     parser = argparse.ArgumentParser(
         description='Generate Yamcs mdb definition file from YAML via Yamcs PyMDB'
     )
-    parser.add_argument("--name", choices=["srs3", "eps", "main", "adcs", "zero", "pico"])
+    parser.add_argument("--name", choices=["srs3", "eps", "main", "adcs", "zero", "pico", "history"])
     parser.add_argument('--tm', '--telemetry', type=argparse.FileType('r'), help='Path to a Telemetry YAML')
     parser.add_argument('--tc', '--telecommand', type=argparse.FileType('r'), help='Path to a Telecommand YAML')
     parser.add_argument('--outfile', '--out', type=argparse.FileType('w'), help='Path to mdb out file')

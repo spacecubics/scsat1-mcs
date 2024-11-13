@@ -1,0 +1,314 @@
+headers:
+  - name: "common_container"
+    base: "../csp_message"
+    conditions:
+      - name: "../csp_src"
+        val: HISTORY
+  - name: "history_container"
+    base: "common_container"
+    parameters:
+      - name: "command_id"
+        bit: 8
+      - name: "file_id"
+        bit: 8
+
+# default settings
+# endian: false
+# type: int
+# signed: false
+# bit: 16
+
+containers:
+# EPS
+  - name: EPS_DATA_PKT_STREAM_GENERAL_TELEMETRY
+    base: "history_container"
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 10
+      - name: "HISTORY/command_id"
+        val: 2
+      - name: "HISTORY/file_id"
+        val: 10
+    parameters:
+      - name: "ENTRY_ID_G"
+        bit: 32
+      - name: "CRC32_G"
+        type: "binary"
+        bit: 32
+      - name: "DATA_LEN_G"
+        bit: 8
+      - name: "STATUS_G"
+        bit: 8
+        signed: true
+      - name: "TIMESTAMP_G"
+        type: "double"
+      - name: "UPTIME"
+        bit: 32
+      - name: "BOOT_COUNT_G"
+        bit: 32
+      - name: "GS_WDT_TIME_LEFT"
+        bit: 32
+      - name: "COUNTER_WDT"
+        bit: 32
+      - name: "MPPT_CONV_VOLT_X_P"
+      - name: "MPPT_CONV_VOLT_Y_P"
+      - name: "MPPT_CONV_VOLT_X_M"
+      - name: "MPPT_CONV_VOLT_Y_M"
+      - name: "CURR_SOLAR_PANELS_X_P"
+        offset: 16
+      - name: "CURR_SOLAR_PANELS_Y_P"
+        offset: 16
+      - name: "CURR_SOLAR_PANELS_X_M"
+        offset: 16
+      - name: "CURR_SOLAR_PANELS_Y_M"
+        offset: 16
+      - name: "BATT_VOLT"
+      - name: "CURR_SOLAR"
+      - name: "CURR_BATT_IN"
+      - name: "CURR_BATT_OUT"
+      - name: "CURR_OUTPUT_MAIN_OBC_A"
+      - name: "CURR_OUTPUT_SRS3_A"
+      - name: "CURR_OUTPUT_ADCS_A"
+      - name: "CURR_OUTPUT_MAIN_OBC_B"
+      - name: "CURR_OUTPUT_SRS3_B"
+      - name: "CURR_OUTPUT_ADCS_B"
+      - name: "CURR_OUTPUT_RW"
+        offset: 16
+      - name: "CURR_OUTPUT_DSTRX3"
+      - name: "ALWAYS_ON_CURR_OUTPUT_3V3"
+        offset: 144
+      - name: "ALWAYS_ON_CURR_OUTPUT_5V"
+      - name: "OUTPUT_CONV_VOLT_3V3"
+      - name: "OUTPUT_CONV_VOLT_5V_A"
+      - name: "OUTPUT_CONV_VOLT_5V_B"
+      - name: "OUTPUT_CONV_VOLT_12V"
+      - name: "OUTPUT_CONV_STATUS_12V"
+        offset: 68
+        bit: 1
+      - name: "OUTPUT_CONV_STATUS_5V_B"
+        bit: 1
+      - name: "OUTPUT_CONV_STATUS_5V_A"
+        bit: 1
+      - name: "OUTPUT_CONV_STATUS_3V3"
+        bit: 1
+      - name: "OUTPUT_STATUS_RW"
+        bit: 1
+      - name: "OUTPUT_STATUS_ADCS_B"
+        offset: 1
+        bit: 1
+      - name: "OUTPUT_STATUS_SRS3_B"
+        bit: 1
+      - name: "OUTPUT_STATUS_MAIN_OBC_B"
+        bit: 1
+      - name: "OUTPUT_STATUS_ADCS_A"
+        bit: 1
+      - name: "OUTPUT_STATUS_SRS3_A"
+        bit: 1
+      - name: "OUTPUT_STATUS_MAIN_OBC_A"
+        bit: 1
+      - name: "OUTPUT_STATUS_DSTRX3"
+        offset: 7
+        bit: 1
+      - name: "OUTPUT_FAULT_STATUS_RW"
+        offset: 16
+        bit: 1
+      - name: "OUTPUT_FAULT_STATUS_ADCS_B"
+        offset: 1
+        bit: 1
+      - name: "OUTPUT_FAULT_STATUS_SRS3_B"
+        bit: 1
+      - name: "OUTPUT_FAULT_STATUS_MAIN_OBC_B"
+        bit: 1
+      - name: "OUTPUT_FAULT_STATUS_ADCS_A"
+        bit: 1
+      - name: "OUTPUT_FAULT_STATUS_SRS3_A"
+        bit: 1
+      - name: "OUTPUT_FAULT_STATUS_MAIN_OBC_A"
+        bit: 1
+      - name: "OUTPUT_FAULT_STATUS_DSTRX3"
+        offset: 7
+        bit: 1
+      - name: "PROTECTED_OUTPUT_ACCESS_COUNT"
+        offset: 16
+      - name: "OUTPUT_ON_DELTA_MAIN_OBC_A"
+      - name: "OUTPUT_ON_DELTA_SRS3_A"
+      - name: "OUTPUT_ON_DELTA_ADCS_A"
+      - name: "OUTPUT_ON_DELTA_MAIN_OBC_B"
+      - name: "OUTPUT_ON_DELTA_SRS3_B"
+      - name: "OUTPUT_ON_DELTA_ADCS_B"
+      - name: "OUTPUT_ON_DELTA_RW"
+        offset: 16
+      - name: "OUTPUT_ON_DELTA_DSTRX3"
+      - name: "OUTPUT_OFF_DELTA_MAIN_OBC_A"
+        offset: 144
+      - name: "OUTPUT_OFF_DELTA_SRS3_A"
+      - name: "OUTPUT_OFF_DELTA_ADCS_A"
+      - name: "OUTPUT_OFF_DELTA_MAIN_OBC_B"
+      - name: "OUTPUT_OFF_DELTA_SRS3_B"
+      - name: "OUTPUT_OFF_DELTA_ADCS_B"
+      - name: "OUTPUT_OFF_DELTA_RW"
+        offset: 16
+      - name: "OUTPUT_OFF_DELTA_DSTRX3"
+      - name: "OUTPUT_FAULT_COUNT_MAIN_OBC_A"
+        offset: 144
+        bit: 8
+      - name: "OUTPUT_FAULT_COUNT_SRS3_A"
+        bit: 8
+      - name: "OUTPUT_FAULT_COUNT_ADCS_A"
+        bit: 8
+      - name: "OUTPUT_FAULT_COUNT_MAIN_OBC_B"
+        bit: 8
+      - name: "OUTPUT_FAULT_COUNT_SRS3_B"
+        bit: 8
+      - name: "OUTPUT_FAULT_COUNT_ADCS_B"
+        bit: 8
+      - name: "OUTPUT_FAULT_COUNT_RW"
+        offset: 8
+        bit: 8
+      - name: "OUTPUT_FAULT_COUNT_DSTRX3"
+        bit: 8
+      - name: "TEMP_MPPT_X_P"
+        offset: 72
+        bit: 8
+        signed: true
+      - name: "TEMP_MPPT_Y_P"
+        bit: 8
+        signed: true
+      - name: "TEMP_MPPT_X_M"
+        bit: 8
+        signed: true
+      - name: "TEMP_MPPT_Y_M"
+        bit: 8
+        signed: true
+      - name: "TEMP_CONV_3V3"
+        bit: 8
+        signed: true
+      - name: "TEMP_CONV_5V_A"
+        bit: 8
+        signed: true
+      - name: "TEMP_CONV_5V_B"
+        bit: 8
+        signed: true
+      - name: "TEMP_CONV_12V"
+        bit: 8
+        signed: true
+      - name: "TEMP_BATT_ON_BOARD"
+        bit: 8
+        signed: true
+      - name: "TEMP_BATT_EXT_IN_USE"
+        bit: 8
+        signed: true
+      - name: "TEMP_BATT_EXT_2"
+        bit: 8
+        signed: true
+      - name: "TEMP_BATT_EXT_3"
+        bit: 8
+        signed: true
+      - name: "TEMP_OUTPUT_EXPANDER_1"
+        bit: 8
+        signed: true
+      - name: "TEMP_OUTPUT_EXPANDER_2"
+        bit: 8
+        signed: true
+      - name: "BATT_STATE"
+        bit: 8
+      - name: "MPPT_MODE"
+        bit: 8
+      - name: "BATT_HEATER_MODE"
+        bit: 8
+      - name: "BATT_HEATER_STATE"
+        bit: 8
+      - name: "PING_WDT_TOGGLES"
+      - name: "PING_WDT_TURN_OFFS"
+        bit: 8
+      - name: "THERMAL_PROTECT_TEMP_1"
+        bit: 8
+      - name: "THERMAL_PROTECT_TEMP_2"
+        bit: 8
+      - name: "THERMAL_PROTECT_TEMP_3"
+        bit: 8
+      - name: "THERMAL_PROTECT_TEMP_4"
+        bit: 8
+      - name: "THERMAL_PROTECT_TEMP_5"
+        bit: 8
+      - name: "THERMAL_PROTECT_TEMP_6"
+        bit: 8
+      - name: "THERMAL_PROTECT_TEMP_7"
+        bit: 8
+      - name: "THERMAL_PROTECT_TEMP_8"
+        bit: 8
+      - name: "BATT_INVALID_MEASUREMENT_COUNT"
+        bit: 16
+
+  - name: EPS_DATA_PKT_STREAM_STARTUP_TELEMETRY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 10
+      - name: "HISTORY/command_id"
+        val: 2
+      - name: "HISTORY/file_id"
+        val: 7
+    parameters:
+      - name: "ENTRY_ID_S"
+        bit: 32
+      - name: "CRC32_S"
+        type: "binary"
+        bit: 32
+      - name: "DATA_LEN_S"
+        bit: 8
+      - name: "STATUS_S"
+        bit: 8
+        signed: true
+      - name: "TIMESTAMP_S"
+        type: "double"
+      - name: "LAST_RESET_REASON_REGISTER_7TO0"
+        bit: 8
+        type: binary
+      - name: "LAST_RESET_REASON_REGISTER_15TO8"
+        bit: 8
+        type: binary
+      - name: "LAST_RESET_REASON_REGISTER_23TO16"
+        bit: 8
+        type: binary
+      - name: "LAST_RESET_REASON_REGISTER_31TO24"
+        bit: 8
+        type: binary
+      - name: "BOOT_COUNT_S"
+        bit: 32
+      - name: "FALLBACK_CONFIG_USED"
+        bit: 8
+      - name: "RTC_INIT"
+        bit: 8
+      - name: "RTC_CLOCK_SOURCE_LSE"
+        bit: 8
+      - name: "FLASH_APPLICATION_INIT"
+        bit: 8
+      - name: "FRAM_4K_PARTITION_INIT"
+        bit: 8
+        signed: true
+      - name: "FRAM_520K_PARTITION_INIT"
+        bit: 8
+        signed: true
+      - name: "INTERNAL_FLASH_PARTITION_INIT"
+        bit: 8
+        signed: true
+      - name: "FW_UPDATE_INIT"
+        bit: 8
+      - name: "FILE_SYSTEM_INIT"
+        bit: 8
+        signed: true
+      - name: "FILE_TRANSFER_INIT"
+        bit: 8
+        signed: true
+      - name: "SUPERVISOR_INIT"
+        bit: 8
+        signed: true
+      - name: "UART1_APPLICATION_INIT"
+        bit: 8
+      - name: "USER2_APPLICATION_INIT"
+        bit: 8
+      - name: "TEMP_SENSOR_INIT"
+        bit: 8
+        signed: true

@@ -25,6 +25,7 @@ $create_xtce --verbose --name eps  --tm $data/eps_tm.yaml  --tc $data/eps_tc.yam
 $create_xtce --verbose --name srs3 --tm $data/srs3_tm.yaml --tc $data/srs3_tc.yaml --out "${work_dir}"/mdb/scsat1_srs3.xml || die "srs3 failed"
 $create_xtce --verbose --name zero --tm $data/zero_tm.yaml --tc $data/zero_tc.yaml --out "${work_dir}"/mdb/scsat1_zero.xml || die "zero failed"
 $create_xtce --verbose --name pico --tm $data/pico_tm.yaml --tc $data/pico_tc.yaml --out "${work_dir}"/mdb/scsat1_pico.xml || die "pico failed"
+$create_xtce --verbose --name history --tm $data/history_tm.yaml --out "${work_dir}"/mdb/scsat1_history.xml || die "history failed"
 
 echo "Installing configuration files from etc to ${work_dir}..."
 cp -a $(dirname $0)/../etc "${work_dir}"/  || die "copy etc failed"
