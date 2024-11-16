@@ -153,6 +153,12 @@ default_commands:
               - [1, "GOLDEN_FSW"]
               - [2, "UPDATE_BIT"]
               - [3, "UPDATE_FSW"]
+          - name: "offset"
+            bit: 32
+            val: 0
+          - name: "size"
+            bit: 32
+            val: 0
       - name: "ERASE_DATA_FLASH_CMD"
         port: 14
         arguments:
