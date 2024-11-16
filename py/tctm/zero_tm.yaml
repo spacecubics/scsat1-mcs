@@ -4,6 +4,11 @@ headers:
     conditions:
       - name: "../csp_src"
         val: ZERO
+  - name: "payload_container"
+    base: "common_container"
+    parameters:
+      - name: "telemetry_id"
+        bit: 8
 
 containers:
 # csp common reply
@@ -38,3 +43,15 @@ containers:
     parameters:
       - name: "Sysup_time"
         bit: 32
+
+# Zero
+  - name: TEMP
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 11
+      - name: "ZERO/telemetry_id"
+        val: 0
+    parameters:
+      - name: "TEMP_RAW"
+        bit: 16
