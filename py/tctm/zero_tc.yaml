@@ -13,3 +13,13 @@ csp_commands:
         port: 5
       - name: "Sysup_time"
         port: 6
+
+default_commands:
+  - name: zero_command
+    commands:
+      - name: "GET_TEMP"
+        port: 11
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
