@@ -11,6 +11,7 @@ def main(args):
 
     client = YamcsClient(args.url)
     archive = client.get_archive(instance=args.instance)
+    board = args.board
 
     # Determin search time
     search_min = args.min
@@ -34,7 +35,7 @@ def main(args):
     # Collect offset parameter name
     offset_params = []
     for no in range(REPLY_PARAM_NUM):
-        offset_params.append(f"/SCSAT1/MAIN/OFFSET_{no+1:02d}_OF_UPLOAD_DATA")
+        offset_params.append(f"/SCSAT1/{board}/OFFSET_{no+1:02d}_OF_UPLOAD_DATA")
 
     # Search
     last_offset = -args.chunk
@@ -58,6 +59,8 @@ if __name__ == '__main__':
                         help=f"Yamcs instance name (default: {DEFAULT_YAMCS_INSTANCE})")
     parser.add_argument("--chunk", type=int, default=200,
                         help="Chunk size (byte)")
+    parser.add_argument("--board", type=str, default="MAIN",
+                        help="Target board. MAIN or ADCS or ZERO")
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--min", type=int, default=-1,
                        help="Target minutes from current time for searching")
