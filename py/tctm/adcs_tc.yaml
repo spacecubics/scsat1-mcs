@@ -137,6 +137,7 @@ default_commands:
             bit: 32
       - name: "ERASE_CFG_FLASH_CMD"
         port: 14
+        endian: true
         arguments:
           - name: "command_id"
             bit: 8
