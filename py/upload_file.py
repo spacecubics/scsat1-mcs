@@ -86,7 +86,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description="SC-Sat1 Upload file tool")
     parser.add_argument("--board", type=str, default="MAIN",
-                        help="Target board. MAIN or ADCS or PYLD")
+                        help="Target board. MAIN or ADCS or ZERO")
     parser.add_argument("--src", type=str, required=True,
                         help="Upload file on local host")
     parser.add_argument("--chunk", type=int, default=200,
