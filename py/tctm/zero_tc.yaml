@@ -23,3 +23,40 @@ default_commands:
           - name: "command_id"
             bit: 8
             val: 0
+      - name: "UPLOAD_OPEN_CMD"
+        port: 13
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 2
+          - name: "session_id"
+            bit: 16
+          - name: "file_name"
+            type: string
+            bit: 512
+      - name: "UPLOAD_DATA_CMD"
+        port: 13
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 3
+          - name: "session_id"
+            bit: 16
+          - name: "offset"
+            bit: 32
+          - name: "size"
+            bit: 32
+          - name: "data"
+            type: binary
+            bit: 1600
+      - name: "UPLOAD_CLOSE_CMD"
+        port: 13
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 4
+          - name: "session_id"
+            bit: 16
