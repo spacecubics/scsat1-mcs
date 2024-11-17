@@ -55,3 +55,182 @@ containers:
     parameters:
       - name: "TEMP_RAW"
         bit: 16
+  - name: UPLOAD_OPEN_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "ZERO/telemetry_id"
+        val: 2
+    parameters:
+      - name: "ERROR_CODE_OF_UPLOAD_OPEN"
+        signed: true
+        bit: 32
+      - name: "SESSION_ID_OF_UPLOAD_OPEN"
+        bit: 16
+      - name: "FILE_NAME_OF_UPLOAD_OPEN"
+        type: string
+        bit: 512
+  - name: UPLOAD_DATA_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "ZERO/telemetry_id"
+        val: 3
+    parameters:
+      - name: "SESSION_ID_OF_UPLOAD_DATA"
+        bit: 16
+      - name: "ERROR_CODE_01_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_01_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_01_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_02_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_02_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_02_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_03_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_03_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_03_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_04_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_04_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_04_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_05_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_05_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_05_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_06_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_06_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_06_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_07_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_07_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_07_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_08_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_08_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_08_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_09_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_09_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_09_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_10_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_10_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_10_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_11_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_11_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_11_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_12_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_12_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_12_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_13_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_13_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_13_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_14_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_14_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_14_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_15_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_15_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_15_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_16_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_16_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_16_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_17_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_17_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_17_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_18_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_18_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_18_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_19_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_19_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_19_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_20_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_20_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_20_OF_UPLOAD_DATA"
+        bit: 32
+  - name: UPLOAD_CLOSE_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "ZERO/telemetry_id"
+        val: 4
+    parameters:
+      - name: "ERROR_CODE_OF_UPLOAD_CLOSE"
+        signed: true
+        bit: 32
+      - name: "SESSION_ID_OF_UPLOAD_CLOSE"
+        bit: 16
