@@ -45,6 +45,17 @@ default_commands:
           - name: "command_id"
             bit: 8
             val: 1
+      - name: "IMU_ENABLE_CMD"
+        port: 12
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 2
+          - name: "onoff"
+            type: enum
+            choices:
+              - [0, "DISABLE"]
+              - [1, "ENABLE"]
       - name: "GET_FILE_INFO_CMD"
         port: 13
         arguments:

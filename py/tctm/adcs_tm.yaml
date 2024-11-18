@@ -801,6 +801,17 @@ containers:
       - name: "ERROR_CODE_OF_POWER_CYCLE"
         signed: true
         bit: 32
+  - name: IMU_ENABLE_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 12
+      - name: "ADCS/telemetry_id"
+        val: 2
+    parameters:
+      - name: "ERROR_CODE_OF_IMU_ENABLE"
+        signed: true
+        bit: 32
   - name: PWRCTR_CMD_UNKOWN_REPLY
     endian: true
     conditions:
