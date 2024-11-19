@@ -1094,6 +1094,20 @@ containers:
         bit: 8
       - name: "CRC32_OF_CFG_FLASH"
         bit: 32
+  - name: IMU_TLM
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 15
+      - name: "ADCS/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_IMU_TLM"
+        signed: true
+        bit: 32
+      - name: "IMU_EXT_RAW_DATA"
+        type: binary
+        bit: 208
   - name: CLEAR_BOOT_COUNT_CMD_REPLY
     endian: true
     conditions:
