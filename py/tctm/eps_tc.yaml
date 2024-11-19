@@ -202,7 +202,7 @@ default_commands:
             val: 30
           - name: pkt_size
             bit: 16
-            val: 125
+            val: 126
       - name: "REQ_GWDT_REINIT"
         port: 16
         endian: true

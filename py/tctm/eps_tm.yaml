@@ -677,7 +677,7 @@ containers:
         bit: 8
       - name: "ENTRY_DATA"
         type: binary
-        bit: 992
+        bit: 1000
   - name: REPLY_GWDT_REINIT
     endian: true
     conditions:
