@@ -13,12 +13,13 @@ def main(args):
     processor = client.get_processor(args.instance, "realtime")
     path = pathlib.Path(args.src)
     board = args.board
+    target_dir = args.dir
 
     command = processor.issue_command(
         f"/SCSAT1/{board}/UPLOAD_OPEN_CMD",
         args={
             "session_id": args.id,
-            "file_name": f"/storage/{path.name}",
+            "file_name": f"/{target_dir}/{path.name}",
         }
     )
     print("Issued", command)
@@ -99,6 +100,8 @@ if __name__ == '__main__':
                         help="Send size. `0` is all size")
     parser.add_argument("--interval", type=float, default=0.066,
                         help="Session ID")
+    parser.add_argument("--dir", type=str, default="/storage",
+                        help="Target directory name")
     parser.add_argument("--url", type=str, default=DEFAULT_YAMCS_URL,
                         help=f"Yamcs URL and Port number (default: {DEFAULT_YAMCS_URL})")
     parser.add_argument("--instance", type=str, default=DEFAULT_YAMCS_INSTANCE,
