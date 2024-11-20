@@ -45,6 +45,31 @@ containers:
         bit: 32
 
 # Zero
+  - name: SHELL_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 10
+      - name: "ZERO/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_SHELL_CMD"
+        signed: true
+        bit: 32
+      - name: "SHELL_CMD_RESULT"
+        type: string
+        bit: 1920
+  - name: SHELL_CMD_UNKNOWN_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 10
+      - name: "ZERO/telemetry_id"
+        val: 255
+    parameters:
+      - name: "ERROR_CODE_OF_SHELL_UNKNOWN_CMD"
+        signed: true
+        bit: 32
   - name: TEMP
     endian: true
     conditions:

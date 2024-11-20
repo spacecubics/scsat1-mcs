@@ -17,6 +17,19 @@ csp_commands:
 default_commands:
   - name: zero_command
     commands:
+      - name: "SHELL_CMD"
+        port: 10
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+          - name: "timeout"
+            bit: 16
+            val: 60
+          - name: shell_cmd_str
+            type: string
+            bit: 1600
       - name: "GET_TEMP"
         port: 11
         arguments:
