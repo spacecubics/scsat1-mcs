@@ -73,3 +73,10 @@ default_commands:
             val: 4
           - name: "session_id"
             bit: 16
+      - name: "GET_VERSION"
+        port: 16
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
