@@ -19,7 +19,7 @@ def main(args):
         f"/SCSAT1/{board}/UPLOAD_OPEN_CMD",
         args={
             "session_id": args.id,
-            "file_name": f"/{target_dir}/{path.name}",
+            "file_name": f"{target_dir}/{path.name}",
         }
     )
     print("Issued", command)
