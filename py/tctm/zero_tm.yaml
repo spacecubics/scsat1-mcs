@@ -259,3 +259,28 @@ containers:
         bit: 32
       - name: "SESSION_ID_OF_UPLOAD_CLOSE"
         bit: 16
+  - name: GET_VERSION_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "ZERO/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_GET_VERSION"
+        signed: true
+        bit: 32
+      - name: "ZERO_CSPD_VERSION"
+        type: string
+        bit: 128
+  - name: SYSTEM_CMD_UNKNOWN_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "ZERO/telemetry_id"
+        val: 255
+    parameters:
+      - name: "ERROR_CODE_OF_SYSTEM_UNKNOWN_CMD"
+        signed: true
+        bit: 32
