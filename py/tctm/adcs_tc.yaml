@@ -229,3 +229,13 @@ default_commands:
           - name: "command_id"
             bit: 8
             val: 0
+      - name: "READ_FPGA_REG_CMD"
+        port: 16
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 1
+          - name: "address"
+            type: binary
+            bit: 32
