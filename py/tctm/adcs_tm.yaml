@@ -1119,6 +1119,20 @@ containers:
       - name: "ERROR_CODE_OF_CLEAR_BOOT_COUNT"
         signed: true
         bit: 32
+  - name: READ_FPGA_REG_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "ADCS/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_READ_FPGA_REG"
+        signed: true
+        bit: 32
+      - name: "REGISTER_VALUE"
+        type: binary
+        bit: 32
   - name: CLEAR_BOOT_COUNT_CMD_UNKNOWN_REPLY
     endian: true
     conditions:
