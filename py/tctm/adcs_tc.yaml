@@ -67,6 +67,11 @@ default_commands:
             choices:
               - [0, "OFF"]
               - [1, "ON"]
+          - name: "save_to_frame"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]
           - name: "target"
             type: string
             bit: 512
@@ -206,6 +211,11 @@ default_commands:
               - [1, "GOLDEN_FSW"]
               - [2, "UPDATE_BIT"]
               - [3, "UPDATE_FSW"]
+          - name: "save_to_frame"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]
           - name: "offset"
             bit: 32
             val: 0
