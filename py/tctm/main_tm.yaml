@@ -1123,6 +1123,27 @@ containers:
         bit: 32
       - name: "CRC32_OF_CFG_FLASH"
         bit: 32
+  - name: GET_LAST_CFG_MEMORY_CRC_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "MAIN/telemetry_id"
+        val: 3
+    parameters:
+      - name: "ERROR_CODE_OF_LAST_CFG_CRC"
+        signed: true
+        bit: 32
+      - name: "BANK_OF_LAST_CFG_CRC"
+        bit: 8
+      - name: "PARTITION_ID_OF_LAST_CFG_CRC"
+        bit: 8
+      - name: "OFFSET_OF_LAST_CFG_CRC"
+        bit: 32
+      - name: "SIZE_OF_LAST_CFG_CRC"
+        bit: 32
+      - name: "CRC32_OF_LAST_CFG_CRC"
+        bit: 32
   - name: CLEAR_BOOT_COUNT_CMD_REPLY
     endian: true
     conditions:
