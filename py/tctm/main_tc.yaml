@@ -213,6 +213,13 @@ default_commands:
             val: 0
           - name: "size"
             bit: 32
+      - name: "GET_LAST_CFG_FLASH_CRC_CMD"
+        port: 14
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 3
       - name: "GET_SYSTEM_HK"
         port: 15
         arguments:
