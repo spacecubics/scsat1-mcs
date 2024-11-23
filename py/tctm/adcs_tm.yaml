@@ -1108,6 +1108,10 @@ containers:
         bit: 8
       - name: "PARTITION_ID_OF_CFG_FLASH"
         bit: 8
+      - name: "OFFSET_OF_CFG_FLASH"
+        bit: 32
+      - name: "SIZE_OF_CFG_FLASH"
+        bit: 32
       - name: "CRC32_OF_CFG_FLASH"
         bit: 32
   - name: IMU_TLM
