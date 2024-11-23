@@ -1044,6 +1044,22 @@ containers:
       - name: "ERROR_CODE_OF_COPY_FILE_TO_CFG_FLASH"
         signed: true
         bit: 32
+  - name: GET_LAST_FILE_CRC_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "ADCS/telemetry_id"
+        val: 6
+    parameters:
+      - name: "ERROR_CODE_OF_LAST_FILE_CRC"
+        signed: true
+        bit: 32
+      - name: "CRC32_OF_LAST_FILE_CRC"
+        bit: 32
+      - name: "FILE_NAME_OF_LAST_FILE_CRC"
+        type: string
+        bit: 512
   - name: FLASH_CMD_UNKOWN_REPLY
     endian: true
     conditions:

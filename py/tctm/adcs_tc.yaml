@@ -151,6 +151,12 @@ default_commands:
               - [3, "UPDATE_FSW"]
           - name: "target_offset"
             bit: 32
+      - name: "GET_LAST_FILE_CRC_CMD"
+        port: 13
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 6
       - name: "ERASE_CFG_FLASH_CMD"
         port: 14
         endian: true
