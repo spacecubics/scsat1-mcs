@@ -67,7 +67,7 @@ default_commands:
             choices:
               - [0, "OFF"]
               - [1, "ON"]
-          - name: "save_to_frame"
+          - name: "save_to_fram"
             type: enum
             choices:
               - [0, "OFF"]
@@ -222,7 +222,7 @@ default_commands:
             val: 0
           - name: "size"
             bit: 32
-          - name: "save_to_frame"
+          - name: "save_to_fram"
             type: enum
             choices:
               - [0, "OFF"]
