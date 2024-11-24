@@ -60,6 +60,7 @@ containers:
       - name: "SYSTEM_UP_TIME"
         bit: 32
       - name: "SW_VERSION"
+        type: binary
         bit: 32
       - name: "CM3_BOOT_COUNT"
         bit: 8
@@ -78,6 +79,7 @@ containers:
       - name: "ADCS_POWER_STATUS"
         bit: 1
       - name: "FPGA_VERSION"
+        type: binary
         bit: 32
       - name: "FPGA_CONFIG_BANK"
         bit: 8
@@ -848,6 +850,7 @@ containers:
       - name: "FILE_SIZE"
         bit: 32
       - name: "CRC32"
+        type: binary
         bit: 32
       - name: "FILE_NAME"
         type: string
@@ -1065,6 +1068,7 @@ containers:
         signed: true
         bit: 32
       - name: "CRC32_OF_LAST_FILE_CRC"
+        type: binary
         bit: 32
       - name: "FILE_NAME_OF_LAST_FILE_CRC"
         type: string
@@ -1122,6 +1126,7 @@ containers:
       - name: "SIZE_OF_CFG_FLASH"
         bit: 32
       - name: "CRC32_OF_CFG_FLASH"
+        type: binary
         bit: 32
   - name: GET_LAST_CFG_MEMORY_CRC_CMD_REPLY
     endian: true
@@ -1143,6 +1148,7 @@ containers:
       - name: "SIZE_OF_LAST_CFG_CRC"
         bit: 32
       - name: "CRC32_OF_LAST_CFG_CRC"
+        type: binary
         bit: 32
   - name: CLEAR_BOOT_COUNT_CMD_REPLY
     endian: true
