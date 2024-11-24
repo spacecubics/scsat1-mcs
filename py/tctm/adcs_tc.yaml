@@ -217,16 +217,16 @@ default_commands:
               - [1, "GOLDEN_FSW"]
               - [2, "UPDATE_BIT"]
               - [3, "UPDATE_FSW"]
-          - name: "save_to_frame"
-            type: enum
-            choices:
-              - [0, "OFF"]
-              - [1, "ON"]
           - name: "offset"
             bit: 32
             val: 0
           - name: "size"
             bit: 32
+          - name: "save_to_frame"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]
       - name: "GET_LAST_CFG_FLASH_CRC_CMD"
         port: 14
         endian: true
