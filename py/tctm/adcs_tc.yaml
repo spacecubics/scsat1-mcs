@@ -192,12 +192,6 @@ default_commands:
             type: enum
             choices:
               - [4, "STORAGE"]
-          - name: "offset"
-            bit: 32
-            val: 0
-          - name: "size"
-            bit: 32
-            val: 0
       - name: "CALC_CRC_CFG_FLASH_CMD"
         port: 14
         endian: true
