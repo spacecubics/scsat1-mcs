@@ -118,14 +118,14 @@ containers:
       - name: "MPPT_CONV_VOLT_Y_P"
       - name: "MPPT_CONV_VOLT_X_M"
       - name: "MPPT_CONV_VOLT_Y_M"
-      - name: "CURR_SOLAR_PANELS_1"
       - name: "CURR_SOLAR_PANELS_X_P"
-      - name: "CURR_SOLAR_PANELS_3"
+        offset: 16
       - name: "CURR_SOLAR_PANELS_Y_P"
-      - name: "CURR_SOLAR_PANELS_5"
+        offset: 16
       - name: "CURR_SOLAR_PANELS_X_M"
-      - name: "CURR_SOLAR_PANELS_7"
+        offset: 16
       - name: "CURR_SOLAR_PANELS_Y_M"
+        offset: 16
       - name: "BATT_VOLT"
       - name: "CURR_SOLAR"
       - name: "CURR_BATT_IN"
@@ -136,37 +136,18 @@ containers:
       - name: "CURR_OUTPUT_MAIN_OBC_B"
       - name: "CURR_OUTPUT_SRS3_B"
       - name: "CURR_OUTPUT_ADCS_B"
-      - name: "CURR_OUTPUT_7"
       - name: "CURR_OUTPUT_RW"
+        offset: 16
       - name: "CURR_OUTPUT_DSTRX3"
-      - name: "CURR_OUTPUT_10"
-      - name: "CURR_OUTPUT_11"
-      - name: "CURR_OUTPUT_12"
-      - name: "CURR_OUTPUT_13"
-      - name: "CURR_OUTPUT_14"
-      - name: "CURR_OUTPUT_15"
-      - name: "CURR_OUTPUT_16"
-      - name: "CURR_OUTPUT_17"
-      - name: "CURR_OUTPUT_18"
       - name: "ALWAYS_ON_CURR_OUTPUT_3V3"
+        offset: 144
       - name: "ALWAYS_ON_CURR_OUTPUT_5V"
       - name: "OUTPUT_CONV_VOLT_3V3"
       - name: "OUTPUT_CONV_VOLT_5V_A"
       - name: "OUTPUT_CONV_VOLT_5V_B"
       - name: "OUTPUT_CONV_VOLT_12V"
-      - name: "OUTPUT_CONV_VOLT_5"
-      - name: "OUTPUT_CONV_VOLT_6"
-      - name: "OUTPUT_CONV_VOLT_7"
-      - name: "OUTPUT_CONV_VOLT_8"
-      - name: "OUTPUT_CONV_STATUS_8"
-        bit: 1
-      - name: "OUTPUT_CONV_STATUS_7"
-        bit: 1
-      - name: "OUTPUT_CONV_STATUS_6"
-        bit: 1
-      - name: "OUTPUT_CONV_STATUS_5"
-        bit: 1
       - name: "OUTPUT_CONV_STATUS_12V"
+        offset: 68
         bit: 1
       - name: "OUTPUT_CONV_STATUS_5V_B"
         bit: 1
@@ -176,9 +157,8 @@ containers:
         bit: 1
       - name: "OUTPUT_STATUS_RW"
         bit: 1
-      - name: "OUTPUT_STATUS_7"
-        bit: 1
       - name: "OUTPUT_STATUS_ADCS_B"
+        offset: 1
         bit: 1
       - name: "OUTPUT_STATUS_SRS3_B"
         bit: 1
@@ -190,35 +170,14 @@ containers:
         bit: 1
       - name: "OUTPUT_STATUS_MAIN_OBC_A"
         bit: 1
-      - name: "OUTPUT_STATUS_16"
-        bit: 1
-      - name: "OUTPUT_STATUS_15"
-        bit: 1
-      - name: "OUTPUT_STATUS_14"
-        bit: 1
-      - name: "OUTPUT_STATUS_13"
-        bit: 1
-      - name: "OUTPUT_STATUS_12"
-        bit: 1
-      - name: "OUTPUT_STATUS_11"
-        bit: 1
-      - name: "OUTPUT_STATUS_10"
-        bit: 1
       - name: "OUTPUT_STATUS_DSTRX3"
+        offset: 7
         bit: 1
-      - name: "OUTPUT_STATUS_RESERVED_1"
-        bit: 6
-      - name: "OUTPUT_STATUS_18"
-        bit: 1
-      - name: "OUTPUT_STATUS_17"
-        bit: 1
-      - name: "OUTPUT_STATUS_RESERVED_2"
-        bit: 8
       - name: "OUTPUT_FAULT_STATUS_RW"
-        bit: 1
-      - name: "OUTPUT_FAULT_STATUS_7"
+        offset: 16
         bit: 1
       - name: "OUTPUT_FAULT_STATUS_ADCS_B"
+        offset: 1
         bit: 1
       - name: "OUTPUT_FAULT_STATUS_SRS3_B"
         bit: 1
@@ -230,68 +189,32 @@ containers:
         bit: 1
       - name: "OUTPUT_FAULT_STATUS_MAIN_OBC_A"
         bit: 1
-      - name: "OUTPUT_FAULT_STATUS_16"
-        bit: 1
-      - name: "OUTPUT_FAULT_STATUS_15"
-        bit: 1
-      - name: "OUTPUT_FAULT_STATUS_14"
-        bit: 1
-      - name: "OUTPUT_FAULT_STATUS_13"
-        bit: 1
-      - name: "OUTPUT_FAULT_STATUS_12"
-        bit: 1
-      - name: "OUTPUT_FAULT_STATUS_11"
-        bit: 1
-      - name: "OUTPUT_FAULT_STATUS_10"
-        bit: 1
       - name: "OUTPUT_FAULT_STATUS_DSTRX3"
+        offset: 7
         bit: 1
-      - name: "OUTPUT_FAULT_STATUS_RESERVED_1"
-        bit: 6
-      - name: "OUTPUT_FAULT_STATUS_18"
-        bit: 1
-      - name: "OUTPUT_FAULT_STATUS_17"
-        bit: 1
-      - name: "OUTPUT_FAULT_STATUS_RESERVED_2"
-        bit: 8
       - name: "PROTECTED_OUTPUT_ACCESS_COUNT"
+        offset: 16
       - name: "OUTPUT_ON_DELTA_MAIN_OBC_A"
       - name: "OUTPUT_ON_DELTA_SRS3_A"
       - name: "OUTPUT_ON_DELTA_ADCS_A"
       - name: "OUTPUT_ON_DELTA_MAIN_OBC_B"
       - name: "OUTPUT_ON_DELTA_SRS3_B"
       - name: "OUTPUT_ON_DELTA_ADCS_B"
-      - name: "OUTPUT_ON_DELTA_7"
       - name: "OUTPUT_ON_DELTA_RW"
+        offset: 16
       - name: "OUTPUT_ON_DELTA_DSTRX3"
-      - name: "OUTPUT_ON_DELTA_10"
-      - name: "OUTPUT_ON_DELTA_11"
-      - name: "OUTPUT_ON_DELTA_12"
-      - name: "OUTPUT_ON_DELTA_13"
-      - name: "OUTPUT_ON_DELTA_14"
-      - name: "OUTPUT_ON_DELTA_15"
-      - name: "OUTPUT_ON_DELTA_16"
-      - name: "OUTPUT_ON_DELTA_17"
-      - name: "OUTPUT_ON_DELTA_18"
       - name: "OUTPUT_OFF_DELTA_MAIN_OBC_A"
+        offset: 144
       - name: "OUTPUT_OFF_DELTA_SRS3_A"
       - name: "OUTPUT_OFF_DELTA_ADCS_A"
       - name: "OUTPUT_OFF_DELTA_MAIN_OBC_B"
       - name: "OUTPUT_OFF_DELTA_SRS3_B"
       - name: "OUTPUT_OFF_DELTA_ADCS_B"
-      - name: "OUTPUT_OFF_DELTA_7"
       - name: "OUTPUT_OFF_DELTA_RW"
+        offset: 16
       - name: "OUTPUT_OFF_DELTA_DSTRX3"
-      - name: "OUTPUT_OFF_DELTA_10"
-      - name: "OUTPUT_OFF_DELTA11"
-      - name: "OUTPUT_OFF_DELTA12"
-      - name: "OUTPUT_OFF_DELTA13"
-      - name: "OUTPUT_OFF_DELTA14"
-      - name: "OUTPUT_OFF_DELTA15"
-      - name: "OUTPUT_OFF_DELTA16"
-      - name: "OUTPUT_OFF_DELTA17"
-      - name: "OUTPUT_OFF_DELTA18"
       - name: "OUTPUT_FAULT_COUNT_MAIN_OBC_A"
+        offset: 144
         bit: 8
       - name: "OUTPUT_FAULT_COUNT_SRS3_A"
         bit: 8
@@ -303,31 +226,13 @@ containers:
         bit: 8
       - name: "OUTPUT_FAULT_COUNT_ADCS_B"
         bit: 8
-      - name: "OUTPUT_FAULT_COUNT_7"
-        bit: 8
       - name: "OUTPUT_FAULT_COUNT_RW"
+        offset: 8
         bit: 8
       - name: "OUTPUT_FAULT_COUNT_DSTRX3"
         bit: 8
-      - name: "OUTPUT_FAULT_COUNT_10"
-        bit: 8
-      - name: "OUTPUT_FAULT_COUNT_11"
-        bit: 8
-      - name: "OUTPUT_FAULT_COUNT_12"
-        bit: 8
-      - name: "OUTPUT_FAULT_COUNT_13"
-        bit: 8
-      - name: "OUTPUT_FAULT_COUNT_14"
-        bit: 8
-      - name: "OUTPUT_FAULT_COUNT_15"
-        bit: 8
-      - name: "OUTPUT_FAULT_COUNT_16"
-        bit: 8
-      - name: "OUTPUT_FAULT_COUNT_17"
-        bit: 8
-      - name: "OUTPUT_FAULT_COUNT_18"
-        bit: 8
       - name: "TEMP_MPPT_X_P"
+        offset: 72
         bit: 8
         signed: true
       - name: "TEMP_MPPT_Y_P"
