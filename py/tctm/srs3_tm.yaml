@@ -66,47 +66,47 @@ containers:
       - name: "TEMP_MCU"
         bit: 16
         signed: true
-      - name: "TM_SRS3_ID2"
       - name: "TEMP_POWER"
+        offset: 16
         bit: 16
         signed: true
-      - name: "TM_SRS3_ID3"
       - name: "TEMP_LNA"
+        offset: 16
         bit: 16
         signed: true
-      - name: "TM_SRS3_ID4"
       - name: "TEMP_PA"
+        offset: 16
         bit: 16
         signed: true
-      - name: "TM_SRS3_ID5"
       - name: "VOLT_VIN"
+        offset: 16
         bit: 16
-      - name: "TM_SRS3_ID6"
       - name: "VOLT_VREG"
+        offset: 16
         bit: 16
-      - name: "TM_SRS3_ID7"
       - name: "VOLT_3V3"
+        offset: 16
         bit: 16
-      - name: "TM_SRS3_ID8"
       - name: "CURR_VIN"
+        offset: 16
         bit: 16
         signed: true
-      - name: "TM_SRS3_ID9"
       - name: "CURR_VREG"
+        offset: 16
         bit: 16
         signed: true
-      - name: "TM_SRS3_ID10"
       - name: "CURR_3V3"
+        offset: 16
         bit: 16
         signed: true
-      - name: "TM_SRS3_ID11"
       - name: "POWER_VIN"
+        offset: 16
         bit: 16
-      - name: "TM_SRS3_ID12"
       - name: "POWER_VREG"
+        offset: 16
         bit: 16
-      - name: "TM_SRS3_ID13"
       - name: "POWER_3V3"
+        offset: 16
         bit: 16
 
   - name: REPLY_PROP_SYS_BOOTCOUNT
@@ -133,102 +133,101 @@ containers:
       - name: "ALLOW_ALWAYS"
         bit: 8
         signed: true
-      - name: "TX_SRS3_ID2"
       - name: "ALLOW_TIME"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID3"
       - name: "FREQUENCY_TX"
+        offset: 16
         bit: 32
-      - name: "TX_SRS3_ID4"
       - name: "BIT_RATE_TX"
+        offset: 16
         bit: 32
-      - name: "TX_SRS3_ID5"
       - name: "BT_PRODUCT"
+        offset: 16
         bit: 8
-      - name: "TX_SRS3_ID6"
       - name: "POWER_OUT"
+        offset: 16
         type: float
         bit: 32
-      - name: "TX_SRS3_ID7"
       - name: "POWER_GAIN"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID8"
       - name: "ALC_MODE"
+        offset: 16
         bit: 8
-      - name: "TX_SRS3_ID9"
       - name: "ALC_KP"
+        offset: 16
         type: float
         bit: 32
-      - name: "TX_SRS3_ID10"
       - name: "ALC_LIMIT"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID11"
       - name: "ALC_GAIN"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID12"
       - name: "REED_SOLOMON_TX"
+        offset: 16
         bit: 8
         signed: true
-      - name: "TX_SRS3_ID13"
       - name: "CONVOLUTION_CODING_TX"
+        offset: 16
         bit: 8
         signed: true
-      - name: "TX_SRS3_ID14"
       - name: "RANDOMIZE_TX"
+        offset: 16
         bit: 8
         signed: true
-      - name: "TX_SRS3_ID15"
       - name: "CRC_TX"
+        offset: 16
         bit: 8
         signed: true
-      - name: "TX_SRS3_ID16"
       - name: "IDLE_FRAMES"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID17"
       - name: "TRAIN_TYPE"
+        offset: 16
         bit: 8
-      - name: "TX_SRS3_ID18"
       - name: "PREAMBLE_SIZE"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID19"
       - name: "POSTAMBLE_SIZE"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID20"
       - name: "MIDAMBLE_SIZE"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID21"
       - name: "PACKET_SIZE_TX"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID22"
       - name: "ID_TX"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID23"
-      - name: "CRYPTO_KEY_LEN_TX"
       - name: "CRYPTO_KEY_TX"
+        offset: 32
         type: "binary"
         bit: 256
-      - name: "TX_SRS3_ID24"
       - name: "CRYPTO_ENCRYPT"
+        offset: 16
         bit: 8
-      - name: "TX_SRS3_ID25"
       - name: "CRYPTO_AUTH_TX"
+        offset: 16
         bit: 8
-      - name: "TX_SRS3_ID26"
       - name: "SEND_FRAMES"
+        offset: 16
         bit: 32
-      - name: "TX_SRS3_ID27"
       - name: "POWER_FORWARD"
+        offset: 16
         type: float
         bit: 32
-      - name: "TX_SRS3_ID28"
       - name: "POWER_REFLECT"
+        offset: 16
         type: float
         bit: 32
-      - name: "TX_SRS3_ID29"
       - name: "OVER_POWER_COUNT"
+        offset: 16
         bit: 16
-      - name: "TX_SRS3_ID30"
       - name: "PLL_NO_LOCK_COUNT_TX"
+        offset: 16
         bit: 16
 
   - name: REPLY_PROP_LIST_RX_GRP
@@ -238,60 +237,59 @@ containers:
     parameters:
       - name: "FREQUENCY_RX"
         bit: 32
-      - name: "RX_SRS3_ID2"
       - name: "BIT_RATE_RX"
+        offset: 16
         bit: 32
-      - name: "RX_SRS3_ID3"
       - name: "BAND_WIDTH"
+        offset: 16
         bit: 8
-      - name: "RX_SRS3_ID4"
       - name: "REED_SOLOMON_RX"
+        offset: 16
         bit: 8
-      - name: "RX_SRS3_ID5"
       - name: "CONVOLUTION_CODING_RX"
+        offset: 16
         bit: 8
-      - name: "RX_SRS3_ID6"
       - name: "RANDOMIZE_RX"
+        offset: 16
         bit: 8
-      - name: "RX_SRS3_ID7"
       - name: "CRC_RX"
+        offset: 16
         bit: 8
-      - name: "RX_SRS3_ID8"
       - name: "PACKET_SIZE_RX"
+        offset: 16
         bit: 16
-      - name: "RX_SRS3_ID9"
       - name: "ID_RX"
+        offset: 16
         bit: 16
-      - name: "RX_SRS3_ID10"
-      - name: "CRYPTO_KEY_LEN_RX"
       - name: "CRYPTO_KEY_RX"
+        offset: 32
         type: "binary"
         bit: 256
-      - name: "RX_SRS3_ID11"
       - name: "CRYPTO_DECRYPT"
+        offset: 16
         bit: 8
-      - name: "RX_SRS3_ID12"
       - name: "CRYPTO_AUTH"
+        offset: 16
         bit: 8
-      - name: "RX_SRS3_ID13"
       - name: "LOCAL_DROP"
+        offset: 16
         bit: 8
-      - name: "RX_SRS3_ID14"
       - name: "RECV_FRAMES"
+        offset: 16
         bit: 32
-      - name: "RX_SRS3_ID15"
       - name: "DETECTED"
+        offset: 16
         bit: 32
-      - name: "RX_SRS3_ID16"
       - name: "RSSI"
+        offset: 16
         type: float
         bit: 32
-      - name: "RX_SRS3_ID17"
       - name: "FREQUENCY_ERR"
+        offset: 16
         type: float
         bit: 32
-      - name: "RX_SRS3_ID18"
       - name: "PLL_NO_LOCK_COUNT_RX"
+        offset: 16
         bit: 16
 
   - name: REPLY_PROP_LIST_SYS_GRP_1
@@ -301,66 +299,61 @@ containers:
       - name: "SRS3/srs3_id"
         val: 0xC285
     parameters:
-      - name: "NAME_LEN"
-        bit: 16
       - name: "NAME"
+        offset: 16
         type: string
         bit: 160
-      - name: "SYS_SRS3_ID2"
       - name: "SERIAL"
+        offset: 16
         type: "binary"
         bit: 32
-      - name: "SYS_SRS3_ID3"
       - name: "SW_VERSION"
+        offset: 16
         type: "binary"
         bit: 32
-      - name: "SYS_SRS3_ID4"
       - name: "BOOTCOUNT_SYS"
+        offset: 16
         bit: 32
-      - name: "SYS_SRS3_ID5"
       - name: "GWDT_INIT"
+        offset: 16
         bit: 32
-      - name: "SYS_SRS3_ID6"
       - name: "GWDT_COUNTER_SYS"
+        offset: 16
         bit: 32
-      - name: "SYS_SRS3_ID7"
       - name: "GWDT_RESET"
+        offset: 16
         type: "binary"
         bit: 32
-      - name: "SYS_SRS3_ID8"
       - name: "CSP_ADDRESS"
+        offset: 16
         bit: 8
-      - name: "SYS_SRS3_ID9"
-      - name: "CSP_ROUTES_LEN"
-        bit: 16
       - name: "CSP_ROUTES"
+        offset: 32
         type: string
         bit: 800
-      - name: "SYS_SRS3_ID10"
       - name: "CSP_MTU"
+        offset: 16
         bit: 16
-      - name: "SYS_SRS3_ID11"
       - name: "CAN_RATE"
+        offset: 16
         bit: 32
-      - name: "SYS_SRS3_ID12"
       - name: "CAN_PROMISC"
+        offset: 16
         bit: 8
         signed: true
-      - name: "SYS_SRS3_ID13"
       - name: "UART_RATE"
+        offset: 16
         bit: 32
-      - name: "SYS_SRS3_ID14"
       - name: "UART_MULTIDROP"
+        offset: 16
         bit: 8
         signed: true
-      - name: "SYS_SRS3_ID15"
       - name: "NET_ENABLE"
+        offset: 16
         bit: 8
         signed: true
-      - name: "SYS_SRS3_ID16"
-      - name: "NET_EN_IP_LEN"
-        bit: 16
       - name: "NET_EN_IP"
+        offset: 32
         type: string
         bit: 400
 
@@ -373,24 +366,18 @@ containers:
     parameters:
       - name: "NET_EN_PREFIX"
         bit: 8
-      - name: "SYS_SRS3_ID18"
-      - name: "NET_EN_GW_LEN"
-        bit: 16
       - name: "NET_EN_GW"
+        offset: 32
         type: string
         bit: 400
-      - name: "SYS_SRS3_ID19"
-      - name: "NET_RF_IP_LEN"
-        bit: 16
       - name: "NET_RF_IP"
+        offset: 32
         type: string
         bit: 400
-      - name: "SYS_SRS3_ID20"
       - name: "NET_RF_PREFIX"
+        offset: 16
         bit: 8
-      - name: "SYS_SRS3_ID21"
-      - name: "NET_RF_GW_LEN"
-        bit: 16
       - name: "NET_RF_GW"
+        offset: 32
         type: string
         bit: 400
