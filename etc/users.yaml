@@ -1,0 +1,7 @@
+admin:
+  password: ""
+  superuser: true
+
+yamcs:
+  password: ""
+  superuser: true
