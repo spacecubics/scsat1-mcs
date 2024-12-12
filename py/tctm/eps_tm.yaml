@@ -49,15 +49,18 @@ containers:
     parameters:
       - name: "SYSUP_TIME"
         bit: 32
+# Deploy Message
   - name: DEPLOY_MSG
-    base: "common_container"
+    base: "esp_container"
     conditions:
       - name: "../csp_dport"
         val: 10
+      - name: "EPS/command_id"
+        val: 1
     parameters:
       - name: "MESSAGE"
         type: string
-        bit: 128
+        bit: 120
 # Command reply
   - name: REPLY_RESET_GWDT
     base: "esp_container"
