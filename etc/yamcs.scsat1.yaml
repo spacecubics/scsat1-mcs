@@ -38,6 +38,20 @@ dataLinks:
       port: 52004
       # Give the embedded simulator some time to boot up
       #initialDelay: 2000      
+    - name: tm_eps_history
+      class: org.yamcs.tctm.UdpTmDataLink
+      packetPreprocessorClassName: org.yamcs.tctm.GenericPacketPreprocessor
+      packetPreprocessorArgs:
+        errorDetection: none
+        seqCountOffset: -1
+        timestampOffset: 6
+        byteOrder: LITTLE_ENDIAN
+        timeEncoding:
+          type: FLOAT64
+          epoch: CUSTOM
+          epochUTC: "1970-01-01T00:00:00Z"
+      stream: tm_realtime
+      port: 52005
     - name: tm_dump
       class: org.yamcs.tctm.TcpTmDataLink
       stream: tm_dump
