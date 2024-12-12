@@ -1,0 +1,271 @@
+prefix: /SCSAT1/SRS3/
+csv-dir: "./srs3_check_csv"
+parameters:
+# REPLY_PROP_LIST_TM_GRP
+  - name: TEMP_MCU
+    critical:
+      over: 7000
+      under: -4000
+  - name: TEMP_POWER
+    critical:
+      over: 7000
+      under: -4000
+  - name: TEMP_LNA
+    critical:
+      over: 7000
+      under: -4000
+  - name: TEMP_PA
+    critical:
+      over: 7000
+      under: -4000
+  - name: VOLT_VIN
+    critical:
+      over: 5130
+      under: 4750
+  - name: VOLT_VREG
+    critical:
+      over: 3950
+      under: 3550
+  - name: VOLT_3V3
+    critical:
+      over: 3450
+      under: 3200
+  - name: CURR_VIN
+    critical:
+      over: 720
+      under: 0
+  - name: CURR_VREG
+    critical:
+      over: 960
+      under: 0
+  - name: CURR_3V3
+    critical:
+      over: 330
+      under: 0
+  - name: POWER_VIN
+    critical:
+      over: 3694
+      under: 0
+  - name: POWER_VREG
+    critical:
+      over: 3792
+      under: 0
+  - name: POWER_3V3
+    critical:
+      over: 1139
+      under: 0
+# REPLY_PROP_LIST_SYS_GRP_1
+  - name: NAME
+    critical:
+      mismatch: "srs-3 on sc-sat1"
+  - name: SERIAL
+    critical:
+      mismatch: 0x30CC31C6
+  - name: SW_VERSION
+    critical:
+      mismatch: 0x02070000
+  - name: BOOTCOUNT_SYS
+    critical:
+      mismatch: 158
+  - name: GWDT_INIT
+    critical:
+      mismatch: 108000
+  - name: GWDT_COUNTER_SYS
+    critical:
+      over: 108000
+      under: 97200
+  - name: GWDT_RESET
+    critical:
+      mismatch: 0x00000000
+  - name: CSP_ADDRESS
+    critical:
+      mismatch: 2
+  - name: CSP_ROUTES
+    critical:
+      mismatch: "0/0 CAN, 1/5 SPACE"
+  - name: CSP_MTU
+    critical:
+      mismatch: 256
+  - name: CAN_RATE
+    critical:
+      mismatch: 1000000
+  - name: CAN_PROMISC
+    critical:
+      mismatch: 1
+  - name: UART_RATE
+    critical:
+      mismatch: 115200
+  - name: UART_MULTIDROP
+    critical:
+      mismatch: 0
+  - name: NET_ENABLE
+    critical:
+      mismatch: 0
+  - name: NET_EN_IP
+    critical:
+      mismatch: "192.168.100.2"
+# REPLY_PROP_LIST_SYS_GRP_2
+  - name: NET_EN_PREFIX
+    critical:
+      mismatch: 24
+  - name: NET_EN_GW
+    critical:
+      mismatch: "192.168.100.1"
+  - name: NET_RF_IP
+    critical:
+      mismatch: "192.168.200.2"
+  - name: NET_RF_PREFIX
+    critical:
+      mismatch: 24
+  - name: NET_RF_GW
+    critical:
+      mismatch: "192.168.200.1"
+# REPLY_PROP_LIST_TX_GRP
+  - name: ALLOW_ALWAYS
+    critical:
+      mismatch: 1
+  - name: ALLOW_TIME
+    critical:
+      mismatch: 0
+  - name: FREQUENCY_TX
+    critical:
+      mismatch: 2278600000
+  - name: BIT_RATE_TX
+    critical:
+      mismatch: 128000
+  - name: BT_PRODUCT
+    critical:
+      mismatch: 50
+  - name: POWER_OUT
+    critical:
+      mismatch: 30
+  - name: POWER_GAIN
+    critical:
+      mismatch: 2500
+  - name: ALC_MODE
+    critical:
+      mismatch: 2
+  - name: ALC_KP
+    critical:
+      mismatch: 40
+  - name: ALC_LIMIT
+    critical:
+      mismatch: 200
+  - name: REED_SOLOMON_TX
+    critical:
+      mismatch: 1
+  - name: CONVOLUTION_CODING_TX
+    critical:
+      mismatch: 1
+  - name: RANDOMIZE_TX
+    critical:
+      mismatch: 1
+  - name: CRC_TX
+    critical:
+      mismatch: 1
+  - name: IDLE_FRAMES
+    critical:
+      mismatch: 0
+  - name: TRAIN_TYPE
+    critical:
+      mismatch: 0
+  - name: PREAMBLE_SIZE
+    critical:
+      mismatch: 16
+  - name: POSTAMBLE_SIZE
+    critical:
+      mismatch: 0
+  - name: MIDAMBLE_SIZE
+    critical:
+      mismatch: 0
+  - name: PACKET_SIZE_TX
+    critical:
+      mismatch: 256
+  - name: ID_TX
+    critical:
+      mismatch: 0
+  - name: CRYPTO_KEY_TX
+    critical:
+      mismatch: 0
+  - name: CRYPTO_ENCRYPT
+    critical:
+      mismatch: 0
+  - name: CRYPTO_AUTH_TX
+    critical:
+      mismatch: 0
+  - name: SEND_FRAMES
+    critical:
+      over: 40
+      under: 10
+  - name: POWER_FORWARD
+    critical:
+      over: 30.5
+      under: 29.5
+  - name: POWER_REFLECT
+    critical:
+      over: 16
+      under: 0
+  - name: OVER_POWER_COUNT
+    critical:
+      mismatch: 0
+  - name: PLL_NO_LOCK_COUNT_TX
+    critical:
+      mismatch: 0
+# REPLY_PROP_LIST_RX_GRP
+  - name: FREQUENCY_RX
+    critical:
+      mismatch: 2105350000
+  - name: BIT_RATE_RX
+    critical:
+      mismatch: 128000
+  - name: BAND_WIDTH
+    critical:
+      mismatch: 150
+  - name: REED_SOLOMON_RX
+    critical:
+      mismatch: 1
+  - name: CONVOLUTION_CODING_RX
+    critical:
+      mismatch: 1
+  - name: RANDOMIZE_RX
+    critical:
+      mismatch: 1
+  - name: CRC_RX
+    critical:
+      mismatch: 1
+  - name: PACKET_SIZE_RX
+    critical:
+      mismatch: 217
+  - name: ID_RX
+    critical:
+      mismatch: 0
+  - name: CRYPTO_KEY_RX
+    critical:
+      mismatch: 0
+  - name: CRYPTO_DECRYPT
+    critical:
+      mismatch: 0
+  - name: CRYPTO_AUTH
+    critical:
+      mismatch: 0
+  - name: LOCAL_DROP
+    critical:
+      mismatch: 0
+  - name: RECV_FRAMES
+    critical:
+      over: 40
+      under: 10
+  - name: DETECTED
+    critical:
+      over: 40
+      under: 10
+  - name: RSSI
+    critical:
+      over: -30
+      under: -107
+  - name: FREQUENCY_ERR
+    critical:
+      mismatch: 0
+  - name: PLL_NO_LOCK_COUNT_RX
+    critical:
+      mismatch: 0
