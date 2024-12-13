@@ -2,6 +2,7 @@
 services:
   - class: org.yamcs.http.HttpServer
     args:
+      address: "localhost"
       port: 8090
       #enable the following three options to have a TLS (https) connection
       #the crt file can contain also the CA crt
