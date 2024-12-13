@@ -228,22 +228,22 @@ parameters:
       mismatch: 0
   - name: FPGA_VCCINT
     critical:
-      over: 1030
-      under: 970
+      over: 1.030
+      under: 0.970
   - name: FPGA_VCCAUX_SENSOR_STATUS
     critical:
       mismatch: 0
   - name: FPGA_VCCAUX
     critical:
-      over: 1860
-      under: 1750
+      over: 1.860
+      under: 1.750
   - name: FPGA_VCCBRAM_SENSOR_STATUS
     critical:
       mismatch: 0
   - name: FPGA_VCCBRAM
     critical:
-      over: 1030
-      under: 970
+      over: 1.030
+      under: 0.970
   - name: IO_BOARD_PDU_3V3_CURR_SENSOR_STATUS
     critical:
       mismatch: 0
