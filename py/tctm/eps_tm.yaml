@@ -581,11 +581,9 @@ containers:
         bit: 32
       - name: "OFFSET"
         bit: 16
-      - name: "ENTRY_DATA_LEN"
-        bit: 8
       - name: "ENTRY_DATA"
         type: binary
-        bit: 1000
+        bit: 1952
   - name: REPLY_GWDT_REINIT
     endian: true
     conditions:
