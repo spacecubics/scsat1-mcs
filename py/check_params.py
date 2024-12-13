@@ -108,11 +108,11 @@ def init(yaml_file):
         errors[target] = []
         if 'mismatch' in param['critical']:
             mismatchs[target] = param['critical']['mismatch']
-        elif 'match' in param['critical']:
+        if 'match' in param['critical']:
             matchs[target] = param['critical']['match']
-        elif 'over' in param['critical']:
+        if 'over' in param['critical']:
             overs[target] = param['critical']['over']
-        elif 'under' in param['critical']:
+        if 'under' in param['critical']:
             unders[target] = param['critical']['under']
 
 
