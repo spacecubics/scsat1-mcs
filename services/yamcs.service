@@ -1,0 +1,15 @@
+[Unit]
+Description=Yamcs service for SC-Sat1
+After=network.service
+
+[Service]
+Type=simple
+ExecStart=/opt/yamcs/bin/yamcsd --etc-dir /home/yamcs/yamcs_work/etc/
+ExecStop=/bin/kill -WINCH ${MAINPID}
+User=yamcs
+Group=yamcs
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
