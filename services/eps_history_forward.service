@@ -1,0 +1,16 @@
+[Unit]
+Description=EPS history forward service for SC-Sat1
+After=network.service
+
+[Service]
+Type=simple
+Environment="PYTHONPATH=/home/yamcs/.local/share/virtualenvs/yamcs-aUGU5slm/lib/python3.12/site-packages/"
+ExecStart=python3 /usr/local/bin/eps_history_forward.py
+ExecStop=/bin/kill -WINCH ${MAINPID}
+User=yamcs
+Group=yamcs
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
