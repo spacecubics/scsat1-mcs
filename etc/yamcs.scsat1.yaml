@@ -1,0 +1,140 @@
+services:
+    - class: org.yamcs.archive.XtceTmRecorder
+    - class: org.yamcs.archive.ParameterRecorder
+    - class: org.yamcs.archive.AlarmRecorder
+    - class: org.yamcs.archive.EventRecorder
+    - class: org.yamcs.archive.ReplayServer
+      args:
+          streams:
+              - tm_realtime
+              - tm_dump
+    - class: org.yamcs.parameter.SystemParametersService
+      args:
+          provideJvmVariables: true
+          provideFsVariables: true
+    - class: org.yamcs.ProcessorCreatorService
+      args: 
+          name: "realtime"
+          type: "realtime" 
+    - class: org.yamcs.archive.CommandHistoryRecorder
+    - class: org.yamcs.parameterarchive.ParameterArchive
+      args:
+        realtimeFiller: 
+          enabled: false
+        backFiller:
+          enabled: true
+          warmupTime: 60
+
+dataLinks:
+    - name: tm_realtime
+      class: org.yamcs.tctm.UdpTmDataLink
+      packetPreprocessorClassName: org.yamcs.tctm.Scsat1PacketPreprocessor
+      packetPreprocessorArgs:
+        srcOffset: 2  # /SCSAT1/csp_src(Loc:2, Bits:5)
+        srcLength: 5
+        timesettings:
+          MAIN:
+            byteOrder: LITTLE_ENDIAN
+            timestampOffset: 9 # /SCSAT1/MAIN/WALL_CLOCK(Loc:9)
+            timeEncoding:
+              type: FIXED
+              size: 4
+              epoch: UNIX
+              multiplier: 1000
+            tmDataList:
+              # /SCSAT1/MAIN/SYSTEM_HK
+              - portOffset: 12 # /SCSAT1/csp_dport(Loc:12, Bits:6, Val:10)
+                portLength: 6
+                portNum: 10
+                commandId: 0 # /SCSAT1/MAIN/telemetry_id(Val:0)
+          ADCS:
+            byteOrder: LITTLE_ENDIAN
+            timestampOffset: 9 # /SCSAT1/ADCS/WALL_CLOCK(Loc:9)
+            timeEncoding:
+              type: FIXED
+              size: 4
+              epoch: UNIX
+              multiplier: 1000
+            tmDataList:
+              # /SCSAT1/ADCS/SYSTEM_HK
+              - portOffset: 12 # /SCSAT1/csp_dport(Loc:12, Bits:6, Val:10)
+                portLength: 6
+                portNum: 10
+                commandId: 0 # 	/SCSAT1/MAIN/telemetry_id(Val:0)
+          EPS:
+            timestampOffset: 6 # /SCSAT1/EPS/TIMESTAMP_S(Loc:6)
+            byteOrder: LITTLE_ENDIAN
+            timeEncoding:
+              type: FLOAT64
+              epoch: UNIX
+            tmDataList:
+              # /SCSAT1/EPS/REPLY_GENERAL_TELEMETRY
+              - portOffset: 18 # /SCSAT1/csp_sport(Loc:18, Bits:6, Val:7)
+                portLength: 6
+                portNum: 7
+                commandId: 0 # /SCSAT1/EPS/command_id(Val:0)
+              # /SCSAT1/EPS/REQ_STARTUP_TELEMETRY
+              - portOffset: 18 # /SCSAT1/csp_sport(Loc:18, Bits:6, Val:7)
+                portLength: 6
+                portNum: 7
+                commandId: 1 # /SCSAT1/EPS/command_id(Val:1)
+      stream: tm_realtime
+      port: 52004
+      # Give the embedded simulator some time to boot up
+      #initialDelay: 2000      
+    - name: tm_dump
+      class: org.yamcs.tctm.TcpTmDataLink
+      stream: tm_dump
+      host: localhost
+      port: 10115
+      # Give the embedded simulator some time to boot up
+      initialDelay: 2000
+    - name: tc_sim
+      class: org.yamcs.tctm.UdpTcDataLink
+      stream: tc_realtime
+      host: localhost
+      port: 52002
+      # Give the embedded simulator smoe time to boot up
+      initialDelay: 2000
+
+mdb:
+    # Configuration of the active loaders
+    # Valid loaders are: sheet, xtce or fully qualified name of the class
+    #- type: "xtce"
+    #  spec: "mdb/ref-xtce.xml"
+    - type: "xtce"
+      spec: "mdb/scsat1_header.xml"
+      subLoaders:
+          - type: "xtce"
+            spec: "mdb/scsat1_main.xml"
+          - type: "xtce"
+            spec: "mdb/scsat1_adcs.xml"
+          - type: "xtce"
+            spec: "mdb/scsat1_srs3.xml"
+          - type: "xtce"
+            spec: "mdb/scsat1_eps.xml"
+          - type: "xtce"
+            spec: "mdb/scsat1_zero.xml"
+          - type: "xtce"
+            spec: "mdb/scsat1_pico.xml"
+    #Loads the performance testing mission database
+    #- type: "org.yamcs.simulator.PerfMdbLoader"
+    #  args:
+    #     numPackets: 100
+    #     packetSize: 1476
+
+#Configuration for streams created at server startup
+streamConfig:
+    tm:
+        - name: "tm_realtime"
+          processor: "realtime"
+        - name: "tm_dump"
+    invalidTm: "invalid_tm_stream"
+    cmdHist: ["cmdhist_realtime", "cmdhist_dump"]
+    event: ["events_realtime", "events_dump"]
+    param: ["pp_realtime", "pp_tse", "sys_param", "proc_param"]
+    parameterAlarm: ["alarms_realtime"]
+    eventAlarm: ["event_alarms_realtime"]
+    tc:
+        - name: "tc_realtime"
+          processor: "realtime"

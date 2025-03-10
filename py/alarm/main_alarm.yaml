@@ -1,0 +1,170 @@
+prefix: /SCSAT1/MAIN/
+alarms:
+  - name: OBC_1_TEMP
+    critical:
+      high: 80
+      low: -40
+  - name: OBC_2_TEMP
+    critical:
+      high: 80
+      low: -40
+  - name: OBC_3_TEMP
+    critical:
+      high: 80
+      low: -40
+  - name: OBC_XADC_TEMP
+    critical:
+      high: 125
+      low: -40
+  - name: IOBOARD_1_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: IOBOARD_2_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: X_PLUS_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: X_MINUS_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: Y_PLUS_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: Y_MINUS_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: SUNSENS_Y_PLUS_TEMP
+    critical:
+      high: 100
+      low: -40
+  - name: SUNSENS_Y_MINUS_TEMP
+    critical:
+      high: 100
+      low: -40
+  - name: MGNM_X_PLUS_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: MGNM_X_MINUS_TEMP
+    critical:
+      high: 85
+      low: -40
+  - name: ZERO_TEMP
+    critical:
+      high: 70
+      low: -20
+  - name: OBC_1V0_Shunt
+    critical:
+      high: 500
+      low: 0
+  - name: OBC_1V8_Shunt
+    critical:
+      high: 250
+      low: 0
+  - name: OBC_3V3_Shunt
+    critical:
+      high: 200
+      low: 40
+  - name: OBC_3V3_SYSA_Shunt
+    critical:
+      high: 300
+      low: 0
+  - name: OBC_3V3_SYSB_Shunt
+    critical:
+      high: 300
+      low: 0
+  - name: OBC_3V3_IO_Shunt
+    critical:
+      high: 100
+      low: 0
+  - name: IO_PDU_04_3V3_Shunt
+    critical:
+      high: 1000
+      low: 0
+  - name: IO_VDD_3V3_SYS_Shunt
+    critical:
+      high: 50
+      low: 0
+  - name: IO_VDD_3V3_Shunt
+    critical:
+      high: 100
+      low: 0
+  - name: OBC_1V0_Bus
+    critical:
+      high: 1.1
+      low: 1
+  - name: OBC_1V8_Bus
+    critical:
+      high: 1.98
+      low: 1.8
+  - name: OBC_3V3_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: OBC_3V3_SYSA_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: OBC_3V3_SYSB_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: OBC_3V3_IO_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: IO_PDU_04_3V3_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: IO_VDD_3V3_SYS_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: IO_VDD_3V3_Bus
+    critical:
+      high: 3.6
+      low: 3
+  - name: OBC_XADC_VCCINT
+    critical:
+      high: 1.05
+      low: 0.95
+  - name: OBC_XADC_VCCAUX
+    critical:
+      high: 2
+      low: 1.6
+  - name: OBC_XADC_VCCBRAM
+    critical:
+      high: 1.05
+      low: 0.95
+  - name: DSTRX3_HK_RSSI
+    critical:
+      high: -100
+      low: -140
+  - name: DSTRX3_HK_TEMP
+    critical:
+      high: 60
+      low: -20
+  - name: DSTRX3_HK_VOLTAGE
+    critical:
+      high: 10
+      low: 0
+  - name: DSTRX3_HK_TX_POWER
+    critical:
+      high: 10
+      low: 0
+  - name: DSTRX3_HK_CARRIER_LOCK
+    critical:
+      high: 0
+      low: 0
+  - name: DSTRX3_HK_SUB_CARRIER_LOCK
+    critical:
+      high: 0
+      low: 0

@@ -1,0 +1,62 @@
+csp_commands:
+  - name: csp_command
+    commands:
+      - name: "REQ_CMP"
+        port: 0
+      - name: "REQ_PING"
+        port: 1
+        arguments:
+          - name: "ping_value"
+      - name: "REQ_GET_AMOUNT_FREE"
+        port: 3
+      - name: "REQ_GET_AMOUNT"
+        port: 5
+      - name: "REQ_SYSUP_TIME"
+        port: 6
+
+default_commands:
+  - name: srs3_command
+    commands:
+      - name: "REQ_PROP_LIST_TM_GRP"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            val: 0101C8000480
+      - name: "REQ_PROP_LIST_TX_GRP"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            val: 0101C8000180
+      - name: "REQ_PROP_LIST_RX_GRP"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            val: 0101C8000200
+      - name: "REQ_PROP_LIST_SYS_GRP"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            val: 0101F6000280
+      - name: "REQ_PROP_SYS_BOOTCOUNT"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            val: 0101C800428C
+      - name: "REQ_PROP_SYS_GWDT_COUNTER"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            val: 0101C8004290
+      - name: "REQ_RESET_GWDT"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            bit: 72
+            val: 0B01004291BB5990C1

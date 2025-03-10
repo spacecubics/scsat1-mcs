@@ -1,0 +1,42 @@
+prefix: /SCSAT1/EPS/
+alarms:
+  - name: temperature1
+    critical:
+      high: 80
+      low: -40
+  - name: temperature2
+    critical:
+      high: 80
+      low: -40
+  - name: temperature3
+    critical:
+      high: 80
+      low: -40
+  - name: temperature4
+    critical:
+      high: 80
+      low: -40
+  - name: temperature5
+    critical:
+      high: 80
+      low: -40
+  - name: temperature6
+    critical:
+      high: 80
+      low: -40
+  - name: temperature7
+    critical:
+      high: 80
+      low: -40
+  - name: temperature8
+    critical:
+      high: 80
+      low: -40
+  - name: temperature9
+    critical:
+      high: 60
+      low: -20
+  - name: temperature12
+    critical:
+      high: 60
+      low: -20

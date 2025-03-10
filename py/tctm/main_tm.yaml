@@ -1,0 +1,1188 @@
+headers:
+  - name: "common_container"
+    base: "../csp_message"
+    conditions:
+      - name: "../csp_src"
+        val: MAIN
+  - name: "main_container"
+    base: "common_container"
+    parameters:
+      - name: "telemetry_id"
+        bit: 8
+
+containers:
+# csp common reply
+  - name: ping
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 1
+    parameters:
+      - name: "ping_value"
+  - name: Get_amount_free
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 3
+    parameters:
+      - name: "amount_free_memory"
+        bit: 32
+  - name: Get_amount
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 5
+    parameters:
+      - name: "amount_memory"
+        bit: 32
+  - name: Sysup_time
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 6
+    parameters:
+      - name: "Sysup_time"
+        bit: 32
+
+# MAIN
+  - name: SYSTEM_HK
+    endian: true
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+      - name: "MAIN/telemetry_id"
+        val: 0
+    parameters:
+      - name: "SYSTEM_HK_SEQ_NO"
+        bit: 32
+      - name: "WALL_CLOCK"
+        bit: 32
+      - name: "SYSTEM_UP_TIME"
+        bit: 32
+      - name: "SW_VERSION"
+        type: binary
+        bit: 32
+      - name: "CM3_BOOT_COUNT"
+        bit: 8
+      - name: "RESERVED"
+        bit: 2
+      - name: "DRV2_POWER_STATUS"
+        bit: 1
+      - name: "DRV1_POWER_STATUS"
+        bit: 1
+      - name: "DSTRX_IO_POWER_STATUS"
+        bit: 1
+      - name: "PDU_03_POWER_STATUS"
+        bit: 1
+      - name: "PAYLOAD_POWER_STATUS"
+        bit: 1
+      - name: "ADCS_POWER_STATUS"
+        bit: 1
+      - name: "FPGA_VERSION"
+        type: binary
+        bit: 32
+      - name: "FPGA_CONFIG_BANK"
+        bit: 8
+      - name: "FPGA_FALLBACK_STATE"
+        bit: 32
+      - name: "RECEIVED_COMMAND_COUNT"
+        bit: 16
+      - name: "LAST_CSP_PORT"
+        bit: 8
+      - name: "LAST_COMMAND_ID"
+        bit: 8
+      - name: "SRAM_ECC_ERROR_COUNT_BY_MEMORY_SCRUB"
+        bit: 16
+      - name: "SRAM_ECC_ERROR_COUNT_BY_BUS_READ"
+        bit: 16
+      - name: "SEM_ERROR_COUNT"
+        bit: 16
+      - name: "OBC_MODULE_TEMP_1_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_TEMP_1"
+        type: float
+        bit: 32
+      - name: "OBC_MODULE_TEMP_2_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_TEMP_2"
+        type: float
+        bit: 32
+      - name: "OBC_MODULE_TEMP_3_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_TEMP_3"
+        type: float
+        bit: 32
+      - name: "FPGA_TEMP_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "FPGA_TEMP"
+        type: float
+        bit: 32
+      - name: "IO_BOARD_TEMP_1_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_BOARD_TEMP_1"
+        type: float
+        bit: 32
+      - name: "IO_BOARD_TEMP_2_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_BOARD_TEMP_2"
+        type: float
+        bit: 32
+      - name: "TEMP_X_P_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "TEMP_X_P"
+        type: float
+        bit: 32
+      - name: "TEMP_X_M_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "TEMP_X_M"
+        type: float
+        bit: 32
+      - name: "TEMP_Y_P_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "TEMP_Y_P"
+        type: float
+        bit: 32
+      - name: "TEMP_Y_M_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "TEMP_Y_M"
+        type: float
+        bit: 32
+      - name: "OBC_MODULE_1V0_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_1V0_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_1V0_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_1V0_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_1V8_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_1V8_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_1V8_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_1V8_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_SYS_A_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_SYS_A_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_SYS_A_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_SYS_A_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_SYS_B_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_SYS_B_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_SYS_B_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_SYS_B_VOLT"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_IO_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_IO_CURR"
+        endian: true
+        bit: 32
+      - name: "OBC_MODULE_3V3_IO_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_MODULE_3V3_IO_VOLT"
+        endian: true
+        bit: 32
+      - name: "FPGA_VCCINT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "FPGA_VCCINT"
+        type: float
+        bit: 32
+      - name: "FPGA_VCCAUX_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "FPGA_VCCAUX"
+        type: float
+        bit: 32
+      - name: "FPGA_VCCBRAM_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "FPGA_VCCBRAM"
+        type: float
+        bit: 32
+      - name: "IO_BOARD_PDU_3V3_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_BOARD_PDU_3V3_CURR"
+        endian: true
+        bit: 32
+      - name: "IO_BOARD_PDU_3V3_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_BOARD_PDU_3V3_VOLT"
+        endian: true
+        bit: 32
+      - name: "IO_BOARD_3V3_SYS_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_BOARD_3V3_SYS_CURR"
+        endian: true
+        bit: 32
+      - name: "IO_BOARD_3V3_SYS_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_BOARD_3V3_SYS_VOLT"
+        endian: true
+        bit: 32
+      - name: "IO_BOARD_3V3_CURR_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_BOARD_3V3_CURR"
+        endian: true
+        bit: 32
+      - name: "IO_BOARD_3V3_VOLT_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_BOARD_3V3_VOLT"
+        endian: true
+        bit: 32
+      - name: "MAGNETOMETER_Y_P_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "MAGNETOMETER_Y_P_X_OUT"
+        bit: 16
+      - name: "MAGNETOMETER_Y_P_Y_OUT"
+        bit: 16
+      - name: "MAGNETOMETER_Y_P_Z_OUT"
+        bit: 16
+      - name: "MAGNETOMETER_Y_M_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "MAGNETOMETER_Y_M_X_OUT"
+        bit: 16
+      - name: "MAGNETOMETER_Y_M_Y_OUT"
+        bit: 16
+      - name: "MAGNETOMETER_Y_M_Z_OUT"
+        bit: 16
+      - name: "TEMP_ON_MAGNETOMETER_Y_P_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "TEMP_ON_MAGNETOMETER_Y_P"
+        type: float
+        bit: 32
+      - name: "TEMP_ON_MAGNETOMETER_Y_M_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "TEMP_ON_MAGNETOMETER_Y_M"
+        type: float
+        bit: 32
+      - name: "SUN_SENSOR_Y_P_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "SUN_SENSOR_Y_P_A"
+        bit: 16
+      - name: "SUN_SENSOR_Y_P_B"
+        bit: 16
+      - name: "SUN_SENSOR_Y_P_C"
+        bit: 16
+      - name: "SUN_SENSOR_Y_P_D"
+        bit: 16
+      - name: "SUN_SENSOR_Y_M_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "SUN_SENSOR_Y_M_A"
+        bit: 16
+      - name: "SUN_SENSOR_Y_M_B"
+        bit: 16
+      - name: "SUN_SENSOR_Y_M_C"
+        bit: 16
+      - name: "SUN_SENSOR_Y_M_D"
+        bit: 16
+      - name: "TEMP_ON_SUN_SENSOR_Y_P_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "TEMP_ON_SUN_SENSOR_Y_P"
+        type: float
+        bit: 32
+      - name: "TEMP_ON_SUN_SENSOR_Y_M_SENSOR_STATUS"
+        bit: 8
+        signed: true
+      - name: "TEMP_ON_SUN_SENSOR_Y_M"
+        type: float
+        bit: 32
+
+  - name: TEMP
+    endian: true
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+      - name: "MAIN/telemetry_id"
+        val: 1
+    parameters:
+      - name: "TEMP_SEQCOUNT"
+        bit: 32
+      - name: "OBC_1_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1_TEMP"
+        type: float
+        bit: 32
+      - name: "OBC_2_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_2_TEMP"
+        type: float
+        bit: 32
+      - name: "OBC_3_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3_TEMP"
+        type: float
+        bit: 32
+      - name: "OBC_XADC_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_TEMP"
+        type: float
+        bit: 32
+      - name: "IOBOARD_1_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "IOBOARD_1_TEMP"
+        type: float
+        bit: 32
+      - name: "IOBOARD_2_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "IOBOARD_2_TEMP"
+        type: float
+        bit: 32
+      - name: "X_PLUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "X_PLUS_TEMP"
+        type: float
+        bit: 32
+      - name: "X_MINUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "X_MINUS_TEMP"
+        type: float
+        bit: 32
+      - name: "Y_PLUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "Y_PLUS_TEMP"
+        type: float
+        bit: 32
+      - name: "Y_MINUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "Y_MINUS_TEMP"
+        type: float
+        bit: 32
+
+
+  - name: CURRENT_VOLTAGE
+    endian: true
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+      - name: "MAIN/telemetry_id"
+        val: 2
+    parameters:
+      - name: "CV_SEQCOUNT"
+        bit: 32
+      - name: "OBC_1V0_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1V0_Shunt"
+        bit: 32
+      - name: "OBC_1V0_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1V0_Bus"
+        bit: 32
+      - name: "OBC_1V8_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1V8_Shunt"
+        bit: 32
+      - name: "OBC_1V8_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_1V8_Bus"
+        bit: 32
+      - name: "OBC_3V3_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_Shunt"
+        bit: 32
+      - name: "OBC_3V3_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_Bus"
+        bit: 32
+      - name: "OBC_3V3_SYSA_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSA_Shunt"
+        bit: 32
+      - name: "OBC_3V3_SYSA_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSA_Bus"
+        bit: 32
+      - name: "OBC_3V3_SYSB_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSB_Shunt"
+        bit: 32
+      - name: "OBC_3V3_SYSB_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_SYSB_Bus"
+        bit: 32
+      - name: "OBC_3V3_IO_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_IO_Shunt"
+        bit: 32
+      - name: "OBC_3V3_IO_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "OBC_3V3_IO_Bus"
+        bit: 32
+      - name: "OBC_XADC_VCCINT_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_VCCINT"
+        type: float
+        bit: 32
+      - name: "OBC_XADC_VCCAUX_STATUS"
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_VCCAUX"
+        type: float
+        bit: 32
+      - name: "OBC_XADC_VCCBRAM_STATIS"
+        bit: 8
+        signed: true
+      - name: "OBC_XADC_VCCBRAM"
+        type: float
+        bit: 32
+      - name: "IO_PDU_04_3V3_Shunt_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_PDU_04_3V3_Shunt"
+        bit: 32
+      - name: "IO_PDU_04_3V3_Bus_STATUS"
+        bit: 8
+        signed: true
+      - name: "IO_PDU_04_3V3_Bus"
+        bit: 32
+      - name: "IO_VDD_3V3_SYS_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "IO_VDD_3V3_SYS_Shunt"
+        bit: 32
+      - name: "IO_VDD_3V3_SYS_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "IO_VDD_3V3_SYS_Bus"
+        bit: 32
+      - name: "IO_VDD_3V3_Shunt_Status"
+        bit: 8
+        signed: true
+      - name: "IO_VDD_3V3_Shunt"
+        bit: 32
+      - name: "IO_VDD_3V3_Bus_Status"
+        bit: 8
+        signed: true
+      - name: "IO_VDD_3V3_Bus"
+        bit: 32
+
+
+
+  - name: CSP
+    endian: true
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+      - name: "MAIN/telemetry_id"
+        val: 3
+    parameters:
+      - name: "CSP_SEQCOUNT"
+        bit: 32
+      - name: "EPS_PING_Status"
+        bit: 8
+        signed: true
+      - name: "EPS_PING"
+        bit: 32
+        signed: true
+      - name: "SRS3_PING_Status"
+        bit: 8
+        signed: true
+      - name: "SRS3_PING"
+        bit: 32
+        signed: true
+      - name: "ADCS_PING_Status"
+        bit: 8
+        signed: true
+      - name: "ADCS_PING"
+        bit: 32
+        signed: true
+      - name: "ZERO_PING_Status"
+        bit: 8
+        signed: true
+      - name: "ZERO_PING"
+        bit: 32
+        signed: true
+      - name: "PICO_PING_Status"
+        bit: 8
+        signed: true
+      - name: "PICO_PING"
+        bit: 32
+        signed: true
+      - name: "EPS_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "EPS_UPTIME"
+        bit: 32
+      - name: "SRS3_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "SRS3_UPTIME"
+        bit: 32
+      - name: "ADCS_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "ADCS_UPTIME"
+        bit: 32
+      - name: "ZERO_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "ZERO_UPTIME"
+        bit: 32
+      - name: "PICO_UPTIME_Status"
+        bit: 8
+        signed: true
+      - name: "PICO_UPTIME"
+        bit: 32
+      - name: "ZERO_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "ZERO_TEMP"
+        type: float
+        bit: 32
+      - name: "ZERO_FRAME_COUNT_Status"
+        bit: 8
+        signed: true
+      - name: "ZERO_FRAME_COUNT"
+        bit: 16
+
+
+  - name: SUNSENSOR
+    endian: true
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+      - name: "MAIN/telemetry_id"
+        val: 4
+    parameters:
+      - name: "SUNSENS_SEQCOUNT"
+        bit: 32
+      - name: "SUNSENS_Y_PLUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_TEMP"
+        type: float
+        bit: 32
+      - name: "SUNSENS_Y_MINUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_TEMP"
+        type: float
+        bit: 32
+      - name: "SUNSENS_Y_PLUS_DATA_A_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_DATA_A"
+        bit: 16
+      - name: "SUNSENS_Y_PLUS_DATA_B_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_DATA_B"
+        bit: 16
+      - name: "SUNSENS_Y_PLUS_DATA_C_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_DATA_C"
+        bit: 16
+      - name: "SUNSENS_Y_PLUS_DATA_D_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_PLUS_DATA_D"
+        bit: 16
+      - name: "SUNSENS_Y_MINUS_DATA_A_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_DATA_A"
+        bit: 16
+      - name: "SUNSENS_Y_MINUS_DATA_B_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_DATA_B"
+        bit: 16
+      - name: "SUNSENS_Y_MINUS_DATA_C_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_DATA_C"
+        bit: 16
+      - name: "SUNSENS_Y_MINUS_DATA_D_Status"
+        bit: 8
+        signed: true
+      - name: "SUNSENS_Y_MINUS_DATA_D"
+        bit: 16
+
+
+  - name: MAGNET_METER
+    endian: true
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+      - name: "MAIN/telemetry_id"
+        val: 5
+    parameters:
+      - name: "MGNM_SEQCOUNT"
+        bit: 32
+      - name: "MGNM_X_PLUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_PLUS_TEMP"
+        type: float
+        bit: 32
+      - name: "MGNM_X_MINUS_TEMP_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_MINUS_TEMP"
+        type: float
+        bit: 32
+      - name: "MGNM_X_PLUS_X_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_PLUS_X_OUT"
+        bit: 32
+      - name: "MGNM_X_PLUS_Y_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_PLUS_Y_OUT"
+        bit: 32
+      - name: "MGNM_X_PLUS_Z_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_PLUS_Z_OUT"
+        bit: 32
+      - name: "MGNM_X_MINUS_X_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_MINUS_X_OUT"
+        bit: 32
+      - name: "MGNM_X_MINUS_Y_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_MINUS_Y_OUT"
+        bit: 32
+      - name: "MGNM_X_MINUS_Z_OUT_Status"
+        bit: 8
+        signed: true
+      - name: "MGNM_X_MINUS_Z_OUT"
+        bit: 32
+
+
+  - name: DSTRX3
+    endian: true
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+      - name: "MAIN/telemetry_id"
+        val: 6
+    parameters:
+      - name: "DSTRX3_SEQCOUNT"
+        bit: 32
+      - name: "DSTRX3_HK_Status"
+        bit: 8
+        signed: true
+      - name: "DSTRX3_HK_FREE_COUNT"
+        bit: 8
+      - name: "DSTRX3_HK_WDT_COUNT"
+        bit: 8
+      - name: "DSTRX3_HK_RSSI"
+        bit: 8
+      - name: "DSTRX3_RECV_FREQ"
+        bit: 16
+      - name: "DSTRX3_HK_TEMP"
+        bit: 8
+        signed: true
+      - name: "DSTRX3_HK_VOLTAGE"
+        bit: 8
+      - name: "DSTRX3_HK_TX_POWER"
+        bit: 8
+      - name: "DSTRX3_HK_CARRIER_LOCK"
+        bit: 1
+      - name: "DSTRX3_HK_SUB_CARRIER_LOCK"
+        bit: 1
+      - name: "DSTRX3_HK_TX_POWER_SET"
+        bit: 4
+      - name: "DSTRX3_HK_BIT_RATE_SET"
+        bit: 2
+      - name: "DSTRX3_HK_PROGRAM_NO"
+        bit: 8
+      - name: "DSTRX3_HK_CHECK_SUM"
+        bit: 8
+
+
+  - name: HWTEST_RESULT
+    endian: true
+    conditions:
+      - name: "../csp_dport"
+        val: 10
+      - name: "MAIN/telemetry_id"
+        val: 7
+    parameters:
+      - name: "HWTEST_RESULT_SEQCOUNT"
+        bit: 32
+      - name: "HWTEST_LOOP_COUNT"
+        bit: 32
+      - name: "HWTEST_ERR_COUNT"
+        bit: 32
+      - name: "HWTEST_VERSION"
+        type: string
+        bit: 256
+      - name: "HWTEST_LAST_CMD"
+        type: string
+        bit: 256
+
+# Command Reply Telemetry
+  - name: POWER_CONTROL_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 12
+      - name: "MAIN/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_POWER_CONTROL"
+        signed: true
+        bit: 32
+  - name: POWER_CYCLE_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 12
+      - name: "MAIN/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_POWER_CYCLE"
+        signed: true
+        bit: 32
+  - name: PWRCTR_CMD_UNKOWN_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 12
+      - name: "MAIN/telemetry_id"
+        val: 255
+    parameters:
+      - name: "ERROR_CODE_OF_UNKNOWN_PWRCTRL"
+        signed: true
+        bit: 32
+  - name: FILE_INFO_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "MAIN/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_FILE_INFO"
+        signed: true
+        bit: 32
+      - name: "ENTRY_TYPE"
+        bit: 8
+      - name: "FILE_SIZE"
+        bit: 32
+      - name: "CRC32"
+        type: binary
+        bit: 32
+      - name: "FILE_NAME"
+        type: string
+        bit: 512
+  - name: REMOVE_FILE_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "MAIN/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_REMOVE_FILE"
+        signed: true
+        bit: 32
+  - name: UPLOAD_OPEN_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "MAIN/telemetry_id"
+        val: 2
+    parameters:
+      - name: "ERROR_CODE_OF_UPLOAD_OPEN"
+        signed: true
+        bit: 32
+      - name: "SESSION_ID_OF_UPLOAD_OPEN"
+        bit: 16
+      - name: "FILE_NAME_OF_UPLOAD_OPEN"
+        type: string
+        bit: 512
+  - name: UPLOAD_DATA_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "MAIN/telemetry_id"
+        val: 3
+    parameters:
+      - name: "SESSION_ID_OF_UPLOAD_DATA"
+        bit: 16
+      - name: "ERROR_CODE_01_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_01_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_01_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_02_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_02_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_02_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_03_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_03_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_03_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_04_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_04_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_04_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_05_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_05_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_05_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_06_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_06_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_06_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_07_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_07_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_07_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_08_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_08_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_08_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_09_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_09_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_09_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_10_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_10_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_10_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_11_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_11_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_11_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_12_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_12_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_12_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_13_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_13_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_13_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_14_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_14_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_14_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_15_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_15_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_15_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_16_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_16_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_16_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_17_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_17_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_17_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_18_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_18_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_18_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_19_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_19_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_19_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "ERROR_CODE_20_OF_UPLOAD_DATA"
+        signed: true
+        bit: 32
+      - name: "OFFSET_20_OF_UPLOAD_DATA"
+        bit: 32
+      - name: "SIZE_20_OF_UPLOAD_DATA"
+        bit: 32
+  - name: UPLOAD_CLOSE_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "MAIN/telemetry_id"
+        val: 4
+    parameters:
+      - name: "ERROR_CODE_OF_UPLOAD_CLOSE"
+        signed: true
+        bit: 32
+      - name: "SESSION_ID_OF_UPLOAD_CLOSE"
+        bit: 16
+  - name: COPY_FILE_TO_CFG_FLASH_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "MAIN/telemetry_id"
+        val: 5
+    parameters:
+      - name: "ERROR_CODE_OF_COPY_FILE_TO_CFG_FLASH"
+        signed: true
+        bit: 32
+  - name: GET_LAST_FILE_CRC_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 13
+      - name: "MAIN/telemetry_id"
+        val: 6
+    parameters:
+      - name: "ERROR_CODE_OF_LAST_FILE_CRC"
+        signed: true
+        bit: 32
+      - name: "CRC32_OF_LAST_FILE_CRC"
+        type: binary
+        bit: 32
+      - name: "FILE_NAME_OF_LAST_FILE_CRC"
+        type: string
+        bit: 512
+  - name: FLASH_CMD_UNKOWN_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "MAIN/telemetry_id"
+        val: 255
+    parameters:
+      - name: "ERROR_CODE_OF_UNKNOWN"
+        signed: true
+        bit: 32
+  - name: ERASE_CFG_FLASH_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "MAIN/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_ERASE_CFG_FLASH"
+        signed: true
+        bit: 32
+  - name: ERASE_DATA_FLASH_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "MAIN/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_ERASE_DATA_FLASH"
+        signed: true
+        bit: 32
+  - name: CALC_CRC_CFG_FLASH_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "MAIN/telemetry_id"
+        val: 2
+    parameters:
+      - name: "ERROR_CODE_OF_CALC_CRC_CFG_FLASH"
+        signed: true
+        bit: 32
+      - name: "BANK_OF_CFG_FLASH"
+        bit: 8
+      - name: "PARTITION_ID_OF_CFG_FLASH"
+        bit: 8
+      - name: "OFFSET_OF_CFG_FLASH"
+        bit: 32
+      - name: "SIZE_OF_CFG_FLASH"
+        bit: 32
+      - name: "CRC32_OF_CFG_FLASH"
+        type: binary
+        bit: 32
+  - name: GET_LAST_CFG_MEMORY_CRC_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 14
+      - name: "MAIN/telemetry_id"
+        val: 3
+    parameters:
+      - name: "ERROR_CODE_OF_LAST_CFG_CRC"
+        signed: true
+        bit: 32
+      - name: "BANK_OF_LAST_CFG_CRC"
+        bit: 8
+      - name: "PARTITION_ID_OF_LAST_CFG_CRC"
+        bit: 8
+      - name: "OFFSET_OF_LAST_CFG_CRC"
+        bit: 32
+      - name: "SIZE_OF_LAST_CFG_CRC"
+        bit: 32
+      - name: "CRC32_OF_LAST_CFG_CRC"
+        type: binary
+        bit: 32
+  - name: CLEAR_BOOT_COUNT_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "MAIN/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_CLEAR_BOOT_COUNT"
+        signed: true
+        bit: 32
+  - name: READ_FPGA_REG_CMD_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "MAIN/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_READ_FPGA_REG"
+        signed: true
+        bit: 32
+      - name: "REGISTER_VALUE"
+        type: binary
+        bit: 32
+  - name: CLEAR_BOOT_COUNT_CMD_UNKNOWN_REPLY
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 16
+      - name: "MAIN/telemetry_id"
+        val: 255
+    parameters:
+      - name: "ERROR_CODE_OF_UNKNOWN_CLEAR_BOOT_COUNT"
+        signed: true
+        bit: 32

@@ -1,0 +1,328 @@
+prefix: /SCSAT1/MAIN/
+csv-dir: "./main_check_csv"
+parameters:
+# SYSTEM_HK
+  - name: SYSTEM_HK_SEQ_NO
+    critical:
+      over: 1080
+      under: 0
+  - name: WALL_CLOCK
+    critical:
+      over: 1734188000
+      under: 1734177200
+  - name: SYSTEM_UP_TIME
+    critical:
+      over: 10800
+      under: 0
+  - name: SW_VERSION
+    critical:
+      mismatch: 0x15834B0F
+  - name: CM3_BOOT_COUNT
+    critical:
+      mismatch: 2
+  - name: RESERVED
+    critical:
+      mismatch: 0
+  - name: DRV2_POWER_STATUS
+    critical:
+      mismatch: 0
+  - name: DRV1_POWER_STATUS
+    critical:
+      mismatch: 0
+  - name: DSTRX_IO_POWER_STATUS
+    critical:
+      mismatch: 0
+  - name: PDU_03_POWER_STATUS
+    critical:
+      mismatch: 0
+  - name: PAYLOAD_POWER_STATUS
+    critical:
+      mismatch: 0
+  - name: ADCS_POWER_STATUS
+    critical:
+      mismatch: 1
+  - name: FPGA_VERSION
+    critical:
+      mismatch: 0x1E082FD6
+  - name: FPGA_CONFIG_BANK
+    critical:
+      mismatch: 0
+  - name: FPGA_FALLBACK_STATE
+    critical:
+      mismatch: 5
+  - name: RECEIVED_COMMAND_COUNT
+    critical:
+      over: 5
+      under: 2
+  - name: LAST_CSP_PORT
+    critical:
+      mismatch: 1
+  - name: LAST_COMMAND_ID
+    critical:
+      mismatch: 0
+  - name: SRAM_ECC_ERROR_COUNT_BY_MEMORY_SCRUB
+    critical:
+      mismatch: 0
+  - name: SRAM_ECC_ERROR_COUNT_BY_BUS_READ
+    critical:
+      mismatch: 0
+  - name: SEM_ERROR_COUNT
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_TEMP_1_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_TEMP_1
+    critical:
+      over: 80
+      under: -40
+  - name: OBC_MODULE_TEMP_2_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_TEMP_2
+    critical:
+      over: 80
+      under: -40
+  - name: OBC_MODULE_TEMP_3_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_TEMP_3
+    critical:
+      over: 80
+      under: -40
+  - name: FPGA_TEMP_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: FPGA_TEMP
+    critical:
+      over: 80
+      under: -40
+  - name: IO_BOARD_TEMP_1_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: IO_BOARD_TEMP_1
+    critical:
+      over: 85
+      under: -40
+  - name: IO_BOARD_TEMP_2_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: IO_BOARD_TEMP_2
+    critical:
+      over: 85
+      under: -40
+  - name: TEMP_X_P_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_X_P
+    critical:
+      over: 85
+      under: -40
+  - name: TEMP_X_M_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_X_M
+    critical:
+      over: 85
+      under: -40
+  - name: TEMP_Y_P_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_Y_P
+    critical:
+      over: 85
+      under: -40
+  - name: TEMP_Y_M_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_Y_M
+    critical:
+      over: 85
+      under: -40
+  - name: OBC_MODULE_1V0_CURR_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_1V0_CURR
+    critical:
+      over: 4000
+      under: 1450
+  - name: OBC_MODULE_1V0_VOLT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_1V0_VOLT
+    critical:
+      over: 1030
+      under: 970
+  - name: OBC_MODULE_1V8_CURR_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_1V8_CURR
+    critical:
+      over: 1350
+      under: 950
+  - name: OBC_MODULE_1V8_VOLT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_1V8_VOLT
+    critical:
+      over: 1860
+      under: 1750
+  - name: OBC_MODULE_3V3_CURR_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_3V3_CURR
+    critical:
+      over: 1000
+      under: 350
+  - name: OBC_MODULE_3V3_VOLT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_3V3_VOLT
+    critical:
+      over: 3480
+      under: 3000
+  - name: OBC_MODULE_3V3_SYS_A_CURR_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_3V3_SYS_A_CURR
+    critical:
+      over: 4000
+      under: 0
+  - name: OBC_MODULE_3V3_SYS_A_VOLT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_3V3_SYS_A_VOLT
+    critical:
+      over: 3480
+      under: 3290
+  - name: OBC_MODULE_3V3_SYS_B_CURR_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_3V3_SYS_B_CURR
+    critical:
+      over: 4000
+      under: 0
+  - name: OBC_MODULE_3V3_SYS_B_VOLT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_3V3_SYS_B_VOLT
+    critical:
+      over: 3480
+      under: 3290
+  - name: OBC_MODULE_3V3_IO_CURR_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_3V3_IO_CURR
+    critical:
+      over: 160
+      under: 0
+  - name: OBC_MODULE_3V3_IO_VOLT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: OBC_MODULE_3V3_IO_VOLT
+    critical:
+      over: 3480
+      under: 3000
+  - name: FPGA_VCCINT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: FPGA_VCCINT
+    critical:
+      over: 1.030
+      under: 0.970
+  - name: FPGA_VCCAUX_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: FPGA_VCCAUX
+    critical:
+      over: 1.860
+      under: 1.750
+  - name: FPGA_VCCBRAM_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: FPGA_VCCBRAM
+    critical:
+      over: 1.030
+      under: 0.970
+  - name: IO_BOARD_PDU_3V3_CURR_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: IO_BOARD_PDU_3V3_CURR
+    critical:
+      over: 7400
+      under: 4000
+  - name: IO_BOARD_PDU_3V3_VOLT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: IO_BOARD_PDU_3V3_VOLT
+    critical:
+      over: 3480
+      under: 3290
+  - name: IO_BOARD_3V3_SYS_CURR_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: IO_BOARD_3V3_SYS_CURR
+    critical:
+      over: 2500
+      under: 1900
+  - name: IO_BOARD_3V3_SYS_VOLT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: IO_BOARD_3V3_SYS_VOLT
+    critical:
+      over: 3480
+      under: 3140
+  - name: IO_BOARD_3V3_CURR_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: IO_BOARD_3V3_CURR
+    critical:
+      over: 5200
+      under: 2000
+  - name: IO_BOARD_3V3_VOLT_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: IO_BOARD_3V3_VOLT
+    critical:
+      over: 3480
+      under: 3140
+  - name: MAGNETOMETER_Y_P_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: MAGNETOMETER_Y_M_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_ON_MAGNETOMETER_Y_P_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_ON_MAGNETOMETER_Y_P
+    critical:
+      over: 85
+      under: -40
+  - name: TEMP_ON_MAGNETOMETER_Y_M_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_ON_MAGNETOMETER_Y_M
+    critical:
+      over: 85
+      under: -40
+  - name: SUN_SENSOR_Y_P_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: SUN_SENSOR_Y_M_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_ON_SUN_SENSOR_Y_P_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_ON_SUN_SENSOR_Y_P
+    critical:
+      over: 100
+      under: -40
+  - name: TEMP_ON_SUN_SENSOR_Y_M_SENSOR_STATUS
+    critical:
+      mismatch: 0
+  - name: TEMP_ON_SUN_SENSOR_Y_M
+    critical:
+      over: 100
+      under: -40

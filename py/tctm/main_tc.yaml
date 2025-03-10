@@ -1,0 +1,244 @@
+csp_commands:
+  - name: csp_command
+    commands:
+      - name: "CMP"
+        port: 0
+      - name: "Ping"
+        port: 1
+        arguments:
+          - name: "ping_value"
+      - name: "Get_amount_free"
+        port: 3
+      - name: "Get_amount"
+        port: 5
+      - name: "Sysup_time"
+        port: 6
+
+default_commands:
+  - name: main_command
+    commands:
+      - name: "SHELL_CMD"
+        port: 10
+        arguments:
+          - name: shell_cmd_str
+            type: string
+      - name: "POWER_CONTROL_CMD"
+        port: 12
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+          - name: "target"
+            type: enum
+            choices:
+              - [1, "PDU 01 (ADCS Board)"]
+              - [2, "PDU 02 (Payload Board)"]
+              - [4, "PDU O3"]
+              - [8, "DSTRX-3 IO"]
+              - [16, "DRV 01"]
+              - [32, "DRV 02"]
+          - name: "onoff"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]
+      - name: "POWER_CYCLE_CMD"
+        port: 12
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 1
+      - name: "GET_FILE_INFO_CMD"
+        port: 13
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+          - name: "crc32_calc"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]
+          - name: "save_to_fram"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]
+          - name: "target"
+            type: string
+            bit: 512
+      - name: "REMOVE_FILE_CMD"
+        port: 13
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 1
+          - name: "target"
+            type: string
+            bit: 512
+      - name: "UPLOAD_OPEN_CMD"
+        port: 13
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 2
+          - name: "session_id"
+            bit: 16
+          - name: "file_name"
+            type: string
+            bit: 512
+      - name: "UPLOAD_DATA_CMD"
+        port: 13
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 3
+          - name: "session_id"
+            bit: 16
+          - name: "offset"
+            bit: 32
+          - name: "size"
+            bit: 32
+          - name: "data"
+            type: binary
+            bit: 1600
+      - name: "UPLOAD_CLOSE_CMD"
+        port: 13
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 4
+          - name: "session_id"
+            bit: 16
+      - name: "COPY_FILE_TO_CFG_FLASH_CMD"
+        port: 13
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 5
+          - name: "src_file_name"
+            type: string
+            bit: 512
+          - name: "src_offset"
+            bit: 32
+            val: 0
+          - name: "copy_size"
+            bit: 32
+            val: 0
+          - name: "target_cfg_bank"
+            type: enum
+            choices:
+              - [0, "CFG_MEM_0"]
+              - [1, "CFG_MEM_1"]
+          - name: "target_partition_id"
+            type: enum
+            choices:
+              - [0, "GOLDEN_BIT"]
+              - [1, "GOLDEN_FSW"]
+              - [2, "UPDATE_BIT"]
+              - [3, "UPDATE_FSW"]
+          - name: "target_offset"
+            bit: 32
+      - name: "GET_LAST_FILE_CRC_CMD"
+        port: 13
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 6
+      - name: "ERASE_CFG_FLASH_CMD"
+        port: 14
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+          - name: "cfg_bank"
+            type: enum
+            choices:
+              - [0, "CFG_MEM_0"]
+              - [1, "CFG_MEM_1"]
+          - name: "partition_id"
+            type: enum
+            choices:
+              - [0, "GOLDEN_BIT"]
+              - [1, "GOLDEN_FSW"]
+              - [2, "UPDATE_BIT"]
+              - [3, "UPDATE_FSW"]
+          - name: "offset"
+            bit: 32
+            val: 0
+          - name: "size"
+            bit: 32
+            val: 0
+      - name: "ERASE_DATA_FLASH_CMD"
+        port: 14
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 1
+          - name: "partition_id"
+            type: enum
+            choices:
+              - [4, "STORAGE"]
+      - name: "CALC_CRC_CFG_FLASH_CMD"
+        port: 14
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 2
+          - name: "cfg_bank"
+            type: enum
+            choices:
+              - [0, "CFG_MEM_0"]
+              - [1, "CFG_MEM_1"]
+          - name: "partition_id"
+            type: enum
+            choices:
+              - [0, "GOLDEN_BIT"]
+              - [1, "GOLDEN_FSW"]
+              - [2, "UPDATE_BIT"]
+              - [3, "UPDATE_FSW"]
+          - name: "offset"
+            bit: 32
+            val: 0
+          - name: "size"
+            bit: 32
+          - name: "save_to_fram"
+            type: enum
+            choices:
+              - [0, "OFF"]
+              - [1, "ON"]
+      - name: "GET_LAST_CFG_FLASH_CRC_CMD"
+        port: 14
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 3
+      - name: "GET_SYSTEM_HK"
+        port: 15
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+      - name: "CLEAR_BOOT_COUNT"
+        port: 16
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 0
+      - name: "READ_FPGA_REG_CMD"
+        port: 16
+        endian: true
+        arguments:
+          - name: "command_id"
+            bit: 8
+            val: 1
+          - name: "address"
+            type: binary
+            bit: 32

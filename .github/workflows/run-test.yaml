@@ -1,0 +1,60 @@
+name: Run Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on:
+      - ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          # 3.9 is not supported.
+          # yamcs-pymdb needs 3.10 or later for TypeAlias, which is
+          # unfortunately deprecated since Python 3.12.
+          # https://docs.python.org/3/library/typing.html
+          - '3.10' # jammy (22.04LTS)
+          - '3.11' # mantic (23.10)
+          - '3.12' # noble (24.04LTS)
+
+    steps:
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Python version
+        run: |
+          python3 --version
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run
+        run: |
+          ./scripts/inst_cfg_mdb.sh builddir
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifacts-${{ matrix.python-version }}
+          path: builddir
+
+      - name: Install xmllint
+        run: |
+          sudo apt-get install libxml2-utils
+
+      - name: Validate against XSD
+        run: |
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_header.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_main.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_adcs.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_eps.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_srs3.xml

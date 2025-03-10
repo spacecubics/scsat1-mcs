@@ -1,0 +1,9 @@
+enabled: false
+authModules:
+  - class: org.yamcs.security.YamlAuthModule
+    args:
+      hasher: org.yamcs.security.PBKDF2PasswordHasher
+  - class: org.yamcs.security.IPAddressAuthModule
+    args:
+      address: ""
+      username: ""

@@ -1,0 +1,223 @@
+csp_commands:
+  - name: csp_command
+    commands:
+      - name: "REQ_CMP"
+        port: 0
+      - name: "REQ_PING"
+        port: 1
+        arguments:
+          - name: "ping_value"
+      - name: "REQ_GET_AMOUNT_FREE"
+        port: 3
+      - name: "REQ_GET_AMOUNT"
+        port: 5
+      - name: "REQ_SYSUP_TIME"
+        port: 6
+
+default_commands:
+  - name: eps_command
+    commands:
+      - name: "REQ_RESET_GWDT"
+        port: 16
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 0
+          - name: magic_num
+            val: 30868
+      - name: "REQ_CLEARMARK_GWDT"
+        port: 16
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 2
+          - name: magic_num
+            val: 30868
+      - name: "REQ_EPS_HARD_RESET"
+        port: 15
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+          - name: magic_num
+            val: 17767
+      - name: "REQ_GENERAL_TELEMETRY"
+        port: 7
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 0
+      - name: "REQ_STARTUP_TELEMETRY"
+        port: 7
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+      - name: "REQ_GET_TIME"
+        port: 8
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 0
+      - name: "REQ_SET_TIME"
+        port: 8
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+          - name: timestamp
+            bit: 32
+      - name: "REQ_SINGLE_OUTPUT_CONTROL"
+        port: 14
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 0
+          - name: output_nr
+            type: enum
+            choices:
+              - [1, "MAIN_OBC_A"]
+              - [2, "SRS3_A"]
+              - [3, "ADCS_A"]
+              - [4, "MAIN_OBC_B"]
+              - [5, "SRS3_B"]
+              - [6, "ADCS_B"]
+              - [8, "RW"]
+              - [9, "DSTRX3"]
+          - name: state
+            type: enum
+            choices:
+              - [0, "Off"]
+              - [1, "On"]
+          - name: delay_s
+            bit: 16
+      - name: "REQ_ALL_OUTPUT_CONTROL"
+        port: 14
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+          - name: output_state
+            type: "binary"
+            bit: 32
+      - name: "REQ_ELEVATE_ACCESS_ROLE"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 12
+          - name: role
+            type: enum
+            choices:
+              - [0, "User"]
+              - [1, "SuperUser"]
+              - [2, "Manufacture"]
+          - name: password
+            bit: 32
+      - name: "REQ_CFG_SET_BUZZER_CHANNELS"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 4
+          - name: id
+            bit: 16
+            val: 113
+          - name: type_id
+            bit: 8
+            val: 4
+          - name: output_channels
+            type: "binary"
+            bit: 32
+      - name: "REQ_CFG_UNLOCK"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 8
+      - name: "REQ_CFG_LOCK"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 9
+      - name: "REQ_CFG_SAVE_TO_MAIN"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 10
+      - name: "REQ_CFG_SAVE_TO_FALLBACK"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 11
+      - name: "REQ_GET_STATUS"
+        port: 9
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 13
+      - name: "REQ_FILE_INFO"
+        port: 10
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 0
+          - name: file_id
+            bit: 8
+      - name: "REQ_FILE_DOWNLOAD"
+        port: 10
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+          - name: file_id
+            bit: 8
+          - name: status
+            bit: 8
+            val: 0
+          - name: start
+            bit: 32
+          - name: end
+            bit: 32
+          - name: first_offset
+            bit: 16
+            val: 0
+          - name: period_ms
+            bit: 16
+            val: 100
+          - name: duration_s
+            bit: 16
+            val: 120
+          - name: pkt_size
+            bit: 16
+            val: 244
+      - name: "REQ_GWDT_REINIT"
+        port: 16
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 4
+          - name: magic_num
+            val: 30868

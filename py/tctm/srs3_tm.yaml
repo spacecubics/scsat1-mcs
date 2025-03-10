@@ -1,0 +1,383 @@
+headers:
+  - name: "common_container"
+    base: "../csp_message"
+    conditions:
+      - name: "../csp_src"
+        val: SRS3
+  - name: "srs3_header"
+    base: "common_container"
+    parameters:
+      - name: "telemetry_id"
+        bit: 8
+      - name: "srs3_reserved"
+        bit: 16
+      - name: "srs3_id"
+        bit: 16
+    conditions:
+      - name: "../csp_sport"
+        val: 19
+
+# default settings
+# endian: false
+# type: int
+# signed: false
+# bit: 16
+
+containers:
+# csp common reply
+  - name: REPLY_PING
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 1
+    parameters:
+      - name: "PING_VALUE"
+  - name: REPLY_GET_AMOUNT_FREE
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 3
+    parameters:
+      - name: "AMOUNT_FREE_MEMORY"
+        bit: 32
+  - name: REPLY_GET_AMOUNT
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 5
+    parameters:
+      - name: "AMOUNT_CSP_BUFFERS"
+        bit: 32
+  - name: REPLY_SYSUP_TIME
+    base: "common_container"
+    conditions:
+      - name: "../csp_sport"
+        val: 6
+    parameters:
+      - name: "SYSUP_TIME"
+        bit: 32
+
+# Command reply
+  - name: REPLY_PROP_LIST_TM_GRP
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x7495
+    parameters:
+      - name: "TEMP_MCU"
+        bit: 16
+        signed: true
+      - name: "TEMP_POWER"
+        offset: 16
+        bit: 16
+        signed: true
+      - name: "TEMP_LNA"
+        offset: 16
+        bit: 16
+        signed: true
+      - name: "TEMP_PA"
+        offset: 16
+        bit: 16
+        signed: true
+      - name: "VOLT_VIN"
+        offset: 16
+        bit: 16
+      - name: "VOLT_VREG"
+        offset: 16
+        bit: 16
+      - name: "VOLT_3V3"
+        offset: 16
+        bit: 16
+      - name: "CURR_VIN"
+        offset: 16
+        bit: 16
+        signed: true
+      - name: "CURR_VREG"
+        offset: 16
+        bit: 16
+        signed: true
+      - name: "CURR_3V3"
+        offset: 16
+        bit: 16
+        signed: true
+      - name: "POWER_VIN"
+        offset: 16
+        bit: 16
+      - name: "POWER_VREG"
+        offset: 16
+        bit: 16
+      - name: "POWER_3V3"
+        offset: 16
+        bit: 16
+
+  - name: REPLY_PROP_SYS_BOOTCOUNT
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x428c
+    parameters:
+      - name: "BOOTCOUNT"
+        bit: 32
+
+  - name: REPLY_PROP_SYS_GWDT_COUNTER
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x4290
+    parameters:
+      - name: "GWDT_COUNTER"
+        bit: 32
+
+  - name: REPLY_PROP_LIST_TX_GRP
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x11e4
+    parameters:
+      - name: "ALLOW_ALWAYS"
+        bit: 8
+        signed: true
+      - name: "ALLOW_TIME"
+        offset: 16
+        bit: 16
+      - name: "FREQUENCY_TX"
+        offset: 16
+        bit: 32
+      - name: "BIT_RATE_TX"
+        offset: 16
+        bit: 32
+      - name: "BT_PRODUCT"
+        offset: 16
+        bit: 8
+      - name: "POWER_OUT"
+        offset: 16
+        type: float
+        bit: 32
+      - name: "POWER_GAIN"
+        offset: 16
+        bit: 16
+      - name: "ALC_MODE"
+        offset: 16
+        bit: 8
+      - name: "ALC_KP"
+        offset: 16
+        type: float
+        bit: 32
+      - name: "ALC_LIMIT"
+        offset: 16
+        bit: 16
+      - name: "ALC_GAIN"
+        offset: 16
+        bit: 16
+      - name: "REED_SOLOMON_TX"
+        offset: 16
+        bit: 8
+        signed: true
+      - name: "CONVOLUTION_CODING_TX"
+        offset: 16
+        bit: 8
+        signed: true
+      - name: "RANDOMIZE_TX"
+        offset: 16
+        bit: 8
+        signed: true
+      - name: "CRC_TX"
+        offset: 16
+        bit: 8
+        signed: true
+      - name: "IDLE_FRAMES"
+        offset: 16
+        bit: 16
+      - name: "TRAIN_TYPE"
+        offset: 16
+        bit: 8
+      - name: "PREAMBLE_SIZE"
+        offset: 16
+        bit: 16
+      - name: "POSTAMBLE_SIZE"
+        offset: 16
+        bit: 16
+      - name: "MIDAMBLE_SIZE"
+        offset: 16
+        bit: 16
+      - name: "PACKET_SIZE_TX"
+        offset: 16
+        bit: 16
+      - name: "ID_TX"
+        offset: 16
+        bit: 16
+      - name: "CRYPTO_KEY_TX"
+        offset: 32
+        type: "binary"
+        bit: 256
+      - name: "CRYPTO_ENCRYPT"
+        offset: 16
+        bit: 8
+      - name: "CRYPTO_AUTH_TX"
+        offset: 16
+        bit: 8
+      - name: "SEND_FRAMES"
+        offset: 16
+        bit: 32
+      - name: "POWER_FORWARD"
+        offset: 16
+        type: float
+        bit: 32
+      - name: "POWER_REFLECT"
+        offset: 16
+        type: float
+        bit: 32
+      - name: "OVER_POWER_COUNT"
+        offset: 16
+        bit: 16
+      - name: "PLL_NO_LOCK_COUNT_TX"
+        offset: 16
+        bit: 16
+
+  - name: REPLY_PROP_LIST_RX_GRP
+    conditions:
+      - name: "SRS3/srs3_id"
+        val: 0x4203
+    parameters:
+      - name: "FREQUENCY_RX"
+        bit: 32
+      - name: "BIT_RATE_RX"
+        offset: 16
+        bit: 32
+      - name: "BAND_WIDTH"
+        offset: 16
+        bit: 8
+      - name: "REED_SOLOMON_RX"
+        offset: 16
+        bit: 8
+      - name: "CONVOLUTION_CODING_RX"
+        offset: 16
+        bit: 8
+      - name: "RANDOMIZE_RX"
+        offset: 16
+        bit: 8
+      - name: "CRC_RX"
+        offset: 16
+        bit: 8
+      - name: "PACKET_SIZE_RX"
+        offset: 16
+        bit: 16
+      - name: "ID_RX"
+        offset: 16
+        bit: 16
+      - name: "CRYPTO_KEY_RX"
+        offset: 32
+        type: "binary"
+        bit: 256
+      - name: "CRYPTO_DECRYPT"
+        offset: 16
+        bit: 8
+      - name: "CRYPTO_AUTH"
+        offset: 16
+        bit: 8
+      - name: "LOCAL_DROP"
+        offset: 16
+        bit: 8
+      - name: "RECV_FRAMES"
+        offset: 16
+        bit: 32
+      - name: "DETECTED"
+        offset: 16
+        bit: 32
+      - name: "RSSI"
+        offset: 16
+        type: float
+        bit: 32
+      - name: "FREQUENCY_ERR"
+        offset: 16
+        type: float
+        bit: 32
+      - name: "PLL_NO_LOCK_COUNT_RX"
+        offset: 16
+        bit: 16
+
+  - name: REPLY_PROP_LIST_SYS_GRP_1
+    conditions:
+      - name: "SRS3/srs3_reserved"
+        val: 0x1
+      - name: "SRS3/srs3_id"
+        val: 0xC285
+    parameters:
+      - name: "NAME"
+        offset: 16
+        type: string
+        bit: 160
+      - name: "SERIAL"
+        offset: 16
+        type: "binary"
+        bit: 32
+      - name: "SW_VERSION"
+        offset: 16
+        type: "binary"
+        bit: 32
+      - name: "BOOTCOUNT_SYS"
+        offset: 16
+        bit: 32
+      - name: "GWDT_INIT"
+        offset: 16
+        bit: 32
+      - name: "GWDT_COUNTER_SYS"
+        offset: 16
+        bit: 32
+      - name: "GWDT_RESET"
+        offset: 16
+        type: "binary"
+        bit: 32
+      - name: "CSP_ADDRESS"
+        offset: 16
+        bit: 8
+      - name: "CSP_ROUTES"
+        offset: 32
+        type: string
+        bit: 800
+      - name: "CSP_MTU"
+        offset: 16
+        bit: 16
+      - name: "CAN_RATE"
+        offset: 16
+        bit: 32
+      - name: "CAN_PROMISC"
+        offset: 16
+        bit: 8
+        signed: true
+      - name: "UART_RATE"
+        offset: 16
+        bit: 32
+      - name: "UART_MULTIDROP"
+        offset: 16
+        bit: 8
+        signed: true
+      - name: "NET_ENABLE"
+        offset: 16
+        bit: 8
+        signed: true
+      - name: "NET_EN_IP"
+        offset: 32
+        type: string
+        bit: 400
+
+  - name: REPLY_PROP_LIST_SYS_GRP_2
+    conditions:
+      - name: "SRS3/srs3_reserved"
+        val: 0x0
+      - name: "SRS3/srs3_id"
+        val: 0x22B4
+    parameters:
+      - name: "NET_EN_PREFIX"
+        bit: 8
+      - name: "NET_EN_GW"
+        offset: 32
+        type: string
+        bit: 400
+      - name: "NET_RF_IP"
+        offset: 32
+        type: string
+        bit: 400
+      - name: "NET_RF_PREFIX"
+        offset: 16
+        bit: 8
+      - name: "NET_RF_GW"
+        offset: 32
+        type: string
+        bit: 400

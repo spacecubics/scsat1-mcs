@@ -1,0 +1,12 @@
+#+title: The Mission Control Software for SC-Sat1
+
+* What is it
+
+  This repository is mission control software for SC-Sat1.
+  SC-Sat1 is a 3U CubeSat that Space Cubics launches to
+  demonstrate SC-OBC in space.
+
+  We adopt the [[https://yamcs.org/][Yamcs]], which Space Applications
+  Services has released as open source, as our MCS.
+  In this repository, it mainly managed configuration files and
+  mission databases for using Yamcs.

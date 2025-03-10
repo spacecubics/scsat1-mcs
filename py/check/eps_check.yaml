@@ -1,0 +1,396 @@
+prefix: /SCSAT1/EPS/
+csv-dir: "./eps_check_csv"
+parameters:
+# DEPLOY_MSG
+  - name: MESSAGE
+    critical:
+      mismatch: "SC in SPACE,Mai"
+# REPLY_GENERAL_TELEMETRY
+  - name: STATUS_G
+    critical:
+      mismatch: 0
+  - name: TIMESTAMP_G
+    critical:
+      over: 1734188000
+      under: 1734177200
+  - name: UPTIME
+    critical:
+      over: 10800
+      under: 0
+  - name: BOOT_COUNT_G
+    critical:
+      mismatch: 321
+  - name: GS_WDT_TIME_LEFT
+    critical:
+      over: 108000
+      under: 97200
+  - name: COUNTER_WDT
+    critical:
+      mismatch: 0
+  - name: MPPT_CONV_VOLT_X_P
+    critical:
+      over: 6000
+      under: 0
+  - name: MPPT_CONV_VOLT_Y_P
+    critical:
+      over: 6000
+      under: 0
+  - name: MPPT_CONV_VOLT_X_M
+    critical:
+      over: 6000
+      under: 0
+  - name: MPPT_CONV_VOLT_Y_M
+    critical:
+      over: 6000
+      under: 0
+  - name: CURR_SOLAR_PANELS_X_P
+    critical:
+      over: 1030
+      under: 0
+  - name: CURR_SOLAR_PANELS_Y_P
+    critical:
+      over: 1030
+      under: 0
+  - name: CURR_SOLAR_PANELS_X_M
+    critical:
+      over: 1030
+      under: 0
+  - name: CURR_SOLAR_PANELS_Y_M
+    critical:
+      over: 1030
+      under: 0
+  - name: BATT_VOLT
+    critical:
+      over: 8400
+      under: 6700
+  - name: CURR_SOLAR
+    critical:
+      over: 4120
+      under: 0
+  - name: CURR_BATT_IN
+    critical:
+      over: 2849
+      under: 0
+  - name: CURR_BATT_OUT
+    critical:
+      over: 800
+      under: 200
+  - name: CURR_OUTPUT_MAIN_OBC_A
+    critical:
+      over: 330
+      under: 0
+  - name: CURR_OUTPUT_SRS3_A
+    critical:
+      over: 720
+      under: 0
+  - name: CURR_OUTPUT_ADCS_A
+    critical:
+      over: 10
+      under: 0
+  - name: CURR_OUTPUT_MAIN_OBC_B
+    critical:
+      over: 330
+      under: 0
+  - name: CURR_OUTPUT_SRS3_B
+    critical:
+      over: 720
+      under: 0
+  - name: CURR_OUTPUT_ADCS_B
+    critical:
+      over: 10
+      under: 0
+  - name: CURR_OUTPUT_RW
+    critical:
+      over: 10
+      under: 0
+  - name: CURR_OUTPUT_DSTRX3
+    critical:
+      over: 10
+      under: 0
+  - name: ALWAYS_ON_CURR_OUTPUT_3V3
+    critical:
+      over: 200
+      under: 0
+  - name: ALWAYS_ON_CURR_OUTPUT_5V
+    critical:
+      over: 90
+      under: 35
+  - name: OUTPUT_CONV_VOLT_3V3
+    critical: 
+      over: 3430
+      under: 3140
+  - name: OUTPUT_CONV_VOLT_5V_A
+    critical:
+      over: 5130
+      under: 4750
+  - name: OUTPUT_CONV_VOLT_5V_B
+    critical:
+      over: 5130
+      under: 4750
+  - name: OUTPUT_CONV_VOLT_12V
+    critical:
+      over: 12280
+      under: 10000
+  - name: OUTPUT_CONV_STATUS_12V
+    critical:
+      mismatch: 1
+  - name: OUTPUT_CONV_STATUS_5V_B
+    critical:
+      mismatch: 1
+  - name: OUTPUT_CONV_STATUS_5V_A
+    critical:
+      mismatch: 1
+  - name: OUTPUT_CONV_STATUS_3V3
+    critical:
+      mismatch: 1
+  - name: OUTPUT_STATUS_RW
+    critical:
+      mismatch: 0
+  - name: OUTPUT_STATUS_ADCS_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_STATUS_SRS3_B
+    critical:
+      mismatch: 1
+  - name: OUTPUT_STATUS_MAIN_OBC_B
+    critical:
+      mismatch: 1
+  - name: OUTPUT_STATUS_ADCS_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_STATUS_SRS3_A
+    critical:
+      mismatch: 1
+  - name: OUTPUT_STATUS_MAIN_OBC_A
+    critical:
+      mismatch: 1
+  - name: OUTPUT_STATUS_DSTRX3
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_STATUS_RW
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_STATUS_ADCS_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_STATUS_SRS3_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_STATUS_MAIN_OBC_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_STATUS_ADCS_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_STATUS_SRS3_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_STATUS_MAIN_OBC_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_STATUS_DSTRX3
+    critical:
+      mismatch: 0
+  - name: PROTECTED_OUTPUT_ACCESS_COUNT
+    critical:
+      mismatch: 0
+  - name: OUTPUT_ON_DELTA_MAIN_OBC_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_ON_DELTA_SRS3_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_ON_DELTA_ADCS_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_ON_DELTA_MAIN_OBC_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_ON_DELTA_SRS3_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_ON_DELTA_ADCS_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_ON_DELTA_RW
+    critical:
+      mismatch: 0
+  - name: OUTPUT_ON_DELTA_DSTRX3
+    critical:
+      mismatch: 0
+  - name: OUTPUT_OFF_DELTA_MAIN_OBC_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_OFF_DELTA_SRS3_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_OFF_DELTA_ADCS_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_OFF_DELTA_MAIN_OBC_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_OFF_DELTA_SRS3_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_OFF_DELTA_ADCS_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_OFF_DELTA_RW
+    critical:
+      mismatch: 0
+  - name: OUTPUT_OFF_DELTA_DSTRX3
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_COUNT_MAIN_OBC_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_COUNT_SRS3_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_COUNT_ADCS_A
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_COUNT_MAIN_OBC_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_COUNT_SRS3_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_COUNT_ADCS_B
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_COUNT_RW
+    critical:
+      mismatch: 0
+  - name: OUTPUT_FAULT_COUNT_DSTRX3
+    critical:
+      mismatch: 0
+  - name: TEMP_MPPT_X_P
+    critical:
+      over: 60
+      under: -20
+  - name: TEMP_MPPT_Y_P
+    critical:
+      over: 60
+      under: -20
+  - name: TEMP_MPPT_X_M
+    critical:
+      over: 60
+      under: -20
+  - name: TEMP_MPPT_Y_M
+    critical:
+      over: 60
+      under: -20
+  - name: TEMP_CONV_3V3
+    critical:
+      over: 60
+      under: -20
+  - name: TEMP_CONV_5V_A
+    critical:
+      over: 60
+      under: -20
+  - name: TEMP_CONV_5V_B
+    critical:
+      over: 60
+      under: -20
+  - name: TEMP_CONV_12V
+    critical:
+      over: 60
+      under: -20
+  - name: TEMP_BATT_ON_BOARD
+    critical:
+      over: 60
+      under: -20
+  - name: TEMP_BATT_EXT_IN_USE
+    critical:
+      over: 60
+      under: -20
+  - name: BATT_STATE
+    critical:
+      over: 3
+      under: 2
+  - name: MPPT_MODE
+    critical:
+      mismatch: 0
+  - name: BATT_HEATER_MODE
+    critical:
+      mismatch: 1
+  - name: BATT_HEATER_STATE
+    critical:
+      over: 1
+      under: 0
+  - name: PING_WDT_TOGGLES
+    critical:
+      mismatch: 0
+  - name: PING_WDT_TURN_OFFS
+    critical:
+      mismatch: 0
+  - name: BATT_INVALID_MEASUREMENT_COUNT
+    critical:
+      mismatch: 0
+# REPLY_STARTUP_TELEMETRY
+  - name: STATUS_S
+    critical:
+      mismatch: 0
+  - name: TIMESTAMP_S
+    critical:
+      over: 1734177500
+      under: 1734177200
+  - name: LAST_RESET_REASON_REGISTER_7TO0
+    critical:
+      mismatch: 0x00
+  - name: LAST_RESET_REASON_REGISTER_15TO8
+    critical:
+      mismatch: 0x00
+  - name: LAST_RESET_REASON_REGISTER_23TO16
+    critical:
+      mismatch: 0x80
+  - name: LAST_RESET_REASON_REGISTER_31TO24
+    critical:
+      mismatch: 0x0C
+  - name: BOOT_COUNT_S
+    critical:
+      mismatch: 321
+  - name: FALLBACK_CONFIG_USED
+    critical:
+      mismatch: 0
+  - name: RTC_INIT
+    critical:
+      mismatch: 1
+  - name: RTC_CLOCK_SOURCE_LSE
+    critical:
+      mismatch: 1
+  - name: FLASH_APPLICATION_INIT
+    critical:
+      mismatch: 1
+  - name: FRAM_4K_PARTITION_INIT
+    critical:
+      mismatch: 0
+  - name: FRAM_520K_PARTITION_INIT
+    critical:
+      mismatch: 0
+  - name: INTERNAL_FLASH_PARTITION_INIT
+    critical:
+      mismatch: 0
+  - name: FW_UPDATE_INIT
+    critical:
+      mismatch: 0
+  - name: FILE_SYSTEM_INIT
+    critical:
+      mismatch: 0
+  - name: FILE_TRANSFER_INIT
+    critical:
+      mismatch: 0
+  - name: SUPERVISOR_INIT
+    critical:
+      mismatch: 0
+  - name: UART1_APPLICATION_INIT
+    critical:
+      mismatch: 1
+  - name: USER2_APPLICATION_INIT
+    critical:
+      mismatch: 1
+  - name: TEMP_SENSOR_INIT
+    critical:
+      mismatch: 0
