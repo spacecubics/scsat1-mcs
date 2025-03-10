@@ -77,6 +77,18 @@ Debian Linux-based distribution.
     sudo chmod a+rw /opt/yamcs/log/
     #+end_example
 
+* Implementing additional features
+  * Build the project inside 'java' and create the jar file
+    #+begin_example
+    cd java
+    mvn package
+    #+end_example
+
+  * Copy the created jar file to the Yamcs library directory
+    #+begin_example
+    sudo cp target/scsat1_packet_preprpcessor-1.0.0.jar /opt/yamcs/lib/
+    #+end_example
+
 * Run Yamcs
 
   * Run
