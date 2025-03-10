@@ -28,16 +28,47 @@ services:
 dataLinks:
     - name: tm_realtime
       class: org.yamcs.tctm.UdpTmDataLink
-      packetPreprocessorClassName: org.yamcs.tctm.GenericPacketPreprocessor
+      packetPreprocessorClassName: org.yamcs.tctm.Scsat1PacketPreprocessor
       packetPreprocessorArgs:
-        errorDetection: none
-        useLocalGenerationTime: true
-        seqCountOffset: -1
-        timestampOffset: -1
+        timesettings:
+          - sourceId: 8 # MAIN
+            byteOrder: LITTLE_ENDIAN
+            timestampOffset: 9 # /SCSAT1/MAIN/WALL_CLOCK(Loc:9)
+            timeEncoding:
+              type: FIXED
+              size: 4
+              epoch: UNIX
+              multiplier: 1000
+            tmDataList:
+              # /SCSAT1/MAIN/SYSTEM_HK
+              - dport: 10
+                commandId: [0]
+          - sourceId: 16 # ADCS
+            byteOrder: LITTLE_ENDIAN
+            timestampOffset: 9 # /SCSAT1/ADCS/WALL_CLOCK(Loc:9)
+            timeEncoding:
+              type: FIXED
+              size: 4
+              epoch: UNIX
+              multiplier: 1000
+            tmDataList:
+              # /SCSAT1/ADCS/SYSTEM_HK
+              - dport: 10
+                commandId: [0]
+          - sourceId: 4 # EPS
+            timestampOffset: 6 # /SCSAT1/EPS/TIMESTAMP_S(Loc:6)
+            byteOrder: LITTLE_ENDIAN
+            timeEncoding:
+              type: FLOAT64
+              epoch: UNIX
+            tmDataList:
+              # /SCSAT1/EPS/REPLY_GENERAL_TELEMETRY, REQ_STARTUP_TELEMETRY
+              - sport: 7
+                commandId: [0,1]
       stream: tm_realtime
       port: 52004
       # Give the embedded simulator some time to boot up
-      #initialDelay: 2000      
+      #initialDelay: 2000
     - name: tm_dump
       class: org.yamcs.tctm.TcpTmDataLink
       stream: tm_dump
