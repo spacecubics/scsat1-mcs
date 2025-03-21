@@ -184,6 +184,64 @@ default_commands:
             val: 0
           - name: file_id
             bit: 8
+      - name: "REQ_FILE_DOWNLOAD_STARTUP"
+        port: 10
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+          - name: file_id
+            bit: 8
+            val: 7
+          - name: status
+            bit: 8
+            val: 0
+          - name: start
+            bit: 32
+          - name: end
+            bit: 32
+          - name: first_offset
+            bit: 16
+            val: 0
+          - name: period_ms
+            bit: 16
+            val: 100
+          - name: duration_s
+            bit: 16
+            val: 120
+          - name: pkt_size
+            bit: 16
+            val: 37
+      - name: "REQ_FILE_DOWNLOAD_GENERAL"
+        port: 10
+        endian: true
+        arguments:
+          - name: command_id
+            bit: 8
+            val: 1
+          - name: file_id
+            bit: 8
+            val: 10
+          - name: status
+            bit: 8
+            val: 0
+          - name: start
+            bit: 32
+          - name: end
+            bit: 32
+          - name: first_offset
+            bit: 16
+            val: 0
+          - name: period_ms
+            bit: 16
+            val: 100
+          - name: duration_s
+            bit: 16
+            val: 120
+          - name: pkt_size
+            bit: 16
+            val: 248
       - name: "REQ_FILE_DOWNLOAD"
         port: 10
         endian: true
