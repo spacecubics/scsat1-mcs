@@ -4,18 +4,25 @@ headers:
     conditions:
       - name: "../csp_src"
         val: SRS3
-  - name: "srs3_header"
+  - name: "srs3_container"
     base: "common_container"
     parameters:
       - name: "telemetry_id"
         bit: 8
+    conditions:
+      - name: "../csp_sport"
+        val: 19
+  - name: "srs3_header"
+    base: "srs3_container"
+    parameters:
       - name: "srs3_reserved"
         bit: 16
       - name: "srs3_id"
         bit: 16
     conditions:
-      - name: "../csp_sport"
-        val: 19
+      - name: "SRS3/telemetry_id"
+        comparison: not_equal
+        val: 32
 
 # default settings
 # endian: false
@@ -381,3 +388,20 @@ containers:
         offset: 32
         type: string
         bit: 400
+
+  - name: REPLY_LOAD
+    base: "srs3_container"
+    conditions:
+      - name: "SRS3/telemetry_id"
+        val: 32
+    parameters:
+      - name: "ERROR_CODE"
+        type: enum
+        bit: 8
+        tuples:
+          - [0, "Success"]
+          - [1, "Invalid argument"]
+          - [2, "No such file or directory"]
+          - [3, "No space left on device"]
+          - [4, "I/O error"]
+          - [5, "Timeout"]        
