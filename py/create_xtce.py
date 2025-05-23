@@ -32,7 +32,8 @@ from yamcs.pymdb.encodings import (
 )
 from yamcs.pymdb.expressions import (
     all_of,
-    eq
+    eq,
+    ne
 )
 
 
@@ -93,15 +94,18 @@ def set_encoding(param, endian):
 def set_conditions(cont):
     try:
         condition_data = cont["conditions"]
-        if len(condition_data) > 1:
-            exp = []
-            for cond in condition_data:
-                exp.append(eq(cond["name"], cond["val"], calibrated=True))
-            return all_of(*exp)
-        else:
-            for cond in condition_data:
+        all_exp = []
+        for cond in condition_data:
+            comp_mode = cond.get("comparison", "equal")
+            if comp_mode == "equal":
                 exp = eq(cond["name"], cond["val"], calibrated=True)
-            return exp
+            if comp_mode == "not_equal":
+                exp = ne(cond["name"], cond["val"], calibrated=True)
+            all_exp.append(exp)
+        if len(condition_data) == 1:
+            return all_exp[0]
+        else:
+            return all_of(*all_exp)
     except KeyError:
         return None
 
