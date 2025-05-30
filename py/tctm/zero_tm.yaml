@@ -46,6 +46,7 @@ containers:
 
 # Zero
   - name: SHELL_CMD_REPLY
+    base: "payload_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -62,6 +63,7 @@ containers:
         type: string
         bit: 1920
   - name: SHELL_CMD_UNKNOWN_REPLY
+    base: "payload_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -73,6 +75,7 @@ containers:
         signed: true
         bit: 32
   - name: TEMP
+    base: "payload_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -83,6 +86,7 @@ containers:
       - name: "TEMP_RAW"
         bit: 16
   - name: UPLOAD_OPEN_CMD_REPLY
+    base: "payload_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -99,6 +103,7 @@ containers:
         type: string
         bit: 512
   - name: UPLOAD_DATA_CMD_REPLY
+    base: "payload_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -249,6 +254,7 @@ containers:
       - name: "SIZE_20_OF_UPLOAD_DATA"
         bit: 32
   - name: UPLOAD_CLOSE_CMD_REPLY
+    base: "payload_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -262,6 +268,7 @@ containers:
       - name: "SESSION_ID_OF_UPLOAD_CLOSE"
         bit: 16
   - name: FILE_UNKNOWN_CMD_REPLY
+    base: "payload_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -273,6 +280,7 @@ containers:
         signed: true
         bit: 32
   - name: GET_VERSION_CMD_REPLY
+    base: "payload_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -287,6 +295,7 @@ containers:
         type: string
         bit: 128
   - name: SYSTEM_CMD_UNKNOWN_REPLY
+    base: "payload_container"
     endian: true
     conditions:
       - name: "../csp_sport"
