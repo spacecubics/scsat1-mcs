@@ -113,7 +113,7 @@ def create_header(system):
 # subsystem header
 def create_header_sub(system, data):
     for cont in data:
-        header_container = Container(
+        Container(
             system=system,
             name=cont["name"],
             base=cont["base"],
@@ -121,7 +121,6 @@ def create_header_sub(system, data):
             entries=set_entries_list(system, cont),
             condition=set_conditions(cont),
         )
-    return header_container
 
 
 # Telemetry
@@ -164,25 +163,28 @@ def set_entries_list(system, cont):
         return None
 
 
-def set_telemetry(system, data, base, abstract=False):
+def set_telemetry(system, data, abstract=False):
     for cont in data:
-        container = Container(
+        try:
+            base = cont["base"]
+        except KeyError:
+            print(f'Error: Missing required "base" field in container: {cont.get("name", "<unknown>")}')
+        Container(
             system=system,
             name=cont["name"],
-            base=cont.get("base", base),
+            base=base,
             entries=set_entries_list(system, cont),
             abstract=abstract,
             condition=set_conditions(cont),
         )
-    return container
 
 
 def create_tm(system, yaml, yaml_file):
     try:
         with yaml_file as file:
             data = yaml.load(file)
-        header_container = create_header_sub(system, data["headers"])
-        set_telemetry(system, data["containers"], header_container)
+        create_header_sub(system, data["headers"])
+        set_telemetry(system, data["containers"])
     except OSError as e:
         print("Telemetry was not created.")
         print(e)
