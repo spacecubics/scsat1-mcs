@@ -97,6 +97,7 @@ containers:
         signed: true
 # esp original
   - name: REPLY_GENERAL_TELEMETRY
+    base: "esp_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -307,6 +308,7 @@ containers:
       - name: "BATT_INVALID_MEASUREMENT_COUNT"
         bit: 16
   - name: REPLY_STARTUP_TELEMETRY
+    base: "esp_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -369,6 +371,7 @@ containers:
         bit: 8
         signed: true
   - name: REPLY_GET_TIME
+    base: "esp_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -381,6 +384,7 @@ containers:
       - name: "TIMESTAMP_GT"
         bit: 32
   - name: REPLY_SET_TIME
+    base: "esp_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -471,6 +475,7 @@ containers:
       - name: "CFG_SAVE_TO_FALLBACK_ERROR_CODE"
         bit: 8
   - name: REPLY_GET_STATUS
+    base: "esp_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -517,6 +522,7 @@ containers:
       - name: "NUM_OF_UNKNOWN_ERRORS"
         bit: 8
   - name: REPLY_FILE_INFO
+    base: "esp_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -555,6 +561,7 @@ containers:
       - name: "FILE_SIGNATURE"
         bit: 32
   - name: REPLY_FILE_DOWNLOAD
+    base: "esp_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -568,6 +575,7 @@ containers:
         bit: 8
         signed: true
   - name: DATA_PACKET_STREAM
+    base: "esp_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -585,6 +593,7 @@ containers:
         type: binary
         bit: 1952
   - name: REPLY_GWDT_REINIT
+    base: "esp_container"
     endian: true
     conditions:
       - name: "../csp_sport"

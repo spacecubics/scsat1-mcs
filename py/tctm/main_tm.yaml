@@ -46,6 +46,7 @@ containers:
 
 # MAIN
   - name: SYSTEM_HK
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_dport"
@@ -349,6 +350,7 @@ containers:
         bit: 32
 
   - name: TEMP
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_dport"
@@ -421,6 +423,7 @@ containers:
 
 
   - name: CURRENT_VOLTAGE
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_dport"
@@ -542,6 +545,7 @@ containers:
 
 
   - name: CSP
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_dport"
@@ -620,6 +624,7 @@ containers:
 
 
   - name: SUNSENSOR
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_dport"
@@ -684,6 +689,7 @@ containers:
 
 
   - name: MAGNET_METER
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_dport"
@@ -738,6 +744,7 @@ containers:
 
 
   - name: DSTRX3
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_dport"
@@ -780,6 +787,7 @@ containers:
 
 
   - name: HWTEST_RESULT
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_dport"
@@ -802,6 +810,7 @@ containers:
 
 # Command Reply Telemetry
   - name: POWER_CONTROL_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -813,6 +822,7 @@ containers:
         signed: true
         bit: 32
   - name: POWER_CYCLE_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -824,6 +834,7 @@ containers:
         signed: true
         bit: 32
   - name: PWRCTR_CMD_UNKOWN_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -835,6 +846,7 @@ containers:
         signed: true
         bit: 32
   - name: FILE_INFO_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -856,6 +868,7 @@ containers:
         type: string
         bit: 512
   - name: REMOVE_FILE_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -867,6 +880,7 @@ containers:
         signed: true
         bit: 32
   - name: UPLOAD_OPEN_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -883,6 +897,7 @@ containers:
         type: string
         bit: 512
   - name: UPLOAD_DATA_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1033,6 +1048,7 @@ containers:
       - name: "SIZE_20_OF_UPLOAD_DATA"
         bit: 32
   - name: UPLOAD_CLOSE_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1046,6 +1062,7 @@ containers:
       - name: "SESSION_ID_OF_UPLOAD_CLOSE"
         bit: 16
   - name: COPY_FILE_TO_CFG_FLASH_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1057,6 +1074,7 @@ containers:
         signed: true
         bit: 32
   - name: GET_LAST_FILE_CRC_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1074,6 +1092,7 @@ containers:
         type: string
         bit: 512
   - name: FLASH_CMD_UNKOWN_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1085,6 +1104,7 @@ containers:
         signed: true
         bit: 32
   - name: ERASE_CFG_FLASH_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1096,6 +1116,7 @@ containers:
         signed: true
         bit: 32
   - name: ERASE_DATA_FLASH_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1107,6 +1128,7 @@ containers:
         signed: true
         bit: 32
   - name: CALC_CRC_CFG_FLASH_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1129,6 +1151,7 @@ containers:
         type: binary
         bit: 32
   - name: GET_LAST_CFG_MEMORY_CRC_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1151,6 +1174,7 @@ containers:
         type: binary
         bit: 32
   - name: CLEAR_BOOT_COUNT_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1162,6 +1186,7 @@ containers:
         signed: true
         bit: 32
   - name: READ_FPGA_REG_CMD_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"
@@ -1176,6 +1201,7 @@ containers:
         type: binary
         bit: 32
   - name: CLEAR_BOOT_COUNT_CMD_UNKNOWN_REPLY
+    base: "main_container"
     endian: true
     conditions:
       - name: "../csp_sport"

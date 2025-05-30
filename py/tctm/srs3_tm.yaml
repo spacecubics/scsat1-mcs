@@ -59,6 +59,7 @@ containers:
 
 # Command reply
   - name: REPLY_PROP_LIST_TM_GRP
+    base: "srs3_header"
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x7495
@@ -110,6 +111,7 @@ containers:
         bit: 16
 
   - name: REPLY_PROP_SYS_BOOTCOUNT
+    base: "srs3_header"
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x428c
@@ -118,6 +120,7 @@ containers:
         bit: 32
 
   - name: REPLY_PROP_SYS_GWDT_COUNTER
+    base: "srs3_header"
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x4290
@@ -126,6 +129,7 @@ containers:
         bit: 32
 
   - name: REPLY_PROP_LIST_TX_GRP
+    base: "srs3_header"
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x11e4
@@ -231,6 +235,7 @@ containers:
         bit: 16
 
   - name: REPLY_PROP_LIST_RX_GRP
+    base: "srs3_header"
     conditions:
       - name: "SRS3/srs3_id"
         val: 0x4203
@@ -293,6 +298,7 @@ containers:
         bit: 16
 
   - name: REPLY_PROP_LIST_SYS_GRP_1
+    base: "srs3_header"
     conditions:
       - name: "SRS3/srs3_reserved"
         val: 0x1
@@ -358,6 +364,7 @@ containers:
         bit: 400
 
   - name: REPLY_PROP_LIST_SYS_GRP_2
+    base: "srs3_header"
     conditions:
       - name: "SRS3/srs3_reserved"
         val: 0x0

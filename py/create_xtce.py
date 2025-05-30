@@ -167,16 +167,16 @@ def set_telemetry(system, data, abstract=False):
     for cont in data:
         try:
             base = cont["base"]
+            Container(
+                system=system,
+                name=cont["name"],
+                base=base,
+                entries=set_entries_list(system, cont),
+                abstract=abstract,
+                condition=set_conditions(cont),
+            )
         except KeyError:
             print(f'Error: Missing required "base" field in container: {cont.get("name", "<unknown>")}')
-        Container(
-            system=system,
-            name=cont["name"],
-            base=base,
-            entries=set_entries_list(system, cont),
-            abstract=abstract,
-            condition=set_conditions(cont),
-        )
 
 
 def create_tm(system, yaml, yaml_file):
