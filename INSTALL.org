@@ -78,16 +78,61 @@ Debian Linux-based distribution.
     #+end_example
 
 * Implementing additional features
-  * Build the project inside 'java' and create the jar file
-    #+begin_example
-    cd java
-    mvn package
-    #+end_example
+  * Function to change the generation time setting of Yamcs
+    * Build the project inside 'java' and create the jar file
+      #+begin_example
+      cd java
+      mvn package
+      #+end_example
 
-  * Copy the created jar file to the Yamcs library directory
-    #+begin_example
-    sudo cp target/scsat1_packet_preprpcessor-1.0.0.jar /opt/yamcs/lib/
-    #+end_example
+    * Copy the created jar file to the Yamcs library directory
+      #+begin_example
+      sudo cp target/scsat1_packet_preprpcessor-1.0.0.jar /opt/yamcs/lib/
+      #+end_example
+
+  * Function to enable File transfer from Yamcs
+    * Build the project inside 'java/file-transfer' and create the jar file
+        #+begin_example
+        cd java/file-transfer
+        mvn package
+        #+end_example
+    
+    * Copy the created jar file to the Yamcs library directory
+        #+begin_example
+        sudo cp target/scsat1_file_transfer-1.0.0.jar /opt/yamcs/lib/
+        #+end_example
+
+    * Configure the yaml files
+      * yamcs.yaml
+        #+begin_example
+        buckets:
+          - name: bucket
+            path: bucket # Specify the path where the transfer files are stored
+        #+end_example
+      * yamcs.scsat1.yaml
+        #+begin_example
+        services:
+            - class: org.yamcs.cfdp.Scsat1Service
+              name: scsat1_file_transfer
+              args:
+                  sleepBetweenPdus: 1000
+                  localEntities:
+                    - name: yamcs
+                      id: 1
+                      bucket: bucket
+                  remoteEntities:
+                    - name: main
+                      id: 8
+                    - name: adcs
+                      id: 16
+                  canChangePduDelay: true
+                  canChangeOffset: true
+        #+end_example
+
+        Options:
+        - sleepBetweenPdus: Specifies the default transfer interval in milliseconds. (Default: 1000)
+        - canChangePduDelay: Set to true to allow specifying the transfer interval for each transfer. (Default: false)
+        - canChangeOffset: Set to true to allow specifying the start offset for each transfer. (Default: false)
 
 * Run Yamcs
 
