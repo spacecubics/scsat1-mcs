@@ -49,6 +49,7 @@ jobs:
 
       - name: Install xmllint
         run: |
+          sudo apt-get update
           sudo apt-get install libxml2-utils
 
       - name: Validate against XSD
