@@ -5,15 +5,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Arrays;
 
 import org.yamcs.TmPacket;
 import org.yamcs.YConfiguration;
 import org.yamcs.time.FixedSizeTimeDecoder;
 import org.yamcs.time.Float64TimeDecoder;
-import org.yamcs.utils.TimeEncoding;
 import org.yamcs.time.TimeDecoder;
-import org.yamcs.tctm.csp.CspPacket;
+import org.yamcs.utils.TimeEncoding;
 import org.yamcs.utils.ByteArrayUtils;
+import org.yamcs.tctm.csp.CspPacket;
 
 public class Scsat1PacketPreprocessor extends AbstractPacketPreprocessor {
     static class TmData {
@@ -52,7 +53,7 @@ public class Scsat1PacketPreprocessor extends AbstractPacketPreprocessor {
 
         // Validate if command ID is unspecified or matches the packet's command ID
         private boolean isValidPacketCommandId(byte[] packet) {
-            if (packet.length < commandIdOffset + commandIdLength){
+            if (packet.length < commandIdOffset + commandIdLength) {
                 return false;
             }
             int packetCommandId = ByteArrayUtils.decodeUnsignedByte(packet, commandIdOffset);
@@ -143,6 +144,104 @@ public class Scsat1PacketPreprocessor extends AbstractPacketPreprocessor {
         }
     }
 
+    class ExtractEPSFilePacket {
+        private byte[] header;
+        private final int sport = 10;
+        private final int commandId = 2;
+        private final int commandIdOffset = 4;
+        private final int commandIdLength = 1;
+        private final int fileIdOffset = 5;
+        private final int fileIdLength = 1;
+        private final int blockDataListOffset = 12;
+        private final int epsSrcId = 4;
+
+        public ExtractEPSFilePacket(TmPacket tmPacket) {
+            byte[] packet = tmPacket.getPacket();
+            if (packet.length < fileIdOffset + fileIdLength) {
+                header = null;
+                return;
+            }
+            CspPacket cspHeader = new CspPacket(packet);
+            int srcId = cspHeader.getSource();
+            // If not EPS, header is null.
+            if (srcId != epsSrcId) {
+                header = null;
+                return;
+            }
+            int packetSport = cspHeader.getSourcePort();
+            int packetCommandId = ByteArrayUtils.decodeUnsignedByte(packet, commandIdOffset);
+            TmPacket tmUpdatePacket = null;
+            // If not /SCSAT1/EPS/DATA_PACKET_STREAM, header is null.
+            if (sport != packetSport || commandId != packetCommandId ) {
+                header = null;
+                return;
+            }
+            // Set the appropriate header
+            setHeader(packet);
+        }
+
+        private void setHeader(byte[] packet) {
+            final int startupT = 7;
+            final int generalT = 10;
+            final int fileId = ByteArrayUtils.decodeUnsignedByte(packet, fileIdOffset);
+            switch(fileId) {
+                case startupT:
+                    header = new byte[] { (byte) 0x88, 0x18, 0x07, 0x00, 0x01, 0x00 };
+                    break;
+                case generalT:
+                    header = new byte[] { (byte) 0x88, 0x18, 0x07, 0x00, 0x00, 0x00 };
+                    break;
+                default:
+                    // Return it as is if the fileID is unexpected.
+                    header = null;
+            }
+        }
+
+        public TmPacket extractedDataFromPacket(TmPacket tmPacket) {
+            UdpTmDataLink udpdata = new UdpTmDataLink();
+            byte[] packet = tmPacket.getPacket();
+            // Return it as is if the fileID is unexpected or not /SCSAT1/EPS/DATA_PACKET_STREAM
+            if (header == null || packet.length < blockDataListOffset) {
+                return tmPacket;
+            }
+            byte[] blockDataList = Arrays.copyOfRange(packet, blockDataListOffset, packet.length);
+            int blockStart = 0;
+            TmPacket tmUpdatePacket = null;
+            while (blockStart < blockDataList.length) {
+                int blockLength = ByteArrayUtils.decodeUnsignedByte(blockDataList, blockStart);
+                if (blockLength == 255) {
+                    // If block_len = 255 - field "err" contains error code
+                    blockStart += 2;
+                    tmUpdatePacket = tmPacket;
+                }
+                if (extractData == null) {
+                    // Start of the extracted data
+                    if (blockStart + 5 > blockDataList.length) {
+                        return tmPacket;
+                    }
+                    extractDataLength = ByteArrayUtils.decodeUnsignedShortLE(blockDataList, blockStart + 5);
+                    extractData = Arrays.copyOfRange(blockDataList, blockStart + 7, blockStart + blockLength + 1);
+                } else {
+                    // Continuation of the extracted data
+                    byte[] newExtractData = new byte[extractData.length + blockLength];
+                    System.arraycopy(extractData, 0, newExtractData, 0, extractData.length);
+                    System.arraycopy(blockDataList, blockStart + 1, newExtractData, extractData.length, blockLength);
+                    extractData = newExtractData;
+                }
+                if (extractData.length >= extractDataLength) {
+                    // Return the packet once the data is complete
+                    byte[] newPacketData = new byte[header.length + extractData.length];
+                    System.arraycopy(header, 0, newPacketData, 0, header.length);
+                    System.arraycopy(extractData, 0, newPacketData, header.length, extractData.length);
+                    tmUpdatePacket = new TmPacket(tmPacket.getReceptionTime(), newPacketData);
+                    extractData = null;
+                }
+                blockStart = blockStart + blockLength + 1;
+            }
+            return tmUpdatePacket;
+        }
+    }
+
     // Save the generation time setting
     private Map<Integer, TimeSettings> timeSettingsMap = new HashMap<>();
 
@@ -173,9 +272,20 @@ public class Scsat1PacketPreprocessor extends AbstractPacketPreprocessor {
         settings.setPacketGenerationTime(tmPacket);
     }
 
+    private byte[] extractData = null;
+    private int  extractDataLength;
+    
+    public TmPacket extractPacket(TmPacket tmPacket) {
+        ExtractEPSFilePacket extractedParamData = new ExtractEPSFilePacket(tmPacket);
+        return extractedParamData.extractedDataFromPacket(tmPacket);
+    }
+
     @Override
     public TmPacket process(TmPacket tmPacket) {
-        setGenerationTimeBySourceId(tmPacket);
+        tmPacket = extractPacket(tmPacket);
+        if (tmPacket != null) {
+            setGenerationTimeBySourceId(tmPacket);
+        }
         return tmPacket;
     }
 
