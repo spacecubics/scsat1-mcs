@@ -10,7 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <yamcsVersion>5.9.3</yamcsVersion>
+    <yamcsVersion>5.12.0</yamcsVersion>
   </properties>
 
   <dependencies>

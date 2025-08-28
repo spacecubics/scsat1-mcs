@@ -11,7 +11,7 @@ Debian Linux-based distribution.
 
   * Download Yamcs rpm package from [[https://github.com/yamcs/yamcs/releases][yamcs github]]
     #+begin_example
-    wget https://github.com/yamcs/yamcs/releases/download/yamcs-5.9.3/yamcs-5.9.3-1.x86_64.rpm
+    wget https://github.com/yamcs/yamcs/releases/download/yamcs-5.12.0/yamcs-5.12.0-1.x86_64.rpm
     #+end_example
 
   * Install alien for convert rpm to deb (Only the first time)
@@ -23,12 +23,12 @@ Debian Linux-based distribution.
 
   * Convert rpm to deb
     #+begin_example
-    sudo alien --script -d -k yamcs-5.9.3-1.x86_64.rpm
+    sudo alien --script -d -k yamcs-5.12.0-1.x86_64.rpm
     #+end_example
 
   * Install deb
     #+begin_example
-    sudo dpkg -i yamcs_5.9.3-1_amd64.deb
+    sudo dpkg -i yamcs_5.12.0-1_amd64.deb
     #+end_example
 
 * Install Java runtime
