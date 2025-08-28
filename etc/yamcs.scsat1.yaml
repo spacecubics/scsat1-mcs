@@ -10,8 +10,7 @@ services:
               - tm_dump
     - class: org.yamcs.parameter.SystemParametersService
       args:
-          provideJvmVariables: true
-          provideFsVariables: true
+        producers: ['jvm', 'fs']
     - class: org.yamcs.ProcessorCreatorService
       args: 
           name: "realtime"
@@ -24,6 +23,13 @@ services:
         backFiller:
           enabled: true
           warmupTime: 60
+    - class: org.yamcs.parameter.ParameterRetrievalService
+      args:
+        parameterCache:
+            enabled: true
+            cacheAll: false
+            duration: 600
+            maxNumEntries: 4096
 
 dataLinks:
     - name: tm_realtime

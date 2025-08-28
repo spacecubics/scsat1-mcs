@@ -9,10 +9,6 @@ services:
       #tlsCert: /opt/yamcs/etc/yamcs-server.crt
       #tlsKey: /opt/yamcs/etc/yamcs-server.key
 
-      # Indicates whether zero-copy can be used to optimize non-ssl static file serving
-      # Leave this true unless you encounter a specific deployment issue (e.g. some docker hosts)
-      zeroCopyEnabled: true
-
       # Configure Cross—origin Resource Sharing for the REST API.
       # This facilitates use of the API in browser applications.
       # Note that as per W3C spec the exact allowed origin MUST be defined if credentials are to be passed.
