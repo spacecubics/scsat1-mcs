@@ -24,6 +24,21 @@ services:
         backFiller:
           enabled: true
           warmupTime: 60
+    - class: org.yamcs.cfdp.Scsat1Service
+      name: scsat1_file_transfer
+      args:
+          sleepBetweenPdus: 1000
+          localEntities:
+            - name: yamcs
+              id: 1
+              bucket: bucket
+          remoteEntities:
+            - name: main
+              id: 8
+            - name: adcs
+              id: 16
+          canChangePduDelay: true
+          canChangeOffset: true
 
 dataLinks:
     - name: tm_realtime
