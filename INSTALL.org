@@ -71,11 +71,6 @@ Debian Linux-based distribution.
     ./scripts/inst_cfg_mdb.sh ~/yamcs_work
     #+end_example
 
-  * Allow permision of log and cache directory
-    #+begin_example
-    sudo chmod a+rw /opt/yamcs/cache/
-    sudo chmod a+rw /opt/yamcs/log/
-    #+end_example
 
 * Implementing additional features
   * Build the project inside 'java' and create the jar file
