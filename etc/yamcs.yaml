@@ -39,6 +39,7 @@ instances:
   - scsat1
 
 dataDir: /storage/yamcs-data
+cacheDir: /storage/cache
 
 archive:
   #max length of the data of type binary(e.g. tm packets)
