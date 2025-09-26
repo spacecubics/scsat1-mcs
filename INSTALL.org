@@ -35,9 +35,9 @@ Debian Linux-based distribution.
 
   * Install java runtime package
 
-    Note: You need to install JDK 11 or higher.
+    Note: You need to install JDK 17 or higher.
     #+begin_example
-    sudo apt install openjdk-11-jdk
+    sudo apt install openjdk-17-jdk
     #+end_example
 
 * Preparing for configuration and mdb files
