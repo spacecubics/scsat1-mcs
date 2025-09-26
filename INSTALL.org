@@ -78,6 +78,11 @@ Debian Linux-based distribution.
     #+end_example
 
 * Implementing additional features
+  * Install java build tool
+    #+begin_example
+    sudo apt install maven
+    #+end_example
+
   * Build the project inside 'java' and create the jar file
     #+begin_example
     cd java
