@@ -1,5 +1,8 @@
 name: Run Test
 
+env:
+  YAMCS_VERSION: 5.12.0
+
 on:
   push:
   pull_request:
@@ -8,6 +11,7 @@ jobs:
   build-test:
     runs-on:
       - ubuntu-latest
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
@@ -37,9 +41,26 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Run
+      - name: Cache Yamcs
+        id: cache-yamcs
+        uses: actions/cache@v4
+        with:
+          path: /opt/yamcs
+          key: ${{ runner.os }}-yamcs-${{ env.YAMCS_VERSION }}
+          restore-keys: |
+            ${{ runner.os }}-yamcs-
+
+      - name: Install Yamcs if not cached
+        if: steps.cache-yamcs.outputs.cache-hit != 'true'
         run: |
-          ./scripts/inst_cfg_mdb.sh builddir
+          wget https://github.com/yamcs/yamcs/releases/download/yamcs-${YAMCS_VERSION}/yamcs-${YAMCS_VERSION}-1.x86_64.rpm
+          sudo apt-get install alien
+          sudo alien --script -d -k yamcs-${YAMCS_VERSION}-1.x86_64.rpm
+          sudo dpkg -i yamcs_${YAMCS_VERSION}-1_amd64.deb
+
+      - name: Install configuration files and mission data bases
+        run: |
+          ./scripts/inst_cfg_mdb.sh $(pwd)/builddir
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -54,8 +75,63 @@ jobs:
 
       - name: Validate against XSD
         run: |
-          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_header.xml
-          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_main.xml
-          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_adcs.xml
-          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_eps.xml
-          xmllint --noout --schema xsd/xtce-v1.2.xsd builddir/mdb/scsat1_srs3.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd $(pwd)/builddir/mdb/scsat1_header.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd $(pwd)/builddir/mdb/scsat1_main.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd $(pwd)/builddir/mdb/scsat1_adcs.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd $(pwd)/builddir/mdb/scsat1_eps.xml
+          xmllint --noout --schema xsd/xtce-v1.2.xsd $(pwd)/builddir/mdb/scsat1_srs3.xml
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Cache Yamcs lib
+        id: cache-yamcs-lib
+        uses: actions/cache@v4
+        with:
+          path: /opt/yamcs/lib/scsat1_packet_preprpcessor-1.0.0.jar
+          key: ${{ runner.os }}-yamcs-lib-${{ hashFiles('java/pom.xml', 'java/src/**') }}
+          restore-keys: |
+            ${{ runner.os }}-yamcs-lib-
+
+      - name: Build and copy jar if not cached
+        if: steps.cache-yamcs-lib.outputs.cache-hit != 'true'
+        run: |
+          cd java
+          mvn package
+          sudo cp target/scsat1_packet_preprpcessor-1.0.0.jar /opt/yamcs/lib/
+          cd ..
+
+      - name: Start Yamcs & Health check
+        timeout-minutes: 3
+        run: |
+          /opt/yamcs/bin/yamcsd --etc-dir $(pwd)/builddir/etc/ > yamcs_build.log 2>&1 &
+          echo $! > yamcs.pid
+          SERVER_READY=false
+          # Maximum 30 retries (every 2 seconds)
+          for i in {1..30}; do
+            if grep -q "<6>Website deployed at http://" yamcs_build.log; then
+              echo "Yamcs Server is ready!"
+              SERVER_READY=true
+              break
+            fi
+            sleep 2
+          done
+          if [ "$SERVER_READY" != "true" ]; then
+            echo "ERROR: Yamcs Server failed to start!"
+            cat yamcs_build.log
+            exit 1
+          fi
+
+      - name: Stop Yamcs
+        if: always()
+        run: |
+          if [ -f yamcs.pid ]; then
+            YAMCS_PID=$(cat yamcs.pid)
+            if kill -0 $YAMCS_PID 2>/dev/null; then
+              kill $YAMCS_PID
+              echo "Yamcs Server has been stopped."
+            fi
+          fi
