@@ -60,3 +60,45 @@ default_commands:
             type: binary
             bit: 72
             val: 0B01004291BB5990C1
+      - name: "REQ_LOAD_RX"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            bit: 64
+            val: 1f000200b5bd72e6
+      - name: "REQ_LOAD_RX_F"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            bit: 64
+            val: 1f000200c3493956
+      - name: "REQ_LOAD_SYS"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            bit: 64
+            val: 1f000280b5bd72e6
+      - name: "REQ_LOAD_SYS_F"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            bit: 64
+            val: 1f000280c3493956
+      - name: "REQ_LOAD_TX"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            bit: 64
+            val: 1f000180b5bd72e6
+      - name: "REQ_LOAD_TX_F"
+        port: 19
+        arguments:
+          - name: command_id
+            type: binary
+            bit: 64
+            val: 1f000180c3493956
