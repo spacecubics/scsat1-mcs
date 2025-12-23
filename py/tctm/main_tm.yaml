@@ -739,6 +739,30 @@ containers:
         bit: 256
 
 # Command Reply Telemetry
+  - name: MTQ_CONTROL_START_CMD_REPLY
+    base: "main_container"
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 11
+      - name: "MAIN/telemetry_id"
+        val: 0
+    parameters:
+      - name: "ERROR_CODE_OF_MTQ_CONTROL_START"
+        signed: true
+        bit: 32
+  - name: MTQ_CONTROL_STOP_CMD_REPLY
+    base: "main_container"
+    endian: true
+    conditions:
+      - name: "../csp_sport"
+        val: 11
+      - name: "MAIN/telemetry_id"
+        val: 1
+    parameters:
+      - name: "ERROR_CODE_OF_MTQ_CONTROL_STOP"
+        signed: true
+        bit: 32
   - name: POWER_CONTROL_CMD_REPLY
     base: "main_container"
     endian: true
