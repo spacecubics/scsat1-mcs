@@ -241,7 +241,7 @@ default_commands:
             val: 120
           - name: pkt_size
             bit: 16
-            val: 248
+            val: 244
       - name: "REQ_FILE_DOWNLOAD"
         port: 10
         endian: true
