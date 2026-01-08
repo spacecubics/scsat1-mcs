@@ -86,16 +86,39 @@ containers:
         bit: 8
       - name: "FPGA_FALLBACK_STATE"
         bit: 32
+      - name: "FPGA_CLOCK_STATE"
+        bit: 32
+      - name: "FPGA_SYSMON_ISR"
+        bit: 32
       - name: "RECEIVED_COMMAND_COUNT"
         bit: 16
       - name: "LAST_CSP_PORT"
         bit: 8
       - name: "LAST_COMMAND_ID"
         bit: 8
+      - name: "LAST_TIME_SYNC_RET"
+        bit: 32
+        signed: true
+      - name: "TIME_SYNC_COUNT"
+        bit: 16
+      - name: "SRAM_ECC_ERROR_COLLECT_ENABLE"
+        bit: 8
+      - name: "SRAM_ECC_MEMSCRUBING_ENABLE"
+        bit: 8
+      - name: "SRAM_ECC_MEMSCRUBING_ARBIT_ENABLE"
+        bit: 8
+      - name: "SRAM_ECC_MEMSCRUBING_CYCLE"
+        bit: 16
       - name: "SRAM_ECC_ERROR_COUNT_BY_MEMORY_SCRUB"
         bit: 16
       - name: "SRAM_ECC_ERROR_COUNT_BY_BUS_READ"
         bit: 16
+      - name: "SRAM_ECC_ERROR_DISCARD_COUNT"
+        bit: 32
+      - name: "SRAM_ECC_ERROR_ADDRESS"
+        bit: 32
+      - name: "SEM_CONTROLLER_STATE"
+        bit: 32
       - name: "SEM_ERROR_COUNT"
         bit: 16
       - name: "OBC_MODULE_TEMP_1_SENSOR_STATUS"
