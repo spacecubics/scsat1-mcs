@@ -32,6 +32,7 @@ cp -a $(dirname $0)/../etc "${work_dir}"/  || die "copy etc failed"
 echo "Fixing up configuration files in ${work_dir}/etc..."
 sed -i "s|mdb\/|${work_dir}\/mdb\/|g" "${work_dir}"/etc/yamcs.*.yaml
 sed -i "s|\/storage\/|${work_dir}\/storage\/|g" "${work_dir}"/etc/yamcs.yaml
+sed -i "s|\/bucket|${work_dir}bucket|g" "${work_dir}"/etc/yamcs.yaml
 sed -i "s|\/storage\/|${work_dir}\/storage\/|g" "${work_dir}"/etc/logging.properties
 
 if [ ! -e "${work_dir}"/storage ]; then
@@ -42,6 +43,11 @@ fi
 if [ ! -e "${work_dir}"/storage/log ]; then
     echo "Creating log directory..."
     mkdir "${work_dir}"/storage/log
+fi
+
+if [ ! -e "${work_dir}"/bucket ]; then
+    echo "Creating bucket directory..."
+    mkdir "${work_dir}"/bucket
 fi
 
 echo "Installation finished."
