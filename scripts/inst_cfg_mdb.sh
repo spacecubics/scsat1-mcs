@@ -33,16 +33,16 @@ echo "Fixing up configuration files in ${work_dir}/etc..."
 sed -i "s|mdb\/|${work_dir}\/mdb\/|g" "${work_dir}"/etc/yamcs.*.yaml
 sed -i "s|\/storage\/|${work_dir}\/storage\/|g" "${work_dir}"/etc/yamcs.yaml
 sed -i "s|\/bucket|${work_dir}bucket|g" "${work_dir}"/etc/yamcs.yaml
-sed -i "s|\/storage\/|${work_dir}\/storage\/|g" "${work_dir}"/etc/logging.properties
+sed -i "s|\/log\/|${work_dir}\/log\/|g" "${work_dir}"/etc/logging.properties
 
 if [ ! -e "${work_dir}"/storage ]; then
     echo "Creating storage directory..."
     mkdir "${work_dir}"/storage
 fi
 
-if [ ! -e "${work_dir}"/storage/log ]; then
+if [ ! -e "${work_dir}"/log ]; then
     echo "Creating log directory..."
-    mkdir "${work_dir}"/storage/log
+    mkdir "${work_dir}"/log
 fi
 
 if [ ! -e "${work_dir}"/bucket ]; then
