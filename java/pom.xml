@@ -15,5 +15,6 @@
 
   <modules>
     <module>scsat1-packet</module>
+    <module>file-transfer</module>
   </modules>
 </project>
