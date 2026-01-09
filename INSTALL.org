@@ -86,7 +86,7 @@ Debian Linux-based distribution.
 
   * Copy the created jar file to the Yamcs library directory
     #+begin_example
-    sudo cp target/scsat1_packet_preprpcessor-1.0.0.jar /opt/yamcs/lib/
+    sudo cp scsat1-packet/target/scsat1_packet_preprpcessor-1.0.0.jar /opt/yamcs/lib/
     #+end_example
 
 * Run Yamcs
