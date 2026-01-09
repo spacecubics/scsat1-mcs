@@ -78,16 +78,44 @@ Debian Linux-based distribution.
     sudo apt install maven
     #+end_example
 
-  * Build the project inside 'java' and create the jar file
-    #+begin_example
-    cd java
-    mvn package
-    #+end_example
-
   * Copy the created jar file to the Yamcs library directory
     #+begin_example
     sudo cp scsat1-packet/target/scsat1_packet_preprpcessor-1.0.0.jar /opt/yamcs/lib/
+    sudo cp file-transfer/target/scsat1_file_transfer-1.0.0.jar /opt/yamcs/lib/
     #+end_example
+
+  * Configure the yaml files
+    * yamcs.yaml
+      #+begin_example
+      buckets:
+        - name: scsat1
+          path: /bucket # Specify the path where the transfer files are stored
+      #+end_example
+
+    * yamcs.scsat1.yaml
+      #+begin_example
+      services:
+          - class: org.yamcs.cfdp.Scsat1Service
+            name: scsat1_file_transfer
+            args:
+                sleepBetweenPdus: 1000
+                localEntities:
+                  - name: yamcs
+                    id: 1
+                    bucket: scsat1
+                remoteEntities:
+                  - name: main
+                    id: 8
+                  - name: adcs
+                    id: 16
+                canChangePduDelay: true
+                canChangeOffset: true
+      #+end_example
+
+      Options:
+      - sleepBetweenPdus: Specifies the default transfer interval in milliseconds. (Default: 1000)
+      - canChangePduDelay: Set to true to allow specifying the transfer interval for each transfer. (Default: false)
+      - canChangeOffset: Set to true to allow specifying the start offset for each transfer. (Default: false)
 
 * Run Yamcs
 
