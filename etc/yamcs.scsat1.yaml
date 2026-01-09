@@ -30,6 +30,21 @@ services:
             cacheAll: false
             duration: 600
             maxNumEntries: 4096
+    - class: org.yamcs.cfdp.Scsat1Service
+      name: scsat1_file_transfer
+      args:
+          sleepBetweenPdus: 1000
+          localEntities:
+            - name: yamcs
+              id: 1
+              bucket: scsat1
+          remoteEntities:
+            - name: main
+              id: 8
+            - name: adcs
+              id: 16
+          canChangePduDelay: true
+          canChangeOffset: true
 
 dataLinks:
     - name: tm_realtime
