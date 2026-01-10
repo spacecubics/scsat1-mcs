@@ -20,7 +20,8 @@ from yamcs.pymdb.parameters import (
     IntegerParameter,
     FloatParameter,
     StringParameter,
-    BinaryParameter
+    BinaryParameter,
+    EnumeratedParameter
 )
 from yamcs.pymdb.encodings import (
     IntegerEncoding,
@@ -154,6 +155,13 @@ def set_entries_list(system, cont):
                     system=system,
                     name=param["name"],
                     encoding=set_encoding(param, cont.get("endian", False)),
+                )
+            elif param.get("type", "int") == "enum":
+                tm = EnumeratedParameter(
+                    system=system,
+                    name=param["name"],
+                    choices=[tuple(t) for t in param["tuples"]],
+                    encoding=set_encoding(param, cont.get("endian", False))
                 )
             else:
                 print("set parameter error: "+param["name"]+"\n")
