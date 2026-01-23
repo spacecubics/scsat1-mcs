@@ -35,9 +35,6 @@ default_commands:
               - [0, "MAIN_X"]
               - [1, "MAIN_Y"]
               - [2, "MAIN_Z"]
-              - [3, "BKUP_X"]
-              - [4, "BKUP_Y"]
-              - [5, "BKUP_Z"]
           - name: "polarity"
             type: enum
             choices:
@@ -65,9 +62,6 @@ default_commands:
               - [0, "MAIN_X"]
               - [1, "MAIN_Y"]
               - [2, "MAIN_Z"]
-              - [3, "BKUP_X"]
-              - [4, "BKUP_Y"]
-              - [5, "BKUP_Z"]
       - name: "POWER_CONTROL_CMD"
         port: 12
         arguments:
@@ -82,7 +76,6 @@ default_commands:
               - [4, "PDU O3"]
               - [8, "DSTRX-3 IO"]
               - [16, "DRV 01"]
-              - [32, "DRV 02"]
           - name: "onoff"
             type: enum
             choices:
