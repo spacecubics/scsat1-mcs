@@ -16,6 +16,10 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s: %(m
 
 
 def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, udp_send_port, gs, stop_event):
+    logging.info(f"Waiting mqtt message, udp_host: {udp_host}")
+
+    udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
     def on_connect(client, userdata, flags, reason_code, properties):
         if reason_code != 0:
             logging.error(f"Failed to connect to MQTT broker, {reason_code}")
@@ -35,9 +39,8 @@ def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, u
         if not gs and dst_addr != 1:
             return
 
-        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as udp_socket:
-            udp_socket.sendto(data, (udp_host, udp_send_port))
-            logging.info(f"Forwarded message to UDP {udp_host}:{udp_send_port}")
+        udp_socket.sendto(data, (udp_host, udp_send_port))
+        logging.info(f"Forwarded message to UDP {udp_host}:{udp_send_port}")
 
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
     client.username_pw_set(username, password)
@@ -52,6 +55,7 @@ def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, u
         client.loop(timeout=1.0)
 
     client.disconnect()
+    udp_socket.close()
 
 
 def udp_to_mqtt(mqtt_host, mqtt_port, username, password, pub_topic, udp_recv_port, stop_event):
