@@ -14,8 +14,13 @@ PASSWORD = ""
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s: %(message)s')
 
+# Shared context for replying back
+shared_context = {
+    "last_sender_addr": None,
+    "lock": threading.Lock()
+}
 
-def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, udp_send_port, gs, stop_event):
+def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, udp_send_port, gs, stop_event, reply_back):
     logging.info(f"Waiting mqtt message, udp_host: {udp_host}")
 
     udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -38,6 +43,16 @@ def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, u
 
         udp_socket.sendto(data, (udp_host, udp_send_port))
         logging.info(f"Forwarded message to UDP {udp_host}:{udp_send_port}")
+
+        # Reply to the last sender if enabled
+        if reply_back:
+            target_addr = None
+            with shared_context["lock"]:
+                target_addr = shared_context["last_sender_addr"]
+            
+            if target_addr:
+                udp_socket.sendto(data, target_addr)
+                logging.info(f"Also forwarded message back to sender: {target_addr}")
 
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
     client.username_pw_set(username, password)
@@ -71,6 +86,11 @@ def udp_to_mqtt(mqtt_host, mqtt_port, username, password, pub_topic, udp_recv_po
             udp_socket.settimeout(1.0)
             try:
                 data, addr = udp_socket.recvfrom(1024)
+
+                # Update last sender address
+                with shared_context["lock"]:
+                    shared_context["last_sender_addr"] = addr
+
                 logging.info(f"Received UDP packet from {addr}: {data}")
                 client.publish(pub_topic, data)
                 logging.info(f"Published message to MQTT topic '{pub_topic}'")
@@ -114,16 +134,16 @@ def main():
     parser.add_argument("--udp_send_host", default="localhost", help="UDP hostname")
     parser.add_argument("--udp_send_port", type=int, default=52004, help="UDP send port")
     parser.add_argument("--udp_recv_port", type=int, default=52002, help="UDP receive port")
-    parser.add_argument("--sub_topic", default=f"{NORAD_ID}/downlink", help="MQTT topic to subscribe")
-    parser.add_argument("--pub_topic", default=f"{NORAD_ID}/uplink", help="MQTT topic to publish")
+    parser.add_argument("--norad_id", default=NORAD_ID, help="MQTT topic root")
     parser.add_argument("--gs", action="store_true", help="GS simulation mode")
+    parser.add_argument("--reply_back", action="store_true", help="Send response back to the last UDP sender")
 
     args = parser.parse_args()
 
     stop_event = threading.Event()
 
-    mqtt_thread = threading.Thread(target=mqtt_to_udp, args=(args.mqtt_host, args.mqtt_port, args.username, args.password, args.sub_topic, args.udp_send_host, args.udp_send_port, args.gs, stop_event))
-    udp_thread = threading.Thread(target=udp_to_mqtt, args=(args.mqtt_host, args.mqtt_port, args.username, args.password, args.pub_topic, args.udp_recv_port, stop_event))
+    mqtt_thread = threading.Thread(target=mqtt_to_udp, args=(args.mqtt_host, args.mqtt_port, args.username, args.password, f"{args.norad_id}/downlink", args.udp_send_host, args.udp_send_port, args.gs, stop_event, args.reply_back))
+    udp_thread = threading.Thread(target=udp_to_mqtt, args=(args.mqtt_host, args.mqtt_port, args.username, args.password, f"{args.norad_id}/uplink", args.udp_recv_port, stop_event))
 
     mqtt_thread.start()
     udp_thread.start()
