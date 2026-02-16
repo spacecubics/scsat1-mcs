@@ -8,9 +8,9 @@ import threading
 import logging
 import json
 
-NORAD_ID =
-USERNAME =
-PASSWORD =
+NORAD_ID = ""
+USERNAME = ""
+PASSWORD = ""
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s: %(message)s')
 
