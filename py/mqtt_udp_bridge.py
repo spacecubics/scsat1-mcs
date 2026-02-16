@@ -21,10 +21,7 @@ def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, u
     udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     def on_connect(client, userdata, flags, reason_code, properties):
-        if reason_code != 0:
-            logging.error(f"Failed to connect to MQTT broker, {reason_code}")
-        else:
-            logging.info(f"Connected to MQTT broker at {mqtt_host}:{mqtt_port}, subscribing to topic '{sub_topic}'")
+        client.subscribe(sub_topic)
 
     def on_disconnect(client, userdata, flags, reason_code, properties):
         logging.info(f"on_disconnect() : {reason_code}")
@@ -48,14 +45,16 @@ def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, u
     client.on_disconnect = on_disconnect
     client.on_message = on_message
 
-    client.connect(mqtt_host, mqtt_port, keepalive=60)
-    client.subscribe(sub_topic)
-
-    while not stop_event.is_set():
-        client.loop(timeout=1.0)
-
-    client.disconnect()
-    udp_socket.close()
+    try:
+        client.connect(mqtt_host, mqtt_port, keepalive=60)
+        client.loop_start()
+        stop_event.wait()
+    except Exception as e:
+        logging.error(f"MQTT to UDP error: {e}")
+    finally:
+        client.loop_stop()
+        client.disconnect()
+        udp_socket.close()
 
 
 def udp_to_mqtt(mqtt_host, mqtt_port, username, password, pub_topic, udp_recv_port, stop_event):
