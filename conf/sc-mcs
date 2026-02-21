@@ -1,0 +1,12 @@
+/opt/sc-mcs/logs/*.log {
+    su yamcs yamcs
+    daily
+    dateext
+    rotate 365
+    compress
+    copytruncate
+    missingok
+    notifempty
+    delaycompress
+    create 0640 yamcs yamcs
+}
