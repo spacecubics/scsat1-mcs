@@ -1,16 +1,24 @@
 [Unit]
 Description=MQTT-UDP bridge service for SC-Sat1
-After=network.service
+After=network.target
 
 [Service]
 Type=simple
-Environment="PYTHONPATH=/home/yamcs/.local/share/virtualenvs/yamcs-aUGU5slm/lib/python3.12/site-packages/"
-ExecStart=python3 /usr/local/bin/mqtt_udp_bridge.py --udp_recv_port 52002 --udp_send_port 52004
-ExecStop=/bin/kill -WINCH ${MAINPID}
 User=yamcs
 Group=yamcs
-Restart=on-failure
-RestartSec=5s
+EnvironmentFile=/opt/sc-mcs/etc/leafspace-mqtt.env
+ExecStart=/opt/sc-mcs/venv/bin/python /opt/sc-mcs/scsat1-mcs/py/mqtt_udp_bridge.py \
+    --reply_back \
+    --mqtt_host ${MQTT_HOST} \
+    --mqtt_port ${MQTT_PORT} \
+    --norad_id ${MQTT_TOPIC_ROOT} \
+    --username ${MQTT_USER} \
+    --password ${MQTT_PASSWORD}
+ExecStop=/bin/kill -WINCH ${MAINPID}
+Restart=always
+RestartSec=5
+StandardOutput=append:/opt/sc-mcs/logs/mcs_mqtt_bridge.log
+StandardError=inherit
 
 [Install]
 WantedBy=multi-user.target
