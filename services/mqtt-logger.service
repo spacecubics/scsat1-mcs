@@ -1,0 +1,23 @@
+[Unit]
+Description=MQTT Logger
+After=network.target
+
+[Service]
+Type=simple
+User=yamcs
+Group=yamcs
+EnvironmentFile=/opt/sc-mcs/etc/leafspace-mqtt.env
+ExecStart=/bin/sh -c '/usr/bin/mosquitto_sub -v \
+    -h ${MQTT_HOST} \
+    -u ${MQTT_USER} \
+    -p ${MQTT_PORT} \
+    -P ${MQTT_PASSWORD} \
+    -t ${MQTT_TOPIC_ROOT}/downlink | ts "%%Y-%%m-%%d %%H:%%M:%%S"'
+ExecStop=/bin/kill -WINCH ${MAINPID}
+Restart=always
+RestartSec=5
+StandardOutput=append:/opt/sc-mcs/logs/mqtt-logger.log
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target
