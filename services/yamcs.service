@@ -4,7 +4,7 @@ After=network.service
 
 [Service]
 Type=simple
-ExecStart=/opt/yamcs/bin/yamcsd --etc-dir /home/yamcs/yamcs_work/etc/
+ExecStart=/opt/yamcs/bin/yamcsd --etc-dir /opt/sc-mcs/yamcs_work/etc/
 ExecStop=/bin/kill -WINCH ${MAINPID}
 User=yamcs
 Group=yamcs
