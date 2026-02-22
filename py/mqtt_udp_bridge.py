@@ -12,6 +12,8 @@ NORAD_ID = ""
 USERNAME = ""
 PASSWORD = ""
 
+MCS_ADDR = 1
+
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s: %(message)s')
 
 # Shared context for replying back
@@ -36,9 +38,9 @@ def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, u
         src_addr, _, dst_addr, _ = parse_csp_header(data)
 
         logging.info(f"Received message from MQTT topic '{message.topic}': {data}, csp src: {src_addr}, dst: {dst_addr}")
-        if gs and src_addr != 1:
+        if gs and src_addr != MCS_ADDR:
             return
-        if not gs and dst_addr != 1:
+        if not gs and dst_addr != MCS_ADDR:
             return
 
         udp_socket.sendto(data, (udp_host, udp_send_port))
