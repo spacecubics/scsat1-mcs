@@ -51,12 +51,15 @@ def mqtt_to_udp(mqtt_host, mqtt_port, username, password, sub_topic, udp_host, u
             target_addr = None
             with shared_context["lock"]:
                 target_addr = shared_context["last_sender_addr"]
-            
+
             if target_addr:
                 udp_socket.sendto(data, target_addr)
                 logging.info(f"Also forwarded message back to sender: {target_addr}")
 
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+    if mqtt_port == 8883:
+        client.tls_set(cert_reqs=mqtt.ssl.CERT_REQUIRED)
+        logging.info(f"MQTT TLS/SSL enabled for subscribing")
     client.username_pw_set(username, password)
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
@@ -80,6 +83,9 @@ def udp_to_mqtt(mqtt_host, mqtt_port, username, password, pub_topic, udp_recv_po
         logging.info(f"Listening for UDP packets on any:{udp_recv_port}")
 
         client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+        if mqtt_port == 8883:
+            client.tls_set(cert_reqs=mqtt.ssl.CERT_REQUIRED)
+            logging.info(f"MQTT TLS/SSL enabled for publishing")
         client.username_pw_set(username, password)
         client.connect(mqtt_host, mqtt_port, keepalive=60)
         client.loop_start()
