@@ -25,11 +25,11 @@ def output_config_txt_hot(etc_dir, backup_dir, yamcs_version, pid):
         f.writelines('\n'.join(config_list))
 
 
-def get_yamcs_version_by_api(host_address):
+def get_yamcs_version_by_api(host_address, auth=None):
     # Get Yamcs server version via API
     api_url = f"http://{host_address}/api/sysinfo"
     try:
-        resp = requests.get(api_url, timeout=5)
+        resp = requests.get(api_url, auth=auth, timeout=5)
         resp.raise_for_status()
         json_data = resp.json()
     except Exception as e:
@@ -44,11 +44,11 @@ def get_yamcs_version_by_api(host_address):
     return yamcs_version, pid
 
 
-def get_tablespace_names_by_api(host_address):
+def get_tablespace_names_by_api(host_address, auth=None):
     # Get the list of tablespace names via the API
     api_url = f"http://{host_address}/api/archive/rocksdb/tablespaces"
     try:
-        resp = requests.get(api_url, timeout=5)
+        resp = requests.get(api_url, auth=auth, timeout=5)
         resp.raise_for_status()
         json_data = resp.json()
     except Exception as e:
@@ -113,11 +113,15 @@ def main():
         default="localhost:8090",
         help="Host address of Yamcs server (default: localhost:8090)."
     )
+    parser.add_argument("--username", help="Yamcs API username")
+    parser.add_argument("--password", help="Yamcs API password")
 
     args = parser.parse_args()
     etc_dir = Path(args.etc_dir)
     backup_dir = Path(args.backup_dir)
     host_address = args.url
+
+    api_auth = (args.username, args.password) if args.username and args.password else None
 
     check_dir(etc_dir)
 
@@ -128,10 +132,10 @@ def main():
         sys.exit(0)
     
     # Getting system info
-    yamcs_version, pid = get_yamcs_version_by_api(host_address)
+    yamcs_version, pid = get_yamcs_version_by_api(host_address, auth=api_auth)
 
     # Getting tablespace name
-    names = get_tablespace_names_by_api(host_address)
+    names = get_tablespace_names_by_api(host_address, auth=api_auth)
 
     print("Creating backup...")
     print(f"host address: {host_address}")
