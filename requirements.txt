@@ -1,2 +1,3 @@
 yamcs-pymdb
 ruamel.yaml
+requests
