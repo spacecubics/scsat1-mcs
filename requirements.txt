@@ -1,2 +1,4 @@
 yamcs-pymdb
 ruamel.yaml
+pyyaml
+yamcs-client
