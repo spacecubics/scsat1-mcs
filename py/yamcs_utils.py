@@ -3,7 +3,7 @@ import yaml
 from yamcs.client import YamcsClient, Credentials
 
 DEFAULT_YAMCS_YAML_PATH = "/opt/sc-mcs/yamcs_work/etc/yamcs.yaml"
-DEFAULT_YAMCS_AUTH_PATH = "/opt/sc-mcs/etc/yamcs_auth.yaml"
+DEFAULT_YAMCS_AUTH_PATH = "/opt/sc-mcs/etc/yamcs-auth.env"
 
 def load_yamcs_config(yaml_path=DEFAULT_YAMCS_YAML_PATH):
     """Extract hostname and port from yamcs.yaml."""
@@ -27,15 +27,25 @@ def load_yamcs_config(yaml_path=DEFAULT_YAMCS_YAML_PATH):
         return "localhost:8090"
 
 def load_auth_info(auth_path=DEFAULT_YAMCS_AUTH_PATH):
-    """Extract user and password from the YAML auth file."""
+    """Extract user and password from the .env auth file."""
     user, password = None, None
     if os.path.exists(auth_path):
         try:
             with open(auth_path, 'r') as f:
-                auth_config = yaml.safe_load(f)
-                if auth_config:
-                    user = auth_config.get('user')
-                    password = auth_config.get('password')
+                for line in f:
+                    line = line.strip()
+                    if not line or line.startswith('#'):
+                        continue
+
+                    if '=' in line:
+                        key, value = line.split('=', 1)
+                        key = key.strip()
+                        value = value.strip()
+
+                        if key == 'YAMCS_USER':
+                            user = value
+                        elif key == 'YAMCS_PASSWORD':
+                            password = value
         except Exception as e:
             print(f"[Warning] Could not read {auth_path}. ({e})")
     return user, password
@@ -51,7 +61,7 @@ def get_yamcs_client(yaml_path=DEFAULT_YAMCS_YAML_PATH, auth_path=DEFAULT_YAMCS_
             creds = Credentials(username=user, password=password)
             client = YamcsClient(address, credentials=creds)
 
-            client.get_instances()
+            client.list_instances()
             print("[Info] Authenticated connection established.")
         except Exception as e:
             print(f"[Info] Authentication failed. Falling back to anonymous. ({e})")
